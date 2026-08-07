@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Успевайка — Репетиторский онлайн-центр</title>
+  <meta name="description" content="Успевайка — онлайн-репетиторский центр для школьников 1–11 классов. Индивидуальный подход, опытные педагоги, гарантированный результат.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --sky:#7BBFD4;
+      --sky-light:#C8E8F4;
+      --sky-pale:#DCF0F8;
+      --yellow:#F5D76E;
+      --yellow-dark:#E8C84A;
+      --coral:#FF8A7A;
+      --brown:#6B4E3D;
+      --green:#6BC5A0;
+      --ink:#2C3E50;
+      --muted:#6B7C8D;
+      --bg:#F0F9FF;
+      --radius:22px;
+      --radius-sm:14px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+
+    /* NAV */
+    nav{
+      position:sticky;top:0;z-index:100;
+      display:flex;align-items:center;gap:20px;
+      padding:0 5%;height:70px;
+      background:rgba(240,249,255,.88);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--sky-light);
+    }
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+    .nav-logo img{width:44px;height:44px}
+    .nav-logo span{font-family:'Rubik',sans-serif;font-weight:700;font-size:1.25rem;color:var(--ink)}
+    .nav-links{display:flex;gap:4px;margin-left:auto}
+    .nav-links a{
+      font-size:.9rem;font-weight:600;color:var(--muted);
+      text-decoration:none;padding:6px 14px;border-radius:50px;
+      transition:background .2s,color .2s;
+    }
+    .nav-links a:hover{background:var(--sky-pale);color:var(--ink)}
+    .nav-phone{font-weight:700;color:var(--sky);text-decoration:none;font-size:.95rem;white-space:nowrap}
+    .nav-cta{
+      background:var(--yellow);color:var(--ink);
+      border:none;border-radius:50px;
+      padding:9px 22px;font-family:'Nunito',sans-serif;
+      font-size:.9rem;font-weight:800;cursor:pointer;
+      white-space:nowrap;text-decoration:none;
+      transition:background .2s,transform .15s;
+    }
+    .nav-cta:hover{background:var(--yellow-dark);transform:scale(1.03)}
+    .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;margin-left:auto;background:none;border:none}
+    .burger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+
+    /* COMMON */
+    section{padding:80px 5%}
+    .section-label{
+      display:inline-block;
+      background:var(--sky-pale);color:var(--sky);
+      font-size:.8rem;font-weight:800;letter-spacing:.08em;
+      text-transform:uppercase;border-radius:50px;
+      padding:6px 16px;margin-bottom:14px;
+    }
+    h2{font-family:'Rubik',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.2;margin-bottom:12px}
+    .section-sub{color:var(--muted);font-size:1rem;max-width:540px}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      border:none;border-radius:50px;
+      padding:13px 28px;font-family:'Nunito',sans-serif;
+      font-size:1rem;font-weight:800;cursor:pointer;
+      text-decoration:none;transition:transform .15s,box-shadow .2s;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+    .btn-primary{background:var(--sky);color:#fff}
+    .btn-secondary{background:#fff;border:2px solid var(--sky-light);color:var(--ink)}
+
+    /* HERO */
+    #hero{display:grid;grid-template-columns:1fr 1fr;min-height:88vh}
+    .hero-text-side{
+      background:linear-gradient(135deg,#E4F5FC 0%,#C8E8F4 60%,#B8DCF0 100%);
+      display:flex;flex-direction:column;justify-content:center;
+      padding:80px 6% 80px 8%;
+      position:relative;overflow:hidden;
+    }
+    .hero-text-side::before{
+      content:'';position:absolute;
+      width:380px;height:380px;border-radius:50%;
+      background:rgba(123,191,212,.18);
+      top:-100px;left:-100px;
+    }
+    .hero-text-side::after{
+      content:'';position:absolute;
+      width:280px;height:280px;border-radius:50%;
+      background:rgba(245,215,110,.22);
+      bottom:-80px;right:-60px;
+    }
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      background:#fff;border-radius:50px;
+      padding:8px 18px;margin-bottom:28px;
+      font-size:.85rem;font-weight:700;color:var(--ink);
+      width:fit-content;box-shadow:0 2px 12px rgba(0,0,0,.08);
+    }
+    .hero-badge-dot{width:10px;height:10px;background:var(--green);border-radius:50%}
+    .hero-text-side h1{
+      font-family:'Rubik',sans-serif;
+      font-size:clamp(2rem,4vw,3.2rem);
+      font-weight:700;line-height:1.15;
+      color:var(--ink);margin-bottom:18px;position:relative;z-index:1;
+    }
+    .hero-text-side h1 span{color:var(--sky)}
+    .hero-sub{color:var(--muted);font-size:1.05rem;max-width:420px;margin-bottom:36px;position:relative;z-index:1}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+    .hero-stat-row{display:flex;gap:28px;margin-top:44px;position:relative;z-index:1}
+    .hero-stat{display:flex;flex-direction:column}
+    .hero-stat strong{font-size:1.6rem;font-weight:900;color:var(--ink)}
+    .hero-stat span{font-size:.82rem;color:var(--muted);line-height:1.3}
+    .hero-photo-side{
+      position:relative;overflow:hidden;
+      background:linear-gradient(160deg,#EAF6FC 0%,#B8DCF0 100%);
+    }
+    .hero-photo-side img{width:100%;height:100%;object-fit:cover}
+    .hero-pill{
+      position:absolute;
+      background:#fff;border-radius:50px;
+      padding:10px 18px;
+      display:flex;align-items:center;gap:10px;
+      box-shadow:0 4px 20px rgba(0,0,0,.12);
+      font-size:.88rem;font-weight:700;
+      animation:pillFloat 3s ease-in-out infinite;
+    }
+    .hero-pill:nth-child(2){animation-delay:.5s}
+    .hero-pill:nth-child(3){animation-delay:1.2s}
+    .hero-pill-1{top:18%;left:8%}
+    .hero-pill-2{top:44%;right:6%}
+    .hero-pill-3{bottom:20%;left:12%}
+    .pill-icon{
+      width:34px;height:34px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.1rem;flex-shrink:0;
+    }
+    @keyframes pillFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+    /* SELECTION */
+    #selection{background:linear-gradient(180deg,var(--sky-pale) 0%,#fff 100%)}
+    .selection-header{text-align:center;margin-bottom:60px}
+    .selection-title{
+      font-family:'Rubik',sans-serif;
+      font-size:clamp(1.4rem,2.5vw,2rem);
+      font-weight:700;
+      color:var(--brown);
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      margin-bottom:10px;
+    }
+    .steps-layout{
+      display:grid;
+      grid-template-columns:200px 1fr;
+      gap:40px;
+      max-width:900px;margin:0 auto;
+    }
+    .steps-mascot{display:flex;align-items:flex-start;justify-content:center;padding-top:10px}
+    .steps-mascot img{width:160px;height:auto}
+    .steps-list{display:flex;flex-direction:column;gap:18px}
+    .step-item{
+      background:#fff;border-radius:var(--radius);
+      padding:22px 28px;
+      display:flex;align-items:flex-start;gap:20px;
+      box-shadow:0 2px 16px rgba(123,191,212,.12);
+      transition:transform .2s;
+    }
+    .step-item:hover{transform:translateX(6px)}
+    .step-item:nth-child(even){margin-left:-30px}
+    .step-num-big{
+      font-family:'Rubik',sans-serif;
+      font-size:2.8rem;font-weight:900;
+      color:var(--brown);opacity:.18;
+      line-height:1;flex-shrink:0;min-width:48px;
+    }
+    .step-text h3{font-weight:800;font-size:1rem;margin-bottom:4px}
+    .step-text p{font-size:.9rem;color:var(--muted)}
+
+    /* FEATURES */
+    #features{background:linear-gradient(135deg,#fff 0%,var(--sky-pale) 100%)}
+    .features-wrap{
+      display:grid;
+      grid-template-columns:1fr 300px;
+      gap:60px;align-items:start;
+    }
+    .features-header{margin-bottom:36px}
+    .features-grid{display:flex;flex-direction:column;gap:16px}
+    .feat-card{
+      background:#fff;border-radius:var(--radius-sm);
+      padding:22px 24px;
+      display:flex;align-items:flex-start;gap:18px;
+      box-shadow:0 2px 12px rgba(0,0,0,.06);
+      transition:transform .2s,box-shadow .2s;
+    }
+    .feat-card:hover{transform:translateX(6px);box-shadow:0 6px 24px rgba(123,191,212,.2)}
+    .feat-icon{
+      width:46px;height:46px;border-radius:12px;
+      background:var(--sky-pale);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.4rem;flex-shrink:0;
+    }
+    .feat-card h3{font-size:.95rem;font-weight:800;margin-bottom:4px}
+    .feat-card p{font-size:.88rem;color:var(--muted)}
+    .features-mascot{position:sticky;top:100px}
+    .features-mascot img{width:100%;max-width:260px}
+
+    /* RESULTS */
+    #results{background:#fff}
+    .results-wrap{
+      display:grid;
+      grid-template-columns:1fr 230px;
+      gap:60px;align-items:start;
+    }
+    .results-header{margin-bottom:36px}
+    .results-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .result-item{
+      background:var(--sky-pale);border-radius:var(--radius-sm);
+      padding:26px 20px;text-align:center;
+      border-top:4px solid transparent;
+      transition:transform .2s,box-shadow .2s;
+    }
+    .result-item:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+    .result-item:nth-child(1){border-color:var(--sky)}
+    .result-item:nth-child(2){border-color:var(--yellow)}
+    .result-item:nth-child(3){border-color:var(--coral)}
+    .result-item:nth-child(4){border-color:var(--green)}
+    .result-item:nth-child(5){border-color:var(--brown)}
+    .result-item:nth-child(6){border-color:var(--sky)}
+    .result-num{
+      font-family:'Rubik',sans-serif;
+      font-size:2.2rem;font-weight:900;
+      color:var(--ink);line-height:1;margin-bottom:6px;
+    }
+    .result-label{font-size:.85rem;color:var(--muted);line-height:1.3}
+    .results-mascot img{width:100%;max-width:200px}
+
+    /* PRICING */
+    #pricing{
+      background:linear-gradient(135deg,#1A3A5C 0%,#2E6B8A 100%);
+      padding:80px 5%;
+    }
+    #pricing .section-label{background:rgba(255,255,255,.12);color:#C8E8F4}
+    #pricing h2{color:#fff}
+    #pricing .section-sub{color:rgba(255,255,255,.65)}
+    .pricing-wrap{
+      display:grid;
+      grid-template-columns:1fr 250px;
+      gap:60px;align-items:start;
+    }
+    .pricing-header{margin-bottom:36px}
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .price-card{
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.15);
+      backdrop-filter:blur(8px);
+      border-radius:var(--radius);
+      padding:30px 24px;
+      position:relative;
+      transition:transform .2s;
+    }
+    .price-card:hover{transform:translateY(-4px)}
+    .price-card.featured{
+      background:var(--yellow);
+      border-color:var(--yellow);
+      transform:scale(1.04);
+      color:var(--ink);
+    }
+    .price-card.featured:hover{transform:scale(1.04) translateY(-4px)}
+    .price-badge{
+      position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+      background:var(--coral);color:#fff;
+      font-size:.75rem;font-weight:800;
+      border-radius:50px;padding:4px 14px;
+      white-space:nowrap;
+    }
+    .price-name{font-family:'Rubik',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:6px;color:#fff}
+    .price-card.featured .price-name{color:var(--ink)}
+    .price-amount{
+      font-family:'Rubik',sans-serif;font-size:2.4rem;font-weight:900;
+      color:#fff;line-height:1;margin-bottom:4px;
+    }
+    .price-card.featured .price-amount{color:var(--ink)}
+    .price-period{font-size:.82rem;color:rgba(255,255,255,.55);margin-bottom:20px}
+    .price-card.featured .price-period{color:rgba(0,0,0,.5)}
+    .price-rows{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+    .price-row{
+      display:flex;align-items:center;gap:10px;
+      font-size:.88rem;color:rgba(255,255,255,.8);
+    }
+    .price-card.featured .price-row{color:var(--ink)}
+    .price-row-check{
+      width:20px;height:20px;border-radius:50%;
+      background:rgba(255,255,255,.15);
+      display:flex;align-items:center;justify-content:center;
+      font-size:.7rem;flex-shrink:0;
+    }
+    .price-card.featured .price-row-check{background:rgba(0,0,0,.1)}
+    .btn-white{
+      display:inline-block;width:100%;text-align:center;
+      background:#fff;color:var(--ink);
+      border:none;border-radius:50px;
+      padding:12px;font-family:'Nunito',sans-serif;
+      font-size:.95rem;font-weight:800;cursor:pointer;
+      text-decoration:none;
+      transition:transform .15s,background .2s;
+    }
+    .btn-white:hover{background:var(--sky-pale);transform:translateY(-2px)}
+    .price-card.featured .btn-white{background:var(--ink);color:#fff}
+    .price-card.featured .btn-white:hover{background:#1a2b3c}
+    .pricing-mascot{padding-top:40px}
+    .pricing-mascot img{width:100%;max-width:220px;opacity:.9;filter:brightness(1.1)}
+
+    /* CONTACT */
+    #contact{background:#fff;padding:80px 5%}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+    .contact-links{display:flex;flex-direction:column;gap:16px;margin-top:28px}
+    .contact-link{
+      display:flex;align-items:center;gap:16px;
+      text-decoration:none;color:var(--ink);
+      font-weight:700;font-size:.95rem;
+      transition:transform .2s;
+    }
+    .contact-link:hover{transform:translateX(4px)}
+    .contact-icon{
+      width:44px;height:44px;border-radius:12px;
+      background:var(--sky-pale);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.3rem;flex-shrink:0;
+    }
+    .contact-link small{display:block;font-weight:600;font-size:.8rem;color:var(--muted)}
+    .form-area{
+      background:var(--sky-pale);
+      border-radius:var(--radius);
+      padding:36px;
+    }
+    .form-area h3{font-family:'Rubik',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:22px}
+    .form-row{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+    .form-row label{font-size:.88rem;font-weight:700;color:var(--muted)}
+    .form-row input,
+    .form-row select,
+    .form-row textarea{
+      background:#fff;border:2px solid var(--sky-light);
+      border-radius:var(--radius-sm);
+      padding:12px 16px;
+      font-family:'Nunito',sans-serif;font-size:.95rem;color:var(--ink);
+      width:100%;outline:none;
+      transition:border-color .2s;
+    }
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus{border-color:var(--sky)}
+    .form-row textarea{min-height:90px;resize:vertical}
+    .btn-submit{
+      width:100%;background:var(--sky);color:#fff;
+      border:none;border-radius:50px;
+      padding:14px;font-family:'Nunito',sans-serif;
+      font-size:1rem;font-weight:800;cursor:pointer;
+      margin-top:8px;transition:background .2s,transform .15s;
+    }
+    .btn-submit:hover{background:#5AAAC2;transform:translateY(-2px)}
+
+    /* FOOTER */
+    footer{background:var(--ink);padding:50px 5% 30px}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:36px}
+    .footer-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .footer-logo img{height:50px}
+    .footer-logo span{font-family:'Rubik',sans-serif;font-weight:700;font-size:1.2rem;color:#fff}
+    .footer-tagline{color:rgba(255,255,255,.5);font-size:.85rem;margin-top:6px}
+    .footer-col h4{font-size:.9rem;font-weight:800;color:#fff;margin-bottom:14px}
+    .footer-col a{
+      display:block;font-size:.88rem;color:rgba(255,255,255,.55);
+      text-decoration:none;margin-bottom:8px;
+      transition:color .2s;
+    }
+    .footer-col a:hover{color:#fff}
+    .socials{display:flex;gap:10px;margin-top:12px}
+    .social-btn{
+      width:40px;height:40px;border-radius:50%;
+      background:rgba(255,255,255,.1);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.1rem;text-decoration:none;
+      transition:background .2s,transform .15s;
+    }
+    .social-btn:hover{background:var(--sky);transform:scale(1.1)}
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.1);
+      padding-top:22px;
+      display:flex;justify-content:space-between;align-items:center;
+      flex-wrap:wrap;gap:10px;
+    }
+    .footer-bottom p{font-size:.82rem;color:rgba(255,255,255,.35)}
+    .footer-bottom a{color:rgba(255,255,255,.35);text-decoration:none}
+    .footer-bottom a:hover{color:rgba(255,255,255,.7)}
+
+    /* MOBILE */
+    @media(max-width:960px){
+      #hero{grid-template-columns:1fr}
+      .hero-photo-side{display:none}
+      .hero-text-side{padding:60px 6%;min-height:70vh}
+      .steps-layout{grid-template-columns:1fr}
+      .steps-mascot{display:none}
+      .step-item:nth-child(even){margin-left:0}
+      .features-wrap{grid-template-columns:1fr}
+      .features-mascot{display:none}
+      .results-wrap{grid-template-columns:1fr}
+      .results-mascot{display:none}
+      .pricing-wrap{grid-template-columns:1fr}
+      .pricing-mascot{display:none}
+      .pricing-grid{grid-template-columns:1fr}
+      .price-card.featured{transform:none}
+      .contact-grid{grid-template-columns:1fr}
+      .footer-top{flex-direction:column}
+    }
+    @media(max-width:600px){
+      .nav-links{display:none}
+      .nav-phone{display:none}
+      .burger{display:flex}
+      .nav-cta{display:none}
+      .nav-links.open{
+        display:flex;flex-direction:column;
+        position:fixed;top:70px;left:0;right:0;
+        background:rgba(240,249,255,.97);
+        padding:20px 24px;
+        border-bottom:1px solid var(--sky-light);
+        gap:8px;
+        z-index:99;
+      }
+      .hero-badge{font-size:.78rem}
+      .hero-stat-row{gap:18px;flex-wrap:wrap}
+      .results-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='32' r='26' fill='%237BBFD4'/%3E%3Cpolygon points='18,18 10,4 26,14' fill='%235AAAC2'/%3E%3Cpolygon points='42,18 50,4 34,14' fill='%235AAAC2'/%3E%3Ccircle cx='22' cy='29' r='8' fill='white'/%3E%3Ccircle cx='38' cy='29' r='8' fill='white'/%3E%3Ccircle cx='22' cy='29' r='5' fill='%232C3E50'/%3E%3Ccircle cx='38' cy='29' r='5' fill='%232C3E50'/%3E%3Ccircle cx='24' cy='27' r='2' fill='white'/%3E%3Ccircle cx='40' cy='27' r='2' fill='white'/%3E%3Cpolygon points='30,35 25,44 35,44' fill='%23F5D76E'/%3E%3Cellipse cx='30' cy='50' rx='14' ry='8' fill='%23C8E8F4'/%3E%3C/svg%3E" alt="Логотип Успевайка">
+    <span>Успевайка</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#selection">Как мы работаем</a>
+    <a href="#features">Преимущества</a>
+    <a href="#results">Результаты</a>
+    <a href="#pricing">Цены</a>
+    <a href="#contact">Контакты</a>
+  </div>
+  <a href="tel:+78001234567" class="nav-phone">8 800 123-45-67</a>
+  <a href="#contact" class="nav-cta">Бесплатный урок</a>
+  <button class="burger" id="burger" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text-side">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Более 500 учеников онлайн
+    </div>
+    <h1>Ваш ребёнок будет <span>успевать</span> в школе</h1>
+    <p class="hero-sub">Индивидуальные занятия с опытными педагогами для школьников 1–11 классов. Готовимся к ОГЭ и ЕГЭ, исправляем оценки, развиваем способности.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary">Записаться бесплатно</a>
+      <a href="#features" class="btn btn-secondary">Узнать больше</a>
+    </div>
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <strong>500+</strong>
+        <span>учеников<br>прошли обучение</span>
+      </div>
+      <div class="hero-stat">
+        <strong>98%</strong>
+        <span>успешно сдали<br>экзамены</span>
+      </div>
+      <div class="hero-stat">
+        <strong>5 лет</strong>
+        <span>на рынке<br>онлайн-обучения</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-photo-side">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 800'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23EAF6FC'/%3E%3Cstop offset='1' stop-color='%23B8DCF0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='600' height='800' fill='url(%23bg)'/%3E%3Ccircle cx='300' cy='300' r='180' fill='%237BBFD4' opacity='.12'/%3E%3Ccircle cx='300' cy='300' r='120' fill='%237BBFD4' opacity='.18'/%3E%3Cellipse cx='300' cy='200' rx='90' ry='90' fill='%237BBFD4' opacity='.55'/%3E%3Ccircle cx='276' cy='178' r='18' fill='white' opacity='.95'/%3E%3Ccircle cx='324' cy='178' r='18' fill='white' opacity='.95'/%3E%3Ccircle cx='276' cy='178' r='12' fill='%232C3E50'/%3E%3Ccircle cx='324' cy='178' r='12' fill='%232C3E50'/%3E%3Ccircle cx='280' cy='174' r='4' fill='white'/%3E%3Ccircle cx='328' cy='174' r='4' fill='white'/%3E%3Cpolygon points='300,198 290,216 310,216' fill='%23F5D76E'/%3E%3Cpolygon points='268,136 256,108 280,130' fill='%235AAAC2'/%3E%3Cpolygon points='332,136 344,108 320,130' fill='%235AAAC2'/%3E%3Cellipse cx='300' cy='290' rx='80' ry='110' fill='%237BBFD4' opacity='.7'/%3E%3Cellipse cx='300' cy='300' rx='54' ry='80' fill='%23C8E8F4' opacity='.8'/%3E%3Cellipse cx='238' cy='262' rx='38' ry='60' fill='%235AAAC2' opacity='.7' transform='rotate(-20 238 262)'/%3E%3Cellipse cx='362' cy='262' rx='38' ry='60' fill='%235AAAC2' opacity='.7' transform='rotate(20 362 262)'/%3E%3Crect x='264' y='440' width='72' height='50' rx='6' fill='%23F5D76E' opacity='.85'/%3E%3Cline x1='272' y1='452' x2='328' y2='452' stroke='%232C3E50' stroke-width='2' opacity='.4'/%3E%3Cline x1='272' y1='462' x2='322' y2='462' stroke='%232C3E50' stroke-width='2' opacity='.4'/%3E%3Cline x1='272' y1='472' x2='328' y2='472' stroke='%232C3E50' stroke-width='2' opacity='.4'/%3E%3Ccircle cx='130' cy='140' r='44' fill='%23F5D76E' opacity='.32'/%3E%3Ccircle cx='490' cy='660' r='60' fill='%236BC5A0' opacity='.22'/%3E%3Ccircle cx='510' cy='110' r='32' fill='%23FF8A7A' opacity='.28'/%3E%3Ccircle cx='80' cy='500' r='25' fill='%237BBFD4' opacity='.3'/%3E%3C/svg%3E" alt="Репетитор онлайн">
+    <div class="hero-pill hero-pill-1">
+      <div class="pill-icon" style="background:#DCF0F8">📚</div>
+      Математика и физика
+    </div>
+    <div class="hero-pill hero-pill-2">
+      <div class="pill-icon" style="background:#FFF5D6">⭐</div>
+      Рейтинг 4.9 / 5.0
+    </div>
+    <div class="hero-pill hero-pill-3">
+      <div class="pill-icon" style="background:#D6F5E8">✓</div>
+      Результат за 30 дней
+    </div>
+  </div>
+</section>
+
+<!-- SELECTION -->
+<section id="selection">
+  <div class="selection-header">
+    <span class="section-label">Как это работает</span>
+    <h2 class="selection-title">Четыре шага к успеху вашего ребёнка</h2>
+    <p class="section-sub" style="margin:0 auto">Простой и прозрачный процесс — от первого звонка до отличных оценок</p>
+  </div>
+  <div class="steps-layout">
+    <div class="steps-mascot">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 240'%3E%3Cellipse cx='100' cy='175' rx='70' ry='55' fill='%237BBFD4'/%3E%3Ccircle cx='100' cy='95' r='65' fill='%237BBFD4'/%3E%3Cpolygon points='68,44 54,14 84,38' fill='%235AAAC2'/%3E%3Cpolygon points='132,44 146,14 116,38' fill='%235AAAC2'/%3E%3Ccircle cx='80' cy='92' r='22' fill='white'/%3E%3Ccircle cx='120' cy='92' r='22' fill='white'/%3E%3Ccircle cx='80' cy='92' r='14' fill='%232C3E50'/%3E%3Ccircle cx='120' cy='92' r='14' fill='%232C3E50'/%3E%3Ccircle cx='86' cy='86' r='5' fill='white'/%3E%3Ccircle cx='126' cy='86' r='5' fill='white'/%3E%3Cpolygon points='100,110 88,130 112,130' fill='%23F5D76E'/%3E%3Cellipse cx='100' cy='175' rx='50' ry='38' fill='%23C8E8F4'/%3E%3Cellipse cx='56' cy='155' rx='20' ry='36' fill='%235AAAC2' transform='rotate(-15 56 155)'/%3E%3Cellipse cx='144' cy='155' rx='20' ry='36' fill='%235AAAC2' transform='rotate(15 144 155)'/%3E%3C/svg%3E" alt="Совёнок">
+    </div>
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num-big">1</div>
+        <div class="step-text">
+          <h3>Оставьте заявку</h3>
+          <p>Заполните форму или позвоните нам. Расскажите о задачах и целях — мы перезвоним в течение часа.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-big">2</div>
+        <div class="step-text">
+          <h3>Бесплатная диагностика</h3>
+          <p>Наш методист проведёт тестирование, выявит пробелы в знаниях и подберёт подходящего педагога.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-big">3</div>
+        <div class="step-text">
+          <h3>Пробный урок</h3>
+          <p>Первое занятие — бесплатно. Ребёнок познакомится с репетитором в комфортной онлайн-обстановке.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-big">4</div>
+        <div class="step-text">
+          <h3>Регулярные занятия и рост</h3>
+          <p>Системные уроки по индивидуальной программе — и вы видите прогресс уже через 2–4 недели.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="features-wrap">
+    <div>
+      <div class="features-header">
+        <span class="section-label">Наши преимущества</span>
+        <h2>Почему выбирают<br>Успевайку</h2>
+        <p class="section-sub">Мы создали среду, в которой каждый ребёнок раскрывает свой потенциал</p>
+      </div>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon">🎯</div>
+          <div>
+            <h3>Индивидуальная программа</h3>
+            <p>Программа составляется под конкретного ученика с учётом пробелов, темпа и целей обучения.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">👩‍🏫</div>
+          <div>
+            <h3>Опытные педагоги</h3>
+            <p>Все репетиторы проходят строгий отбор: профильное образование, опыт от 3 лет, тестирование знаний.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">💻</div>
+          <div>
+            <h3>Удобная онлайн-платформа</h3>
+            <p>Занятия в интерактивной рабочей тетради, видеосвязь, запись уроков — всё в одном окне браузера.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">📊</div>
+          <div>
+            <h3>Прозрачный прогресс</h3>
+            <p>Родители видят дневник занятий, домашние задания и отчёты об успеваемости в личном кабинете.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🔄</div>
+          <div>
+            <h3>Замена педагога без потерь</h3>
+            <p>Если педагог не подошёл — заменим бесплатно. Новый репетитор получит все материалы по ученику.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🏆</div>
+          <div>
+            <h3>Гарантия результата</h3>
+            <p>Если за 3 месяца не будет прогресса в оценках — вернём деньги. Мы уверены в своих методах.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="features-mascot">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 260'%3E%3Cellipse cx='100' cy='185' rx='72' ry='58' fill='%237BBFD4'/%3E%3Ccircle cx='100' cy='100' r='68' fill='%237BBFD4'/%3E%3Cpolygon points='66,46 50,12 82,40' fill='%235AAAC2'/%3E%3Cpolygon points='134,46 150,12 118,40' fill='%235AAAC2'/%3E%3Ccircle cx='80' cy='96' r='23' fill='white'/%3E%3Ccircle cx='120' cy='96' r='23' fill='white'/%3E%3Ccircle cx='80' cy='96' r='15' fill='%232C3E50'/%3E%3Ccircle cx='120' cy='96' r='15' fill='%232C3E50'/%3E%3Ccircle cx='86' cy='90' r='5' fill='white'/%3E%3Ccircle cx='126' cy='90' r='5' fill='white'/%3E%3Cpolygon points='100,116 88,136 112,136' fill='%23F5D76E'/%3E%3Cellipse cx='100' cy='185' rx='52' ry='40' fill='%23C8E8F4'/%3E%3Cellipse cx='54' cy='164' rx='22' ry='38' fill='%235AAAC2' transform='rotate(-15 54 164)'/%3E%3Cellipse cx='146' cy='164' rx='22' ry='38' fill='%235AAAC2' transform='rotate(15 146 164)'/%3E%3Crect x='82' y='125' width='36' height='28' rx='4' fill='%23F5D76E' opacity='.8'/%3E%3Cline x1='86' y1='131' x2='114' y2='131' stroke='%232C3E50' stroke-width='1.5' opacity='.5'/%3E%3Cline x1='86' y1='137' x2='110' y2='137' stroke='%232C3E50' stroke-width='1.5' opacity='.5'/%3E%3Cline x1='86' y1='143' x2='114' y2='143' stroke='%232C3E50' stroke-width='1.5' opacity='.5'/%3E%3C/svg%3E" alt="Совёнок с книгой">
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="results-wrap">
+    <div>
+      <div class="results-header">
+        <span class="section-label">Наши результаты</span>
+        <h2>Цифры говорят<br>сами за себя</h2>
+        <p class="section-sub">За 5 лет работы мы помогли сотням семей добиться реального прогресса</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-item">
+          <div class="result-num">500+</div>
+          <div class="result-label">учеников прошли обучение</div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">98%</div>
+          <div class="result-label">сдали ОГЭ и ЕГЭ на «4» и «5»</div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">4.9</div>
+          <div class="result-label">средняя оценка педагогов</div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">40+</div>
+          <div class="result-label">педагогов в команде</div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">12</div>
+          <div class="result-label">предметов в программе</div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">5 лет</div>
+          <div class="result-label">успешной работы онлайн</div>
+        </div>
+      </div>
+    </div>
+    <div class="results-mascot">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 260'%3E%3Cellipse cx='100' cy='190' rx='70' ry='55' fill='%236BC5A0'/%3E%3Ccircle cx='100' cy='100' r='65' fill='%236BC5A0'/%3E%3Cpolygon points='67,47 52,14 82,40' fill='%2353A882'/%3E%3Cpolygon points='133,47 148,14 118,40' fill='%2353A882'/%3E%3Ccircle cx='80' cy='96' r='22' fill='white'/%3E%3Ccircle cx='120' cy='96' r='22' fill='white'/%3E%3Ccircle cx='80' cy='96' r='14' fill='%232C3E50'/%3E%3Ccircle cx='120' cy='96' r='14' fill='%232C3E50'/%3E%3Ccircle cx='86' cy='90' r='5' fill='white'/%3E%3Ccircle cx='126' cy='90' r='5' fill='white'/%3E%3Cpolygon points='100,112 88,132 112,132' fill='%23F5D76E'/%3E%3Cellipse cx='100' cy='190' rx='50' ry='38' fill='%23A8E6CF'/%3E%3Cellipse cx='55' cy='168' rx='20' ry='36' fill='%2353A882' transform='rotate(-15 55 168)'/%3E%3Cellipse cx='145' cy='168' rx='20' ry='36' fill='%2353A882' transform='rotate(15 145 168)'/%3E%3C/svg%3E" alt="Совёнок-победитель">
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="pricing-wrap">
+    <div>
+      <div class="pricing-header">
+        <span class="section-label">Тарифы</span>
+        <h2>Прозрачные цены<br>без скрытых платежей</h2>
+        <p class="section-sub">Выберите подходящий формат — все тарифы включают личный кабинет и отчёты</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-name">Стандарт</div>
+          <div class="price-amount">1 900 ₽</div>
+          <div class="price-period">за занятие (60 мин)</div>
+          <div class="price-rows">
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              1 занятие в неделю
+            </div>
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              Проверка домашних заданий
+            </div>
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              Отчёт раз в месяц
+            </div>
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              Чат с педагогом
+            </div>
+          </div>
+          <a href="#contact" class="btn-white">Выбрать</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">Популярный</div>
+          <div class="price-name">Оптимальный</div>
+          <div class="price-amount">3 200 ₽</div>
+          <div class="price-period">за 2 занятия в неделю</div>
+          <div class="price-rows">
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              2 занятия в неделю
+            </div>
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              Проверка ДЗ + разбор ошибок
+            </div>
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              Еженедельные отчёты
+            </div>
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              Приоритетный подбор педагога
+            </div>
+          </div>
+          <a href="#contact" class="btn-white">Выбрать</a>
+        </div>
+        <div class="price-card">
+          <div class="price-name">Премиум</div>
+          <div class="price-amount">5 900 ₽</div>
+          <div class="price-period">за 3–4 занятия в неделю</div>
+          <div class="price-rows">
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              3–4 занятия в неделю
+            </div>
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              Полное сопровождение
+            </div>
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              Куратор для родителей
+            </div>
+            <div class="price-row">
+              <div class="price-row-check">✓</div>
+              Подготовка к ОГЭ / ЕГЭ
+            </div>
+          </div>
+          <a href="#contact" class="btn-white">Выбрать</a>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-mascot">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 260'%3E%3Cellipse cx='100' cy='188' rx='72' ry='58' fill='%23F5D76E'/%3E%3Ccircle cx='100' cy='98' r='68' fill='%23F5D76E'/%3E%3Cpolygon points='66,45 50,11 82,40' fill='%23E8C84A'/%3E%3Cpolygon points='134,45 150,11 118,40' fill='%23E8C84A'/%3E%3Ccircle cx='80' cy='94' r='23' fill='white'/%3E%3Ccircle cx='120' cy='94' r='23' fill='white'/%3E%3Ccircle cx='80' cy='94' r='15' fill='%232C3E50'/%3E%3Ccircle cx='120' cy='94' r='15' fill='%232C3E50'/%3E%3Ccircle cx='86' cy='88' r='5' fill='white'/%3E%3Ccircle cx='126' cy='88' r='5' fill='white'/%3E%3Cpolygon points='100,114 88,134 112,134' fill='%23FF8A7A'/%3E%3Cellipse cx='100' cy='188' rx='52' ry='40' fill='%23FDEEA0'/%3E%3Cellipse cx='54' cy='166' rx='22' ry='38' fill='%23E8C84A' transform='rotate(-15 54 166)'/%3E%3Cellipse cx='146' cy='166' rx='22' ry='38' fill='%23E8C84A' transform='rotate(15 146 166)'/%3E%3C/svg%3E" alt="Совёнок">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div>
+      <span class="section-label">Связаться с нами</span>
+      <h2>Запишитесь на бесплатный пробный урок</h2>
+      <p class="section-sub">Оставьте заявку — и мы свяжемся с вами в течение часа, чтобы подобрать педагога</p>
+      <div class="contact-links">
+        <a href="tel:+78001234567" class="contact-link">
+          <div class="contact-icon">📞</div>
+          <div>
+            <small>Телефон (бесплатно)</small>
+            8 800 123-45-67
+          </div>
+        </a>
+        <a href="https://t.me/uspevajka" class="contact-link">
+          <div class="contact-icon">✈️</div>
+          <div>
+            <small>Telegram</small>
+            @uspevajka
+          </div>
+        </a>
+        <a href="https://wa.me/79001234567" class="contact-link">
+          <div class="contact-icon">💬</div>
+          <div>
+            <small>WhatsApp</small>
+            +7 900 123-45-67
+          </div>
+        </a>
+        <a href="mailto:hello@uspevajka.ru" class="contact-link">
+          <div class="contact-icon">📧</div>
+          <div>
+            <small>E-mail</small>
+            hello@uspevajka.ru
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="form-area">
+      <h3>Оставить заявку</h3>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <label for="name">Имя ребёнка и родителя</label>
+          <input type="text" id="name" name="name" placeholder="Иванов Иван" required>
+        </div>
+        <div class="form-row">
+          <label for="phone">Номер телефона</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (900) 000-00-00" required>
+        </div>
+        <div class="form-row">
+          <label for="subject">Предмет</label>
+          <select id="subject" name="subject" required>
+            <option value="">Выберите предмет</option>
+            <option>Математика</option>
+            <option>Русский язык</option>
+            <option>Английский язык</option>
+            <option>Физика</option>
+            <option>Химия</option>
+            <option>Биология</option>
+            <option>История</option>
+            <option>Обществознание</option>
+            <option>Информатика</option>
+            <option>Литература</option>
+            <option>Другой предмет</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="grade">Класс</label>
+          <select id="grade" name="grade" required>
+            <option value="">Выберите класс</option>
+            <option>1 класс</option>
+            <option>2 класс</option>
+            <option>3 класс</option>
+            <option>4 класс</option>
+            <option>5 класс</option>
+            <option>6 класс</option>
+            <option>7 класс</option>
+            <option>8 класс</option>
+            <option>9 класс (ОГЭ)</option>
+            <option>10 класс</option>
+            <option>11 класс (ЕГЭ)</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="comment">Пожелания (необязательно)</label>
+          <textarea id="comment" name="comment" placeholder="Расскажите о цели занятий..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Записаться на бесплатный урок →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#" class="footer-logo">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='32' r='26' fill='%237BBFD4'/%3E%3Cpolygon points='18,18 10,4 26,14' fill='%235AAAC2'/%3E%3Cpolygon points='42,18 50,4 34,14' fill='%235AAAC2'/%3E%3Ccircle cx='22' cy='29' r='8' fill='white'/%3E%3Ccircle cx='38' cy='29' r='8' fill='white'/%3E%3Ccircle cx='22' cy='29' r='5' fill='%232C3E50'/%3E%3Ccircle cx='38' cy='29' r='5' fill='%232C3E50'/%3E%3Ccircle cx='24' cy='27' r='2' fill='white'/%3E%3Ccircle cx='40' cy='27' r='2' fill='white'/%3E%3Cpolygon points='30,35 25,44 35,44' fill='%23F5D76E'/%3E%3Cellipse cx='30' cy='50' rx='14' ry='8' fill='%23C8E8F4'/%3E%3C/svg%3E" alt="Логотип Успевайка">
+        <span>Успевайка</span>
+      </a>
+      <div class="footer-tagline">Онлайн-репетиторский центр для школьников 1–11 классов</div>
+      <div class="socials">
+        <a href="https://vk.com/uspevajka" class="social-btn" title="ВКонтакте">🔵</a>
+        <a href="https://t.me/uspevajka" class="social-btn" title="Telegram">✈️</a>
+        <a href="https://instagram.com/uspevajka" class="social-btn" title="Instagram">📷</a>
+        <a href="https://youtube.com/@uspevajka" class="social-btn" title="YouTube">▶️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>О центре</h4>
+      <a href="#features">Преимущества</a>
+      <a href="#results">Результаты</a>
+      <a href="#selection">Как мы работаем</a>
+      <a href="#pricing">Тарифы</a>
+    </div>
+    <div class="footer-col">
+      <h4>Предметы</h4>
+      <a href="#contact">Математика</a>
+      <a href="#contact">Русский язык</a>
+      <a href="#contact">Английский язык</a>
+      <a href="#contact">Физика и химия</a>
+      <a href="#contact">Подготовка к ОГЭ/ЕГЭ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <a href="tel:+78001234567">8 800 123-45-67</a>
+      <a href="mailto:hello@uspevajka.ru">hello@uspevajka.ru</a>
+      <a href="https://t.me/uspevajka">@uspevajka в Telegram</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Успевайка — Онлайн-репетиторский центр. Все права защищены.</p>
+    <div style="display:flex;gap:18px">
+      <a href="#">Политика конфиденциальности</a>
+      <a href="#">Договор оферты</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const spans = burger.querySelectorAll('span');
+    if (navLinks.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      burger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    });
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = '✓ Заявка отправлена!';
+    btn.style.background = 'var(--green)';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Записаться на бесплатный урок →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4000);
+  }
+</script>
+</body>
+</html>
