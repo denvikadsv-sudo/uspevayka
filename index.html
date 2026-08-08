@@ -128,6 +128,22 @@
     .why__card h3 { font-size:1.05rem; font-weight:700; margin-bottom:8px; }
     .why__card p { font-size:.9rem; color:var(--muted); }
 
+    /* LOYALTY */
+    .loyalty { background:var(--bg); }
+    .loyalty__list { display:flex; flex-direction:column; gap:20px; }
+    .loyalty__item { position:relative; padding-top:52px; }
+    .loyalty__item--left .loyalty__card { max-width:82%; }
+    .loyalty__item--right .loyalty__card { max-width:82%; margin-left:auto; }
+    .loyalty__card { border-radius:24px; padding:20px 24px; }
+    .loyalty__card--sky { background:var(--sky-pale); }
+    .loyalty__card--yellow { background:#FFF5CC; }
+    .loyalty__card--coral { background:#FFE8E5; }
+    .loyalty__raccoon { position:absolute; width:64px; height:auto; top:0; }
+    .loyalty__item--left .loyalty__raccoon { left:4px; top:-14px; }
+    .loyalty__item--right .loyalty__raccoon { right:4px; }
+    .loyalty__card h3 { font-size:1.05rem; font-weight:700; color:var(--ink); margin-bottom:8px; }
+    .loyalty__card p { font-size:.9rem; color:var(--muted); line-height:1.65; }
+
     /* SELECTION */
     .selection { background:var(--sky-pale); }
     .selection__inner { display:grid; grid-template-columns:280px 1fr; gap:48px; align-items:center; }
@@ -349,6 +365,62 @@
         <p><strong>Так появилась Успевайка</strong> — проект, в котором собрались профессионалы, увлечённые своим делом, искренне радующиеся успехам учеников и бережно относящиеся к каждому ребёнку.</p>
       </div>
       <img class="story__conclusion-mascot" src="images/raccoon-book.png" alt="">
+    </div>
+  </div>
+</section>
+
+<section class="loyalty" id="loyalty">
+  <div class="container">
+    <h2 class="section-title">Почему с нами <span class="accent">остаются на годы</span>?</h2>
+    <div class="loyalty__list">
+
+      <div class="loyalty__item loyalty__item--left">
+        <img class="loyalty__raccoon" src="images/new-raccoon-wave.png" alt="">
+        <div class="loyalty__card loyalty__card--sky">
+          <h3>Тёплая атмосфера</h3>
+          <p>Ребёнок не боится задавать вопросы и ошибаться.</p>
+        </div>
+      </div>
+
+      <div class="loyalty__item loyalty__item--right">
+        <img class="loyalty__raccoon" src="images/new-raccoon-side.png" alt="">
+        <div class="loyalty__card loyalty__card--yellow">
+          <h3>От простого к сложному</h3>
+          <p>Мы не даём задания, к которым ребёнок ещё не готов.</p>
+        </div>
+      </div>
+
+      <div class="loyalty__item loyalty__item--left">
+        <img class="loyalty__raccoon" src="images/new-raccoon-surprised.png" alt="">
+        <div class="loyalty__card loyalty__card--coral">
+          <h3>Ситуации успеха</h3>
+          <p>Ребёнок учится замечать свои достижения.</p>
+        </div>
+      </div>
+
+      <div class="loyalty__item loyalty__item--right">
+        <img class="loyalty__raccoon" src="images/new-raccoon-bike.png" alt="">
+        <div class="loyalty__card loyalty__card--sky">
+          <h3>Уверенность в себе</h3>
+          <p>То, что раньше вызывало стресс, постепенно начинает получаться.</p>
+        </div>
+      </div>
+
+      <div class="loyalty__item loyalty__item--left">
+        <img class="loyalty__raccoon" src="images/new-raccoon-wave.png" alt="">
+        <div class="loyalty__card loyalty__card--yellow">
+          <h3>Без лишней воды</h3>
+          <p>Отрабатываем только те навыки, которые действительно нужны для успешной учёбы.</p>
+        </div>
+      </div>
+
+      <div class="loyalty__item loyalty__item--right">
+        <img class="loyalty__raccoon" src="images/new-raccoon-lazy.png" alt="" style="top:16px;">
+        <div class="loyalty__card loyalty__card--coral">
+          <h3>В своём темпе</h3>
+          <p>Не сравниваем детей между собой и двигаемся маленькими понятными шагами.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
