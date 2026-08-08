@@ -160,17 +160,41 @@
     .selection__mascot { animation:float 4s ease-in-out infinite; }
     .selection__mascot img { width:100%; }
     .selection__steps { display:flex; flex-direction:column; gap:20px; }
-    .step { display:flex; gap:18px; align-items:flex-start; background:#fff; border-radius:16px; padding:20px 24px; box-shadow:0 4px 14px rgba(123,191,212,.12); }
-    .step__num { font-family:'Rubik',sans-serif; font-size:1.6rem; font-weight:800; color:var(--sky); min-width:36px; line-height:1; }
-    .step__text h4 { font-size:1rem; font-weight:700; margin-bottom:4px; }
-    .step__text p { font-size:.88rem; color:var(--muted); }
+    .step { display:flex; gap:16px; align-items:flex-start; padding-bottom:18px; }
+    .step:last-child { padding-bottom:0; }
+    .step__badge { width:44px; height:44px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'Rubik',sans-serif; font-size:1rem; font-weight:800; color:#fff; position:relative; z-index:1; margin-left:-6px; }
+    .step:nth-child(1) .step__badge { background:var(--sky); box-shadow:0 4px 14px rgba(123,191,212,.5); }
+    .step:nth-child(2) .step__badge { background:var(--green); box-shadow:0 4px 14px rgba(107,197,160,.5); }
+    .step:nth-child(3) .step__badge { background:var(--yellow); color:var(--ink); box-shadow:0 4px 14px rgba(245,215,110,.55); }
+    .step:nth-child(4) .step__badge { background:var(--coral); box-shadow:0 4px 14px rgba(255,138,122,.5); }
+    .step:nth-child(5) .step__badge { background:var(--sky); box-shadow:0 4px 14px rgba(123,191,212,.5); }
+    .step:nth-child(6) .step__badge { background:var(--green); box-shadow:0 4px 14px rgba(107,197,160,.5); }
+    .step__card { flex:1; background:#fff; border-radius:18px; padding:18px 22px; border-left:4px solid transparent; transition:transform .2s ease, box-shadow .2s ease; }
+    .step__card:hover { transform:translateX(5px); box-shadow:0 8px 28px rgba(0,0,0,.1); }
+    .step:nth-child(1) .step__card { border-left-color:var(--sky); box-shadow:0 3px 16px rgba(123,191,212,.14); }
+    .step:nth-child(2) .step__card { border-left-color:var(--green); box-shadow:0 3px 16px rgba(107,197,160,.14); }
+    .step:nth-child(3) .step__card { border-left-color:var(--yellow); box-shadow:0 3px 16px rgba(245,215,110,.18); }
+    .step:nth-child(4) .step__card { border-left-color:var(--coral); box-shadow:0 3px 16px rgba(255,138,122,.14); }
+    .step:nth-child(5) .step__card { border-left-color:var(--sky); box-shadow:0 3px 16px rgba(123,191,212,.14); }
+    .step:nth-child(6) .step__card { border-left-color:var(--green); box-shadow:0 3px 16px rgba(107,197,160,.14); }
+    .step__icon { float:right; font-size:1.45rem; margin:-2px 0 6px 10px; }
+    .step__card h4 { font-size:1.02rem; font-weight:800; color:var(--ink); margin-bottom:6px; }
+    .step__card p { font-size:.88rem; color:var(--muted); line-height:1.72; }
 
     /* LESSONS */
-    .lessons { background: var(--bg); }
-    .lessons__inner { display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: start; }
-    .lessons__photo-wrap { position: sticky; top: 90px; }
-    .lessons__photo { width: 100%; border-radius: 20px; box-shadow: 0 16px 48px rgba(123,191,212,.22); object-fit: cover; object-position: center top; max-height: 580px; }
-    .lessons__steps { display: flex; flex-direction: column; gap: 16px; }
+    /* LESSONS */
+    .lessons { background: linear-gradient(180deg,#fff 0%,var(--bg) 100%); }
+    .lessons__inner { display:grid; grid-template-columns:300px 1fr; gap:52px; align-items:start; }
+    .lessons__photo-wrap { position:sticky; top:90px; }
+    .lessons__photo-ring { border-radius:26px; padding:4px; background:linear-gradient(145deg,var(--sky),var(--yellow) 55%,var(--coral)); }
+    .lessons__photo { width:100%; border-radius:22px; display:block; object-fit:cover; object-position:center top; max-height:520px; }
+    .lessons__caption { margin-top:14px; background:#fff; border-radius:16px; padding:14px 18px; box-shadow:0 4px 18px rgba(123,191,212,.15); display:flex; align-items:center; gap:12px; }
+    .lessons__caption-icon { font-size:1.7rem; flex-shrink:0; }
+    .lessons__caption-text strong { display:block; font-size:.95rem; font-weight:800; color:var(--ink); }
+    .lessons__caption-text span { font-size:.82rem; color:var(--muted); }
+    /* TIMELINE */
+    .lessons__steps { display:flex; flex-direction:column; position:relative; padding-left:28px; }
+    .lessons__steps::before { content:''; position:absolute; left:21px; top:22px; bottom:22px; width:3px; border-radius:3px; background:linear-gradient(180deg,var(--sky) 0%,var(--green) 40%,var(--yellow) 70%,var(--coral) 100%); opacity:.3; }
 
     /* FEATURES */
     .features { background:#fff; }
@@ -259,8 +283,11 @@
       .selection__mascot { display:flex; justify-content:center; }
       .selection__mascot img { max-width:220px; }
       .lessons__inner { grid-template-columns: 1fr; }
-      .lessons__photo-wrap { position: static; display: flex; justify-content: center; }
-      .lessons__photo { max-width: 320px; max-height: 420px; }
+      .lessons__photo-wrap { position:static; display:flex; flex-direction:column; align-items:center; }
+      .lessons__photo-ring { max-width:280px; width:100%; }
+      .lessons__photo { max-height:380px; }
+      .lessons__caption { max-width:280px; }
+      .lessons__steps { padding-left:20px; }
       .features__inner { grid-template-columns:1fr; }
       .features__mascot { display:flex; justify-content:center; position:static; }
       .features__mascot img { max-width:200px; }
@@ -459,53 +486,78 @@
 <section class="lessons" id="lessons">
   <div class="container">
     <h2 class="section-title">Как проходят занятия <span class="accent">в Успевайке</span></h2>
+    <p class="section-subtitle">От первого звонка до регулярных занятий — 6 понятных шагов</p>
     <div class="lessons__inner">
+
       <div class="lessons__photo-wrap">
-        <img class="lessons__photo" src="images/svetlana-working.jpg" alt="Светлана, Успевайка">
+        <div class="lessons__photo-ring">
+          <img class="lessons__photo" src="images/svetlana-working.jpg" alt="Светлана, основатель Успевайки">
+        </div>
+        <div class="lessons__caption">
+          <div class="lessons__caption-icon">💙</div>
+          <div class="lessons__caption-text">
+            <strong>Светлана лично подбирает каждого преподавателя</strong>
+            <span>и остаётся на связи с семьёй</span>
+          </div>
+        </div>
       </div>
+
       <div class="lessons__steps">
+
         <div class="step">
-          <div class="step__num">1</div>
-          <div class="step__text">
+          <div class="step__badge">1</div>
+          <div class="step__card">
+            <span class="step__icon">📝</span>
             <h4>Вы оставляете заявку</h4>
             <p>Рассказываете, какой предмет нужен ребёнку, в каком он классе и что хотелось бы улучшить.</p>
           </div>
         </div>
+
         <div class="step">
-          <div class="step__num">2</div>
-          <div class="step__text">
+          <div class="step__badge">2</div>
+          <div class="step__card">
+            <span class="step__icon">🔍</span>
             <h4>Я подбираю преподавателя</h4>
             <p>Учитываю возраст ребёнка, его задачи и особенности.</p>
           </div>
         </div>
+
         <div class="step">
-          <div class="step__num">3</div>
-          <div class="step__text">
+          <div class="step__badge">3</div>
+          <div class="step__card">
+            <span class="step__icon">💬</span>
             <h4>Создаём общую группу</h4>
             <p>Для каждой семьи создаётся отдельная группа в Telegram или ВКонтакте. В ней общаются родитель, ученик, преподаватель и я. Все важные вопросы и договорённости остаются в одном месте.</p>
           </div>
         </div>
+
         <div class="step">
-          <div class="step__num">4</div>
-          <div class="step__text">
+          <div class="step__badge">4</div>
+          <div class="step__card">
+            <span class="step__icon">🤝</span>
             <h4>Знакомство и первый урок</h4>
             <p>Ребёнок знакомится с преподавателем и начинает заниматься. После первого урока преподаватель даёт родителям обратную связь.</p>
           </div>
         </div>
+
         <div class="step">
-          <div class="step__num">5</div>
-          <div class="step__text">
+          <div class="step__badge">5</div>
+          <div class="step__card">
+            <span class="step__icon">📅</span>
             <h4>Выстраиваем постоянное расписание</h4>
             <p>Если ребёнку подходит преподаватель, договариваемся об удобном времени и продолжаем занятия по расписанию.</p>
           </div>
         </div>
+
         <div class="step">
-          <div class="step__num">6</div>
-          <div class="step__text">
+          <div class="step__badge">6</div>
+          <div class="step__card">
+            <span class="step__icon">💙</span>
             <h4>Я остаюсь на связи</h4>
             <p>Если появляются вопросы, сложности или меняются обстоятельства, родители всегда могут обратиться ко мне.</p>
           </div>
         </div>
+
       </div>
     </div>
   </div>
