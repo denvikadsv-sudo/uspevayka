@@ -237,9 +237,12 @@
       .why__grid { grid-template-columns:repeat(2,1fr); }
     }
     @media (max-width:480px) {
-      .story__inner { grid-template-columns:1fr; }
-      .story__photo { min-height:260px; order:1; }
-      .story__left { order:2; }
+      .story__inner { grid-template-columns:1fr 145px; gap:10px; }
+      .story__photo { width:145px; height:360px; }
+      .story__stat { padding:10px 6px; border-radius:12px; }
+      .story__stat-icon { font-size:1.2rem; }
+      .story__stat-num { font-size:.95rem; }
+      .story__stat-desc { font-size:.7rem; }
       .story__conclusion { flex-direction:column-reverse; text-align:center; }
     }
     @media (max-width:600px) {
