@@ -129,20 +129,30 @@
     .why__card p { font-size:.9rem; color:var(--muted); }
 
     /* LOYALTY */
-    .loyalty { background:var(--bg); }
-    .loyalty__list { display:flex; flex-direction:column; gap:20px; }
-    .loyalty__item { position:relative; padding-top:52px; }
-    .loyalty__item--left .loyalty__card { max-width:82%; }
-    .loyalty__item--right .loyalty__card { max-width:82%; margin-left:auto; }
-    .loyalty__card { border-radius:24px; padding:20px 24px; }
-    .loyalty__card--sky { background:var(--sky-pale); }
-    .loyalty__card--yellow { background:#FFF5CC; }
-    .loyalty__card--coral { background:#FFE8E5; }
-    .loyalty__raccoon { position:absolute; width:64px; height:auto; top:0; }
-    .loyalty__item--left .loyalty__raccoon { left:4px; top:-14px; }
-    .loyalty__item--right .loyalty__raccoon { right:4px; }
-    .loyalty__card h3 { font-size:1.05rem; font-weight:700; color:var(--ink); margin-bottom:8px; }
-    .loyalty__card p { font-size:.9rem; color:var(--muted); line-height:1.65; }
+    .loyalty { background:#fff; }
+    .loyalty__list { display:flex; flex-direction:column; gap:24px; max-width:840px; margin:0 auto; }
+    .loyalty__item { display:flex; align-items:center; gap:20px; }
+    .loyalty__item--right { flex-direction:row-reverse; }
+    .loyalty__figure { width:130px; flex-shrink:0; display:flex; justify-content:center; align-items:center; }
+    .loyalty__raccoon { width:110px; height:auto; filter:drop-shadow(0 8px 18px rgba(0,0,0,0.13)); animation:float 4s ease-in-out infinite; }
+    .loyalty__item:nth-child(2) .loyalty__raccoon { animation-delay:.65s; }
+    .loyalty__item:nth-child(3) .loyalty__raccoon { animation-delay:1.3s; }
+    .loyalty__item:nth-child(4) .loyalty__raccoon { animation-delay:1.95s; }
+    .loyalty__item:nth-child(5) .loyalty__raccoon { animation-delay:2.6s; }
+    .loyalty__item:nth-child(6) .loyalty__raccoon { animation-delay:3.25s; }
+    .loyalty__card { flex:1; border-radius:24px; padding:28px 32px; transition:transform .25s ease, box-shadow .25s ease; }
+    .loyalty__card:hover { transform:translateY(-3px); }
+    .loyalty__card--sky { background:linear-gradient(140deg,#EBF8FD 0%,#D2EBF7 100%); border-left:5px solid var(--sky); box-shadow:0 4px 24px rgba(123,191,212,.18); }
+    .loyalty__card--sky:hover { box-shadow:0 10px 32px rgba(123,191,212,.3); }
+    .loyalty__card--yellow { background:linear-gradient(140deg,#FFFBEB 0%,#FEF2BF 100%); border-left:5px solid var(--yellow); box-shadow:0 4px 24px rgba(245,215,110,.22); }
+    .loyalty__card--yellow:hover { box-shadow:0 10px 32px rgba(245,215,110,.36); }
+    .loyalty__card--coral { background:linear-gradient(140deg,#FFF4F3 0%,#FFE2DE 100%); border-left:5px solid var(--coral); box-shadow:0 4px 24px rgba(255,138,122,.18); }
+    .loyalty__card--coral:hover { box-shadow:0 10px 32px rgba(255,138,122,.3); }
+    .loyalty__item--right .loyalty__card--sky { border-left:none; border-right:5px solid var(--sky); }
+    .loyalty__item--right .loyalty__card--yellow { border-left:none; border-right:5px solid var(--yellow); }
+    .loyalty__item--right .loyalty__card--coral { border-left:none; border-right:5px solid var(--coral); }
+    .loyalty__card h3 { font-size:1.2rem; font-weight:800; color:var(--ink); margin-bottom:10px; }
+    .loyalty__card p { font-size:.975rem; color:var(--muted); line-height:1.75; }
 
     /* SELECTION */
     .selection { background:var(--sky-pale); }
@@ -282,6 +292,12 @@
       .results__grid { grid-template-columns:1fr; }
       .contact__inner { grid-template-columns:1fr; }
       .footer__inner { flex-direction:column; text-align:center; }
+      .loyalty__item, .loyalty__item--right { flex-direction:column; gap:0; align-items:stretch; }
+      .loyalty__figure { width:100%; justify-content:center; margin-bottom:-10px; z-index:1; position:relative; }
+      .loyalty__raccoon { width:80px; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.12)); }
+      .loyalty__item--right .loyalty__card--sky { border-right:none; border-left:5px solid var(--sky); }
+      .loyalty__item--right .loyalty__card--yellow { border-right:none; border-left:5px solid var(--yellow); }
+      .loyalty__item--right .loyalty__card--coral { border-right:none; border-left:5px solid var(--coral); }
     }
   </style>
 </head>
@@ -377,7 +393,9 @@
     <div class="loyalty__list">
 
       <div class="loyalty__item loyalty__item--left">
+        <div class="loyalty__figure">
         <img class="loyalty__raccoon" src="images/new-raccoon-wave.png" alt="">
+      </div>
         <div class="loyalty__card loyalty__card--sky">
           <h3>Тёплая атмосфера</h3>
           <p>Ребёнок не боится задавать вопросы и ошибаться.</p>
@@ -385,7 +403,9 @@
       </div>
 
       <div class="loyalty__item loyalty__item--right">
+        <div class="loyalty__figure">
         <img class="loyalty__raccoon" src="images/new-raccoon-side.png" alt="">
+      </div>
         <div class="loyalty__card loyalty__card--yellow">
           <h3>От простого к сложному</h3>
           <p>Мы не даём задания, к которым ребёнок ещё не готов.</p>
@@ -393,7 +413,9 @@
       </div>
 
       <div class="loyalty__item loyalty__item--left">
+        <div class="loyalty__figure">
         <img class="loyalty__raccoon" src="images/new-raccoon-surprised.png" alt="">
+      </div>
         <div class="loyalty__card loyalty__card--coral">
           <h3>Ситуации успеха</h3>
           <p>Ребёнок учится замечать свои достижения.</p>
@@ -401,7 +423,9 @@
       </div>
 
       <div class="loyalty__item loyalty__item--right">
+        <div class="loyalty__figure">
         <img class="loyalty__raccoon" src="images/new-raccoon-bike.png" alt="">
+      </div>
         <div class="loyalty__card loyalty__card--sky">
           <h3>Уверенность в себе</h3>
           <p>То, что раньше вызывало стресс, постепенно начинает получаться.</p>
@@ -409,7 +433,9 @@
       </div>
 
       <div class="loyalty__item loyalty__item--left">
+        <div class="loyalty__figure">
         <img class="loyalty__raccoon" src="images/new-raccoon-wave.png" alt="">
+      </div>
         <div class="loyalty__card loyalty__card--yellow">
           <h3>Без лишней воды</h3>
           <p>Отрабатываем только те навыки, которые действительно нужны для успешной учёбы.</p>
@@ -417,7 +443,9 @@
       </div>
 
       <div class="loyalty__item loyalty__item--right">
-        <img class="loyalty__raccoon" src="images/new-raccoon-lazy.png" alt="" style="top:16px;">
+        <div class="loyalty__figure">
+        <img class="loyalty__raccoon" src="images/new-raccoon-lazy.png" alt="">
+      </div>
         <div class="loyalty__card loyalty__card--coral">
           <h3>В своём темпе</h3>
           <p>Не сравниваем детей между собой и двигаемся маленькими понятными шагами.</p>
