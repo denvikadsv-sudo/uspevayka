@@ -237,9 +237,8 @@
       .why__grid { grid-template-columns:repeat(2,1fr); }
     }
     @media (max-width:480px) {
-      .story__inner { grid-template-columns:1fr; }
-      .story__photo { min-height:260px; order:1; }
-      .story__left { order:2; }
+      .story__inner { grid-template-columns:1.1fr 1fr; gap:10px; }
+      .story__photo { min-height:220px; }
       .story__conclusion { flex-direction:column-reverse; text-align:center; }
     }
     @media (max-width:600px) {
