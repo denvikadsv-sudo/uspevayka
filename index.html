@@ -129,16 +129,20 @@
     .why__card p { font-size:.9rem; color:var(--muted); }
 
     /* LOYALTY */
-    .loyalty { background:var(--sky-pale); }
-    .loyalty__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:48px; }
-    .loyalty__card { background:#fff; border-radius:20px; padding:28px 24px; border:2px solid var(--sky-light); transition:transform .2s,box-shadow .2s; }
-    .loyalty__card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(123,191,212,.2); }
-    .loyalty__icon { font-size:2.2rem; margin-bottom:12px; }
-    .loyalty__card h3 { font-size:1.05rem; font-weight:700; margin-bottom:8px; color:var(--ink); }
-    .loyalty__card p { font-size:.9rem; color:var(--muted); line-height:1.6; }
-    .loyalty__raccoons { display:flex; justify-content:center; align-items:flex-end; gap:32px; }
-    .loyalty__raccoon { width:90px; height:auto; transition:transform .3s; }
-    .loyalty__raccoon:hover { transform:translateY(-6px); }
+    .loyalty { background:var(--bg); }
+    .loyalty__list { display:flex; flex-direction:column; gap:20px; }
+    .loyalty__item { position:relative; padding-top:52px; }
+    .loyalty__item--left .loyalty__card { max-width:82%; }
+    .loyalty__item--right .loyalty__card { max-width:82%; margin-left:auto; }
+    .loyalty__card { border-radius:24px; padding:20px 24px; }
+    .loyalty__card--sky { background:var(--sky-pale); }
+    .loyalty__card--yellow { background:#FFF5CC; }
+    .loyalty__card--coral { background:#FFE8E5; }
+    .loyalty__raccoon { position:absolute; width:80px; height:auto; top:0; }
+    .loyalty__item--left .loyalty__raccoon { left:4px; }
+    .loyalty__item--right .loyalty__raccoon { right:4px; }
+    .loyalty__card h3 { font-size:1.05rem; font-weight:700; color:var(--ink); margin-bottom:8px; }
+    .loyalty__card p { font-size:.9rem; color:var(--muted); line-height:1.65; }
 
     /* SELECTION */
     .selection { background:var(--sky-pale); }
@@ -230,7 +234,6 @@
       .hero__inner { grid-template-columns:1fr; padding:24px 24px 220px; min-height:520px; }
       .hero::before { background-size: 100% auto; background-position: center bottom; }
       .hero::after { background: linear-gradient(to bottom, rgba(255,255,255,0.97) 52%, rgba(255,255,255,0.0) 68%); }
-      .loyalty__grid { grid-template-columns:repeat(2,1fr); }
       .story__inner { grid-template-columns:1.2fr 1fr; gap:16px; }
       .story__photo { grid-column:2; grid-row:1; min-height:260px; border-radius:14px; }
       .story__conclusion { padding:20px; }
@@ -251,9 +254,6 @@
       .why__grid { grid-template-columns:repeat(2,1fr); }
     }
     @media (max-width:480px) {
-      .loyalty__grid { grid-template-columns:1fr; }
-      .loyalty__raccoons { gap:16px; }
-      .loyalty__raccoon { width:64px; }
       .story__inner { display:block; overflow:hidden; }
       .story__photo { float:right; width:145px; height:340px; margin-left:12px; margin-bottom:10px; border-radius:14px; }
       .story__stat { padding:10px 6px; border-radius:12px; }
@@ -360,45 +360,59 @@
 <section class="loyalty" id="loyalty">
   <div class="container">
     <h2 class="section-title">Почему с нами <span class="accent">остаются на годы</span>?</h2>
-    <div class="loyalty__grid">
-      <div class="loyalty__card">
-        <div class="loyalty__icon">🤗</div>
-        <h3>Тёплая атмосфера</h3>
-        <p>Ребёнок не боится задавать вопросы и ошибаться.</p>
+    <div class="loyalty__list">
+
+      <div class="loyalty__item loyalty__item--left">
+        <img class="loyalty__raccoon" src="images/raccoon-wave.png" alt="">
+        <div class="loyalty__card loyalty__card--sky">
+          <h3>Тёплая атмосфера</h3>
+          <p>Ребёнок не боится задавать вопросы и ошибаться.</p>
+        </div>
       </div>
-      <div class="loyalty__card">
-        <div class="loyalty__icon">🪜</div>
-        <h3>От простого к сложному</h3>
-        <p>Мы не даём задания, к которым ребёнок ещё не готов.</p>
+
+      <div class="loyalty__item loyalty__item--right">
+        <img class="loyalty__raccoon" src="images/raccoon-book.png" alt="">
+        <div class="loyalty__card loyalty__card--yellow">
+          <h3>От простого к сложному</h3>
+          <p>Мы не даём задания, к которым ребёнок ещё не готов.</p>
+        </div>
       </div>
-      <div class="loyalty__card">
-        <div class="loyalty__icon">🌟</div>
-        <h3>Ситуации успеха</h3>
-        <p>Ребёнок учится замечать свои достижения.</p>
+
+      <div class="loyalty__item loyalty__item--left">
+        <img class="loyalty__raccoon" src="images/raccoon-pencil.png" alt="">
+        <div class="loyalty__card loyalty__card--coral">
+          <h3>Ситуации успеха</h3>
+          <p>Ребёнок учится замечать свои достижения.</p>
+        </div>
       </div>
-      <div class="loyalty__card">
-        <div class="loyalty__icon">💪</div>
-        <h3>Уверенность в себе</h3>
-        <p>То, что раньше вызывало стресс, постепенно начинает получаться.</p>
+
+      <div class="loyalty__item loyalty__item--right">
+        <img class="loyalty__raccoon" src="images/raccoon-desk.png" alt="">
+        <div class="loyalty__card loyalty__card--sky">
+          <h3>Уверенность в себе</h3>
+          <p>То, что раньше вызывало стресс, постепенно начинает получаться.</p>
+        </div>
       </div>
-      <div class="loyalty__card">
-        <div class="loyalty__icon">🎯</div>
-        <h3>Без лишней воды</h3>
-        <p>Отрабатываем только те навыки, которые действительно нужны для успешной учёбы.</p>
+
+      <div class="loyalty__item loyalty__item--left">
+        <img class="loyalty__raccoon" src="images/raccoon-wave.png" alt="">
+        <div class="loyalty__card loyalty__card--yellow">
+          <h3>Без лишней воды</h3>
+          <p>Отрабатываем только те навыки, которые действительно нужны для успешной учёбы.</p>
+        </div>
       </div>
-      <div class="loyalty__card">
-        <div class="loyalty__icon">🐾</div>
-        <h3>В своём темпе</h3>
-        <p>Не сравниваем детей между собой и двигаемся маленькими понятными шагами.</p>
+
+      <div class="loyalty__item loyalty__item--right">
+        <img class="loyalty__raccoon" src="images/raccoon-pencil.png" alt="">
+        <div class="loyalty__card loyalty__card--coral">
+          <h3>В своём темпе</h3>
+          <p>Не сравниваем детей между собой и двигаемся маленькими понятными шагами.</p>
+        </div>
       </div>
-    </div>
-    <div class="loyalty__raccoons">
-      <img src="images/raccoon-wave.png" alt="" class="loyalty__raccoon">
-      <img src="images/raccoon-book.png" alt="" class="loyalty__raccoon">
-      <img src="images/raccoon-pencil.png" alt="" class="loyalty__raccoon">
-      <img src="images/raccoon-desk.png" alt="" class="loyalty__raccoon">
+
     </div>
   </div>
+</section>
 
 <section class="why" id="why">
   <div class="container">
