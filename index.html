@@ -311,9 +311,6 @@
       .why__grid { grid-template-columns:repeat(2,1fr); }
     }
     @media (max-width:480px) {
-      .story__photo-col { flex-direction:column; align-items:center; }
-      .story__photo-ring { max-width:100%; }
-      .story__photo { height:280px; }
       .story__stat { padding:12px 8px; border-radius:12px; }
       .story__stat-icon { font-size:1.3rem; }
       .story__stat-num { font-size:1rem; }
@@ -331,6 +328,11 @@
       .hero__subtitle { display:none; }
       .hero__stats { display:none; }
       .hero__inner { padding:40px 24px 260px; }
+      .story__inner { display:block; overflow:hidden; }
+      .story__photo-col { float:right; width:145px; flex-direction:column; position:static; margin-left:14px; margin-bottom:10px; gap:10px; }
+      .story__photo-ring { max-width:145px; }
+      .story__photo { height:auto; max-height:none; }
+      .story__photo-badge { display:none; }
       .why__grid { grid-template-columns:1fr; }
       .features__grid { grid-template-columns:1fr; }
       .results__grid { grid-template-columns:1fr; }
