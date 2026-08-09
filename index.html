@@ -201,6 +201,22 @@
     .lessons__steps { display:flex; flex-direction:column; position:relative; padding-left:28px; }
     .lessons__steps::before { content:''; position:absolute; left:21px; top:22px; bottom:22px; width:3px; border-radius:3px; background:linear-gradient(180deg,var(--sky) 0%,var(--green) 40%,var(--yellow) 70%,var(--coral) 100%); opacity:.3; }
 
+
+    /* TEACHERS */
+    .teachers { background:#fff; }
+    .teachers__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:8px; }
+    .teacher-card { background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 4px 24px rgba(123,191,212,.13); transition:transform .22s,box-shadow .22s; }
+    .teacher-card:hover { transform:translateY(-5px); box-shadow:0 14px 40px rgba(123,191,212,.24); }
+    .teacher-card__photo { width:100%; height:240px; object-fit:cover; object-position:center top; display:block; }
+    .teacher-card__avatar { width:100%; height:240px; display:flex; align-items:center; justify-content:center; font-family:'Comfortaa',sans-serif; font-size:4.5rem; font-weight:700; color:#fff; letter-spacing:-2px; }
+    .teacher-card__body { padding:20px 22px 24px; }
+    .teacher-card__name { font-family:'Comfortaa',sans-serif; font-size:1.08rem; font-weight:700; color:var(--ink); margin-bottom:4px; }
+    .teacher-card__exp { font-size:.78rem; color:var(--muted); font-weight:600; margin-bottom:14px; display:flex; align-items:center; gap:5px; }
+    .teacher-card__exp::before { content:''; display:inline-block; width:18px; height:2px; background:var(--sky); border-radius:2px; }
+    .teacher-card__subjects { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+    .teacher-chip { background:var(--sky-pale); color:var(--sky); font-size:.72rem; font-weight:700; padding:4px 11px; border-radius:20px; white-space:nowrap; }
+    .teacher-card__note { font-size:.83rem; color:var(--muted); line-height:1.65; border-top:1px solid var(--sky-pale); padding-top:12px; }
+
     /* FEATURES */
     .features { background:#fff; }
     .features__inner { display:grid; grid-template-columns:1fr 240px; gap:48px; align-items:start; }
@@ -286,6 +302,7 @@
       .story__conclusion { padding:24px 28px; gap:20px; }
       .story__conclusion-mascot { width:90px; }
       .selection__inner { grid-template-columns:1fr; }
+      .teachers__grid { grid-template-columns:repeat(2,1fr); gap:18px; }
       .selection__mascot { display:flex; justify-content:center; }
       .selection__mascot img { max-width:220px; }
       .lessons__inner { grid-template-columns: 1fr; }
@@ -331,6 +348,7 @@
       .story__photo-badge { display:none; }
       .story__right { display:block; }
       .story__header { margin-bottom:16px; padding-bottom:14px; }
+      .teachers__grid { grid-template-columns:1fr; }
       .why__grid { grid-template-columns:1fr; }
       .features__grid { grid-template-columns:1fr; }
       .results__grid { grid-template-columns:1fr; }
@@ -619,8 +637,100 @@
       </div>
     </div>
   </div>
-</section>
 
+
+<section class="teachers" id="teachers">
+  <div class="container">
+    <h2 class="section-title">Познакомьтесь с нашей <span class="accent">командой</span></h2>
+    <p class="section-subtitle">Педагоги, которым можно доверить обучение вашего ребёнка</p>
+    <div class="teachers__grid">
+
+      <div class="teacher-card">
+        <img class="teacher-card__photo" src="images/teacher-anna.jpg" alt="Анна" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="teacher-card__avatar" style="background:linear-gradient(145deg,var(--sky),#4ea8c4);display:none">А</div>
+        <div class="teacher-card__body">
+          <p class="teacher-card__name">Анна</p>
+          <p class="teacher-card__exp">7 лет опыта</p>
+          <div class="teacher-card__subjects">
+            <span class="teacher-chip">📐 Математика</span>
+            <span class="teacher-chip">📊 Алгебра</span>
+          </div>
+          <p class="teacher-card__note">Специализируется на подготовке к ОГЭ и ЕГЭ, объясняет сложное просто.</p>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <img class="teacher-card__photo" src="images/teacher-elena.jpg" alt="Елена" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="teacher-card__avatar" style="background:linear-gradient(145deg,#e8b84b,var(--yellow));display:none">Е</div>
+        <div class="teacher-card__body">
+          <p class="teacher-card__name">Елена</p>
+          <p class="teacher-card__exp">9 лет опыта</p>
+          <div class="teacher-card__subjects">
+            <span class="teacher-chip">📝 Русский язык</span>
+            <span class="teacher-chip">📖 Литература</span>
+          </div>
+          <p class="teacher-card__note">Помогает с грамотностью, сочинениями и подготовкой к итоговому изложению.</p>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <img class="teacher-card__photo" src="images/teacher-dmitry.jpg" alt="Дмитрий" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="teacher-card__avatar" style="background:linear-gradient(145deg,var(--coral),#e06b5a);display:none">Д</div>
+        <div class="teacher-card__body">
+          <p class="teacher-card__name">Дмитрий</p>
+          <p class="teacher-card__exp">5 лет опыта</p>
+          <div class="teacher-card__subjects">
+            <span class="teacher-chip">🌍 Английский язык</span>
+          </div>
+          <p class="teacher-card__note">Разговорный английский, грамматика и подготовка к международным экзаменам.</p>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <img class="teacher-card__photo" src="images/teacher-maria.jpg" alt="Мария" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="teacher-card__avatar" style="background:linear-gradient(145deg,var(--green),#4aaa80);display:none">М</div>
+        <div class="teacher-card__body">
+          <p class="teacher-card__name">Мария</p>
+          <p class="teacher-card__exp">6 лет опыта</p>
+          <div class="teacher-card__subjects">
+            <span class="teacher-chip">🧪 Химия</span>
+            <span class="teacher-chip">🌱 Биология</span>
+          </div>
+          <p class="teacher-card__note">Делает естественные науки понятными и интересными для школьников любого уровня.</p>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <img class="teacher-card__photo" src="images/teacher-irina.jpg" alt="Ирина" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="teacher-card__avatar" style="background:linear-gradient(145deg,#7bbfd4,#3d9ab8);display:none">И</div>
+        <div class="teacher-card__body">
+          <p class="teacher-card__name">Ирина</p>
+          <p class="teacher-card__exp">11 лет опыта</p>
+          <div class="teacher-card__subjects">
+            <span class="teacher-chip">📜 История</span>
+            <span class="teacher-chip">⚖️ Обществознание</span>
+          </div>
+          <p class="teacher-card__note">Один из самых опытных педагогов команды, отличный результат на ЕГЭ у учеников.</p>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <img class="teacher-card__photo" src="images/teacher-alexey.jpg" alt="Алексей" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="teacher-card__avatar" style="background:linear-gradient(145deg,#ffb07a,var(--coral));display:none">А</div>
+        <div class="teacher-card__body">
+          <p class="teacher-card__name">Алексей</p>
+          <p class="teacher-card__exp">8 лет опыта</p>
+          <div class="teacher-card__subjects">
+            <span class="teacher-chip">⚡ Физика</span>
+            <span class="teacher-chip">🎓 ОГЭ / ЕГЭ</span>
+          </div>
+          <p class="teacher-card__note">Специалист по подготовке к экзаменам — 95% учеников набирают 80+ баллов.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <section class="features" id="features">
   <div class="container">
