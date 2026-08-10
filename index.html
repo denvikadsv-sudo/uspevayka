@@ -331,6 +331,8 @@
     .modal-btn svg { width:22px; height:22px; flex-shrink:0; color:var(--sky); }
     .modal__close { margin-top:16px; width:100%; padding:11px; background:none; border:none; font-family:'Nunito',sans-serif; font-size:.9rem; color:var(--muted); cursor:pointer; border-radius:10px; transition:color .2s; }
     .modal__close:hover { color:var(--ink); }
+    .toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(10px); background:var(--ink); color:#fff; padding:11px 22px; border-radius:50px; font-size:.86rem; font-weight:600; opacity:0; pointer-events:none; transition:opacity .25s,transform .25s; z-index:2000; white-space:nowrap; }
+    .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 
     /* FOOTER */
     .footer { background:var(--ink); color:rgba(255,255,255,.7); padding:40px 0; }
@@ -988,6 +990,8 @@
   </div>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script>
   const burger = document.getElementById('burger');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1015,15 +1019,30 @@
     document.getElementById('messengerModal').classList.remove('open');
   });
 
+  function showToast(text) {
+    var t = document.getElementById('toast');
+    t.textContent = text;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 3000);
+  }
+
   document.querySelectorAll('.modal-btn[data-messenger]').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      const msg = document.getElementById('messengerModal').dataset.msg;
+      const msgEnc = document.getElementById('messengerModal').dataset.msg;
+      const msgPlain = decodeURIComponent(msgEnc);
       const m = this.dataset.messenger;
       let url;
-      if (m === 'tg')  url = 'https://t.me/svetapedagog';
-      if (m === 'wa')  url = 'https://api.whatsapp.com/send?phone=79097923750&text=' + msg;
-      if (m === 'vk')  url = 'https://vk.com/uspevaika';
-      if (m === 'ig')  url = 'https://instagram.com/uspevaika';
+      if (m === 'tg') url = 'https://t.me/svetapedagog';
+      if (m === 'wa') url = 'https://api.whatsapp.com/send?phone=79097923750&text=' + msgEnc;
+      if (m === 'vk') url = 'https://vk.com/uspevaika';
+      if (m === 'ig') url = 'https://instagram.com/uspevaika';
+
+      if (m !== 'wa' && navigator.clipboard) {
+        navigator.clipboard.writeText(msgPlain).then(function() {
+          showToast('📋 Сообщение скопировано — вставьте в чат');
+        });
+      }
+
       window.open(url, '_blank');
       document.getElementById('messengerModal').classList.remove('open');
     });
