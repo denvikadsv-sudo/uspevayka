@@ -259,9 +259,14 @@
 
     /* SUBJECTS */
     .subjects { background:var(--sky-pale); }
-    .subjects__grid { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
-    .subject-chip { background:#fff; border:2px solid var(--sky-light); border-radius:50px; padding:10px 22px; font-weight:700; font-size:.92rem; color:var(--ink); transition:background .2s,border-color .2s; }
-    .subject-chip:hover { background:var(--sky); border-color:var(--sky); color:#fff; }
+    .subjects__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .subject-cat { background:#fff; border-radius:24px; padding:28px 24px; box-shadow:0 4px 24px rgba(123,191,212,.13); transition:transform .22s,box-shadow .22s; }
+    .subject-cat:hover { transform:translateY(-4px); box-shadow:0 14px 40px rgba(123,191,212,.24); }
+    .subject-cat__icon { font-size:2.2rem; margin-bottom:10px; line-height:1; }
+    .subject-cat__title { font-family:'Comfortaa',sans-serif; font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:16px; padding-bottom:12px; border-bottom:2px solid var(--sky-pale); }
+    .subject-cat__chips { display:flex; flex-wrap:wrap; gap:8px; }
+    .subject-chip { background:var(--sky-pale); color:var(--sky); font-size:.78rem; font-weight:700; padding:5px 13px; border-radius:20px; white-space:nowrap; transition:background .18s,color .18s; cursor:default; }
+    .subject-chip:hover { background:var(--sky); color:#fff; }
 
     /* CONTACT */
     .contact { background:#fff; }
@@ -303,6 +308,7 @@
       .story__conclusion-mascot { width:90px; }
       .selection__inner { grid-template-columns:1fr; }
       .teachers__grid { grid-template-columns:repeat(2,1fr); gap:18px; }
+      .subjects__grid { grid-template-columns:repeat(2,1fr); }
       .selection__mascot { display:flex; justify-content:center; }
       .selection__mascot img { max-width:220px; }
       .lessons__inner { grid-template-columns: 1fr; }
@@ -349,6 +355,7 @@
       .story__right { display:block; }
       .story__header { margin-bottom:16px; padding-bottom:14px; }
       .teachers__grid { grid-template-columns:1fr; }
+      .subjects__grid { grid-template-columns:1fr; }
       .why__grid { grid-template-columns:1fr; }
       .features__grid { grid-template-columns:1fr; }
       .results__grid { grid-template-columns:1fr; }
@@ -736,20 +743,42 @@
     <h2 class="section-title">Наши <span class="accent">предметы</span></h2>
     <p class="section-subtitle">Репетиторы по всем школьным дисциплинам, 1–11 класс</p>
     <div class="subjects__grid">
-      <span class="subject-chip">📐 Математика</span>
-      <span class="subject-chip">🔢 Алгебра</span>
-      <span class="subject-chip">📏 Геометрия</span>
-      <span class="subject-chip">🔬 Физика</span>
-      <span class="subject-chip">⚗️ Химия</span>
-      <span class="subject-chip">🧬 Биология</span>
-      <span class="subject-chip">📖 Русский язык</span>
-      <span class="subject-chip">🌐 Английский язык</span>
-      <span class="subject-chip">🖥️ Информатика</span>
-      <span class="subject-chip">🏛️ История</span>
-      <span class="subject-chip">⚖️ Обществознание</span>
-      <span class="subject-chip">📝 ВПР</span>
-      <span class="subject-chip">📜 ОГЭ</span>
-      <span class="subject-chip">🎓 ЕГЭ</span>
+
+      <div class="subject-cat">
+        <div class="subject-cat__icon">🔬</div>
+        <p class="subject-cat__title">Точные науки и технологии</p>
+        <div class="subject-cat__chips">
+          <span class="subject-chip">📐 Математика</span>
+          <span class="subject-chip">🔢 Алгебра</span>
+          <span class="subject-chip">📏 Геометрия</span>
+          <span class="subject-chip">🔬 Физика</span>
+          <span class="subject-chip">⚗️ Химия</span>
+          <span class="subject-chip">🧬 Биология</span>
+          <span class="subject-chip">🖥️ Информатика</span>
+        </div>
+      </div>
+
+      <div class="subject-cat">
+        <div class="subject-cat__icon">📚</div>
+        <p class="subject-cat__title">Языки и гуманитарные науки</p>
+        <div class="subject-cat__chips">
+          <span class="subject-chip">📖 Русский язык</span>
+          <span class="subject-chip">🌐 Английский язык</span>
+          <span class="subject-chip">🏛️ История</span>
+          <span class="subject-chip">⚖️ Обществознание</span>
+        </div>
+      </div>
+
+      <div class="subject-cat">
+        <div class="subject-cat__icon">🎓</div>
+        <p class="subject-cat__title">Подготовка к экзаменам</p>
+        <div class="subject-cat__chips">
+          <span class="subject-chip">📝 ВПР</span>
+          <span class="subject-chip">📜 ОГЭ</span>
+          <span class="subject-chip">🎓 ЕГЭ</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
