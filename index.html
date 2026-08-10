@@ -268,6 +268,27 @@
     .subject-chip { background:var(--sky-pale); color:var(--sky); font-size:.78rem; font-weight:700; padding:5px 13px; border-radius:20px; white-space:nowrap; transition:background .18s,color .18s; cursor:default; }
     .subject-chip:hover { background:var(--sky); color:#fff; }
 
+    /* JOIN */
+    .join { background:#fff; }
+    .join__inner { max-width:860px; margin:0 auto; }
+    .join__lead { font-size:1.02rem; color:var(--muted); line-height:1.75; max-width:620px; margin:0 auto 40px; text-align:center; }
+    .join__cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px; }
+    .join__block { background:var(--bg); border-radius:20px; padding:28px 24px; border:2px solid var(--sky-light); }
+    .join__block-title { font-family:'Comfortaa',sans-serif; font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:18px; display:flex; align-items:center; gap:9px; }
+    .join__block-title span { font-size:1.5rem; line-height:1; }
+    .join__list { list-style:none; display:flex; flex-direction:column; gap:11px; }
+    .join__list li { font-size:.88rem; color:var(--muted); line-height:1.55; display:flex; align-items:flex-start; gap:9px; }
+    .join__list li::before { content:'✓'; color:var(--sky); font-weight:800; font-size:.85rem; flex-shrink:0; margin-top:2px; }
+    .join__steps { list-style:none; display:flex; flex-direction:column; gap:18px; }
+    .join__step { display:flex; gap:14px; align-items:flex-start; }
+    .join__step-num { width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,var(--sky),#5aafc8); color:#fff; font-weight:800; font-size:.82rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+    .join__step-text { font-size:.88rem; color:var(--muted); line-height:1.6; }
+    .join__note { background:var(--sky-pale); border-radius:14px; padding:15px 22px; font-size:.9rem; color:var(--muted); text-align:center; margin-bottom:32px; }
+    .join__note strong { color:var(--sky); }
+    .join__cta-wrap { text-align:center; }
+    .join__cta { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,var(--sky) 0%,#5aafc8 100%); color:#fff; padding:14px 38px; border-radius:50px; font-size:1rem; font-weight:700; box-shadow:0 6px 20px rgba(123,191,212,.38); transition:all .22s; }
+    .join__cta:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(123,191,212,.55); color:#fff; }
+
     /* CONTACT */
     .contact { background:#fff; }
     .contact__inner { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
@@ -326,6 +347,7 @@
       .pricing__mascot { display:flex; justify-content:center; }
       .pricing__mascot img { max-width:200px; }
       .pricing__mascot-wrap { flex-direction:column; }
+      .join__cols { grid-template-columns:1fr; }
       .contact__inner { grid-template-columns:1fr; }
       .why__grid { grid-template-columns:repeat(2,1fr); }
     }
@@ -779,6 +801,56 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<section class="join" id="join">
+  <div class="container">
+    <div class="join__inner">
+      <h2 class="section-title">Хотите стать частью <span class="accent">Успевайки</span>?</h2>
+      <p class="join__lead">Мы не стремимся собирать большую команду. Нам важно находить своих людей — увлечённых своим делом и бережно относящихся к детям.</p>
+
+      <div class="join__cols">
+        <div class="join__block">
+          <p class="join__block-title"><span>💙</span> Что важно для нас</p>
+          <ul class="join__list">
+            <li>Хорошо знать свой предмет</li>
+            <li>Уметь понятно объяснять и заинтересовать ребёнка</li>
+            <li>Относиться к ученику доброжелательно и уважительно</li>
+            <li>Работать на результат, без лишней нагрузки и «воды»</li>
+            <li>Видеть прогресс ребёнка и искренне радоваться его успехам</li>
+          </ul>
+        </div>
+
+        <div class="join__block">
+          <p class="join__block-title"><span>🤝</span> Как проходит знакомство</p>
+          <ol class="join__steps">
+            <li class="join__step">
+              <div class="join__step-num">1</div>
+              <p class="join__step-text">Вы рассказываете о себе и своём опыте.</p>
+            </li>
+            <li class="join__step">
+              <div class="join__step-num">2</div>
+              <p class="join__step-text">Мы знакомимся и обсуждаем формат работы.</p>
+            </li>
+            <li class="join__step">
+              <div class="join__step-num">3</div>
+              <p class="join__step-text">Проводим пробный урок или вы присылаете запись — нам важно увидеть, как вы работаете с ребёнком: объясняете, поддерживаете, вовлекаете.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="join__note">
+        <strong>Не умеете работать онлайн?</strong> Не проблема — всему необходимому научим.
+      </div>
+
+      <div class="join__cta-wrap">
+        <a href="https://wa.me/79097923750?text=Здравствуйте!+Хочу+стать+частью+команды+Успевайки." class="join__cta" target="_blank" rel="noopener">
+          ✉️&nbsp;&nbsp;Оставить заявку
+        </a>
+      </div>
     </div>
   </div>
 </section>
