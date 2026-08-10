@@ -890,12 +890,27 @@
 
 <section class="contact" id="contact">
   <div class="container">
-    <h2 class="section-title">Свяжитесь <span class="accent">с нами</span></h2>
-    <p class="section-subtitle">Запишитесь на бесплатное пробное занятие уже сегодня</p>
+    <h2 class="section-title">Записаться на <span class="accent">занятие</span></h2>
+    <p class="section-subtitle">Заполните форму или напишите нам напрямую — ответим быстро</p>
     <div class="contact__inner">
+      <div class="contact__form">
+        <form id="contactForm">
+          <div class="form-group"><label>Имя ребёнка</label><input type="text" id="fname" placeholder="Например: Маша" required></div>
+          <div class="form-group"><label>Телефон или Telegram родителя</label><input type="text" id="fcontact" placeholder="+7 900 000-00-00 или @username" required></div>
+          <div class="form-group"><label>Класс</label>
+            <select id="fgrade">
+              <option value="">Выберите класс</option>
+              <option>1 класс</option><option>2 класс</option><option>3 класс</option><option>4 класс</option><option>5 класс</option>
+              <option>6 класс</option><option>7 класс</option><option>8 класс</option><option>9 класс</option><option>10 класс</option><option>11 класс</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Предмет</label><input type="text" id="fsubject" placeholder="Например: Математика"></div>
+          <button type="submit" class="btn--submit">Записаться →</button>
+        </form>
+      </div>
       <div class="contact__info">
-        <h3>Мы в мессенджерах и соцсетях</h3>
-        <p>Выбирайте удобный способ связи — ответим быстро!</p>
+        <h3>Написать напрямую</h3>
+        <p>Выбирайте удобный мессенджер — ответим быстро!</p>
         <div class="contact__links">
           <a href="https://t.me/uspevaika" class="contact-link" target="_blank" rel="noopener">
             <span class="contact-link__icon">✈</span><span>Telegram @uspevaika</span>
@@ -913,22 +928,6 @@
             <span class="contact-link__icon">📸</span><span>Instagram</span>
           </a>
         </div>
-      </div>
-      <div class="contact__form">
-        <h3>Записаться на пробное занятие</h3>
-        <form id="contactForm">
-          <div class="form-group"><label>Имя ребёнка</label><input type="text" id="fname" placeholder="Например: Маша" required></div>
-          <div class="form-group"><label>Телефон или Telegram родителя</label><input type="text" id="fcontact" placeholder="+7 900 000-00-00 или @username" required></div>
-          <div class="form-group"><label>Класс</label>
-            <select id="fgrade">
-              <option value="">Выберите класс</option>
-              <option>1 класс</option><option>2 класс</option><option>3 класс</option><option>4 класс</option><option>5 класс</option>
-              <option>6 класс</option><option>7 класс</option><option>8 класс</option><option>9 класс</option><option>10 класс</option><option>11 класс</option>
-            </select>
-          </div>
-          <div class="form-group"><label>Предмет</label><input type="text" id="fsubject" placeholder="Например: Математика"></div>
-          <button type="submit" class="btn--submit">Записаться через WhatsApp →</button>
-        </form>
       </div>
     </div>
   </div>
