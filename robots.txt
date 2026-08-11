@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://uspevaika-online.ru/sitemap.xml
