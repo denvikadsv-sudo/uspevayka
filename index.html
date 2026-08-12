@@ -445,64 +445,23 @@
     .faq__item[open] .faq__q::after { transform:rotate(45deg); }
     .faq__a { padding:0 24px 20px; font-size:.95rem; color:var(--muted); line-height:1.75; margin:0; }
 
-    /* GAMES */
-    .games { background: #fff; }
-    .game-wrapper { max-width: 800px; margin: 0 auto; background: var(--bg); border-radius: 24px; overflow: hidden; border: 2px solid var(--sky-light); box-shadow: 0 8px 32px rgba(123,191,212,.15); }
-    .game-wrapper::before { content: ''; display: block; height: 5px; background: linear-gradient(90deg, var(--sky), var(--yellow), var(--coral), var(--green)); }
-    .game-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: -20px 0 28px; }
-    .game-footer { max-width: 800px; margin: 28px auto 0; text-align: center; }
-    .game-footer-text { font-size: .92rem; color: var(--muted); margin-bottom: 14px; }
-    .game-footer__cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--sky), #5aafc8); color: #fff; padding: 12px 28px; border-radius: 50px; font-size: .95rem; font-weight: 700; box-shadow: 0 4px 16px rgba(123,191,212,.35); transition: transform .2s, box-shadow .2s; }
-    .game-footer__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,191,212,.5); color: #fff; }
-    #games .game-header { background: #fff; padding: 18px 20px 14px; border-bottom: 1px solid var(--sky-pale); }
-    #games .gw-header-top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
-    #games .gw-title { font-family: 'Rubik', sans-serif; font-size: clamp(1rem,3vw,1.35rem); font-weight: 800; color: var(--sky); letter-spacing: -.02em; }
-    #games .gw-sub-text { font-size: .875rem; font-weight: 500; color: var(--muted); }
-    #games .gw-progress-row { display: flex; align-items: center; gap: 10px; }
-    #games .gw-progress-track { flex: 1; height: 8px; background: var(--sky-pale); border-radius: 999px; overflow: hidden; }
-    #games .gw-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--sky), var(--green)); border-radius: 999px; transition: width .4s cubic-bezier(.4,0,.2,1); }
-    #games .gw-progress-text { font-size: .8rem; font-weight: 700; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; min-width: 110px; text-align: right; }
-    #games .gw-pool-section { padding: 16px 16px 8px; }
-    #games .gw-pool-label { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-    #games .gw-pool { background: var(--sky-pale); border-radius: 16px; padding: 14px; display: flex; flex-wrap: wrap; gap: 9px; min-height: 72px; }
-    #games .gw-pool:empty::after { content: '✓ Все буквы разложены!'; color: var(--green); font-weight: 700; font-size: .95rem; margin: auto; width: 100%; text-align: center; padding: 8px 0; }
-    #games .gw-zones { display: flex; gap: 12px; padding: 8px 16px 20px; }
-    #games .gw-zone { flex: 1; border-radius: 16px; border: 2.5px dashed; padding: 14px 12px 12px; min-height: 140px; display: flex; flex-direction: column; gap: 10px; transition: transform .15s, box-shadow .15s, border-style .15s; }
-    #games .gw-zone--v { background: #FFFAE8; border-color: var(--yellow-dark); }
-    #games .gw-zone--c { background: #EAF9F3; border-color: var(--green); }
-    #games .gw-zone.drag-over { transform: scale(1.025); box-shadow: 0 8px 24px rgba(123,191,212,.2); border-style: solid; }
-    #games .gw-zone-head { display: flex; align-items: center; gap: 7px; }
-    #games .gw-zone-badge { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; font-size: .9rem; font-weight: 800; }
-    #games .gw-zone--v .gw-zone-badge { background: var(--yellow); color: #2C3A0A; }
-    #games .gw-zone--c .gw-zone-badge { background: var(--green); color: #fff; }
-    #games .gw-zone-count { font-size: .75rem; font-weight: 700; color: var(--muted); margin-left: auto; }
-    #games .gw-zone-letters { display: flex; flex-wrap: wrap; gap: 7px; min-height: 52px; }
-    #games .gw-letter { width: 58px; height: 58px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 1.85rem; font-weight: 900; cursor: grab; user-select: none; box-shadow: 0 3px 10px rgba(44,62,80,.12); color: var(--ink); transition: transform .15s, box-shadow .15s, opacity .15s; touch-action: none; position: relative; border: 2.5px solid; }
-    #games .gw-letter:hover { transform: translateY(-4px) rotate(2deg); box-shadow: 0 8px 24px rgba(44,62,80,.20); }
-    #games .gw-letter.gw-dragging { opacity: .35; cursor: grabbing; }
-    #games .gw-letter.gw-placed { cursor: default; width: 50px; height: 50px; font-size: 1.55rem; box-shadow: none; }
-    #games .gw-letter.gw-placed::after { content: '✓'; position: absolute; bottom: -5px; right: -5px; font-size: .65rem; background: var(--green); color: #fff; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1.5px solid #fff; }
-    @keyframes gw-pop { 0%{transform:scale(1)} 40%{transform:scale(1.25) rotate(-5deg)} 70%{transform:scale(.95) rotate(3deg)} 100%{transform:scale(1) rotate(0)} }
-    @keyframes gw-shake { 0%,100%{transform:translateX(0)} 15%{transform:translateX(-9px) rotate(-2deg)} 35%{transform:translateX(9px) rotate(2deg)} 55%{transform:translateX(-6px) rotate(-1deg)} 75%{transform:translateX(6px) rotate(1deg)} }
-    #games .gw-letter.gw-anim-ok { animation: gw-pop .45s cubic-bezier(.36,.07,.19,.97); }
-    #games .gw-letter.gw-anim-err { animation: gw-shake .45s cubic-bezier(.36,.07,.19,.97); }
-    .gw-overlay { position: fixed; inset: 0; background: rgba(44,62,80,.72); display: flex; align-items: center; justify-content: center; z-index: 500; padding: 20px; }
-    .gw-overlay.hidden { display: none; }
-    .gw-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 499; }
-    .gw-canvas.hidden { display: none; }
-    @keyframes gw-win-in { from{transform:scale(.5) rotate(-8deg);opacity:0} to{transform:scale(1) rotate(0);opacity:1} }
-    .gw-win-card { background: #fff; border-radius: 24px; padding: 36px 32px 32px; text-align: center; max-width: 340px; width: 100%; box-shadow: 0 24px 60px rgba(0,0,0,.35); animation: gw-win-in .5s cubic-bezier(.34,1.56,.64,1) both; }
-    .gw-win-stars { font-size: 2.4rem; margin-bottom: 4px; letter-spacing: 4px; }
-    .gw-win-title { font-family: 'Rubik', sans-serif; font-size: 2.1rem; font-weight: 900; color: var(--sky); letter-spacing: -.03em; margin-bottom: 8px; }
-    .gw-win-sub { font-size: 1rem; color: var(--muted); margin-bottom: 24px; line-height: 1.5; }
-    .gw-win-btn { background: linear-gradient(135deg, var(--sky), var(--green)); color: #fff; padding: 14px 32px; border-radius: 999px; font-size: 1.1rem; font-weight: 800; box-shadow: 0 4px 16px rgba(91,175,196,.4); transition: transform .15s, box-shadow .15s; font-family: 'Nunito', sans-serif; cursor: pointer; border: none; }
-    .gw-win-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,175,196,.5); }
-    @media (max-width: 540px) {
-      #games .gw-zones { flex-direction: column; }
-      #games .gw-zone { min-height: 100px; }
-      #games .gw-letter { width: 48px; height: 48px; font-size: 1.5rem; }
-      #games .gw-letter.gw-placed { width: 42px; height: 42px; font-size: 1.3rem; }
-    }
+    /* GAMES TEASER */
+    .games { background: var(--bg); }
+    .games-tease { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 8px; }
+    .games-tease__card { background: #fff; border-radius: 20px; overflow: hidden; border: 2px solid var(--sky-light); transition: transform .22s, box-shadow .22s; display: flex; flex-direction: column; }
+    .games-tease__card--available:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(123,191,212,.22); }
+    .games-tease__banner { height: 88px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; line-height: 1; position: relative; }
+    .games-tease__active-badge { position: absolute; top: 9px; right: 9px; background: var(--green); color: #fff; font-size: .68rem; font-weight: 800; padding: 2px 9px; border-radius: 50px; }
+    .games-tease__soon-badge { position: absolute; top: 9px; right: 9px; background: var(--yellow); color: var(--brown); font-size: .68rem; font-weight: 800; padding: 2px 9px; border-radius: 50px; }
+    .games-tease__body { padding: 14px 16px 18px; flex: 1; display: flex; flex-direction: column; }
+    .games-tease__chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .games-tease__title { font-size: .95rem; font-weight: 800; margin-bottom: 5px; color: var(--ink); }
+    .games-tease__desc { font-size: .82rem; color: var(--muted); margin-bottom: 12px; line-height: 1.5; flex: 1; }
+    .games-tease__btn { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--sky), #5aafc8); color: #fff; padding: 8px 18px; border-radius: 50px; font-size: .85rem; font-weight: 700; transition: all .2s; align-self: flex-start; }
+    .games-tease__btn:hover { transform: translateY(-1px); color: #fff; box-shadow: 0 4px 14px rgba(123,191,212,.4); }
+    .games-tease__soon { display: inline-flex; align-items: center; background: var(--sky-pale); color: var(--muted); padding: 7px 15px; border-radius: 50px; font-size: .82rem; font-weight: 700; align-self: flex-start; }
+    @media (max-width: 960px) { .games-tease { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .games-tease { grid-template-columns: 1fr; } }
 
     /* FOOTER */
     .footer { background:var(--ink); color:rgba(255,255,255,.7); padding:40px 0; }
@@ -608,7 +567,7 @@
       <li><a href="#features">Подход</a></li>
       <li><a href="#pricing">Цены</a></li>
       <li><a href="#subjects">Предметы</a></li>
-      <li><a href="#games">Игры</a></li>
+      <li><a href="games.html">Игры</a></li>
       <li><a href="#contact">Контакты</a></li>
     </ul>
     <div class="nav__right">
@@ -624,7 +583,7 @@
     <a href="#features">Подход</a>
     <a href="#pricing">Цены</a>
     <a href="#subjects">Предметы</a>
-    <a href="#games">Игры</a>
+    <a href="games.html">Игры</a>
     <a href="#contact">Контакты</a>
     <a href="tel:+79097923750">+7 909 792-3750</a>
     <a href="#contact" style="color:var(--sky);font-weight:800;">→ Записаться на пробное</a>
@@ -1031,67 +990,68 @@
 <section class="games" id="games">
   <div class="container">
     <h2 class="section-title">Играй и <span class="accent">учись</span></h2>
-    <p class="section-subtitle">Интерактивные задания — закрепляй школьную программу в игровой форме</p>
+    <p class="section-subtitle">Интерактивные задания для закрепления школьной программы — бесплатно</p>
 
-    <div class="game-chips">
-      <span class="teacher-chip" style="font-size:.82rem;padding:6px 15px;">🔤 1–2 класс</span>
-      <span class="teacher-chip" style="font-size:.82rem;padding:6px 15px;">📖 Русский язык</span>
-      <span class="teacher-chip" style="font-size:.82rem;padding:6px 15px;">🖱️ Drag &amp; Drop</span>
+    <div class="games-tease">
+
+      <div class="games-tease__card games-tease__card--available">
+        <div class="games-tease__banner" style="background:linear-gradient(135deg,#DCF0F8,#B6DFF0);">
+          🔤
+          <span class="games-tease__active-badge">Играть!</span>
+        </div>
+        <div class="games-tease__body">
+          <div class="games-tease__chips">
+            <span class="teacher-chip">📖 Русский язык</span>
+            <span class="teacher-chip">1–2 класс</span>
+          </div>
+          <h3 class="games-tease__title">Гласные и Согласные</h3>
+          <p class="games-tease__desc">Drag &amp; Drop — разложи 30 букв по корзинкам.</p>
+          <a href="games.html#game-vowels" class="games-tease__btn">▶ Играть</a>
+        </div>
+      </div>
+
+      <div class="games-tease__card">
+        <div class="games-tease__banner" style="background:linear-gradient(135deg,#FFFBEB,#FEF2BF);">
+          ✖️
+          <span class="games-tease__soon-badge">Скоро</span>
+        </div>
+        <div class="games-tease__body">
+          <div class="games-tease__chips">
+            <span class="teacher-chip">➕ Математика</span>
+            <span class="teacher-chip">2–4 класс</span>
+          </div>
+          <h3 class="games-tease__title">Таблица умножения</h3>
+          <p class="games-tease__desc">Тренируй умножение в игровой форме на скорость.</p>
+          <span class="games-tease__soon">⏳ Скоро</span>
+        </div>
+      </div>
+
+      <div class="games-tease__card">
+        <div class="games-tease__banner" style="background:linear-gradient(135deg,#EAF9F3,#C8EFE1);">
+          🅰️
+          <span class="games-tease__soon-badge">Скоро</span>
+        </div>
+        <div class="games-tease__body">
+          <div class="games-tease__chips">
+            <span class="teacher-chip">📖 Русский язык</span>
+            <span class="teacher-chip">2–4 класс</span>
+          </div>
+          <h3 class="games-tease__title">Ударения в словах</h3>
+          <p class="games-tease__desc">Ставь ударение правильно — карточки меняются автоматически.</p>
+          <span class="games-tease__soon">⏳ Скоро</span>
+        </div>
+      </div>
+
     </div>
 
-    <div class="game-wrapper">
-      <div class="game-header">
-        <div class="gw-header-top">
-          <span class="gw-title">Гласные и Согласные</span>
-          <span class="gw-sub-text">Разложи все 30 букв по корзинкам</span>
-        </div>
-        <div class="gw-progress-row">
-          <div class="gw-progress-track" role="progressbar" aria-valuenow="0" aria-valuemax="30" id="gwProgBar">
-            <div class="gw-progress-fill" id="gwProgFill"></div>
-          </div>
-          <span class="gw-progress-text" id="gwProgText">Разложено: 0 из 30</span>
-        </div>
-      </div>
-
-      <div class="gw-pool-section">
-        <div class="gw-pool-label">Перетащи каждую букву в нужную корзинку</div>
-        <div class="gw-pool" id="gwPool"></div>
-      </div>
-
-      <div class="gw-zones">
-        <div class="gw-zone gw-zone--v" id="gwZoneV">
-          <div class="gw-zone-head">
-            <span class="gw-zone-badge">🔊 Гласные</span>
-            <span class="gw-zone-count" id="gwCntV">0 / 10</span>
-          </div>
-          <div class="gw-zone-letters" id="gwLettersV"></div>
-        </div>
-        <div class="gw-zone gw-zone--c" id="gwZoneC">
-          <div class="gw-zone-head">
-            <span class="gw-zone-badge">🗣️ Согласные</span>
-            <span class="gw-zone-count" id="gwCntC">0 / 20</span>
-          </div>
-          <div class="gw-zone-letters" id="gwLettersC"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="game-footer">
-      <p class="game-footer-text">Понравилось? Попробуй настоящее занятие с репетитором по русскому языку!</p>
-      <a href="#contact" class="game-footer__cta">Записаться на занятие →</a>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="games.html" class="btn btn--hero">
+        Все учебные игры
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
   </div>
 </section>
-
-<canvas class="gw-canvas hidden" id="gwCanvas"></canvas>
-<div class="gw-overlay hidden" id="gwOverlay">
-  <div class="gw-win-card">
-    <div class="gw-win-stars">⭐ ⭐ ⭐</div>
-    <h2 class="gw-win-title">Молодец!</h2>
-    <p class="gw-win-sub">Ты правильно разложил все 30 букв.<br>Отличная работа!</p>
-    <button class="gw-win-btn" id="gwWinBtn">🔄 Играть снова</button>
-  </div>
-</div>
 
 <section class="faq" id="faq">
   <div class="container">
@@ -1315,212 +1275,5 @@
   });
 </script>
 
-<script>
-  (function() {
-    'use strict';
-    var VOWELS = new Set(['А','Е','Ё','И','О','У','Ы','Э','Ю','Я']);
-    var CONSONANTS = new Set(['Б','В','Г','Д','Ж','З','К','Л','М','Н','П','Р','С','Т','Ф','Х','Ц','Ч','Ш','Щ']);
-    var ALL = Array.from(VOWELS).concat(Array.from(CONSONANTS));
-    var TOTAL = ALL.length;
-    var PALETTE = [
-      { bg:'#EBF7FB', bd:'#7BBFD4' },
-      { bg:'#FEF9E8', bd:'#E8C84A' },
-      { bg:'#FEEDED', bd:'#FF8A7A' },
-      { bg:'#EAF9F3', bd:'#6BC5A0' },
-      { bg:'#F0EBFF', bd:'#A78BFA' },
-    ];
-    var correct = 0, vcnt = 0, ccnt = 0;
-    var dragEl = null, touchEl = null, touchGhost = null;
-    var tox = 0, toy = 0;
-    var cfAnim = null, cfParts = [];
-
-    function shuffle(arr) {
-      var a = arr.slice();
-      for (var i = a.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
-      }
-      return a;
-    }
-
-    function gwStart() {
-      correct = 0; vcnt = 0; ccnt = 0;
-      stopCf();
-      document.getElementById('gwOverlay').classList.add('hidden');
-      document.getElementById('gwCanvas').classList.add('hidden');
-      document.getElementById('gwLettersV').innerHTML = '';
-      document.getElementById('gwLettersC').innerHTML = '';
-      document.getElementById('gwCntV').textContent = '0 / 10';
-      document.getElementById('gwCntC').textContent = '0 / 20';
-      var pool = document.getElementById('gwPool');
-      pool.innerHTML = '';
-      shuffle(ALL).forEach(function(letter, i) {
-        var c = PALETTE[i % 5];
-        pool.appendChild(makeCard(letter, c));
-      });
-      updateProg();
-    }
-
-    function makeCard(letter, c) {
-      var el = document.createElement('div');
-      el.className = 'gw-letter';
-      el.textContent = letter;
-      el.dataset.letter = letter;
-      el.draggable = true;
-      el.style.background = c.bg;
-      el.style.borderColor = c.bd;
-      el.addEventListener('dragstart', function(e) { dragEl = el; el.classList.add('gw-dragging'); e.dataTransfer.effectAllowed = 'move'; });
-      el.addEventListener('dragend', function() { el.classList.remove('gw-dragging'); dragEl = null; });
-      el.addEventListener('touchstart', onTS, { passive: false });
-      el.addEventListener('touchmove', onTM, { passive: false });
-      el.addEventListener('touchend', onTE, { passive: false });
-      return el;
-    }
-
-    function seal(el) {
-      el.draggable = false;
-      el.removeEventListener('touchstart', onTS);
-      el.removeEventListener('touchmove', onTM);
-      el.removeEventListener('touchend', onTE);
-      el.classList.add('gw-placed');
-    }
-
-    function dropCard(card, zone) {
-      var letter = card.dataset.letter;
-      var isV = zone.id === 'gwZoneV';
-      var ok = isV ? VOWELS.has(letter) : CONSONANTS.has(letter);
-      if (ok) {
-        seal(card);
-        card.classList.add('gw-anim-ok');
-        card.addEventListener('animationend', function() { card.classList.remove('gw-anim-ok'); }, { once: true });
-        zone.querySelector('.gw-zone-letters').appendChild(card);
-        correct++;
-        if (isV) vcnt++; else ccnt++;
-        updateProg();
-        document.getElementById('gwCntV').textContent = vcnt + ' / 10';
-        document.getElementById('gwCntC').textContent = ccnt + ' / 20';
-        if (correct === TOTAL) setTimeout(showWin, 500);
-      } else {
-        card.classList.add('gw-anim-err');
-        card.addEventListener('animationend', function() { card.classList.remove('gw-anim-err'); }, { once: true });
-      }
-    }
-
-    function updateProg() {
-      var pct = (correct / TOTAL) * 100;
-      document.getElementById('gwProgFill').style.width = pct + '%';
-      document.getElementById('gwProgText').textContent = 'Разложено: ' + correct + ' из ' + TOTAL;
-    }
-
-    ['gwZoneV', 'gwZoneC'].forEach(function(id) {
-      var z = document.getElementById(id);
-      z.addEventListener('dragover', function(e) { e.preventDefault(); z.classList.add('drag-over'); });
-      z.addEventListener('dragleave', function(e) { if (!z.contains(e.relatedTarget)) z.classList.remove('drag-over'); });
-      z.addEventListener('drop', function(e) { e.preventDefault(); z.classList.remove('drag-over'); if (dragEl) dropCard(dragEl, z); });
-    });
-
-    function onTS(e) {
-      e.preventDefault();
-      touchEl = e.currentTarget;
-      var t = e.touches[0];
-      var r = touchEl.getBoundingClientRect();
-      tox = t.clientX - r.left; toy = t.clientY - r.top;
-      touchGhost = touchEl.cloneNode(true);
-      Object.assign(touchGhost.style, {
-        position:'fixed', width:r.width+'px', height:r.height+'px',
-        left:r.left+'px', top:r.top+'px', opacity:'0.9',
-        pointerEvents:'none', zIndex:'9999',
-        transform:'scale(1.18) rotate(-4deg)',
-        boxShadow:'0 14px 36px rgba(0,0,0,.28)', transition:'none', margin:'0'
-      });
-      document.body.appendChild(touchGhost);
-      touchEl.style.opacity = '0.2';
-    }
-
-    function onTM(e) {
-      e.preventDefault();
-      if (!touchGhost) return;
-      var t = e.touches[0];
-      touchGhost.style.left = (t.clientX - tox) + 'px';
-      touchGhost.style.top = (t.clientY - toy) + 'px';
-      ['gwZoneV','gwZoneC'].forEach(function(id) {
-        var z = document.getElementById(id);
-        var r = z.getBoundingClientRect();
-        z.classList.toggle('drag-over', t.clientX >= r.left && t.clientX <= r.right && t.clientY >= r.top && t.clientY <= r.bottom);
-      });
-    }
-
-    function onTE(e) {
-      e.preventDefault();
-      if (!touchGhost || !touchEl) return;
-      var t = e.changedTouches[0];
-      document.body.removeChild(touchGhost);
-      touchGhost = null;
-      touchEl.style.opacity = '';
-      var dz = null;
-      ['gwZoneV','gwZoneC'].forEach(function(id) {
-        var z = document.getElementById(id);
-        z.classList.remove('drag-over');
-        var r = z.getBoundingClientRect();
-        if (t.clientX >= r.left && t.clientX <= r.right && t.clientY >= r.top && t.clientY <= r.bottom) dz = z;
-      });
-      if (dz) dropCard(touchEl, dz);
-      touchEl = null;
-    }
-
-    function showWin() {
-      document.getElementById('gwCanvas').classList.remove('hidden');
-      document.getElementById('gwOverlay').classList.remove('hidden');
-      launchCf();
-    }
-
-    function launchCf() {
-      var canvas = document.getElementById('gwCanvas');
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      var ctx = canvas.getContext('2d');
-      var clrs = ['#7BBFD4','#F5D76E','#FF8A7A','#6BC5A0','#A78BFA','#FFD580'];
-      cfParts = Array.from({length: 120}, function() {
-        return {
-          x: Math.random() * canvas.width,
-          y: -20 - Math.random() * canvas.height * .4,
-          r: Math.random() * 7 + 3,
-          clr: clrs[Math.floor(Math.random() * clrs.length)],
-          vx: (Math.random() - .5) * 5, vy: Math.random() * 3 + 1.5,
-          va: (Math.random() - .5) * .16,
-          angle: Math.random() * Math.PI * 2,
-          isRect: Math.random() < .55,
-          aspect: Math.random() * .5 + .4
-        };
-      });
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        cfParts.forEach(function(p) {
-          p.x += p.vx; p.y += p.vy; p.angle += p.va; p.vy += 0.045;
-          ctx.save();
-          ctx.translate(p.x, p.y); ctx.rotate(p.angle);
-          ctx.fillStyle = p.clr;
-          ctx.globalAlpha = Math.max(0, 1 - p.y / (canvas.height * 1.1));
-          if (p.isRect) ctx.fillRect(-p.r/2, -(p.r*p.aspect)/2, p.r, p.r*p.aspect);
-          else { ctx.beginPath(); ctx.arc(0, 0, p.r*.55, 0, Math.PI*2); ctx.fill(); }
-          ctx.restore();
-        });
-        cfParts = cfParts.filter(function(p) { return p.y < canvas.height + 30; });
-        if (cfParts.length > 0) cfAnim = requestAnimationFrame(draw);
-      }
-      draw();
-    }
-
-    function stopCf() {
-      if (cfAnim) { cancelAnimationFrame(cfAnim); cfAnim = null; }
-      cfParts = [];
-      var canvas = document.getElementById('gwCanvas');
-      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-    }
-
-    document.getElementById('gwWinBtn').addEventListener('click', gwStart);
-    gwStart();
-  })();
-</script>
 </body>
 </html>
