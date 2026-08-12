@@ -23,11 +23,79 @@
     "name": "Успевайка",
     "url": "https://uspevaika-online.ru",
     "telephone": "+79097923750",
-    "description": "Онлайн-репетиторский центр для школьников 1–11 классов. Математика, русский язык, английский язык, подготовка к ОГЭ и ЕГЭ. Индивидуальный подход, опытные педагоги.",
+    "description": "Онлайн-репетиторский центр для школьников 1–11 классов. Репетиторы по математике, русскому языку, английскому языку, химии, биологии, физике, истории, обществознанию. Подготовка к ОГЭ и ЕГЭ. Индивидуальный подход, опытные педагоги.",
+    "areaServed": "RU",
+    "priceRange": "1500–2500 ₽",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Онлайн-репетиторство",
+      "itemListElement": [
+        {"@type": "Offer", "name": "Занятие 40 минут (Стандарт)", "price": "1500", "priceCurrency": "RUB"},
+        {"@type": "Offer", "name": "Занятие 60 минут (Стандарт)", "price": "2250", "priceCurrency": "RUB"},
+        {"@type": "Offer", "name": "Занятие 40 минут (Премиум)", "price": "1700", "priceCurrency": "RUB"},
+        {"@type": "Offer", "name": "Занятие 60 минут (Премиум)", "price": "2500", "priceCurrency": "RUB"}
+      ]
+    },
     "sameAs": [
       "https://t.me/uspevaika",
       "https://vk.ru/club.uspevaika",
       "https://www.instagram.com/sveta.pedagog"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Сколько стоит занятие с репетитором онлайн?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Занятие 40 минут — от 1 500 ₽, 60 минут — от 2 250 ₽. Тариф Премиум: 40 минут — 1 700 ₽, 60 минут — 2 500 ₽."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Для каких классов вы подбираете репетиторов?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Репетиторы Успевайки занимаются с детьми от дошкольного возраста до 11 класса включительно. Помогаем подготовиться к школе, улучшить текущие оценки и подготовиться к ОГЭ или ЕГЭ."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Какие предметы ведут репетиторы Успевайки?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Математика, алгебра, геометрия, физика, химия, биология, информатика, русский язык, английский язык, французский язык, история, обществознание. Также ведём подготовку к ВПР, ОГЭ и ЕГЭ."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Занятия с репетитором проходят онлайн или офлайн?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Все занятия с нашими репетиторами проходят онлайн — через Zoom или любую удобную платформу. Ребёнок занимается из дома, нужен только компьютер или планшет с интернетом."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Как записаться к репетитору в Успевайке?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Оставьте заявку на сайте или напишите в Telegram @uspevaika или WhatsApp +7 909 792-3750. Мы уточним задачи ребёнка и подберём подходящего педагога — обычно это занимает 1–2 дня."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Что делать, если репетитор не подойдёт ребёнку?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Если преподаватель не подошёл по стилю или темпу, скажите нам — подберём другого. Замена происходит быстро и без лишних вопросов."
+        }
+      }
     ]
   }
   </script>
@@ -360,6 +428,17 @@
     .modal__close:hover { color:var(--ink); }
     .toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(10px); background:var(--ink); color:#fff; padding:11px 22px; border-radius:50px; font-size:.86rem; font-weight:600; opacity:0; pointer-events:none; transition:opacity .25s,transform .25s; z-index:2000; white-space:nowrap; }
     .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+    /* FAQ */
+    .faq { background: var(--bg); }
+    .faq__list { max-width:780px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
+    .faq__item { background:#fff; border:2px solid var(--sky-light); border-radius:18px; overflow:hidden; transition:border-color .2s; }
+    .faq__item[open] { border-color:var(--sky); }
+    .faq__q { cursor:pointer; list-style:none; padding:20px 24px; font-family:'Rubik',sans-serif; font-size:1rem; font-weight:600; color:var(--ink); display:flex; align-items:center; justify-content:space-between; gap:12px; user-select:none; }
+    .faq__q::-webkit-details-marker { display:none; }
+    .faq__q::after { content:'+'; font-size:1.5rem; font-weight:300; color:var(--sky); flex-shrink:0; transition:transform .2s; line-height:1; }
+    .faq__item[open] .faq__q::after { transform:rotate(45deg); }
+    .faq__a { padding:0 24px 20px; font-size:.95rem; color:var(--muted); line-height:1.75; margin:0; }
 
     /* FOOTER */
     .footer { background:var(--ink); color:rgba(255,255,255,.7); padding:40px 0; }
@@ -879,6 +958,39 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <h2 class="section-title">Частые <span class="accent">вопросы</span></h2>
+    <p class="section-subtitle">Всё, что вы хотели знать о занятиях с репетитором онлайн</p>
+    <div class="faq__list">
+      <details class="faq__item">
+        <summary class="faq__q">Сколько стоит занятие с репетитором?</summary>
+        <p class="faq__a">Стандарт: 40 минут — 1 500 ₽, 60 минут — 2 250 ₽. Тариф Премиум: 40 минут — 1 700 ₽, 60 минут — 2 500 ₽. Оплата удобным способом после занятия или заранее за блок уроков.</p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Для каких классов вы подбираете репетиторов?</summary>
+        <p class="faq__a">Наши репетиторы занимаются с детьми от дошкольного возраста до 11 класса включительно. Помогаем подготовиться к школе, подтянуть оценки по любому предмету или подготовиться к ОГЭ и ЕГЭ.</p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Какие предметы ведут репетиторы Успевайки?</summary>
+        <p class="faq__a">Математика, алгебра, геометрия, физика, химия, биология, информатика, русский язык, английский язык, французский язык, история, обществознание. Также готовим к ВПР, ОГЭ и ЕГЭ по всем школьным дисциплинам.</p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Занятия с репетитором проходят онлайн или офлайн?</summary>
+        <p class="faq__a">Все занятия с нашими репетиторами — онлайн, через Zoom или любую удобную для вас платформу. Ребёнок занимается из дома в комфортной обстановке, без поездок. Нужен компьютер или планшет с интернетом.</p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Как записаться к репетитору?</summary>
+        <p class="faq__a">Оставьте заявку прямо на сайте или напишите нам в Telegram <a href="https://t.me/uspevaika" target="_blank" rel="noopener" style="color:var(--sky)">@uspevaika</a> или WhatsApp <a href="https://api.whatsapp.com/send?phone=79097923750" target="_blank" rel="noopener" style="color:var(--sky)">+7 909 792-3750</a>. Мы уточним задачи ребёнка и подберём педагога — обычно это занимает 1–2 дня.</p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Что делать, если репетитор не подойдёт ребёнку?</summary>
+        <p class="faq__a">Если преподаватель не подошёл по стилю, темпу или характеру — скажите нам. Мы быстро подберём другого репетитора без лишних вопросов. Комфорт ребёнка для нас на первом месте.</p>
+      </details>
     </div>
   </div>
 </section>
