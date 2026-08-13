@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гласные и Согласные | Успевайка</title>
+  <meta name="description" content="Интерактивная игра «Гласные и Согласные» для 1–2 класса. Разложи 30 букв русского алфавита по корзинкам: гласные к гласным, согласные к согласным.">
+  <link rel="canonical" href="https://uspevaika-online.ru/game-vowels.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://uspevaika-online.ru/game-vowels.html">
+  <meta property="og:title" content="Гласные и Согласные | Успевайка">
+  <meta property="og:description" content="Разложи 30 букв русского алфавита по корзинкам: гласные к гласным, согласные к согласным.">
+  <meta property="og:image" content="https://uspevaika-online.ru/images/logo-clear.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Успевайка">
+  <meta name="theme-color" content="#7BBFD4">
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sky: #7BBFD4; --sky-light: #C8E8F4; --sky-pale: #DCF0F8;
+      --yellow: #F5D76E; --yellow-dark: #E8C84A;
+      --coral: #FF8A7A; --green: #6BC5A0; --brown: #6B4E3D;
+      --ink: #2C3E50; --muted: #6B7C8D; --bg: #F0F9FF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Rubik', sans-serif; line-height: 1.25; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    section { padding: 64px 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    .nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.93); backdrop-filter:blur(18px); box-shadow:0 2px 16px rgba(123,191,212,.12); }
+    .nav__inner { display:flex; align-items:center; justify-content:space-between; height:68px; gap:16px; }
+    .nav__logo { display:flex; align-items:center; gap:10px; font-family:'Rubik',sans-serif; font-size:1.35rem; font-weight:700; color:var(--sky); flex-shrink:0; }
+    .nav__logo img { height:44px; width:auto; border-radius:6px; }
+    .nav__links { display:flex; align-items:center; gap:24px; list-style:none; }
+    .nav__links a { font-size:.9rem; font-weight:600; color:var(--muted); transition:color .2s; }
+    .nav__links a:hover, .nav__links a.active { color:var(--sky); }
+    .nav__right { display:flex; align-items:center; gap:12px; flex-shrink:0; }
+    .nav__phone { font-family:'Rubik',sans-serif; font-weight:600; color:var(--muted); white-space:nowrap; font-size:.88rem; }
+    .nav__phone:hover { color:var(--sky); }
+    .nav__cta { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg,var(--sky) 0%,#5aafc8 100%); color:#fff; padding:9px 20px; border-radius:50px; font-size:.88rem; font-weight:700; white-space:nowrap; box-shadow:0 4px 14px rgba(123,191,212,.38); transition:all .22s; }
+    .nav__cta:hover { transform:translateY(-1px); box-shadow:0 7px 22px rgba(123,191,212,.5); color:#fff; }
+    .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .burger span { display:block; width:24px; height:3px; background:var(--ink); border-radius:3px; transition:.3s; }
+    .nav__mobile { display:none; flex-direction:column; background:var(--bg); border-top:1px solid var(--sky-light); padding:0 24px 16px; }
+    .nav__mobile a { display:block; padding:12px 0; font-weight:600; border-bottom:1px solid var(--sky-pale); color:var(--ink); }
+    .nav__mobile a:last-child { border-bottom:none; }
+    .nav__mobile.open { display:flex; }
+    @media(max-width:860px) { .nav__links,.nav__phone { display:none; } .burger { display:flex; } }
+
+    /* HERO */
+    .gp-hero { background:linear-gradient(180deg,#fff 0%,var(--bg) 100%); padding:40px 0 28px; }
+    .gp-breadcrumb { display:flex; align-items:center; gap:6px; font-size:.88rem; color:var(--muted); margin-bottom:18px; }
+    .gp-breadcrumb a { color:var(--sky); font-weight:600; }
+    .gp-breadcrumb a:hover { opacity:.75; }
+    .gp-breadcrumb__sep { color:var(--sky-light); }
+    .gp-hero__badge { display:inline-flex; align-items:center; gap:6px; background:var(--sky-pale); border:1.5px solid var(--sky-light); border-radius:50px; padding:5px 14px; font-size:.8rem; font-weight:700; color:var(--sky); margin-bottom:14px; }
+    .gp-hero__title { font-size:clamp(1.8rem,4vw,2.5rem); font-weight:800; margin-bottom:10px; }
+    .gp-hero__title .accent { color:var(--sky); }
+    .gp-hero__sub { color:var(--muted); font-size:.98rem; line-height:1.7; max-width:480px; }
+    .gp-hero__meta { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .gp-tag { background:#fff; border:1.5px solid var(--sky-light); border-radius:50px; padding:4px 13px; font-size:.8rem; font-weight:700; color:var(--muted); }
+    .gp-tag--russian { background:var(--sky-pale); border-color:var(--sky-light); color:var(--sky); }
+
+    /* GAME WRAPPER */
+    .game-section { padding:48px 0 56px; }
+    .game-wrapper { max-width:800px; margin:0 auto; background:var(--bg); border-radius:24px; overflow:hidden; border:2px solid var(--sky-light); box-shadow:0 8px 32px rgba(123,191,212,.15); }
+    .game-wrapper::before { content:''; display:block; height:5px; background:linear-gradient(90deg,var(--sky),var(--yellow),var(--coral),var(--green)); }
+    .game-header { background:#fff; padding:18px 20px 14px; border-bottom:1px solid var(--sky-pale); }
+    .gw-header-top { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+    .gw-title { font-family:'Rubik',sans-serif; font-size:clamp(1rem,3vw,1.35rem); font-weight:800; color:var(--sky); letter-spacing:-.02em; }
+    .gw-sub-text { font-size:.875rem; font-weight:500; color:var(--muted); }
+    .gw-progress-row { display:flex; align-items:center; gap:10px; }
+    .gw-progress-track { flex:1; height:8px; background:var(--sky-pale); border-radius:999px; overflow:hidden; }
+    .gw-progress-fill { height:100%; width:0%; background:linear-gradient(90deg,var(--sky),var(--green)); border-radius:999px; transition:width .4s cubic-bezier(.4,0,.2,1); }
+    .gw-progress-text { font-size:.8rem; font-weight:700; color:var(--muted); white-space:nowrap; font-variant-numeric:tabular-nums; min-width:110px; text-align:right; }
+    .gw-pool-section { padding:16px 16px 8px; }
+    .gw-pool-label { font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .gw-pool { background:var(--sky-pale); border-radius:16px; padding:14px; display:flex; flex-wrap:wrap; gap:9px; min-height:72px; }
+    .gw-pool:empty::after { content:'✓ Все буквы разложены!'; color:var(--green); font-weight:700; font-size:.95rem; margin:auto; width:100%; text-align:center; padding:8px 0; }
+    .gw-zones { display:flex; gap:12px; padding:8px 16px 20px; }
+    .gw-zone { flex:1; border-radius:16px; border:2.5px dashed; padding:14px 12px 12px; min-height:140px; display:flex; flex-direction:column; gap:10px; transition:transform .15s, box-shadow .15s, border-style .15s; }
+    .gw-zone--v { background:#FFFAE8; border-color:var(--yellow-dark); }
+    .gw-zone--c { background:#EAF9F3; border-color:var(--green); }
+    .gw-zone.drag-over { transform:scale(1.025); box-shadow:0 8px 24px rgba(123,191,212,.2); border-style:solid; }
+    .gw-zone-head { display:flex; align-items:center; gap:7px; }
+    .gw-zone-badge { display:inline-flex; align-items:center; gap:5px; padding:5px 12px; border-radius:999px; font-size:.9rem; font-weight:800; }
+    .gw-zone--v .gw-zone-badge { background:var(--yellow); color:#2C3A0A; }
+    .gw-zone--c .gw-zone-badge { background:var(--green); color:#fff; }
+    .gw-zone-count { font-size:.75rem; font-weight:700; color:var(--muted); margin-left:auto; }
+    .gw-zone-letters { display:flex; flex-wrap:wrap; gap:7px; min-height:52px; }
+    .gw-letter { width:58px; height:58px; border-radius:13px; display:flex; align-items:center; justify-content:center; font-size:1.85rem; font-weight:900; cursor:grab; user-select:none; box-shadow:0 3px 10px rgba(44,62,80,.12); color:var(--ink); transition:transform .15s, box-shadow .15s, opacity .15s; touch-action:none; position:relative; border:2.5px solid; }
+    .gw-letter:hover { transform:translateY(-4px) rotate(2deg); box-shadow:0 8px 24px rgba(44,62,80,.20); }
+    .gw-letter.gw-dragging { opacity:.35; cursor:grabbing; }
+    .gw-letter.gw-placed { cursor:default; width:50px; height:50px; font-size:1.55rem; box-shadow:none; }
+    .gw-letter.gw-placed::after { content:'✓'; position:absolute; bottom:-5px; right:-5px; font-size:.65rem; background:var(--green); color:#fff; width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:1.5px solid #fff; }
+    .gw-letter.gw-placed-wrong::after { content:'✗'; background:var(--coral); }
+    @keyframes gw-pop { 0%{transform:scale(1)} 40%{transform:scale(1.25) rotate(-5deg)} 70%{transform:scale(.95) rotate(3deg)} 100%{transform:scale(1) rotate(0)} }
+    @keyframes gw-shake { 0%,100%{transform:translateX(0)} 15%{transform:translateX(-9px) rotate(-2deg)} 35%{transform:translateX(9px) rotate(2deg)} 55%{transform:translateX(-6px) rotate(-1deg)} 75%{transform:translateX(6px) rotate(1deg)} }
+    .gw-letter.gw-anim-ok { animation:gw-pop .45s cubic-bezier(.36,.07,.19,.97); }
+    .gw-letter.gw-anim-err { animation:gw-shake .45s cubic-bezier(.36,.07,.19,.97); }
+    @media(max-width:600px) { .gw-zones { flex-direction:column; } .gw-zone { min-height:100px; } .gw-letter { width:48px; height:48px; font-size:1.5rem; } .gw-letter.gw-placed { width:42px; height:42px; font-size:1.3rem; } }
+
+    /* WIN OVERLAY */
+    .gw-overlay { position:fixed; inset:0; background:rgba(44,62,80,.72); display:flex; align-items:center; justify-content:center; z-index:500; padding:20px; }
+    .gw-overlay.hidden { display:none; }
+    .gw-canvas { position:fixed; inset:0; pointer-events:none; z-index:499; }
+    .gw-canvas.hidden { display:none; }
+    @keyframes gw-win-in { from{transform:scale(.5) rotate(-8deg);opacity:0} to{transform:scale(1) rotate(0);opacity:1} }
+    .gw-win-card { background:#fff; border-radius:24px; padding:36px 32px 32px; text-align:center; max-width:340px; width:100%; box-shadow:0 24px 60px rgba(0,0,0,.35); animation:gw-win-in .5s cubic-bezier(.34,1.56,.64,1) both; }
+    .gw-win-stars { font-size:2.4rem; margin-bottom:4px; letter-spacing:4px; }
+    .gw-win-title { font-family:'Rubik',sans-serif; font-size:2.1rem; font-weight:900; color:var(--sky); letter-spacing:-.03em; margin-bottom:8px; }
+    .gw-win-sub { font-size:1rem; color:var(--muted); margin-bottom:24px; line-height:1.5; }
+    .gw-win-score { display:flex; justify-content:center; gap:24px; margin-bottom:20px; font-size:1.05rem; font-weight:800; }
+    .gw-win-btn { background:linear-gradient(135deg,var(--sky),var(--green)); color:#fff; padding:14px 32px; border-radius:999px; font-size:1.1rem; font-weight:800; box-shadow:0 4px 16px rgba(91,175,196,.4); transition:transform .15s, box-shadow .15s; font-family:'Nunito',sans-serif; cursor:pointer; border:none; }
+    .gw-win-btn:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(91,175,196,.5); }
+
+    /* RULES */
+    .gp-rules { padding:40px 0 48px; }
+    .gp-rules__title { font-size:1.2rem; font-weight:700; margin-bottom:20px; text-align:center; }
+    .gp-rules__grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; max-width:640px; margin:0 auto; }
+    .gp-rule-card { background:#fff; border-radius:16px; padding:18px 20px; border:2px solid var(--sky-light); }
+    .gp-rule-card__label { font-size:.75rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px; }
+    .gp-rule-card--v .gp-rule-card__label { color:#8a6800; }
+    .gp-rule-card--c .gp-rule-card__label { color:#2d855d; }
+    .gp-rule-card__letters { font-size:1.1rem; font-weight:700; color:var(--ink); line-height:1.8; }
+    @media(max-width:500px) { .gp-rules__grid { grid-template-columns:1fr; } }
+
+    /* CTA */
+    .gp-cta { background:linear-gradient(135deg,#DCF0F8 0%,var(--sky-pale) 100%); border-radius:24px; padding:40px 32px; text-align:center; margin:0 0 48px; }
+    .gp-cta h2 { font-size:1.4rem; font-weight:800; margin-bottom:8px; }
+    .gp-cta p { color:var(--muted); font-size:.95rem; margin-bottom:20px; }
+    .gp-cta__btn { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,var(--sky) 0%,#5aafc8 100%); color:#fff; padding:13px 28px; border-radius:50px; font-family:'Rubik',sans-serif; font-size:.95rem; font-weight:700; box-shadow:0 6px 20px rgba(123,191,212,.38); transition:all .22s; }
+    .gp-cta__btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(123,191,212,.5); color:#fff; }
+
+    /* FOOTER */
+    .footer { background:#fff; border-top:1px solid var(--sky-light); padding:28px 0; }
+    .footer__inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .footer__logo { display:flex; align-items:center; gap:8px; font-family:'Rubik',sans-serif; font-weight:700; color:var(--sky); font-size:1.1rem; }
+    .footer__logo img { height:32px; border-radius:4px; }
+    .footer__copy { font-size:.82rem; color:var(--muted); }
+    .footer__socials { display:flex; gap:12px; }
+    .footer__socials a { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:50%; background:var(--sky-pale); color:var(--sky); font-size:.85rem; font-weight:700; transition:background .2s; }
+    .footer__socials a:hover { background:var(--sky-light); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img loading="lazy" src="images/logo.png" alt="Логотип Успевайка">
+      Успевайка
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#why">О нас</a></li>
+      <li><a href="index.html#subjects">Предметы</a></li>
+      <li><a href="index.html#pricing">Цены</a></li>
+      <li><a href="games.html" class="active">Игры</a></li>
+    </ul>
+    <div class="nav__right">
+      <a href="tel:+79097923750" class="nav__phone">+7 909 792-3750</a>
+      <a href="index.html#contact" class="nav__cta">Записаться</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="index.html#why">О нас</a>
+    <a href="index.html#subjects">Предметы</a>
+    <a href="index.html#pricing">Цены</a>
+    <a href="games.html">Игры</a>
+    <a href="tel:+79097923750">+7 909 792-3750</a>
+    <a href="index.html#contact" style="color:var(--sky);font-weight:800;">→ Записаться на пробное</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="gp-hero">
+  <div class="container">
+    <nav class="gp-breadcrumb" aria-label="Навигация">
+      <a href="index.html">← Главная</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <a href="games.html">Игры</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <span>Гласные и Согласные</span>
+    </nav>
+    <div class="gp-hero__badge">📖 Русский язык</div>
+    <h1 class="gp-hero__title">Гласные и <span class="accent">Согласные</span></h1>
+    <p class="gp-hero__sub">Перетащи каждую из 30 букв в нужную корзинку — гласные к гласным, согласные к согласным.</p>
+    <div class="gp-hero__meta">
+      <span class="gp-tag gp-tag--russian">Русский язык</span>
+      <span class="gp-tag">1–2 класс</span>
+      <span class="gp-tag">30 букв</span>
+      <span class="gp-tag">Drag &amp; Drop</span>
+    </div>
+  </div>
+</section>
+
+<!-- GAME -->
+<section class="game-section">
+  <div class="container">
+    <div class="game-wrapper">
+      <div class="game-header">
+        <div class="gw-header-top">
+          <span class="gw-title">Гласные и Согласные</span>
+          <span class="gw-sub-text">По одной букве — разложи все 30 по корзинкам</span>
+        </div>
+        <div class="gw-progress-row">
+          <div class="gw-progress-track" role="progressbar" aria-valuenow="0" aria-valuemax="30" id="gwProgBar">
+            <div class="gw-progress-fill" id="gwProgFill"></div>
+          </div>
+          <span class="gw-progress-text" id="gwProgText">Разложено: 0 из 30</span>
+        </div>
+      </div>
+
+      <div class="gw-pool-section">
+        <div class="gw-pool-label" id="gwPoolLabel">Перетащи каждую букву в нужную корзинку</div>
+        <div class="gw-pool" id="gwPool"></div>
+      </div>
+
+      <div class="gw-zones">
+        <div class="gw-zone gw-zone--v" id="gwZoneV">
+          <div class="gw-zone-head">
+            <span class="gw-zone-badge">🔊 Гласные</span>
+            <span class="gw-zone-count" id="gwCntV">0</span>
+          </div>
+          <div class="gw-zone-letters" id="gwLettersV"></div>
+        </div>
+        <div class="gw-zone gw-zone--c" id="gwZoneC">
+          <div class="gw-zone-head">
+            <span class="gw-zone-badge">🗣️ Согласные</span>
+            <span class="gw-zone-count" id="gwCntC">0</span>
+          </div>
+          <div class="gw-zone-letters" id="gwLettersC"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULES -->
+    <div class="gp-rules">
+      <h2 class="gp-rules__title">📋 Буквы в игре</h2>
+      <div class="gp-rules__grid">
+        <div class="gp-rule-card gp-rule-card--v">
+          <div class="gp-rule-card__label">🔊 Гласные (10)</div>
+          <div class="gp-rule-card__letters">А, Е, Ё, И, О, У, Ы, Э, Ю, Я</div>
+        </div>
+        <div class="gp-rule-card gp-rule-card--c">
+          <div class="gp-rule-card__label">🗣️ Согласные (20)</div>
+          <div class="gp-rule-card__letters">Б, В, Г, Д, Ж, З, К, Л, М, Н, П, Р, С, Т, Ф, Х, Ц, Ч, Ш, Щ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="gp-cta">
+      <h2>Хочешь подтянуть русский язык?</h2>
+      <p>Запишись на пробное занятие — подберём репетитора по русскому языку за 1–2 дня.</p>
+      <a href="index.html#contact" class="gp-cta__btn">Записаться на занятие →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WIN OVERLAY -->
+<canvas class="gw-canvas hidden" id="gwCanvas"></canvas>
+<div class="gw-overlay hidden" id="gwOverlay">
+  <div class="gw-win-card">
+    <div class="gw-win-stars" id="gwWinStars">⭐ ⭐ ⭐</div>
+    <h2 class="gw-win-title" id="gwWinTitle">Молодец!</h2>
+    <p class="gw-win-sub" id="gwWinSub">Ты правильно разложил все 30 букв!</p>
+    <div class="gw-win-score" id="gwWinScore"></div>
+    <button class="gw-win-btn" id="gwWinBtn">🔄 Играть снова</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__logo">
+      <img loading="lazy" src="images/logo.png" alt="Логотип Успевайка">
+      Успевайка
+    </div>
+    <div class="footer__copy">© 2024 Успевайка. Все права защищены.</div>
+    <div class="footer__socials">
+      <a href="https://t.me/uspevaika" target="_blank" rel="noopener" title="Telegram">✈</a>
+      <a href="https://api.whatsapp.com/send?phone=79097923750" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+      <a href="https://vk.ru/club.uspevaika" target="_blank" rel="noopener" title="ВКонтакте">VK</a>
+      <a href="https://youtube.com/@uspevaika" target="_blank" rel="noopener" title="YouTube">▶</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burger').addEventListener('click', function() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+</script>
+
+<script>
+(function() {
+  'use strict';
+  var VOWELS = new Set(['А','Е','Ё','И','О','У','Ы','Э','Ю','Я']);
+  var CONSONANTS = new Set(['Б','В','Г','Д','Ж','З','К','Л','М','Н','П','Р','С','Т','Ф','Х','Ц','Ч','Ш','Щ']);
+  var ALL = Array.from(VOWELS).concat(Array.from(CONSONANTS));
+  var TOTAL = ALL.length;
+  var PALETTE = [
+    { bg:'#EBF7FB', bd:'#7BBFD4' },
+    { bg:'#FEF9E8', bd:'#E8C84A' },
+    { bg:'#FEEDED', bd:'#FF8A7A' },
+    { bg:'#EAF9F3', bd:'#6BC5A0' },
+    { bg:'#F0EBFF', bd:'#A78BFA' },
+  ];
+  var correct = 0, wrong = 0, placed = 0, vcnt = 0, ccnt = 0;
+  var shuffledLetters = [], currentIdx = 0;
+  var dragEl = null, touchEl = null, touchGhost = null;
+  var tox = 0, toy = 0;
+  var cfAnim = null, cfParts = [];
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function gwStart() {
+    correct = 0; wrong = 0; placed = 0; vcnt = 0; ccnt = 0;
+    stopCf();
+    document.getElementById('gwOverlay').classList.add('hidden');
+    document.getElementById('gwCanvas').classList.add('hidden');
+    document.getElementById('gwLettersV').innerHTML = '';
+    document.getElementById('gwLettersC').innerHTML = '';
+    document.getElementById('gwCntV').textContent = '0';
+    document.getElementById('gwCntC').textContent = '0';
+    shuffledLetters = shuffle(ALL);
+    currentIdx = 0;
+    document.getElementById('gwPool').innerHTML = '';
+    showNextLetter();
+    updateProg();
+  }
+
+  function showNextLetter() {
+    var pool = document.getElementById('gwPool');
+    pool.innerHTML = '';
+    if (currentIdx >= shuffledLetters.length) return;
+    var c = PALETTE[currentIdx % 5];
+    pool.appendChild(makeCard(shuffledLetters[currentIdx], c));
+    document.getElementById('gwPoolLabel').textContent =
+      'Буква ' + (currentIdx + 1) + ' из ' + TOTAL + ' — перетащи в нужную корзинку';
+  }
+
+  function makeCard(letter, c) {
+    var el = document.createElement('div');
+    el.className = 'gw-letter';
+    el.textContent = letter;
+    el.dataset.letter = letter;
+    el.draggable = true;
+    el.style.background = c.bg;
+    el.style.borderColor = c.bd;
+    el.addEventListener('dragstart', function(e) { dragEl = el; el.classList.add('gw-dragging'); e.dataTransfer.effectAllowed = 'move'; });
+    el.addEventListener('dragend', function() { el.classList.remove('gw-dragging'); dragEl = null; });
+    el.addEventListener('touchstart', onTS, { passive: false });
+    el.addEventListener('touchmove', onTM, { passive: false });
+    el.addEventListener('touchend', onTE, { passive: false });
+    return el;
+  }
+
+  function seal(el, isWrong) {
+    el.draggable = false;
+    el.removeEventListener('touchstart', onTS);
+    el.removeEventListener('touchmove', onTM);
+    el.removeEventListener('touchend', onTE);
+    el.classList.add('gw-placed');
+    if (isWrong) el.classList.add('gw-placed-wrong');
+  }
+
+  function dropCard(card, zone) {
+    var letter = card.dataset.letter;
+    var isV = zone.id === 'gwZoneV';
+    var ok = isV ? VOWELS.has(letter) : CONSONANTS.has(letter);
+    seal(card, !ok);
+    card.classList.add(ok ? 'gw-anim-ok' : 'gw-anim-err');
+    card.addEventListener('animationend', function() {
+      card.classList.remove('gw-anim-ok', 'gw-anim-err');
+    }, { once: true });
+    zone.querySelector('.gw-zone-letters').appendChild(card);
+    placed++; currentIdx++;
+    if (ok) correct++; else wrong++;
+    if (isV) vcnt++; else ccnt++;
+    updateProg();
+    document.getElementById('gwCntV').textContent = vcnt;
+    document.getElementById('gwCntC').textContent = ccnt;
+    if (placed === TOTAL) setTimeout(showWin, 500);
+    else showNextLetter();
+  }
+
+  function updateProg() {
+    var pct = (placed / TOTAL) * 100;
+    document.getElementById('gwProgFill').style.width = pct + '%';
+    document.getElementById('gwProgBar').setAttribute('aria-valuenow', placed);
+    document.getElementById('gwProgText').textContent = 'Разложено: ' + placed + ' из ' + TOTAL;
+  }
+
+  ['gwZoneV', 'gwZoneC'].forEach(function(id) {
+    var z = document.getElementById(id);
+    z.addEventListener('dragover', function(e) { e.preventDefault(); z.classList.add('drag-over'); });
+    z.addEventListener('dragleave', function(e) { if (!z.contains(e.relatedTarget)) z.classList.remove('drag-over'); });
+    z.addEventListener('drop', function(e) { e.preventDefault(); z.classList.remove('drag-over'); if (dragEl) dropCard(dragEl, z); });
+  });
+
+  function onTS(e) {
+    e.preventDefault();
+    touchEl = e.currentTarget;
+    var t = e.touches[0];
+    var r = touchEl.getBoundingClientRect();
+    tox = t.clientX - r.left; toy = t.clientY - r.top;
+    touchGhost = touchEl.cloneNode(true);
+    Object.assign(touchGhost.style, {
+      position:'fixed', width:r.width+'px', height:r.height+'px',
+      left:r.left+'px', top:r.top+'px', opacity:'0.9',
+      pointerEvents:'none', zIndex:'9999',
+      transform:'scale(1.18) rotate(-4deg)',
+      boxShadow:'0 14px 36px rgba(0,0,0,.28)', transition:'none', margin:'0'
+    });
+    document.body.appendChild(touchGhost);
+    touchEl.style.opacity = '0.2';
+  }
+
+  function onTM(e) {
+    e.preventDefault();
+    if (!touchGhost) return;
+    var t = e.touches[0];
+    touchGhost.style.left = (t.clientX - tox) + 'px';
+    touchGhost.style.top = (t.clientY - toy) + 'px';
+    ['gwZoneV','gwZoneC'].forEach(function(id) {
+      var z = document.getElementById(id);
+      var r = z.getBoundingClientRect();
+      z.classList.toggle('drag-over', t.clientX >= r.left && t.clientX <= r.right && t.clientY >= r.top && t.clientY <= r.bottom);
+    });
+  }
+
+  function onTE(e) {
+    e.preventDefault();
+    if (!touchGhost || !touchEl) return;
+    var t = e.changedTouches[0];
+    document.body.removeChild(touchGhost);
+    touchGhost = null;
+    touchEl.style.opacity = '';
+    var dz = null;
+    ['gwZoneV','gwZoneC'].forEach(function(id) {
+      var z = document.getElementById(id);
+      z.classList.remove('drag-over');
+      var r = z.getBoundingClientRect();
+      if (t.clientX >= r.left && t.clientX <= r.right && t.clientY >= r.top && t.clientY <= r.bottom) dz = z;
+    });
+    if (dz) dropCard(touchEl, dz);
+    touchEl = null;
+  }
+
+  function showWin() {
+    var pct = Math.round((correct / TOTAL) * 100);
+    document.getElementById('gwWinStars').textContent = pct === 100 ? '⭐ ⭐ ⭐' : pct >= 70 ? '⭐ ⭐' : '⭐';
+    document.getElementById('gwWinTitle').textContent = pct === 100 ? 'Молодец!' : pct >= 70 ? 'Хорошо!' : 'Старайся!';
+    document.getElementById('gwWinSub').textContent = pct === 100
+      ? 'Ты правильно разложил все 30 букв!'
+      : 'Ты разложил ' + correct + ' из ' + TOTAL + ' букв правильно.';
+    document.getElementById('gwWinScore').innerHTML =
+      '<span style="color:var(--green)">✓ Верно: ' + correct + '</span>' +
+      '<span style="color:var(--coral)">✗ Ошибок: ' + wrong + '</span>';
+    document.getElementById('gwCanvas').classList.remove('hidden');
+    document.getElementById('gwOverlay').classList.remove('hidden');
+    launchCf();
+  }
+
+  function launchCf() {
+    var canvas = document.getElementById('gwCanvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    var ctx = canvas.getContext('2d');
+    var clrs = ['#7BBFD4','#F5D76E','#FF8A7A','#6BC5A0','#A78BFA','#FFD580'];
+    cfParts = Array.from({length: 120}, function() {
+      return {
+        x: Math.random() * canvas.width,
+        y: -20 - Math.random() * canvas.height * .4,
+        r: Math.random() * 7 + 3,
+        clr: clrs[Math.floor(Math.random() * clrs.length)],
+        vx: (Math.random() - .5) * 5, vy: Math.random() * 3 + 1.5,
+        va: (Math.random() - .5) * .16,
+        angle: Math.random() * Math.PI * 2,
+        isRect: Math.random() < .55,
+        aspect: Math.random() * .5 + .4
+      };
+    });
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      cfParts.forEach(function(p) {
+        p.x += p.vx; p.y += p.vy; p.angle += p.va; p.vy += 0.045;
+        ctx.save();
+        ctx.translate(p.x, p.y); ctx.rotate(p.angle);
+        ctx.fillStyle = p.clr;
+        ctx.globalAlpha = Math.max(0, 1 - p.y / (canvas.height * 1.1));
+        if (p.isRect) ctx.fillRect(-p.r/2, -(p.r*p.aspect)/2, p.r, p.r*p.aspect);
+        else { ctx.beginPath(); ctx.arc(0, 0, p.r*.55, 0, Math.PI*2); ctx.fill(); }
+        ctx.restore();
+      });
+      cfParts = cfParts.filter(function(p) { return p.y < canvas.height + 30; });
+      if (cfParts.length > 0) cfAnim = requestAnimationFrame(draw);
+    }
+    draw();
+  }
+
+  function stopCf() {
+    if (cfAnim) { cancelAnimationFrame(cfAnim); cfAnim = null; }
+    cfParts = [];
+    var canvas = document.getElementById('gwCanvas');
+    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  document.getElementById('gwWinBtn').addEventListener('click', gwStart);
+  gwStart();
+})();
+</script>
+</body>
+</html>
