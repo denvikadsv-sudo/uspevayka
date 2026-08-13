@@ -142,16 +142,10 @@
     .gw-pool { background: var(--sky-pale); border-radius: 16px; padding: 14px; display: flex; flex-wrap: wrap; gap: 9px; min-height: 72px; justify-content: center; }
     .gw-pool:empty::after { content: '✓ Все буквы разложены!'; color: var(--green); font-weight: 700; font-size: .95rem; margin: auto; width: 100%; text-align: center; padding: 8px 0; }
     .gw-zones { display: flex; gap: 12px; padding: 8px 16px 20px; }
-    .gw-house { flex: 1; display: flex; flex-direction: column; transition: transform .15s; }
-    .gw-house::before { content: ''; display: block; height: 44px; clip-path: polygon(0% 100%, 50% 0%, 100% 100%); }
-    .gw-house--v::before { background: var(--yellow-dark); }
-    .gw-house--c::before { background: var(--green); }
-    .gw-house.drag-over { transform: scale(1.025); }
-    .gw-house.drag-over::before { filter: brightness(1.12); }
-    .gw-house.drag-over .gw-zone { box-shadow: 0 8px 24px rgba(123,191,212,.2); border-style: solid; }
-    .gw-zone { flex: 1; border-radius: 0 0 16px 16px; border: 2.5px dashed; border-top: none; padding: 14px 12px 12px; min-height: 140px; display: flex; flex-direction: column; gap: 10px; transition: box-shadow .15s, border-style .15s; }
+    .gw-zone { flex: 1; border-radius: 16px; border: 2.5px dashed; padding: 14px 12px 12px; min-height: 140px; display: flex; flex-direction: column; gap: 10px; transition: transform .15s, box-shadow .15s, border-style .15s; }
     .gw-zone--v { background: #FFFAE8; border-color: var(--yellow-dark); }
     .gw-zone--c { background: #EAF9F3; border-color: var(--green); }
+    .gw-zone.drag-over { transform: scale(1.025); box-shadow: 0 8px 24px rgba(123,191,212,.2); border-style: solid; }
     .gw-zone-head { display: flex; align-items: center; gap: 7px; }
     .gw-zone-badge { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; font-size: .9rem; font-weight: 800; }
     .gw-zone--v .gw-zone-badge { background: var(--yellow); color: #2C3A0A; }
@@ -215,8 +209,7 @@
       .nav__cta { display: none; }
       .gh-grid { grid-template-columns: 1fr; }
       .gw-zones { flex-direction: column; }
-      .gw-house::before { height: 32px; }
-      .gw-zone { min-height: 80px; }
+      .gw-zone { min-height: 100px; }
       .gw-letter { width: 48px; height: 48px; font-size: 1.5rem; }
       .gw-letter.gw-placed { width: 42px; height: 42px; font-size: 1.3rem; }
       .footer__inner { flex-direction: column; text-align: center; }
@@ -440,23 +433,19 @@
       </div>
 
       <div class="gw-zones">
-        <div class="gw-house gw-house--v">
-          <div class="gw-zone gw-zone--v" id="gwZoneV">
-            <div class="gw-zone-head">
-              <span class="gw-zone-badge">🔊 Гласные</span>
-              <span class="gw-zone-count" id="gwCntV">0</span>
-            </div>
-            <div class="gw-zone-letters" id="gwLettersV"></div>
+        <div class="gw-zone gw-zone--v" id="gwZoneV">
+          <div class="gw-zone-head">
+            <span class="gw-zone-badge">🔊 Гласные</span>
+            <span class="gw-zone-count" id="gwCntV">0</span>
           </div>
+          <div class="gw-zone-letters" id="gwLettersV"></div>
         </div>
-        <div class="gw-house gw-house--c">
-          <div class="gw-zone gw-zone--c" id="gwZoneC">
-            <div class="gw-zone-head">
-              <span class="gw-zone-badge">🗣️ Согласные</span>
-              <span class="gw-zone-count" id="gwCntC">0</span>
-            </div>
-            <div class="gw-zone-letters" id="gwLettersC"></div>
+        <div class="gw-zone gw-zone--c" id="gwZoneC">
+          <div class="gw-zone-head">
+            <span class="gw-zone-badge">🗣️ Согласные</span>
+            <span class="gw-zone-count" id="gwCntC">0</span>
           </div>
+          <div class="gw-zone-letters" id="gwLettersC"></div>
         </div>
       </div>
     </div>
@@ -641,10 +630,9 @@
 
     ['gwZoneV', 'gwZoneC'].forEach(function(id) {
       var z = document.getElementById(id);
-      var h = z.parentElement;
-      z.addEventListener('dragover', function(e) { e.preventDefault(); h.classList.add('drag-over'); });
-      z.addEventListener('dragleave', function(e) { if (!z.contains(e.relatedTarget)) h.classList.remove('drag-over'); });
-      z.addEventListener('drop', function(e) { e.preventDefault(); h.classList.remove('drag-over'); if (dragEl) dropCard(dragEl, z); });
+      z.addEventListener('dragover', function(e) { e.preventDefault(); z.classList.add('drag-over'); });
+      z.addEventListener('dragleave', function(e) { if (!z.contains(e.relatedTarget)) z.classList.remove('drag-over'); });
+      z.addEventListener('drop', function(e) { e.preventDefault(); z.classList.remove('drag-over'); if (dragEl) dropCard(dragEl, z); });
     });
 
     function onTS(e) {
@@ -674,7 +662,7 @@
       ['gwZoneV','gwZoneC'].forEach(function(id) {
         var z = document.getElementById(id);
         var r = z.getBoundingClientRect();
-        z.parentElement.classList.toggle('drag-over', t.clientX >= r.left && t.clientX <= r.right && t.clientY >= r.top && t.clientY <= r.bottom);
+        z.classList.toggle('drag-over', t.clientX >= r.left && t.clientX <= r.right && t.clientY >= r.top && t.clientY <= r.bottom);
       });
     }
 
@@ -688,7 +676,7 @@
       var dz = null;
       ['gwZoneV','gwZoneC'].forEach(function(id) {
         var z = document.getElementById(id);
-        z.parentElement.classList.remove('drag-over');
+        z.classList.remove('drag-over');
         var r = z.getBoundingClientRect();
         if (t.clientX >= r.left && t.clientX <= r.right && t.clientY >= r.top && t.clientY <= r.bottom) dz = z;
       });
