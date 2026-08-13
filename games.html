@@ -157,6 +157,8 @@
     .gw-letter.gw-dragging { opacity: .35; cursor: grabbing; }
     .gw-letter.gw-placed { cursor: default; width: 50px; height: 50px; font-size: 1.55rem; box-shadow: none; }
     .gw-letter.gw-placed::after { content: '✓'; position: absolute; bottom: -5px; right: -5px; font-size: .65rem; background: var(--green); color: #fff; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1.5px solid #fff; }
+    .gw-letter.gw-placed-wrong::after { content: '✗'; background: var(--coral); }
+    .gw-win-score { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; font-size: 1.05rem; font-weight: 800; }
     @keyframes gw-pop { 0%{transform:scale(1)} 40%{transform:scale(1.25) rotate(-5deg)} 70%{transform:scale(.95) rotate(3deg)} 100%{transform:scale(1) rotate(0)} }
     @keyframes gw-shake { 0%,100%{transform:translateX(0)} 15%{transform:translateX(-9px) rotate(-2deg)} 35%{transform:translateX(9px) rotate(2deg)} 55%{transform:translateX(-6px) rotate(-1deg)} 75%{transform:translateX(6px) rotate(1deg)} }
     .gw-letter.gw-anim-ok { animation: gw-pop .45s cubic-bezier(.36,.07,.19,.97); }
@@ -415,7 +417,7 @@
       <div class="game-header">
         <div class="gw-header-top">
           <span class="gw-title">Гласные и Согласные</span>
-          <span class="gw-sub-text">Разложи все 30 букв по корзинкам</span>
+          <span class="gw-sub-text">По одной букве — разложи все 30 по корзинкам</span>
         </div>
         <div class="gw-progress-row">
           <div class="gw-progress-track" role="progressbar" aria-valuenow="0" aria-valuemax="30" id="gwProgBar">
@@ -434,14 +436,14 @@
         <div class="gw-zone gw-zone--v" id="gwZoneV">
           <div class="gw-zone-head">
             <span class="gw-zone-badge">🔊 Гласные</span>
-            <span class="gw-zone-count" id="gwCntV">0 / 10</span>
+            <span class="gw-zone-count" id="gwCntV">0</span>
           </div>
           <div class="gw-zone-letters" id="gwLettersV"></div>
         </div>
         <div class="gw-zone gw-zone--c" id="gwZoneC">
           <div class="gw-zone-head">
             <span class="gw-zone-badge">🗣️ Согласные</span>
-            <span class="gw-zone-count" id="gwCntC">0 / 20</span>
+            <span class="gw-zone-count" id="gwCntC">0</span>
           </div>
           <div class="gw-zone-letters" id="gwLettersC"></div>
         </div>
@@ -458,9 +460,10 @@
 <canvas class="gw-canvas hidden" id="gwCanvas"></canvas>
 <div class="gw-overlay hidden" id="gwOverlay">
   <div class="gw-win-card">
-    <div class="gw-win-stars">⭐ ⭐ ⭐</div>
-    <h2 class="gw-win-title">Молодец!</h2>
-    <p class="gw-win-sub">Ты правильно разложил все 30 букв.<br>Отличная работа!</p>
+    <div class="gw-win-stars" id="gwWinStars">⭐ ⭐ ⭐</div>
+    <h2 class="gw-win-title" id="gwWinTitle">Молодец!</h2>
+    <p class="gw-win-sub" id="gwWinSub">Ты правильно разложил все 30 букв!</p>
+    <div class="gw-win-score" id="gwWinScore"></div>
     <button class="gw-win-btn" id="gwWinBtn">🔄 Играть снова</button>
   </div>
 </div>
@@ -531,7 +534,8 @@
       { bg:'#EAF9F3', bd:'#6BC5A0' },
       { bg:'#F0EBFF', bd:'#A78BFA' },
     ];
-    var correct = 0, vcnt = 0, ccnt = 0;
+    var correct = 0, wrong = 0, placed = 0, vcnt = 0, ccnt = 0;
+    var shuffledLetters = [], currentIdx = 0;
     var dragEl = null, touchEl = null, touchGhost = null;
     var tox = 0, toy = 0;
     var cfAnim = null, cfParts = [];
@@ -546,21 +550,29 @@
     }
 
     function gwStart() {
-      correct = 0; vcnt = 0; ccnt = 0;
+      correct = 0; wrong = 0; placed = 0; vcnt = 0; ccnt = 0;
       stopCf();
       document.getElementById('gwOverlay').classList.add('hidden');
       document.getElementById('gwCanvas').classList.add('hidden');
       document.getElementById('gwLettersV').innerHTML = '';
       document.getElementById('gwLettersC').innerHTML = '';
-      document.getElementById('gwCntV').textContent = '0 / 10';
-      document.getElementById('gwCntC').textContent = '0 / 20';
+      document.getElementById('gwCntV').textContent = '0';
+      document.getElementById('gwCntC').textContent = '0';
+      shuffledLetters = shuffle(ALL);
+      currentIdx = 0;
+      document.getElementById('gwPool').innerHTML = '';
+      showNextLetter();
+      updateProg();
+    }
+
+    function showNextLetter() {
       var pool = document.getElementById('gwPool');
       pool.innerHTML = '';
-      shuffle(ALL).forEach(function(letter, i) {
-        var c = PALETTE[i % 5];
-        pool.appendChild(makeCard(letter, c));
-      });
-      updateProg();
+      if (currentIdx >= shuffledLetters.length) return;
+      var c = PALETTE[currentIdx % 5];
+      pool.appendChild(makeCard(shuffledLetters[currentIdx], c));
+      document.querySelector('.gw-pool-label').textContent =
+        'Буква ' + (currentIdx + 1) + ' из ' + TOTAL + ' — перетащи в нужную корзинку';
     }
 
     function makeCard(letter, c) {
@@ -579,40 +591,41 @@
       return el;
     }
 
-    function seal(el) {
+    function seal(el, isWrong) {
       el.draggable = false;
       el.removeEventListener('touchstart', onTS);
       el.removeEventListener('touchmove', onTM);
       el.removeEventListener('touchend', onTE);
       el.classList.add('gw-placed');
+      if (isWrong) el.classList.add('gw-placed-wrong');
     }
 
     function dropCard(card, zone) {
       var letter = card.dataset.letter;
       var isV = zone.id === 'gwZoneV';
       var ok = isV ? VOWELS.has(letter) : CONSONANTS.has(letter);
-      if (ok) {
-        seal(card);
-        card.classList.add('gw-anim-ok');
-        card.addEventListener('animationend', function() { card.classList.remove('gw-anim-ok'); }, { once: true });
-        zone.querySelector('.gw-zone-letters').appendChild(card);
-        correct++;
-        if (isV) vcnt++; else ccnt++;
-        updateProg();
-        document.getElementById('gwCntV').textContent = vcnt + ' / 10';
-        document.getElementById('gwCntC').textContent = ccnt + ' / 20';
-        if (correct === TOTAL) setTimeout(showWin, 500);
-      } else {
-        card.classList.add('gw-anim-err');
-        card.addEventListener('animationend', function() { card.classList.remove('gw-anim-err'); }, { once: true });
-      }
+      seal(card, !ok);
+      card.classList.add(ok ? 'gw-anim-ok' : 'gw-anim-err');
+      card.addEventListener('animationend', function() {
+        card.classList.remove('gw-anim-ok', 'gw-anim-err');
+      }, { once: true });
+      zone.querySelector('.gw-zone-letters').appendChild(card);
+      placed++;
+      currentIdx++;
+      if (ok) correct++; else wrong++;
+      if (isV) vcnt++; else ccnt++;
+      updateProg();
+      document.getElementById('gwCntV').textContent = vcnt;
+      document.getElementById('gwCntC').textContent = ccnt;
+      if (placed === TOTAL) setTimeout(showWin, 500);
+      else showNextLetter();
     }
 
     function updateProg() {
-      var pct = (correct / TOTAL) * 100;
+      var pct = (placed / TOTAL) * 100;
       document.getElementById('gwProgFill').style.width = pct + '%';
-      document.getElementById('gwProgBar').setAttribute('aria-valuenow', correct);
-      document.getElementById('gwProgText').textContent = 'Разложено: ' + correct + ' из ' + TOTAL;
+      document.getElementById('gwProgBar').setAttribute('aria-valuenow', placed);
+      document.getElementById('gwProgText').textContent = 'Разложено: ' + placed + ' из ' + TOTAL;
     }
 
     ['gwZoneV', 'gwZoneC'].forEach(function(id) {
@@ -672,6 +685,15 @@
     }
 
     function showWin() {
+      var pct = Math.round((correct / TOTAL) * 100);
+      document.getElementById('gwWinStars').textContent = pct === 100 ? '⭐ ⭐ ⭐' : pct >= 70 ? '⭐ ⭐' : '⭐';
+      document.getElementById('gwWinTitle').textContent = pct === 100 ? 'Молодец!' : pct >= 70 ? 'Хорошо!' : 'Старайся!';
+      document.getElementById('gwWinSub').textContent = pct === 100
+        ? 'Ты правильно разложил все 30 букв!'
+        : 'Ты разложил ' + correct + ' из ' + TOTAL + ' букв правильно.';
+      document.getElementById('gwWinScore').innerHTML =
+        '<span style="color:var(--green)">✓ Верно: ' + correct + '</span>' +
+        '<span style="color:var(--coral)">✗ Ошибок: ' + wrong + '</span>';
       document.getElementById('gwCanvas').classList.remove('hidden');
       document.getElementById('gwOverlay').classList.remove('hidden');
       launchCf();
