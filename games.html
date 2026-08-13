@@ -415,7 +415,7 @@
       <div class="game-header">
         <div class="gw-header-top">
           <span class="gw-title">Гласные и Согласные</span>
-          <span class="gw-sub-text">Разложи все 30 букв по корзинкам</span>
+          <span class="gw-sub-text">По одной букве — разложи все 30 по корзинкам</span>
         </div>
         <div class="gw-progress-row">
           <div class="gw-progress-track" role="progressbar" aria-valuenow="0" aria-valuemax="30" id="gwProgBar">
@@ -532,6 +532,7 @@
       { bg:'#F0EBFF', bd:'#A78BFA' },
     ];
     var correct = 0, vcnt = 0, ccnt = 0;
+    var shuffledLetters = [], currentIdx = 0;
     var dragEl = null, touchEl = null, touchGhost = null;
     var tox = 0, toy = 0;
     var cfAnim = null, cfParts = [];
@@ -554,13 +555,21 @@
       document.getElementById('gwLettersC').innerHTML = '';
       document.getElementById('gwCntV').textContent = '0 / 10';
       document.getElementById('gwCntC').textContent = '0 / 20';
+      shuffledLetters = shuffle(ALL);
+      currentIdx = 0;
+      document.getElementById('gwPool').innerHTML = '';
+      showNextLetter();
+      updateProg();
+    }
+
+    function showNextLetter() {
       var pool = document.getElementById('gwPool');
       pool.innerHTML = '';
-      shuffle(ALL).forEach(function(letter, i) {
-        var c = PALETTE[i % 5];
-        pool.appendChild(makeCard(letter, c));
-      });
-      updateProg();
+      if (currentIdx >= shuffledLetters.length) return;
+      var c = PALETTE[currentIdx % 5];
+      pool.appendChild(makeCard(shuffledLetters[currentIdx], c));
+      document.querySelector('.gw-pool-label').textContent =
+        'Буква ' + (currentIdx + 1) + ' из ' + TOTAL + ' — перетащи в нужную корзинку';
     }
 
     function makeCard(letter, c) {
@@ -597,11 +606,13 @@
         card.addEventListener('animationend', function() { card.classList.remove('gw-anim-ok'); }, { once: true });
         zone.querySelector('.gw-zone-letters').appendChild(card);
         correct++;
+        currentIdx++;
         if (isV) vcnt++; else ccnt++;
         updateProg();
         document.getElementById('gwCntV').textContent = vcnt + ' / 10';
         document.getElementById('gwCntC').textContent = ccnt + ' / 20';
         if (correct === TOTAL) setTimeout(showWin, 500);
+        else showNextLetter();
       } else {
         card.classList.add('gw-anim-err');
         card.addEventListener('animationend', function() { card.classList.remove('gw-anim-err'); }, { once: true });
