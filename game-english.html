@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Английские слова | Успевайка</title>
+  <meta name="description" content="Интерактивная игра «Английские слова» для 3–6 класса. Угадывай перевод слов по теме School, Animals, Food — тренировка английского словарного запаса.">
+  <link rel="canonical" href="https://uspevaika-online.ru/game-english.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://uspevaika-online.ru/game-english.html">
+  <meta property="og:title" content="Английские слова | Успевайка">
+  <meta property="og:description" content="Угадывай перевод английских слов по теме School, Animals, Food — тренировка словарного запаса.">
+  <meta property="og:image" content="https://uspevaika-online.ru/images/logo-clear.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Успевайка">
+  <meta name="theme-color" content="#7BBFD4">
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sky: #7BBFD4; --sky-light: #C8E8F4; --sky-pale: #DCF0F8;
+      --yellow: #F5D76E; --yellow-dark: #E8C84A;
+      --coral: #FF8A7A; --green: #6BC5A0; --brown: #6B4E3D;
+      --ink: #2C3E50; --muted: #6B7C8D; --bg: #F0F9FF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Rubik', sans-serif; line-height: 1.25; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    section { padding: 64px 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    .nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.93); backdrop-filter:blur(18px); box-shadow:0 2px 16px rgba(123,191,212,.12); }
+    .nav__inner { display:flex; align-items:center; justify-content:space-between; height:68px; gap:16px; }
+    .nav__logo { display:flex; align-items:center; gap:10px; font-family:'Rubik',sans-serif; font-size:1.35rem; font-weight:700; color:var(--sky); flex-shrink:0; }
+    .nav__logo img { height:44px; width:auto; border-radius:6px; }
+    .nav__links { display:flex; align-items:center; gap:24px; list-style:none; }
+    .nav__links a { font-size:.9rem; font-weight:600; color:var(--muted); transition:color .2s; }
+    .nav__links a:hover, .nav__links a.active { color:var(--sky); }
+    .nav__right { display:flex; align-items:center; gap:12px; flex-shrink:0; }
+    .nav__phone { font-family:'Rubik',sans-serif; font-weight:600; color:var(--muted); white-space:nowrap; font-size:.88rem; }
+    .nav__phone:hover { color:var(--sky); }
+    .nav__cta { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg,var(--sky) 0%,#5aafc8 100%); color:#fff; padding:9px 20px; border-radius:50px; font-size:.88rem; font-weight:700; white-space:nowrap; box-shadow:0 4px 14px rgba(123,191,212,.38); transition:all .22s; }
+    .nav__cta:hover { transform:translateY(-1px); box-shadow:0 7px 22px rgba(123,191,212,.5); color:#fff; }
+    .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .burger span { display:block; width:24px; height:3px; background:var(--ink); border-radius:3px; transition:.3s; }
+    .nav__mobile { display:none; flex-direction:column; background:var(--bg); border-top:1px solid var(--sky-light); padding:0 24px 16px; }
+    .nav__mobile a { display:block; padding:12px 0; font-weight:600; border-bottom:1px solid var(--sky-pale); color:var(--ink); }
+    .nav__mobile a:last-child { border-bottom:none; }
+    .nav__mobile.open { display:flex; }
+    @media(max-width:860px) { .nav__links,.nav__phone { display:none; } .burger { display:flex; } }
+
+    /* HERO */
+    .gp-hero { background:linear-gradient(180deg,#fff 0%,var(--bg) 100%); padding:40px 0 28px; }
+    .gp-breadcrumb { display:flex; align-items:center; gap:6px; font-size:.88rem; color:var(--muted); margin-bottom:18px; }
+    .gp-breadcrumb a { color:var(--sky); font-weight:600; }
+    .gp-breadcrumb a:hover { opacity:.75; }
+    .gp-breadcrumb__sep { color:var(--sky-light); }
+    .gp-hero__inner { display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
+    .gp-hero__text { flex:1; min-width:240px; }
+    .gp-hero__badge { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg,#EAF9F3,#C5EFE3); border:1.5px solid var(--green); border-radius:50px; padding:5px 14px; font-size:.8rem; font-weight:700; color:#28a07a; margin-bottom:14px; }
+    .gp-hero__title { font-size:clamp(1.8rem,4vw,2.5rem); font-weight:800; margin-bottom:10px; }
+    .gp-hero__title .accent { color:var(--green); }
+    .gp-hero__sub { color:var(--muted); font-size:.98rem; line-height:1.7; max-width:480px; }
+    .gp-hero__meta { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .gp-tag { background:#fff; border:1.5px solid var(--sky-light); border-radius:50px; padding:4px 13px; font-size:.8rem; font-weight:700; color:var(--muted); }
+    .gp-tag--english { background:#EAF9F3; border-color:var(--green); color:#28a07a; }
+
+    /* GAME WRAPPER */
+    .game-section { padding:48px 0 56px; }
+    .game-wrapper { max-width:640px; margin:0 auto; background:#fff; border-radius:24px; box-shadow:0 8px 40px rgba(123,191,212,.14); overflow:hidden; border:2px solid var(--sky-light); position:relative; }
+    .game-wrapper::before { content:''; display:block; height:5px; background:linear-gradient(90deg,var(--green),#6BC5A0,#5aafc8,var(--yellow)); }
+
+    /* GAME HEADER */
+    .eg-header { padding:22px 24px 16px; border-bottom:1px solid var(--sky-pale); }
+    .eg-header-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; gap:12px; flex-wrap:wrap; }
+    .eg-title { font-family:'Rubik',sans-serif; font-size:1.08rem; font-weight:700; }
+    .eg-qcount { font-size:.85rem; font-weight:700; color:var(--muted); white-space:nowrap; }
+    .eg-theme-chip { display:inline-flex; align-items:center; gap:5px; background:var(--sky-pale); border:1.5px solid var(--sky-light); border-radius:50px; padding:3px 12px; font-size:.78rem; font-weight:700; color:var(--sky); }
+    .eg-progress-track { height:8px; background:var(--sky-pale); border-radius:99px; overflow:hidden; }
+    .eg-progress-fill { height:100%; background:linear-gradient(90deg,var(--green),#5aafc8); border-radius:99px; transition:width .4s ease; width:0%; }
+
+    /* CARD */
+    .eg-card { padding:28px 24px 24px; text-align:center; }
+    .eg-label { font-size:.78rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px; }
+    .eg-word { font-family:'Rubik',sans-serif; font-size:clamp(1.8rem,6vw,2.6rem); font-weight:800; color:var(--ink); margin-bottom:6px; line-height:1.15; }
+    .eg-hint { font-size:.82rem; color:var(--muted); margin-bottom:24px; font-style:italic; }
+    .eg-choices { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .eg-btn { padding:14px 10px; border-radius:14px; border:2.5px solid var(--sky-light); background:#fff; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; color:var(--ink); cursor:pointer; transition:all .18s; text-align:center; line-height:1.3; }
+    .eg-btn:hover:not(:disabled) { border-color:var(--green); background:#EAF9F3; color:#28a07a; transform:translateY(-2px); box-shadow:0 6px 18px rgba(107,197,160,.18); }
+    .eg-btn:disabled { cursor:default; }
+    .eg-btn.eg-correct { border-color:var(--green); background:#EAF9F3; color:#28a07a; transform:none; }
+    .eg-btn.eg-wrong { border-color:var(--coral); background:#FFF4F3; color:#c0392b; transform:none; }
+    .eg-btn.eg-reveal { border-color:var(--green); background:#EAF9F3; color:#28a07a; }
+
+    /* FEEDBACK */
+    .eg-feedback { min-height:30px; display:flex; align-items:center; justify-content:center; gap:8px; margin-top:16px; font-size:.92rem; font-weight:700; transition:opacity .2s; }
+    .eg-feedback--ok { color:#28a07a; }
+    .eg-feedback--err { color:var(--coral); }
+
+    /* WIN OVERLAY */
+    .eg-overlay { position:fixed; inset:0; background:rgba(44,62,80,.65); display:flex; align-items:center; justify-content:center; z-index:200; backdrop-filter:blur(4px); }
+    .eg-overlay.hidden { display:none; }
+    .eg-win-card { background:#fff; border-radius:28px; padding:40px 36px; max-width:400px; width:90%; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,.2); position:relative; }
+    .eg-win-stars { font-size:2.2rem; margin-bottom:12px; letter-spacing:4px; }
+    .eg-win-title { font-size:1.75rem; font-weight:800; margin-bottom:8px; }
+    .eg-win-sub { color:var(--muted); font-size:.98rem; margin-bottom:18px; line-height:1.6; }
+    .eg-win-score { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:24px; }
+    .eg-win-chip { background:var(--sky-pale); border-radius:12px; padding:8px 18px; font-size:.88rem; font-weight:700; color:var(--ink); }
+    .eg-win-chip.good { background:#EAF9F3; color:#28a07a; }
+    .eg-win-chip.bad { background:#FFF4F3; color:var(--coral); }
+    .eg-win-btn { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,var(--green) 0%,#5aafc8 100%); color:#fff; border:none; padding:14px 32px; border-radius:50px; font-family:'Rubik',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; box-shadow:0 6px 20px rgba(107,197,160,.35); transition:all .22s; }
+    .eg-win-btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(107,197,160,.45); }
+
+    /* CONFETTI CANVAS */
+    .eg-canvas { position:fixed; inset:0; pointer-events:none; z-index:199; }
+    .eg-canvas.hidden { display:none; }
+
+    /* RULES */
+    .eg-rules { padding:40px 0 48px; }
+    .eg-rules__title { font-size:1.2rem; font-weight:700; margin-bottom:20px; text-align:center; }
+    .eg-vocab { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .eg-vocab-group { background:#fff; border-radius:16px; padding:16px; border:2px solid var(--sky-light); }
+    .eg-vocab-group__label { font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px; padding-bottom:6px; border-bottom:2px solid; }
+    .eg-vocab-group--school .eg-vocab-group__label { color:#5aafc8; border-color:#C8E8F4; }
+    .eg-vocab-group--animals .eg-vocab-group__label { color:#28a07a; border-color:#C5EFE3; }
+    .eg-vocab-group--food .eg-vocab-group__label { color:#e07a5f; border-color:#FFD6CC; }
+    .eg-vocab-pair { display:flex; justify-content:space-between; align-items:center; padding:4px 0; font-size:.85rem; border-bottom:1px solid var(--sky-pale); }
+    .eg-vocab-pair:last-child { border-bottom:none; }
+    .eg-vocab-pair__ru { font-weight:700; color:var(--ink); }
+    .eg-vocab-pair__en { color:var(--muted); font-style:italic; }
+    @media(max-width:600px) { .eg-vocab { grid-template-columns:1fr; } }
+
+    /* CTA */
+    .gp-cta { background:linear-gradient(135deg,#EAF9F3 0%,#DCF0F8 100%); border-radius:24px; padding:40px 32px; text-align:center; margin:0 0 48px; }
+    .gp-cta h2 { font-size:1.4rem; font-weight:800; margin-bottom:8px; }
+    .gp-cta p { color:var(--muted); font-size:.95rem; margin-bottom:20px; }
+    .gp-cta__btn { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,var(--green) 0%,#5aafc8 100%); color:#fff; padding:13px 28px; border-radius:50px; font-family:'Rubik',sans-serif; font-size:.95rem; font-weight:700; box-shadow:0 6px 20px rgba(107,197,160,.35); transition:all .22s; }
+    .gp-cta__btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(107,197,160,.45); color:#fff; }
+
+    /* FOOTER */
+    .footer { background:#fff; border-top:1px solid var(--sky-light); padding:28px 0; }
+    .footer__inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .footer__logo { display:flex; align-items:center; gap:8px; font-family:'Rubik',sans-serif; font-weight:700; color:var(--sky); font-size:1.1rem; }
+    .footer__logo img { height:32px; border-radius:4px; }
+    .footer__copy { font-size:.82rem; color:var(--muted); }
+    .footer__socials { display:flex; gap:12px; }
+    .footer__socials a { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:50%; background:var(--sky-pale); color:var(--sky); font-size:.85rem; font-weight:700; transition:background .2s; }
+    .footer__socials a:hover { background:var(--sky-light); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img loading="lazy" src="images/logo.png" alt="Логотип Успевайка">
+      Успевайка
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#why">О нас</a></li>
+      <li><a href="index.html#subjects">Предметы</a></li>
+      <li><a href="index.html#pricing">Цены</a></li>
+      <li><a href="games.html" class="active">Игры</a></li>
+    </ul>
+    <div class="nav__right">
+      <a href="tel:+79097923750" class="nav__phone">+7 909 792-3750</a>
+      <a href="index.html#contact" class="nav__cta">Записаться</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="index.html#why">О нас</a>
+    <a href="index.html#subjects">Предметы</a>
+    <a href="index.html#pricing">Цены</a>
+    <a href="games.html">Игры</a>
+    <a href="tel:+79097923750">+7 909 792-3750</a>
+    <a href="index.html#contact" style="color:var(--sky);font-weight:800;">→ Записаться на пробное</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="gp-hero">
+  <div class="container">
+    <nav class="gp-breadcrumb" aria-label="Навигация">
+      <a href="index.html">← Главная</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <a href="games.html">Игры</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <span>Английские слова</span>
+    </nav>
+    <div class="gp-hero__inner">
+      <div class="gp-hero__text">
+        <div class="gp-hero__badge">🌐 Английский язык</div>
+        <h1 class="gp-hero__title">Английские <span class="accent">слова</span></h1>
+        <p class="gp-hero__sub">Угадывай перевод слов из трёх тем: School, Animals, Food. 20 карточек — выбирай из 4 вариантов.</p>
+        <div class="gp-hero__meta">
+          <span class="gp-tag gp-tag--english">Английский</span>
+          <span class="gp-tag">3–6 класс</span>
+          <span class="gp-tag">20 слов</span>
+          <span class="gp-tag">3 темы</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAME -->
+<section class="game-section">
+  <div class="container">
+    <div class="game-wrapper">
+      <div class="eg-header">
+        <div class="eg-header-top">
+          <span class="eg-title">🌐 Английские слова</span>
+          <span class="eg-qcount" id="egQCount">Слово 1 из 20</span>
+        </div>
+        <div id="egThemeChip" class="eg-theme-chip">📚 School</div>
+        <div style="margin-top:10px;">
+          <div class="eg-progress-track">
+            <div class="eg-progress-fill" id="egProgFill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="eg-card">
+        <div class="eg-label">Как переводится на английский?</div>
+        <div class="eg-word" id="egWord">—</div>
+        <div class="eg-hint" id="egHint"></div>
+        <div class="eg-choices" id="egChoices">
+          <button class="eg-btn" data-idx="0"></button>
+          <button class="eg-btn" data-idx="1"></button>
+          <button class="eg-btn" data-idx="2"></button>
+          <button class="eg-btn" data-idx="3"></button>
+        </div>
+        <div class="eg-feedback hidden" id="egFeedback"></div>
+      </div>
+    </div>
+
+    <!-- RULES / VOCABULARY -->
+    <div class="eg-rules">
+      <h2 class="eg-rules__title">📋 Слова в игре</h2>
+      <div class="eg-vocab">
+        <div class="eg-vocab-group eg-vocab-group--school">
+          <div class="eg-vocab-group__label">📚 School</div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Школа</span><span class="eg-vocab-pair__en">school</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Учитель</span><span class="eg-vocab-pair__en">teacher</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Книга</span><span class="eg-vocab-pair__en">book</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Тетрадь</span><span class="eg-vocab-pair__en">notebook</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Ручка</span><span class="eg-vocab-pair__en">pen</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Доска</span><span class="eg-vocab-pair__en">board</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Урок</span><span class="eg-vocab-pair__en">lesson</span></div>
+        </div>
+        <div class="eg-vocab-group eg-vocab-group--animals">
+          <div class="eg-vocab-group__label">🐾 Animals</div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Кошка</span><span class="eg-vocab-pair__en">cat</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Собака</span><span class="eg-vocab-pair__en">dog</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Птица</span><span class="eg-vocab-pair__en">bird</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Рыба</span><span class="eg-vocab-pair__en">fish</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Лошадь</span><span class="eg-vocab-pair__en">horse</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Заяц</span><span class="eg-vocab-pair__en">rabbit</span></div>
+        </div>
+        <div class="eg-vocab-group eg-vocab-group--food">
+          <div class="eg-vocab-group__label">🍎 Food</div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Яблоко</span><span class="eg-vocab-pair__en">apple</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Хлеб</span><span class="eg-vocab-pair__en">bread</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Молоко</span><span class="eg-vocab-pair__en">milk</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Суп</span><span class="eg-vocab-pair__en">soup</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Торт</span><span class="eg-vocab-pair__en">cake</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Сок</span><span class="eg-vocab-pair__en">juice</span></div>
+          <div class="eg-vocab-pair"><span class="eg-vocab-pair__ru">Сыр</span><span class="eg-vocab-pair__en">cheese</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="gp-cta">
+      <h2>Хочешь прокачать английский?</h2>
+      <p>Запишись на пробное занятие — подберём репетитора по английскому за 1–2 дня.</p>
+      <a href="index.html#contact" class="gp-cta__btn">Записаться на занятие →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WIN OVERLAY -->
+<canvas class="eg-canvas hidden" id="egCanvas"></canvas>
+<div class="eg-overlay hidden" id="egOverlay">
+  <div class="eg-win-card">
+    <div class="eg-win-stars" id="egWinStars">⭐ ⭐ ⭐</div>
+    <h2 class="eg-win-title" id="egWinTitle">Отлично!</h2>
+    <p class="eg-win-sub" id="egWinSub">Ты перевёл все слова!</p>
+    <div class="eg-win-score" id="egWinScore"></div>
+    <button class="eg-win-btn" id="egWinBtn">🔄 Играть снова</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__logo">
+      <img loading="lazy" src="images/logo.png" alt="Логотип Успевайка">
+      Успевайка
+    </div>
+    <div class="footer__copy">© 2024 Успевайка. Все права защищены.</div>
+    <div class="footer__socials">
+      <a href="https://t.me/uspevaika" target="_blank" rel="noopener" title="Telegram">✈</a>
+      <a href="https://api.whatsapp.com/send?phone=79097923750" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+      <a href="https://vk.ru/club.uspevaika" target="_blank" rel="noopener" title="ВКонтакте">VK</a>
+      <a href="https://youtube.com/@uspevaika" target="_blank" rel="noopener" title="YouTube">▶</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burger').addEventListener('click', function() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+</script>
+
+<script>
+(function() {
+  'use strict';
+
+  var WORDS = [
+    { ru:'Школа',   en:'school',   theme:'School'  },
+    { ru:'Учитель', en:'teacher',  theme:'School'  },
+    { ru:'Книга',   en:'book',     theme:'School'  },
+    { ru:'Тетрадь', en:'notebook', theme:'School'  },
+    { ru:'Ручка',   en:'pen',      theme:'School'  },
+    { ru:'Доска',   en:'board',    theme:'School'  },
+    { ru:'Урок',    en:'lesson',   theme:'School'  },
+    { ru:'Кошка',   en:'cat',      theme:'Animals' },
+    { ru:'Собака',  en:'dog',      theme:'Animals' },
+    { ru:'Птица',   en:'bird',     theme:'Animals' },
+    { ru:'Рыба',    en:'fish',     theme:'Animals' },
+    { ru:'Лошадь',  en:'horse',    theme:'Animals' },
+    { ru:'Заяц',    en:'rabbit',   theme:'Animals' },
+    { ru:'Яблоко',  en:'apple',    theme:'Food'    },
+    { ru:'Хлеб',    en:'bread',    theme:'Food'    },
+    { ru:'Молоко',  en:'milk',     theme:'Food'    },
+    { ru:'Суп',     en:'soup',     theme:'Food'    },
+    { ru:'Торт',    en:'cake',     theme:'Food'    },
+    { ru:'Сок',     en:'juice',    theme:'Food'    },
+    { ru:'Сыр',     en:'cheese',   theme:'Food'    }
+  ];
+
+  var THEME_ICONS = { School: '📚', Animals: '🐾', Food: '🍎' };
+  var TOTAL = WORDS.length;
+
+  var queue = [], current = 0, correct = 0, wrong = 0;
+  var cfAnim = null, cfParts = [];
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function start() {
+    current = 0; correct = 0; wrong = 0;
+    queue = shuffle(WORDS);
+    stopCf();
+    document.getElementById('egOverlay').classList.add('hidden');
+    document.getElementById('egCanvas').classList.add('hidden');
+    showQ();
+  }
+
+  function showQ() {
+    var w = queue[current];
+    document.getElementById('egWord').textContent = w.ru;
+    document.getElementById('egQCount').textContent = 'Слово ' + (current + 1) + ' из ' + TOTAL;
+    var chip = document.getElementById('egThemeChip');
+    chip.textContent = THEME_ICONS[w.theme] + ' ' + w.theme;
+    document.getElementById('egProgFill').style.width = ((current / TOTAL) * 100) + '%';
+    document.getElementById('egHint').textContent = 'Тема: ' + w.theme;
+
+    var distractors = shuffle(WORDS.filter(function(x) { return x.en !== w.en; })).slice(0, 3);
+    var choices = shuffle(distractors.concat([w]));
+    var btns = document.querySelectorAll('.eg-btn');
+    choices.forEach(function(c, i) {
+      btns[i].textContent = c.en;
+      btns[i].dataset.en = c.en;
+      btns[i].className = 'eg-btn';
+      btns[i].disabled = false;
+    });
+
+    var fb = document.getElementById('egFeedback');
+    fb.textContent = '';
+    fb.className = 'eg-feedback hidden';
+  }
+
+  function pick(btn) {
+    var w = queue[current];
+    var chosen = btn.dataset.en;
+    var btns = document.querySelectorAll('.eg-btn');
+    btns.forEach(function(b) { b.disabled = true; });
+
+    var fb = document.getElementById('egFeedback');
+    fb.classList.remove('hidden');
+
+    if (chosen === w.en) {
+      btn.classList.add('eg-correct');
+      fb.className = 'eg-feedback eg-feedback--ok';
+      fb.textContent = '✓ Верно! ' + w.ru + ' = ' + w.en;
+      correct++;
+      setTimeout(next, 700);
+    } else {
+      btn.classList.add('eg-wrong');
+      btns.forEach(function(b) {
+        if (b.dataset.en === w.en) b.classList.add('eg-reveal');
+      });
+      fb.className = 'eg-feedback eg-feedback--err';
+      fb.textContent = '✗ Правильно: ' + w.en;
+      wrong++;
+      setTimeout(next, 1100);
+    }
+  }
+
+  function next() {
+    current++;
+    if (current >= TOTAL) { showWin(); return; }
+    showQ();
+  }
+
+  function showWin() {
+    document.getElementById('egProgFill').style.width = '100%';
+    var pct = Math.round((correct / TOTAL) * 100);
+    var stars = pct >= 85 ? '⭐ ⭐ ⭐' : pct >= 60 ? '⭐ ⭐' : '⭐';
+    var title = pct >= 85 ? 'Отлично!' : pct >= 60 ? 'Хорошо!' : 'Продолжай!';
+    var sub = 'Ты угадал ' + correct + ' из ' + TOTAL + ' слов (' + pct + '%).';
+    document.getElementById('egWinStars').textContent = stars;
+    document.getElementById('egWinTitle').textContent = title;
+    document.getElementById('egWinSub').textContent = sub;
+    var sc = document.getElementById('egWinScore');
+    sc.innerHTML = '<div class="eg-win-chip good">✓ ' + correct + ' верно</div><div class="eg-win-chip bad">✗ ' + wrong + ' ошибок</div>';
+    document.getElementById('egOverlay').classList.remove('hidden');
+    launchCf();
+  }
+
+  document.querySelectorAll('.eg-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { if (!btn.disabled) pick(btn); });
+  });
+  document.getElementById('egWinBtn').addEventListener('click', start);
+
+  /* CONFETTI */
+  var CF_COLORS = ['#7BBFD4','#F5D76E','#FF8A7A','#6BC5A0','#A78BFA','#FFB347'];
+  function launchCf() {
+    var cv = document.getElementById('egCanvas');
+    cv.classList.remove('hidden');
+    cv.width = window.innerWidth; cv.height = window.innerHeight;
+    var ctx = cv.getContext('2d');
+    cfParts = [];
+    for (var i = 0; i < 130; i++) {
+      cfParts.push({
+        x: Math.random() * cv.width,
+        y: Math.random() * -cv.height,
+        w: 7 + Math.random() * 7,
+        h: 10 + Math.random() * 8,
+        color: CF_COLORS[Math.floor(Math.random() * CF_COLORS.length)],
+        vy: 2.5 + Math.random() * 3.5,
+        vx: (Math.random() - 0.5) * 2.5,
+        rot: Math.random() * 360,
+        rv: (Math.random() - 0.5) * 5
+      });
+    }
+    function frame() {
+      ctx.clearRect(0, 0, cv.width, cv.height);
+      var alive = false;
+      cfParts.forEach(function(p) {
+        p.x += p.vx; p.y += p.vy; p.rot += p.rv;
+        if (p.y < cv.height + 20) alive = true;
+        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot * Math.PI / 180);
+        ctx.fillStyle = p.color; ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+        ctx.restore();
+      });
+      if (alive) cfAnim = requestAnimationFrame(frame);
+      else { cv.classList.add('hidden'); }
+    }
+    if (cfAnim) cancelAnimationFrame(cfAnim);
+    cfAnim = requestAnimationFrame(frame);
+  }
+
+  function stopCf() {
+    if (cfAnim) { cancelAnimationFrame(cfAnim); cfAnim = null; }
+    document.getElementById('egCanvas').classList.add('hidden');
+  }
+
+  start();
+})();
+</script>
+</body>
+</html>
