@@ -139,7 +139,7 @@
     .gw-progress-text { font-size: .8rem; font-weight: 700; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; min-width: 110px; text-align: right; }
     .gw-pool-section { padding: 16px 16px 8px; }
     .gw-pool-label { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-    .gw-pool { background: var(--sky-pale); border-radius: 16px; padding: 14px; display: flex; flex-wrap: wrap; gap: 9px; min-height: 72px; justify-content: center; }
+    .gw-pool { background: var(--sky-pale); border-radius: 16px; padding: 14px; display: flex; flex-wrap: wrap; gap: 9px; min-height: 72px; }
     .gw-pool:empty::after { content: '✓ Все буквы разложены!'; color: var(--green); font-weight: 700; font-size: .95rem; margin: auto; width: 100%; text-align: center; padding: 8px 0; }
     .gw-zones { display: flex; gap: 12px; padding: 8px 16px 20px; }
     .gw-zone { flex: 1; border-radius: 16px; border: 2.5px dashed; padding: 14px 12px 12px; min-height: 140px; display: flex; flex-direction: column; gap: 10px; transition: transform .15s, box-shadow .15s, border-style .15s; }
@@ -264,13 +264,13 @@
     <p class="gh-hero__sub">Интерактивные задания для школьников 1–7 класса — закрепляй школьную программу в игровой форме, бесплатно и без регистрации.</p>
     <div class="gh-hero__stats">
       <div class="gh-hero__stat">
-        <div class="gh-hero__stat-num">2</div>
-        <div class="gh-hero__stat-label">игры доступны</div>
+        <div class="gh-hero__stat-num">7</div>
+        <div class="gh-hero__stat-label">игр доступны</div>
       </div>
       <div class="gh-hero__stat-sep"></div>
       <div class="gh-hero__stat">
-        <div class="gh-hero__stat-num">4+</div>
-        <div class="gh-hero__stat-label">игр скоро</div>
+        <div class="gh-hero__stat-num">3</div>
+        <div class="gh-hero__stat-label">предмета</div>
       </div>
       <div class="gh-hero__stat-sep"></div>
       <div class="gh-hero__stat">
@@ -336,88 +336,103 @@
         </div>
       </div>
 
-      <!-- GAME 3: Coming soon -->
-      <div class="gh-card gh-card--soon" data-subject="math">
+      <!-- GAME 3: Active -->
+      <div class="gh-card gh-card--available" data-subject="math">
         <div class="gh-card__banner" style="background:linear-gradient(135deg,#FFFBEB,#FEF2BF);">
           ✖️
-          <span class="gh-card__soon-badge">Скоро</span>
+          <span class="gh-card__active-badge">Играть!</span>
         </div>
         <div class="gh-card__body">
           <div class="gh-card__tags">
             <span class="gh-tag gh-tag--math">Математика</span>
             <span class="gh-tag">2–4 класс</span>
+            <span class="gh-tag">Викторина</span>
           </div>
           <h3 class="gh-card__title">Таблица умножения</h3>
           <p class="gh-card__desc">Тренируй таблицу умножения на скорость — выбирай правильный ответ из четырёх вариантов.</p>
-          <span class="gh-card__soon-label">⏳ Скоро</span>
+          <a href="game-times.html" class="gh-card__btn">
+            ▶ Играть
+          </a>
         </div>
       </div>
 
-      <!-- GAME 3: Coming soon -->
-      <div class="gh-card gh-card--soon" data-subject="russian">
+      <!-- GAME 4: Active -->
+      <div class="gh-card gh-card--available" data-subject="russian">
         <div class="gh-card__banner" style="background:linear-gradient(135deg,#EAF9F3,#C8EFE1);">
           🅰️
-          <span class="gh-card__soon-badge">Скоро</span>
+          <span class="gh-card__active-badge">Играть!</span>
         </div>
         <div class="gh-card__body">
           <div class="gh-card__tags">
             <span class="gh-tag gh-tag--russian">Русский язык</span>
             <span class="gh-tag">2–4 класс</span>
+            <span class="gh-tag">Клик</span>
           </div>
           <h3 class="gh-card__title">Ударения в словах</h3>
           <p class="gh-card__desc">Поставь ударение правильно в каждом слове — карточки меняются автоматически.</p>
-          <span class="gh-card__soon-label">⏳ Скоро</span>
+          <a href="game-stress.html" class="gh-card__btn">
+            ▶ Играть
+          </a>
         </div>
       </div>
 
-      <!-- GAME 4: Coming soon -->
-      <div class="gh-card gh-card--soon" data-subject="russian">
+      <!-- GAME 5: Active -->
+      <div class="gh-card gh-card--available" data-subject="russian">
         <div class="gh-card__banner" style="background:linear-gradient(135deg,#FFF4F3,#FFE2DE);">
           📝
-          <span class="gh-card__soon-badge">Скоро</span>
+          <span class="gh-card__active-badge">Играть!</span>
         </div>
         <div class="gh-card__body">
           <div class="gh-card__tags">
             <span class="gh-tag gh-tag--russian">Русский язык</span>
             <span class="gh-tag">3–5 класс</span>
+            <span class="gh-tag">Drag &amp; Drop</span>
           </div>
           <h3 class="gh-card__title">Части речи</h3>
           <p class="gh-card__desc">Определяй части речи и распределяй слова по категориям: существительное, глагол, прилагательное.</p>
-          <span class="gh-card__soon-label">⏳ Скоро</span>
+          <a href="game-speech.html" class="gh-card__btn">
+            ▶ Играть
+          </a>
         </div>
       </div>
 
-      <!-- GAME 5: Coming soon -->
-      <div class="gh-card gh-card--soon" data-subject="math">
+      <!-- GAME 6: Active -->
+      <div class="gh-card gh-card--available" data-subject="math">
         <div class="gh-card__banner" style="background:linear-gradient(135deg,#F0EBFF,#DDD5FF);">
           🔢
-          <span class="gh-card__soon-badge">Скоро</span>
+          <span class="gh-card__active-badge">Играть!</span>
         </div>
         <div class="gh-card__body">
           <div class="gh-card__tags">
             <span class="gh-tag gh-tag--math">Математика</span>
             <span class="gh-tag">1–3 класс</span>
+            <span class="gh-tag">На время</span>
           </div>
           <h3 class="gh-card__title">Счёт до 100</h3>
           <p class="gh-card__desc">Решай примеры на сложение и вычитание до 100 — соревнуйся с таймером.</p>
-          <span class="gh-card__soon-label">⏳ Скоро</span>
+          <a href="game-count.html" class="gh-card__btn">
+            ▶ Играть
+          </a>
         </div>
       </div>
 
-      <!-- GAME 6: Coming soon -->
-      <div class="gh-card gh-card--soon" data-subject="english">
+      <!-- GAME 7: Active -->
+      <div class="gh-card gh-card--available" data-subject="english">
         <div class="gh-card__banner" style="background:linear-gradient(135deg,#EAF9F3,#C5EFE3);">
           🌐
-          <span class="gh-card__soon-badge">Скоро</span>
+          <span class="gh-card__active-badge">Играть!</span>
         </div>
         <div class="gh-card__body">
           <div class="gh-card__tags">
             <span class="gh-tag gh-tag--english">Английский</span>
             <span class="gh-tag">3–6 класс</span>
+            <span class="gh-tag">Викторина</span>
           </div>
           <h3 class="gh-card__title">Английские слова</h3>
           <p class="gh-card__desc">Угадывай перевод слов по теме School, Animals, Food — карточки на повторение.</p>
-          <span class="gh-card__soon-label">⏳ Скоро</span>
+          <a href="game-english.html" class="gh-card__btn">
+            ▶ Играть
+          </a>
         </div>
       </div>
 
