@@ -143,6 +143,11 @@
     .yot-card--ok::after { content: '✓'; position: absolute; top: -7px; right: -7px; font-size: .6rem; background: var(--green); color: #fff; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }
     .yot-card--err { animation: yot-shake .45s cubic-bezier(.36,.07,.19,.97); }
     @keyframes yot-shake { 0%,100%{transform:translateX(0)} 15%{transform:translateX(-9px) rotate(-2deg)} 35%{transform:translateX(9px) rotate(2deg)} 55%{transform:translateX(-6px) rotate(-1deg)} 75%{transform:translateX(6px) rotate(1deg)} }
+    @keyframes yot-pop { 0%{transform:scale(1)} 40%{transform:scale(1.25) rotate(-5deg)} 70%{transform:scale(.95) rotate(3deg)} 100%{transform:scale(1) rotate(0)} }
+    .yot-card--anim-ok { animation: yot-pop .45s cubic-bezier(.36,.07,.19,.97); }
+    .yot-card--anim-err { animation: yot-shake .45s cubic-bezier(.36,.07,.19,.97); }
+    .yot-card--wrong::after { content: '✗'; position: absolute; top: -7px; right: -7px; font-size: .6rem; background: var(--coral); color: #fff; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }
+    .yot-win-score { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; font-size: 1.05rem; font-weight: 800; }
     .yot { color: #c45000; text-decoration: underline; text-decoration-color: #f09040; text-decoration-thickness: 2.5px; text-underline-offset: 3px; }
     .yot-zones { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
     .yot-zone { border-radius: 16px; border: 2.5px dashed; padding: 14px; min-height: 120px; transition: transform .15s, box-shadow .15s, border-style .1s; }
@@ -291,6 +296,7 @@
     <div class="yot-win-stars" id="yotWinStars">⭐ ⭐ ⭐</div>
     <h2 class="yot-win-title" id="yotWinTitle">Молодец!</h2>
     <p class="yot-win-sub" id="yotWinSub">Все 12 слов разложены верно.<br>Ты знаешь правило!</p>
+    <div class="yot-win-score" id="yotWinScore"></div>
     <button class="yot-win-btn" id="yotWinBtn">🔄 Играть снова</button>
   </div>
 </div>
@@ -393,26 +399,30 @@ function wHTML(w){
   return w.word.slice(0,yi)+'<span class="yot">'+w.word[yi]+'</span>'+w.word.slice(yi+1);
 }
 
-var pool,placed=0,dragId=null;
+var shuffledWords,placed=0,correct=0,wrong=0,currentIdx=0,dragId=null;
 var touchEl=null,tGhost=null,tox=0,toy=0;
 var cfAnim=null,cfParts=[];
 
 function init(){
-  placed=0; dragId=null;
+  placed=0; correct=0; wrong=0; currentIdx=0; dragId=null;
   stopCf();
   document.getElementById('yotCf').style.display='none';
   document.getElementById('yotOv').classList.add('hidden');
   document.getElementById('yotCards2').innerHTML='';
   document.getElementById('yotCards1').innerHTML='';
-  pool=shuffle(WORDS);
-  buildPool();
+  shuffledWords=shuffle(WORDS);
+  document.getElementById('yotPool').innerHTML='';
+  showNextWord();
   updateProg();
 }
 
-function buildPool(){
+function showNextWord(){
   var el=document.getElementById('yotPool');
   el.innerHTML='';
-  pool.forEach(function(w){el.appendChild(mkCard(w));});
+  if(currentIdx>=shuffledWords.length)return;
+  el.appendChild(mkCard(shuffledWords[currentIdx]));
+  document.querySelector('.yot-pool-lbl').textContent=
+    'Слово '+(currentIdx+1)+' из '+TOTAL+' — перетащи в нужный столбик';
 }
 
 function mkCard(w){
@@ -494,18 +504,17 @@ function drop(wid,zone){
   if(!w)return;
   var el=document.querySelector('.yot-card[data-id="'+wid+'"]');
   if(!el)return;
-  if(w.ans===zone){
-    seal(el);
-    el.classList.add('yot-card--ok');
-    document.getElementById('yotCards'+zone).appendChild(el);
-    pool=pool.filter(function(x){return x.id!==wid;});
-    placed++;
-    updateProg();
-    if(placed===TOTAL)setTimeout(showWin,600);
-  } else {
-    el.classList.add('yot-card--err');
-    el.addEventListener('animationend',function(){el.classList.remove('yot-card--err');},{once:true});
-  }
+  var ok=(w.ans===zone);
+  seal(el);
+  if(ok){ el.classList.add('yot-card--ok'); correct++; }
+  else   { el.classList.add('yot-card--wrong'); wrong++; }
+  el.classList.add(ok?'yot-card--anim-ok':'yot-card--anim-err');
+  el.addEventListener('animationend',function(){el.classList.remove('yot-card--anim-ok','yot-card--anim-err');},{once:true});
+  document.getElementById('yotCards'+zone).appendChild(el);
+  placed++; currentIdx++;
+  updateProg();
+  if(placed===TOTAL)setTimeout(showWin,500);
+  else showNextWord();
 }
 
 function updateProg(){
@@ -516,6 +525,15 @@ function updateProg(){
 }
 
 function showWin(){
+  var pct=Math.round((correct/TOTAL)*100);
+  document.getElementById('yotWinStars').textContent=pct===100?'⭐ ⭐ ⭐':pct>=70?'⭐ ⭐':'⭐';
+  document.getElementById('yotWinTitle').textContent=pct===100?'Молодец!':pct>=70?'Хорошо!':'Старайся!';
+  document.getElementById('yotWinSub').textContent=pct===100
+    ?'Ты правильно разложил все 12 слов!'
+    :'Ты разложил '+correct+' из '+TOTAL+' слов правильно.';
+  document.getElementById('yotWinScore').innerHTML=
+    '<span style="color:var(--green)">✓ Верно: '+correct+'</span>'+
+    '<span style="color:var(--coral)">✗ Ошибок: '+wrong+'</span>';
   document.getElementById('yotCf').style.display='block';
   document.getElementById('yotOv').classList.remove('hidden');
   launchCf();
