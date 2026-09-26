@@ -460,7 +460,9 @@ function drop(wid,zone){
   if(ok)correct++; else wrong++;
   el.classList.add(ok?'hs-card--anim-ok':'hs-card--anim-err');
   el.addEventListener('animationend',function(){el.classList.remove('hs-card--anim-ok','hs-card--anim-err');},{once:true});
-  document.getElementById(zone==='hard'?'hsCardsHard':'hsCardsSoft').appendChild(el);
+  var doorEl=document.getElementById(zone==='hard'?'hsCardsHard':'hsCardsSoft');
+  doorEl.appendChild(el);
+  doorEl.scrollTop=doorEl.scrollHeight;
   placed++; currentIdx++;
   updateProg();
   if(placed===TOTAL)setTimeout(showWin,500);
