@@ -129,15 +129,15 @@
 
     /* HOUSES */
     .hs-houses { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:6px; }
-    .house { position:relative; padding-top:46px; transition:transform .15s; }
-    .house.drag-over { transform:scale(1.03); }
-    .house__roof { width:0; height:0; margin:0 auto; border-left:100px solid transparent; border-right:100px solid transparent; border-bottom:56px solid var(--hc); filter: drop-shadow(0 3px 4px rgba(0,0,0,.15)); }
-    .house__chimney { position:absolute; top:0; right:26%; width:20px; height:32px; background:var(--hc-dark); border-radius:3px 3px 0 0; }
-    .house__sign { position:relative; z-index:2; background:#F3D9B1; border:2px solid #C99A5B; border-radius:14px; padding:6px 10px; font-weight:800; font-size:.85rem; text-align:center; width:fit-content; max-width:88%; margin:-16px auto 0; box-shadow:0 3px 8px rgba(0,0,0,.15); color:var(--hc-text); }
-    .house__body { background:var(--hc-light); border:3px solid var(--hc); border-radius:0 0 18px 18px; border-top:none; padding:14px 10px 12px; margin-top:-3px; }
-    .house--hard { --hc:#5aafc8; --hc-dark:#3f8ba3; --hc-light:#EBF7FB; --hc-text:#1a5a78; }
-    .house--soft { --hc:#6BC5A0; --hc-dark:#4ea883; --hc-light:#EAF9F3; --hc-text:#1a5438; }
-    .house__door { background:#fff; border:3px solid var(--hc); border-radius:50% 50% 8px 8px/32% 32% 8px 8px; min-height:110px; padding:12px 8px; display:flex; flex-wrap:wrap; gap:8px; align-items:flex-start; justify-content:center; }
+    .house { position:relative; transition:transform .15s; }
+    .house.drag-over { transform:scale(1.02); }
+    .house__img { width:100%; display:block; }
+    .house__sign { position:absolute; top:30.9%; left:17.4%; width:65%; height:21.7%; display:flex; align-items:center; justify-content:center; text-align:center; background:#F3D9B1; border:2px solid #C99A5B; border-radius:14px; font-weight:800; font-size:clamp(.68rem,2.4vw,.92rem); line-height:1.15; box-shadow:0 3px 8px rgba(0,0,0,.15); color:var(--hc-text); padding:2px 4px; }
+    .house--hard { --hc-text:#1a5a78; }
+    .house--soft { --hc-text:#1a5438; }
+    .house__door { position:absolute; left:27.7%; right:29.4%; top:55.6%; bottom:8.4%; display:flex; flex-wrap:wrap; gap:5px; padding:4px; align-items:flex-start; justify-content:center; overflow:auto; border-radius:0 0 10px 10px; transition:box-shadow .15s; }
+    .house.drag-over .house__door { box-shadow:inset 0 0 0 4px rgba(123,191,212,.55); }
+    .house__door .hs-card { padding:5px 10px; font-size:clamp(.72rem,2.8vw,.95rem); border-radius:8px; box-shadow:0 2px 6px rgba(44,62,80,.15); }
 
     .hs-overlay { position:fixed; inset:0; background:rgba(44,62,80,.72); display:flex; align-items:center; justify-content:center; z-index:500; padding:20px; }
     .hs-overlay.hidden { display:none; }
@@ -156,7 +156,6 @@
       .gp-rule__grid { grid-template-columns:1fr; }
       .hs-houses { grid-template-columns:1fr; }
       .footer__inner { flex-direction:column; text-align:center; }
-      .house__roof { border-left-width:70px; border-right-width:70px; border-bottom-width:40px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .hs-card--anim-err, .hs-win-card { animation:none; }
@@ -261,16 +260,14 @@
         <div class="hs-pool" id="hsPool"></div>
         <div class="hs-houses">
           <div class="house house--hard" id="hsZoneHard">
-            <div class="house__roof"></div>
-            <div class="house__chimney"></div>
+            <img class="house__img" src="images/house-hard.png" alt="Домик твёрдых согласных" loading="lazy">
             <div class="house__sign">Твёрдые согласные</div>
-            <div class="house__body"><div class="house__door" id="hsCardsHard"></div></div>
+            <div class="house__door" id="hsCardsHard"></div>
           </div>
           <div class="house house--soft" id="hsZoneSoft">
-            <div class="house__roof"></div>
-            <div class="house__chimney"></div>
+            <img class="house__img" src="images/house-soft.png" alt="Домик мягких согласных" loading="lazy">
             <div class="house__sign">Мягкие согласные</div>
-            <div class="house__body"><div class="house__door" id="hsCardsSoft"></div></div>
+            <div class="house__door" id="hsCardsSoft"></div>
           </div>
         </div>
       </div>
