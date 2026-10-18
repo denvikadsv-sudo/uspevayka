@@ -62,7 +62,7 @@ CSS class naming follows BEM convention (e.g. `.nav__logo`, `.hero__content`, `.
 
 The enrollment form (`#contactForm`) collects: child's name, parent's phone/Telegram, grade, and subject. On submit it builds a pre-filled WhatsApp message and opens `api.whatsapp.com/send?phone=79097923750` — there is no server-side handler.
 
-Social links: Telegram `@uspevaika`, WhatsApp `+7 909 792-3750`, VK `vk.com/uspevaika`, YouTube `@uspevaika`, Instagram `instagram.com/uspevaika`.
+Social links: Telegram `@uspevaika` (hero button uses `@svetapedagog`), WhatsApp `+7 909 792-3750`, VK `vk.ru/club.uspevaika`, YouTube `@uspevaika`, Instagram `instagram.com/sveta.pedagog`.
 
 ## Content language
 
