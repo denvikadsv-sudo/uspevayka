@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Однокоренные слова — развивающая игра по русскому языку для 2 класса | Успевайка</title>
+  <meta name="description" content="Бесплатная игра «Однокоренные слова» для 2 класса (Школа России): выбери родственные слова — они сами улетят на дерево. Без регистрации.">
+  <link rel="canonical" href="https://uspevaika-online.ru/game-roots.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://uspevaika-online.ru/game-roots.html">
+  <meta property="og:title" content="Однокоренные слова — игра для 2 класса | Успевайка">
+  <meta property="og:description" content="Бесплатная игра «Однокоренные слова» для 2 класса (Школа России): выбери родственные слова — они сами улетят на дерево. Без регистрации.">
+  <meta property="og:image" content="https://uspevaika-online.ru/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Успевайка">
+  <meta name="theme-color" content="#7BBFD4">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Однокоренные слова — игра для 2 класса | Успевайка">
+  <meta name="twitter:description" content="Бесплатная игра «Однокоренные слова» для 2 класса (Школа России): выбери родственные слова — они сами улетят на дерево. Без регистрации.">
+  <meta name="twitter:image" content="https://uspevaika-online.ru/images/og-image.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sky: #7BBFD4;
+      --sky-light: #C8E8F4;
+      --sky-pale: #DCF0F8;
+      --yellow: #F5D76E;
+      --yellow-dark: #E8C84A;
+      --coral: #FF8A7A;
+      --green: #6BC5A0;
+      --brown: #6B4E3D;
+      --ink: #2C3E50;
+      --muted: #6B7C8D;
+      --bg: #F0F9FF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Rubik', sans-serif; line-height: 1.25; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    section { padding: 64px 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    .nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.93); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); box-shadow:0 2px 16px rgba(123,191,212,.12); }
+    .nav__inner { display:flex; align-items:center; justify-content:space-between; height:68px; gap:16px; }
+    .nav__logo { display:flex; align-items:center; gap:10px; font-family:'Rubik',sans-serif; font-size:1.35rem; font-weight:700; color:var(--sky); flex-shrink:0; }
+    .nav__logo img { height:44px; width:auto; border-radius:6px; }
+    .nav__links { display:flex; align-items:center; gap:24px; list-style:none; }
+    .nav__links a { font-size:.9rem; font-weight:600; color:var(--muted); transition:color .2s; }
+    .nav__links a:hover, .nav__links a.active { color:var(--sky); }
+    .nav__right { display:flex; align-items:center; gap:12px; flex-shrink:0; }
+    .nav__phone { font-family:'Rubik',sans-serif; font-weight:600; color:var(--muted); white-space:nowrap; font-size:.88rem; }
+    .nav__phone:hover { color:var(--sky); }
+    .nav__cta { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg,var(--sky) 0%,#5aafc8 100%); color:#fff; padding:9px 20px; border-radius:50px; font-size:.88rem; font-weight:700; white-space:nowrap; box-shadow:0 4px 14px rgba(123,191,212,.38); transition:all .22s; }
+    .nav__cta:hover { transform:translateY(-1px); box-shadow:0 7px 22px rgba(123,191,212,.5); color:#fff; }
+    .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .burger span { display:block; width:24px; height:3px; background:var(--ink); border-radius:3px; transition:.3s; }
+    .nav__mobile { display:none; flex-direction:column; background:var(--bg); border-top:1px solid var(--sky-light); padding:0 24px 16px; }
+    .nav__mobile a { display:block; padding:12px 0; font-weight:600; border-bottom:1px solid var(--sky-pale); color:var(--ink); }
+    .nav__mobile a:last-child { border-bottom:none; }
+    .nav__mobile.open { display:flex; }
+
+    /* PAGE HERO */
+    .gp-hero { background: linear-gradient(180deg, #fff 0%, var(--bg) 100%); padding: 36px 0 28px; }
+    .gp-breadcrumb { display: flex; align-items: center; gap: 6px; font-size: .88rem; color: var(--muted); margin-bottom: 18px; flex-wrap: wrap; }
+    .gp-breadcrumb a { color: var(--sky); font-weight: 600; transition: opacity .2s; }
+    .gp-breadcrumb a:hover { opacity: .75; }
+    .gp-breadcrumb__sep { color: var(--sky-light); }
+    .gp-hero__eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+    .gp-hero__title { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 12px; }
+    .gp-hero__title .accent { color: var(--sky); }
+    .gp-hero__letters { display: inline-flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+    .gp-letter-chip { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 10px; font-size: 1.35rem; font-weight: 900; border: 2.5px solid; }
+    .gp-letter-chip--ye  { background: #EBF7FB; border-color: #7BBFD4; color: var(--ink); }
+    .gp-letter-chip--yo  { background: #FEF9E8; border-color: #E8C84A; color: var(--ink); }
+    .gp-letter-chip--yu  { background: #FEEDED; border-color: #FF8A7A; color: var(--ink); }
+    .gp-letter-chip--ya  { background: #EAF9F3; border-color: #6BC5A0; color: var(--ink); }
+    .gp-hero__sub { color: var(--muted); font-size: 1rem; max-width: 580px; line-height: 1.72; margin-bottom: 22px; }
+    .gp-hero__meta { display: flex; gap: 10px; flex-wrap: wrap; }
+    .gp-meta-chip { display: inline-flex; align-items: center; gap: 5px; background: #fff; border: 1.5px solid var(--sky-light); border-radius: 50px; padding: 5px 14px; font-size: .82rem; font-weight: 700; color: var(--muted); }
+
+    /* GAME AREA */
+    .gp-play { background: var(--bg); padding: 0 0 56px; }
+    .game-wrapper { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 24px; overflow: hidden; border: 2px solid var(--sky-light); box-shadow: 0 8px 32px rgba(123,191,212,.15); }
+    .game-wrapper::before { content: ''; display: block; height: 5px; background: linear-gradient(90deg, var(--sky), var(--yellow), var(--coral), var(--green)); }
+    .game-footer { max-width: 800px; margin: 28px auto 0; text-align: center; }
+    .game-footer-text { font-size: .92rem; color: var(--muted); margin-bottom: 14px; }
+    .game-footer__cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--sky), #5aafc8); color: #fff; padding: 12px 28px; border-radius: 50px; font-size: .95rem; font-weight: 700; box-shadow: 0 4px 16px rgba(123,191,212,.35); transition: transform .2s, box-shadow .2s; }
+    .game-footer__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,191,212,.5); color: #fff; }
+
+    /* RULE CARD */
+    .gp-rule { background: #fff; padding: 40px 0 48px; }
+    .gp-rule__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 700px; margin: 28px auto 0; }
+    .gp-rule__card { border-radius: 18px; padding: 20px; }
+    .gp-rule__card--2 { background: #FFFAE8; border: 2px solid var(--yellow-dark); }
+    .gp-rule__card--1 { background: #EAF9F3; border: 2px solid var(--green); }
+    .gp-rule__label { font-size: 1rem; font-weight: 900; margin-bottom: 10px; }
+    .gp-rule__card--2 .gp-rule__label { color: #7a5200; }
+    .gp-rule__card--1 .gp-rule__label { color: #1a5438; }
+    .gp-rule__list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .gp-rule__list li { font-size: .88rem; color: var(--muted); display: flex; align-items: flex-start; gap: 7px; line-height: 1.5; }
+    .gp-rule__list li::before { content: '→'; color: var(--sky); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .section-title { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; text-align: center; margin-bottom: 8px; }
+    .section-title .accent { color: var(--sky); }
+    .section-subtitle { text-align: center; color: var(--muted); font-size: .95rem; max-width: 480px; margin: 0 auto; line-height: 1.65; }
+
+    /* CTA SECTION */
+    .gp-cta { background: linear-gradient(135deg, var(--sky) 0%, #4ea8c4 100%); text-align: center; padding: 56px 0; }
+    .gp-cta h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .gp-cta p { color: rgba(255,255,255,.88); font-size: 1rem; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.72; }
+    .gp-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--sky); padding: 14px 34px; border-radius: 50px; font-size: 1rem; font-weight: 700; box-shadow: 0 6px 24px rgba(0,0,0,.18); transition: all .22s; }
+    .gp-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,.25); color: var(--sky); }
+
+    /* FOOTER */
+    .footer { background:var(--ink); color:rgba(255,255,255,.7); padding:40px 0; }
+    .footer__inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    .footer__logo { display:flex; align-items:center; gap:10px; font-family:'Rubik',sans-serif; font-size:1.1rem; font-weight:700; color:#fff; }
+    .footer__logo img { height:48px; width:auto; border-radius:6px; }
+    .footer__copy { font-size:.85rem; text-align:center; }
+    .footer__socials { display:flex; gap:10px; }
+    .footer__socials a { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:#fff; transition:background .2s; }
+    .footer__socials a:hover { background:var(--sky); }
+    .footer__socials svg { width:20px; height:20px; fill:currentColor; }
+
+
+    /* GAME */
+    .rt-inner { padding: 20px 20px 24px; }
+    .rt-hdr { margin-bottom: 14px; }
+    .rt-hdr-top { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+    .rt-title { font-family:'Rubik',sans-serif; font-size:clamp(1rem,3vw,1.3rem); font-weight:800; color:var(--sky); }
+    .rt-sub { font-size:.875rem; color:var(--muted); }
+    .rt-prog-row { display:flex; align-items:center; gap:10px; }
+    .rt-prog-track { flex:1; height:12px; background:var(--sky-pale); border-radius:99px; overflow:hidden; }
+    .rt-prog-fill { height:100%; width:0; background:linear-gradient(90deg,var(--green),var(--sky)); border-radius:99px; transition:width .4s; }
+    .rt-prog-text { font-size:.82rem; font-weight:800; color:var(--muted); white-space:nowrap; }
+
+    .rt-task { background:#FFFAE8; border:2px solid var(--yellow-dark); border-radius:16px; padding:12px 16px; margin-bottom:12px; font-size:1rem; font-weight:700; text-align:center; }
+    .rt-task b { font-family:'Rubik',sans-serif; font-size:1.25rem; color:var(--coral); text-transform:uppercase; letter-spacing:.03em; }
+
+    .rt-bank { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; padding:14px 10px; background:var(--sky-pale); border:2px dashed var(--sky); border-radius:18px; min-height:70px; }
+    .rt-chip { font-family:'Nunito',sans-serif; font-weight:800; font-size:1.05rem; color:var(--ink); background:#fff; border:2.5px solid var(--sky); border-radius:50px; padding:8px 18px; cursor:pointer; line-height:1.2; transition:transform .15s, box-shadow .15s, background .15s; box-shadow:0 3px 0 var(--sky-light); -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
+    .rt-chip:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 6px 14px rgba(123,191,212,.45); background:#F4FBFE; }
+    .rt-chip:focus-visible { outline:3px solid var(--coral); outline-offset:2px; }
+    .rt-chip--used { opacity:.28; border-style:dashed; box-shadow:none; cursor:default; }
+    .rt-chip--wrong { background:#FFEFEC; border-color:var(--coral); color:#b24a3c; text-decoration:line-through; cursor:default; box-shadow:none; opacity:.8; }
+    .rt-chip--shake { animation:rtShake .45s; border-color:var(--coral); background:#FFEFEC; }
+    @keyframes rtShake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-7px)} 40%{transform:translateX(7px)} 60%{transform:translateX(-5px)} 80%{transform:translateX(5px)} }
+    .rt-chip--revealed { opacity:.55; border-style:dashed; box-shadow:none; cursor:default; text-decoration:line-through; }
+
+    .rt-feedback { display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center; margin:12px 0; min-height:52px; padding:10px 14px; border-radius:16px; background:#F7FBFD; border:2px solid var(--sky-light); font-weight:700; font-size:.95rem; text-align:center; }
+    .rt-feedback--ok { background:#EAF9F3; border-color:var(--green); color:#1a5438; }
+    .rt-feedback--bad { background:#FFEFEC; border-color:var(--coral); color:#a2412f; }
+    .rt-feedback--done { background:#EAF9F3; border-color:var(--green); color:#1a5438; }
+    .rt-feedback__text { flex:1 1 220px; }
+    .rt-next { font-family:'Rubik',sans-serif; font-weight:700; font-size:1rem; color:#fff; background:linear-gradient(135deg,var(--green),#4fae88); border:none; border-radius:50px; padding:11px 26px; cursor:pointer; box-shadow:0 4px 14px rgba(107,197,160,.55); animation:rtPulse 1.4s infinite; }
+    .rt-next:hover { transform:translateY(-2px); }
+    @keyframes rtPulse { 0%,100%{box-shadow:0 4px 14px rgba(107,197,160,.55)} 50%{box-shadow:0 4px 24px rgba(107,197,160,.95)} }
+
+    .rt-scene { position:relative; width:100%; aspect-ratio:1448/1086; border-radius:20px; overflow:hidden; border:2px solid var(--sky-light); background:#fff; }
+    .rt-scene > picture, .rt-scene > picture img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+    .rt-crown { position:absolute; left:19%; width:62%; top:5%; height:43%; display:flex; flex-wrap:wrap; align-content:center; justify-content:center; gap:7px 8px; }
+    .rt-leaf { font-family:'Nunito',sans-serif; font-weight:800; font-size:clamp(.72rem,2.3vw,1.05rem); line-height:1.15; color:var(--ink); background:rgba(255,255,255,.96); border:2.5px solid var(--green); border-radius:50px; padding:.3em .8em; white-space:nowrap; box-shadow:0 3px 8px rgba(60,100,40,.28); }
+    .rt-leaf .root { color:var(--coral); border-bottom:3px solid var(--coral); line-height:1; display:inline-block; padding-bottom:1px; }
+    .rt-trunk { position:absolute; left:50%; top:59%; transform:translateX(-50%); font-family:'Rubik',sans-serif; font-weight:800; font-size:clamp(.85rem,2.8vw,1.35rem); text-transform:uppercase; letter-spacing:.04em; color:#fff; background:var(--brown); border:3px solid #8a6650; border-radius:12px; padding:.2em .8em; box-shadow:0 4px 10px rgba(0,0,0,.3); white-space:nowrap; }
+    .rt-soil { position:absolute; left:50%; bottom:6%; transform:translateX(-50%) scale(.6); opacity:0; font-family:'Rubik',sans-serif; font-weight:800; font-size:clamp(.85rem,2.8vw,1.35rem); color:var(--brown); background:#FFFAE8; border:3px solid var(--yellow-dark); border-radius:14px; padding:.25em .9em; white-space:nowrap; transition:all .5s cubic-bezier(.3,1.5,.5,1); pointer-events:none; }
+    .rt-soil.show { opacity:1; transform:translateX(-50%) scale(1); }
+    .rt-soil b { color:var(--coral); }
+    .rt-count { position:absolute; left:10px; top:10px; background:rgba(255,255,255,.92); border:2px solid var(--sky-light); border-radius:50px; padding:3px 12px; font-size:.8rem; font-weight:800; color:var(--muted); }
+    .rt-fly { position:fixed; z-index:9999; pointer-events:none; margin:0; }
+
+    .rt-explain { margin-top:12px; background:#fff; border:2px solid var(--sky-light); border-radius:16px; padding:12px 16px; font-size:.88rem; line-height:1.55; color:var(--muted); }
+    .rt-explain h3 { font-size:.95rem; color:var(--ink); margin-bottom:6px; }
+    .rt-explain li { margin-left:18px; margin-bottom:3px; }
+    .rt-explain b { color:var(--ink); }
+
+    .rt-overlay { position:fixed; inset:0; z-index:10000; background:rgba(44,62,80,.55); display:flex; align-items:center; justify-content:center; padding:20px; }
+    .rt-overlay.hidden { display:none; }
+    .rt-win { background:#fff; border-radius:26px; padding:34px 28px; max-width:420px; width:100%; text-align:center; animation:rtPop .5s cubic-bezier(.3,1.5,.5,1); border-top:6px solid var(--green); }
+    @keyframes rtPop { from{transform:scale(.6);opacity:0} to{transform:scale(1);opacity:1} }
+    .rt-win-stars { font-size:2.2rem; margin-bottom:6px; }
+    .rt-win h2 { font-size:1.7rem; margin-bottom:8px; }
+    .rt-win p { color:var(--muted); margin-bottom:14px; }
+    .rt-win-btn { font-family:'Rubik',sans-serif; font-weight:700; font-size:1rem; color:#fff; background:linear-gradient(135deg,var(--sky),#5aafc8); border:none; border-radius:50px; padding:12px 28px; cursor:pointer; }
+
+    .gp-rule__list li { display:block; }
+    .gp-rule__list li::before { margin-right:7px; }
+    @media (max-width:640px) {
+      .burger { display:flex; }
+      .nav__links, .nav__phone, .nav__cta { display:none; }
+      .gp-rule__grid { grid-template-columns:1fr; }
+      .footer__inner { flex-direction:column; text-align:center; }
+    }
+    @media (max-width:560px) {
+      .rt-inner { padding:14px 12px 18px; }
+      .rt-chip { font-size:.95rem; padding:7px 14px; }
+      .rt-scene { aspect-ratio:1/1; }
+      .rt-scene > picture img { object-position:50% 40%; }
+      .rt-crown { left:6%; width:88%; top:4%; height:48%; }
+      .rt-trunk { top:62%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rt-chip--shake, .rt-next, .rt-win { animation:none; }
+      .rt-chip, .rt-prog-fill, .rt-soil { transition:none; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        "name": "Однокоренные слова — учебная игра",
+        "description": "Бесплатная игра «Однокоренные слова» для 2 класса (Школа России): выбери родственные слова — они сами улетят на дерево. Без регистрации.",
+        "url": "https://uspevaika-online.ru/game-roots.html",
+        "inLanguage": "ru-RU",
+        "isAccessibleForFree": true,
+        "educationalLevel": "2 класс",
+        "about": {"@type": "Thing", "name": "Русский язык"},
+        "learningResourceType": "game",
+        "interactivityType": "active",
+        "provider": {"@type": "EducationalOrganization", "name": "Успевайка", "url": "https://uspevaika-online.ru/"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://uspevaika-online.ru/"},
+          {"@type": "ListItem", "position": 2, "name": "Учебные игры", "item": "https://uspevaika-online.ru/games.html"},
+          {"@type": "ListItem", "position": 3, "name": "Однокоренные слова"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="images/logo.png" alt="Логотип Успевайка">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#story">История</a></li>
+      <li><a href="index.html#lessons">Занятия</a></li>
+      <li><a href="index.html#teachers">Репетиторы</a></li>
+      <li><a href="index.html#pricing">Цены</a></li>
+      <li><a href="index.html#subjects">Предметы</a></li>
+      <li><a href="games.html" class="active">Игры</a></li>
+      <li><a href="index.html#contact">Контакты</a></li>
+    </ul>
+    <div class="nav__right">
+      <a href="tel:+79097923750" class="nav__phone">+7 909 792-3750</a>
+      <a href="index.html#contact" class="nav__cta">Записаться</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="index.html#story">История</a>
+    <a href="index.html#lessons">Занятия</a>
+    <a href="index.html#teachers">Репетиторы</a>
+    <a href="index.html#pricing">Цены</a>
+    <a href="index.html#subjects">Предметы</a>
+    <a href="games.html">Игры</a>
+    <a href="index.html#contact">Контакты</a>
+    <a href="tel:+79097923750">+7 909 792-3750</a>
+    <a href="index.html#contact" style="color:var(--sky);font-weight:800;">→ Записаться на пробное</a>
+  </div>
+</nav>
+
+
+<!-- PAGE HERO -->
+<section class="gp-hero">
+  <div class="container">
+    <nav class="gp-breadcrumb" aria-label="Навигация">
+      <a href="index.html">← Главная</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <a href="games.html">Игры</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <span>Однокоренные слова</span>
+    </nav>
+    <div class="gp-hero__eyebrow">📖 Русский язык · 2 класс · Школа России</div>
+    <h1 class="gp-hero__title">Однокоренные <span class="accent">слова</span></h1>
+    <p class="gp-hero__sub">Найди «родственников» слова — слова с одним и тем же корнем. Берегись хитрых слов: одни только <em>похожи</em> на родственные, а другие близки по смыслу, но корень у них другой. Верные слова сами улетают на дерево!</p>
+    <div class="gp-hero__meta">
+      <span class="gp-meta-chip">🌳 8 раундов</span>
+      <span class="gp-meta-chip">👆 Нажимай на слова</span>
+      <span class="gp-meta-chip">📱 Работает на телефоне</span>
+    </div>
+  </div>
+</section>
+
+<!-- GAME -->
+<section class="gp-play">
+  <div class="container">
+    <div class="game-wrapper">
+      <div class="rt-inner">
+        <div class="rt-hdr">
+          <div class="rt-hdr-top">
+            <span class="rt-title">Однокоренные слова</span>
+            <span class="rt-sub">Выбирай только слова с одним корнем</span>
+          </div>
+          <div class="rt-prog-row">
+            <div class="rt-prog-track" role="progressbar" aria-label="Прогресс игры"><div class="rt-prog-fill" id="rtProgFill"></div></div>
+            <span class="rt-prog-text" id="rtProgText">Раунд 1 из 8</span>
+          </div>
+        </div>
+        <div class="rt-task" id="rtTask"></div>
+        <div class="rt-bank" id="rtBank" aria-label="Список слов"></div>
+        <div class="rt-feedback" id="rtFeedback" aria-live="polite"></div>
+        <div class="rt-scene" id="rtScene">
+          <picture>
+            <source srcset="images/tree-roots.webp" type="image/webp">
+            <img src="images/tree-roots.jpg" alt="Большое дерево с корнями, енот и белка" width="1200" height="900">
+          </picture>
+          <div class="rt-count" id="rtCount">На дереве: 0</div>
+          <div class="rt-crown" id="rtCrown" aria-label="Однокоренные слова на дереве"></div>
+          <div class="rt-trunk" id="rtTrunk"></div>
+          <div class="rt-soil" id="rtSoil"></div>
+        </div>
+        <div class="rt-explain" id="rtExplain" hidden></div>
+      </div>
+    </div>
+
+    <div class="game-footer">
+      <p class="game-footer-text">Понравилась игра? Попробуй занятие с репетитором по русскому языку!</p>
+      <a href="index.html#contact" class="game-footer__cta">Записаться на занятие →</a>
+    </div>
+  </div>
+</section>
+
+<div class="rt-overlay hidden" id="rtOv">
+  <div class="rt-win">
+    <div class="rt-win-stars" id="rtWinStars">⭐ ⭐ ⭐</div>
+    <h2>Молодец!</h2>
+    <p id="rtWinSub"></p>
+    <button class="rt-win-btn" id="rtWinBtn" type="button">🔄 Играть снова</button>
+  </div>
+</div>
+
+<!-- RULE SECTION -->
+<section class="gp-rule">
+  <div class="container">
+    <h2 class="section-title">Как найти <span class="accent">однокоренные</span> слова?</h2>
+    <p class="section-subtitle">Запомни три шага — и хитрые слова тебя не обманут.</p>
+    <div class="gp-rule__grid">
+      <div class="gp-rule__card gp-rule__card--1">
+        <div class="gp-rule__label">✅ Однокоренные слова</div>
+        <ul class="gp-rule__list">
+          <li>имеют общий корень — общую часть</li>
+          <li>близки по смыслу: <strong>вода, водичка, водяной</strong></li>
+          <li>могут быть разными частями речи</li>
+        </ul>
+      </div>
+      <div class="gp-rule__card gp-rule__card--2">
+        <div class="gp-rule__label">⚠️ Хитрые слова</div>
+        <ul class="gp-rule__list">
+          <li>похожи по звучанию, но значение другое: <strong>водитель</strong> — не от «вода»</li>
+          <li>близки по смыслу, но корень другой: <strong>влага</strong></li>
+          <li>всегда спрашивай: «Что значит слово?»</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="gp-cta">
+  <div class="container">
+    <h2>Хочешь разобраться глубже?</h2>
+    <p>Запишись на пробное занятие с репетитором по русскому языку — объясним любое правило так, чтобы запомнилось навсегда.</p>
+    <a href="index.html#contact" class="gp-cta-btn">
+      Записаться на занятие
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__logo">
+      <img loading="lazy" src="images/logo.png" alt="Логотип Успевайка">
+      Успевайка
+    </div>
+    <div class="footer__copy">© 2024 Успевайка. Все права защищены.</div>
+    <div class="footer__socials">
+      <a href="https://t.me/uspevaika" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+      <a href="https://api.whatsapp.com/send?phone=79097923750" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+      <a href="https://vk.ru/club.uspevaika" target="_blank" rel="noopener" title="ВКонтакте" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.779.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg></a>
+      <a href="https://youtube.com/@uspevaika" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+</script>
+
+
+<script>
+(function(){'use strict';
+
+/* Раунды: rel — однокоренные (слово|корень, корень можно не указывать — тогда он = корню слова-задания),
+   bad — не однокоренные [слово, пояснение]. Слова по программе «Школа России», 2 класс. */
+var ROUNDS=[
+ {word:'вода',root:'вод',
+  rel:['водичка','водяной','подводный','водный','безводный'],
+  bad:[['водитель','Это слово от «водить», а не от «вода». Корень похож, а значение другое.'],
+       ['влага','Значение близкое, но корень другой: -влаг-.'],
+       ['ручей','Тоже про воду, но слово не родственное: корень -руч-.'],
+       ['ведро','Звучит похоже, но корень -ведр-.'],
+       ['река','Близко по смыслу, но корень -рек-.']]},
+ {word:'лес',root:'лес',
+  rel:['лесной','лесник','лесок','перелесок','лесовик'],
+  bad:[['лестница','Буквы «лес» похожи, но корень -лестниц-. Слово от «лезть», а не от «лес».'],
+       ['чаща','Значение близкое, но корень другой: -чащ-.'],
+       ['роща','Роща — маленький лес, но корень -рощ-.'],
+       ['бор','Так называют хвойный лес, но корень другой: -бор-.'],
+       ['дерево','Дерево растёт в лесу, но слово не однокоренное.']]},
+ {word:'снег',root:'снег',
+  rel:['снежок','снежный','снеговик','подснежник','снежинка'],
+  bad:[['сугроб','Про снег, но корень другой: -сугроб-.'],
+       ['метель','Бывает зимой, но корень -метел-.'],
+       ['снимок','Начало похоже, но слово от «снимать».'],
+       ['вьюга','Про зиму, но корень -вьюг-.'],
+       ['зима','Время года, но слово не однокоренное: корень -зим-.']]},
+ {word:'дом',root:'дом',
+  rel:['домик','домашний','домовой','домище','бездомный'],
+  bad:[['дым','Похоже по звучанию, но корень -дым-.'],
+       ['доска','Начало похоже, но корень -доск-.'],
+       ['здание','Значение близкое, но корень другой.'],
+       ['жилище','Значение близкое, но корень -жил-.'],
+       ['изба','Деревенский дом, но корень другой: -изб-.']]},
+ {word:'сад',root:'сад',
+  rel:['садик','садовник','садовый','садовница','садочек'],
+  bad:[['огород','Тоже про растения, но корень другой.'],
+       ['парк','Место для прогулок, но слово не родственное.'],
+       ['салат','Начало похоже, но корень -салат-.'],
+       ['сарай','Начало похоже, но корень -сарай-.'],
+       ['яблоня','Растёт в саду, но слово не однокоренное.']]},
+ {word:'мороз',root:'мороз',
+  rel:['морозный','морозец','заморозки','морозилка','мороженое|морож'],
+  bad:[['холод','Значение близкое, но корень другой: -холод-.'],
+       ['стужа','Значение близкое, но корень -стуж-.'],
+       ['морской','Начало похоже, но слово от «море».'],
+       ['морковь','Начало похоже, но корень -морков-.'],
+       ['лёд','Замёрзшая вода, но слово не родственное.']]},
+ {word:'зима',root:'зим',
+  rel:['зимний','зимовать','зимовье','зимушка','перезимовать'],
+  bad:[['земля','Похоже по звучанию, но корень -земл-.'],
+       ['зонт','Начало похоже, но корень -зонт-.'],
+       ['январь','Зимний месяц, но слово не однокоренное.'],
+       ['сани','Зимой на них катаются, но корень -сан-.'],
+       ['зябнуть','Близко по ощущению, но корень -зяб-.']]},
+ {word:'цветок',root:'цвет',
+  rel:['цветочек','цветочный','цветник','цветущий','расцвет'],
+  bad:[['ромашка','Название цветка, но слово не однокоренное.'],
+       ['роза','Название цветка, но слово не однокоренное.'],
+       ['свет','Похоже на «цвет», но корень -свет-.'],
+       ['лепесток','Часть цветка, но корень другой: -лепест-.'],
+       ['цепь','Начало похоже, но корень -цеп-.']]},
+ {word:'хлеб',root:'хлеб',
+  rel:['хлебный','хлебница','хлебушек','хлебец'],
+  bad:[['булка','Тоже выпечка, но слово не родственное.'],
+       ['батон','Вид хлеба, но корень -батон-.'],
+       ['хлев','Похоже по звучанию, но это сарай для скота: корень -хлев-.'],
+       ['хлопок','Начало похоже, но корень -хлоп-.'],
+       ['пирог','Выпечка, но корень -пирог-.']]},
+ {word:'гора',root:'гор',
+  rel:['горка','горный','гористый','горушка','нагорье'],
+  bad:[['холм','Значение близкое, но корень другой: -холм-.'],
+       ['вершина','Верх горы, но корень -вершин-.'],
+       ['горе','Звучит так же, но это печаль, а не гора.'],
+       ['город','Начало похоже, но корень -город-.'],
+       ['горох','Начало похоже, но корень -горох-.']]},
+ {word:'рыба',root:'рыб',
+  rel:['рыбка','рыбак','рыбный','рыбалка','рыбацкий'],
+  bad:[['рыжий','Начало похоже, но корень -рыж-.'],
+       ['рысь','Начало похоже, но это дикая кошка: корень -рыс-.'],
+       ['рыть','Это про копание, корень другой.'],
+       ['щука','Название рыбы, но слово не однокоренное.'],
+       ['карась','Название рыбы, но слово не однокоренное.']]},
+ {word:'лист',root:'лист',
+  rel:['листок','листва','листик','листать','лиственный'],
+  bad:[['лиса','Начало похоже, но слово от «лиса».'],
+       ['лисичка','Это уменьшительное от «лиса», а не от «лист».'],
+       ['страница','Близко по значению, но корень -страниц-.'],
+       ['лепесток','Часть цветка, но корень -лепест-.'],
+       ['ливень','Начало похоже, но корень -ливн-.']]}
+];
+var PER_GAME=8;
+
+function $(id){return document.getElementById(id);}
+function shuffle(a){var r=a.slice();for(var i=r.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=r[i];r[i]=r[j];r[j]=t;}return r;}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function rootHTML(word,root){
+  var i=word.toLowerCase().indexOf(root);
+  if(i<0)return esc(word);
+  return esc(word.slice(0,i))+'<span class="root">'+esc(word.slice(i,i+root.length))+'</span>'+esc(word.slice(i+root.length));
+}
+
+var bank=$('rtBank'),crown=$('rtCrown'),fb=$('rtFeedback'),scene=$('rtScene');
+var order,roundNo,round,found,total,mistakes,locked,roundMistakes;
+
+function startGame(){
+  order=shuffle(ROUNDS).slice(0,PER_GAME);
+  roundNo=0;mistakes=0;
+  $('rtOv').classList.add('hidden');
+  loadRound();
+}
+
+function setFb(cls,html,withNext){
+  fb.className='rt-feedback'+(cls?' rt-feedback--'+cls:'');
+  fb.innerHTML='<span class="rt-feedback__text">'+html+'</span>';
+  if(withNext){
+    var b=document.createElement('button');
+    b.className='rt-next';b.type='button';
+    b.textContent=roundNo+1>=order.length?'Закончить 🏁':'Дальше ▶';
+    b.addEventListener('click',nextRound);
+    fb.appendChild(b);
+    setTimeout(function(){b.focus({preventScroll:true});},0);
+  }
+}
+
+function loadRound(){
+  round=order[roundNo];found=0;locked=false;roundMistakes=0;
+  total=round.rel.length;
+  crown.innerHTML='';
+  $('rtSoil').classList.remove('show');
+  $('rtExplain').innerHTML='';$('rtExplain').hidden=true;
+  $('rtTask').innerHTML='Выбери слова, у которых <u>тот же корень</u>, что у слова <b>'+esc(round.word)+'</b>';
+  $('rtTrunk').textContent=round.word;
+  var items=[];
+  round.rel.forEach(function(s){var p=s.split('|');items.push({w:p[0],root:p[1]||round.root,ok:true});});
+  round.bad.forEach(function(b){items.push({w:b[0],why:b[1],ok:false});});
+  bank.innerHTML='';
+  shuffle(items).forEach(function(it){
+    var el=document.createElement('button');
+    el.type='button';el.className='rt-chip';el.textContent=it.w;
+    el._it=it;
+    el.addEventListener('click',function(){pick(el);});
+    bank.appendChild(el);
+  });
+  updateProg();
+  setFb('','Нажимай на слова-«родственники» — они сами полетят на дерево 🌳');
+}
+
+function updateProg(){
+  var p=(roundNo+(found/total))/order.length;
+  $('rtProgFill').style.width=Math.round(p*100)+'%';
+  $('rtProgText').textContent='Раунд '+(roundNo+1)+' из '+order.length;
+  $('rtCount').textContent='На дереве: '+found+' из '+total;
+}
+
+function pick(el){
+  var it=el._it;
+  if(locked||el.disabled)return;
+  if(it.ok){
+    el.disabled=true;el.classList.add('rt-chip--used');
+    found++;
+    flyToTree(el,it);
+    updateProg();
+    if(found===total){
+      locked=true;
+      setTimeout(finishRound,650);
+    }else{
+      setFb('ok','Верно! <b>'+esc(it.w)+'</b> — родственное слово. Осталось найти: '+(total-found));
+    }
+  }else{
+    mistakes++;roundMistakes++;
+    el.disabled=true;
+    el.classList.add('rt-chip--shake');
+    setTimeout(function(){el.classList.remove('rt-chip--shake');el.classList.add('rt-chip--wrong');},450);
+    setFb('bad','<b>«'+esc(it.w)+'»</b> не подходит. '+esc(it.why));
+  }
+}
+
+function flyToTree(chip,it){
+  var leaf=document.createElement('span');
+  leaf.className='rt-leaf';leaf.innerHTML=esc(it.w);leaf._it=it;
+  var old=[].map.call(crown.children,function(c){return [c,c.getBoundingClientRect()];});
+  leaf.style.visibility='hidden';
+  crown.appendChild(leaf);
+  var to=leaf.getBoundingClientRect(),from=chip.getBoundingClientRect();
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!leaf.animate){leaf.style.visibility='';return;}
+  // остальные слова на дереве плавно сдвигаются на новые места
+  old.forEach(function(o){
+    var n=o[0].getBoundingClientRect(),dx=o[1].left-n.left,dy=o[1].top-n.top;
+    if(dx||dy)o[0].animate([{transform:'translate('+dx+'px,'+dy+'px)'},{transform:'none'}],{duration:350,easing:'ease'});
+  });
+  var fly=document.createElement('span');
+  fly.className='rt-chip rt-fly';fly.textContent=it.w;
+  fly.style.left=from.left+'px';fly.style.top=from.top+'px';
+  fly.style.width=from.width+'px';fly.style.height=from.height+'px';
+  fly.style.fontSize=getComputedStyle(chip).fontSize;
+  document.body.appendChild(fly);
+  var dx=to.left-from.left,dy=to.top-from.top,sc=to.width/from.width;
+  var a=fly.animate([
+    {transform:'translate(0,0) scale(1)',opacity:1},
+    {transform:'translate('+(dx*.5)+'px,'+(dy*.5-40)+'px) scale(1.12)',opacity:1,offset:.5},
+    {transform:'translate('+dx+'px,'+dy+'px) scale('+sc+')',opacity:.95}
+  ],{duration:650,easing:'cubic-bezier(.4,0,.2,1)'});
+  a.onfinish=function(){fly.remove();leaf.style.visibility='';
+    leaf.animate([{transform:'scale(1.25)'},{transform:'scale(1)'}],{duration:260,easing:'ease-out'});};
+}
+
+function finishRound(){
+  // подсвечиваем корень в каждом слове на дереве
+  [].forEach.call(crown.children,function(l){l.innerHTML=rootHTML(l._it.w,l._it.root);});
+  $('rtSoil').innerHTML='Корень: <b>'+esc(round.root)+'</b>';
+  $('rtSoil').classList.add('show');
+  var left=[].filter.call(bank.children,function(c){return !c._it.ok&&!c.disabled;});
+  left.forEach(function(c){c.disabled=true;c.classList.add('rt-chip--revealed');});
+  var ex=$('rtExplain'),html='<h3>Почему эти слова не подходят:</h3><ul>';
+  round.bad.forEach(function(b){html+='<li><b>'+esc(b[0])+'</b> — '+esc(b[1])+'</li>';});
+  ex.innerHTML=html+'</ul>';ex.hidden=false;
+  setFb('done','🎉 Все однокоренные слова найдены! Общая часть у них — корень <b>-'+esc(round.root)+'-</b>.',true);
+  $('rtProgFill').style.width=Math.round((roundNo+1)/order.length*100)+'%';
+}
+
+function nextRound(){
+  roundNo++;
+  if(roundNo>=order.length){win();return;}
+  loadRound();
+  var t=$('rtTask').getBoundingClientRect();
+  if(t.top<0||t.top>window.innerHeight*.6)$('rtTask').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function win(){
+  var stars=mistakes<=3?3:(mistakes<=8?2:1);
+  var s='';for(var i=0;i<3;i++)s+=i<stars?'⭐ ':'☆ ';
+  $('rtWinStars').textContent=s.trim();
+  $('rtWinSub').innerHTML='Ты нашёл однокоренные слова во всех '+order.length+' раундах.<br>Ошибок: '+mistakes+'.';
+  $('rtOv').classList.remove('hidden');
+}
+
+$('rtWinBtn').addEventListener('click',startGame);
+startGame();
+})();
+</script>
+</body>
+</html>
