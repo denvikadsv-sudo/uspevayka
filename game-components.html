@@ -230,7 +230,7 @@
     <div class="modes">
       <button class="mode-btn" data-mode="add">➕ Сложение<small>слагаемое, слагаемое, сумма</small></button>
       <button class="mode-btn sky" data-mode="sub">➖ Вычитание<small>уменьшаемое, вычитаемое, разность</small></button>
-      <button class="mode-btn green" data-mode="mix">🎲 Всё вместе<small>примеры вперемешку</small></button>
+      <button class="mode-btn green" data-mode="mix">🎲 Всё вместе<small>сложение и вычитание вперемешку, все названия вместе</small></button>
     </div>
   </section>
 
@@ -296,6 +296,7 @@
   var mistakes = 0;      // ошибок в текущем примере
   var filled = 0;
   var selected = null;   // выбранная нажатием фишка
+  var queue = [];        // порядок типов примеров на всю игру
 
   function rnd(a, b) { return Math.floor(Math.random() * (b - a + 1)) + a; }
   function shuffle(arr) {
@@ -341,8 +342,19 @@
       }
     }
 
+    // набор названий внизу; в режиме «всё вместе» добавляем названия другого действия
+    var names = needs.slice();
+    if (mode === 'mix') {
+      var other = ex.type === 'add' ? ['minuend', 'subtrahend', 'difference'] : ['addend', 'sum'];
+      names = names.concat(other);
+    }
+    // перемешиваем так, чтобы порядок не совпал с порядком чисел в примере
+    var order;
+    do { order = shuffle(names.slice()); }
+    while (order.slice(0, 3).join() === needs.join());
+
     tray.innerHTML = '';
-    shuffle(needs.slice()).forEach(function (t) {
+    order.forEach(function (t) {
       var c = document.createElement('div');
       c.className = 'chip t-' + t;
       c.dataset.type = t;
@@ -363,14 +375,21 @@
 
   function nextRound() {
     if (round >= ROUNDS) { finish(); return; }
-    var t = mode === 'mix' ? (Math.random() < 0.5 ? 'add' : 'sub') : mode;
-    render(makeExample(t));
+    render(makeExample(queue[round]));
   }
 
   function start(m) {
     mode = m;
     round = 0;
     firstTry = 0;
+    queue = [];
+    for (var i = 0; i < ROUNDS; i++) {
+      queue.push(mode === 'mix' ? (i % 2 ? 'add' : 'sub') : mode);
+    }
+    if (mode === 'mix') {
+      // по 5 примеров каждого действия, но в случайном порядке
+      shuffle(queue);
+    }
     menu.hidden = true;
     done.hidden = true;
     play.hidden = false;
@@ -400,6 +419,7 @@
         if (mistakes === 0) firstTry++;
         $('scoreText').textContent = '⭐ ' + firstTry;
         $('bar').style.width = ((round + 1) / ROUNDS * 100) + '%';
+        tray.innerHTML = '';
         feedback.className = 'feedback ok';
         feedback.textContent = mistakes === 0 ? '🎉 Верно! Молодец!' : '👍 Получилось!';
         nextBtn.textContent = round + 1 >= ROUNDS ? 'Результат →' : 'Дальше →';
