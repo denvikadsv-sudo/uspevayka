@@ -28,7 +28,7 @@ There is no build system, package manager, or dependencies. Every page is a hand
 | `images/` | Logo, mascots, photos — **referenced by relative path** and served as-is |
 | `favicon-32.png`, `apple-touch-icon.png` | Icons |
 
-Each page has its own inline `<style>` block (no shared stylesheet), its own copy of the nav and footer, and its own `<script>`. Shared pieces (nav, footer, design tokens, burger menu script) are **duplicated** across pages — when changing the nav, footer, phone number or social links, update every page.
+Each page has its own inline `<style>` block (no shared stylesheet), its own copy of the nav and footer, and its own `<script>`. Footer: dark pages show the logo on a white rounded badge (the logo lettering is dark and invisible on the dark footer) with a short tagline; `game-english.html` and `game-vowels.html` have a light footer. Shared pieces (nav, footer, design tokens, burger menu script) are **duplicated** across pages — when changing the nav, footer, phone number or social links, update every page.
 
 External resources: Google Fonts only (`Nunito`, `Rubik`, `Comfortaa`).
 
@@ -103,7 +103,7 @@ The win overlay (`#cnOverlay`, confetti canvas `#cnCf`) and the `.cn-*` start/wi
 
 `#contactForm` collects: child's name, parent's phone/Telegram, grade, and subject. On submit it builds a pre-filled message and opens a messenger-choice modal (`#messengerModal`): WhatsApp opens `api.whatsapp.com/send?phone=79097923750&text=…` with the message; Telegram, VK and Instagram open the profile and copy the message to the clipboard. There is no server-side handler.
 
-Contacts: phone / WhatsApp `+7 909 792-3750`; Telegram `@uspevaika` (channel link in the contact block and footer) and `@svetapedagog` (hero button and Telegram option in the form modal); VK `vk.ru/club.uspevaika`; YouTube `@uspevaika`; Instagram `instagram.com/sveta.pedagog`.
+Contacts: phone / WhatsApp `+7 909 792-3750`; Telegram `@uspevaika` (channel link in the contact block and footer) and `@svetapedagog` (hero button and Telegram option in the form modal); VK `vk.ru/club.uspevaika`; Instagram `instagram.com/sveta.pedagog`. YouTube-кнопки в подвалах убраны намеренно (канал `@uspevaika` остался только в `sameAs` разметки на главной).
 
 ## Content language
 
