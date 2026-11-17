@@ -4,43 +4,55 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-Static single-page landing site for **Успевайка** (Uspevaika) — a Russian-language online tutoring center for students in grades 1–11. Deployed to GitHub Pages under the custom domain `uspevaika-online.ru`.
+Static multi-page site for **Успевайка** (Uspevaika) — a Russian-language online tutoring center for students in grades 1–11. Deployed to GitHub Pages under the custom domain `uspevaika-online.ru` (see `CNAME`).
 
 ## Working with the site
 
-There is no build system, package manager, or dependencies. The entire site is one file:
+There is no build system, package manager, or dependencies. Every page is a hand-written, self-contained HTML file in the repo root.
 
-- **Edit** `index.html` directly.
-- **Preview** by opening it in a browser: `open index.html` (macOS) or just drag-and-drop the file into a browser tab.
+- **Edit** the HTML files directly.
+- **Preview** by opening a file in a browser (`open index.html` on macOS, or drag it into a tab). All links are relative, so `file://` works.
 - **Deploy** by pushing to `main` — GitHub Pages serves the result automatically.
 
-## Architecture: monolithic single file
+## Files
 
-`index.html` (476 lines) contains everything in one file:
+| File | Purpose |
+|------|---------|
+| `index.html` | Landing page (the only page with the enrollment form) |
+| `games.html` | Catalog of educational games with subject filters |
+| `game-*.html` | One educational game per file (see below) |
+| `podgotovka-k-shkole.html` | SEO landing page: teaching a child to read |
+| `rabota-repetitorem.html` | Tutor vacancies page |
+| `404.html` | Custom 404 page (`noindex`) |
+| `sitemap.xml`, `robots.txt` | SEO; `sitemap.xml` must list every public page |
+| `images/` | Logo, mascots, photos — **referenced by relative path** and served as-is |
+| `favicon-32.png`, `apple-touch-icon.png` | Icons |
 
-1. **CSS** — all styles in a single `<style>` block inside `<head>`. No external stylesheet.
-2. **Images** — all 7 mascot/logo images are embedded as `base64` data URIs directly in the HTML. Source image files live in `/images/` and are the originals used to generate the base64 strings. When replacing an image, update the base64 string in the HTML; the files in `/images/` are not served.
-3. **JavaScript** — one `<script>` block at the bottom of `<body>`, handling only the mobile burger-menu toggle and the contact form.
-4. **External resources** — Google Fonts only (`Nunito`, `Rubik`, `Comfortaa`).
+Each page has its own inline `<style>` block (no shared stylesheet), its own copy of the nav and footer, and its own `<script>`. Shared pieces (nav, footer, design tokens, burger menu script) are **duplicated** across pages — when changing the nav, footer, phone number or social links, update every page.
 
-## Page sections (navigation anchors)
+External resources: Google Fonts only (`Nunito`, `Rubik`, `Comfortaa`).
 
-Sections appear in this order and are navigated via smooth-scroll anchor links:
+## Landing page sections (`index.html`)
+
+Navigation uses smooth-scroll anchors. Sections in order:
 
 | ID | Content |
 |----|---------|
-| `#hero` | Brand headline, CTA, mascot photo |
-| `#why` | Value propositions |
-| `#selection` | How tutors are selected |
-| `#features` | Feature highlights |
-| `#results` | Student results / outcomes |
-| `#pricing` | Pricing table (Стандарт / Премиум / Группа) |
+| `#hero` | Brand headline, CTA, mascot |
+| `#story` | Brand story |
+| `#loyalty` | Why families stay for years |
+| `#lessons` | How lessons go |
+| `#teachers` | Tutor team |
+| `#pricing` | Prices (Стандарт / Премиум, 40 and 60 minute lessons) |
 | `#subjects` | Subjects offered |
+| `#games` | Teaser cards linking to `games.html` |
+| `#faq` | FAQ |
 | `#contact` | Social links + enrollment form |
+| `#join` | Tutor recruiting block (links to `rabota-repetitorem.html`) |
 
 ## Design system (CSS custom properties)
 
-All colors are defined as variables on `:root`:
+Defined on `:root` and repeated in every page:
 
 | Token | Value | Role |
 |-------|-------|------|
@@ -56,14 +68,43 @@ All colors are defined as variables on `:root`:
 | `--muted` | `#6B7C8D` | Secondary text |
 | `--bg` | `#F0F9FF` | Page background |
 
-CSS class naming follows BEM convention (e.g. `.nav__logo`, `.hero__content`, `.contact-link__icon`).
+CSS class naming follows BEM on the landing page (e.g. `.nav__logo`, `.hero__content`). Game pages use short prefixes per game family (`.gp-*` page chrome, `.cn-*` shared win/start screens, `.sc-*` / `.mn-*` game-specific).
 
-## Contact form behavior
+## Educational games
 
-The enrollment form (`#contactForm`) collects: child's name, parent's phone/Telegram, grade, and subject. On submit it builds a pre-filled WhatsApp message and opens `api.whatsapp.com/send?phone=79097923750` — there is no server-side handler.
+Each `game-*.html` is a standalone page: nav, hero with breadcrumb, game board, rules/tips section, CTA, footer, and a `<script>` IIFE with the game logic. Current games:
 
-Social links: Telegram `@uspevaika` (hero button uses `@svetapedagog`), WhatsApp `+7 909 792-3750`, VK `vk.ru/club.uspevaika`, YouTube `@uspevaika`, Instagram `instagram.com/sveta.pedagog`.
+| File | Game |
+|------|------|
+| `game-vowels.html` | Гласные и согласные |
+| `game-consonants.html` | Домики согласных |
+| `game-stress.html` | Ударения в словах |
+| `game-yot.html` | Йотированные гласные |
+| `game-roots.html` | Однокоренные слова |
+| `game-speech.html` | Части речи |
+| `game-english.html` | Английские слова |
+| `game-count.html` | Счёт до 100 |
+| `game-times.html` | Таблица умножения |
+| `game-truth.html` | Правда или ложь? (сумма, разность, слагаемые) |
+| `game-components.html` | Компоненты сложения и вычитания |
+| `game-compose-10.html` | Состав числа от 6 до 10 |
+| `game-compose-20.html` | Состав числа в пределах 20 |
+| `game-minuend.html` | Найди уменьшаемое (и вычитаемое / разность), числа до 20 |
+
+Conventions when adding a game — copy the closest existing game page and change:
+
+1. `<title>`, meta description, canonical, `og:*`/`twitter:*` tags and the JSON-LD (`LearningResource` + `BreadcrumbList`).
+2. Hero text, game markup and script. Keep pure game logic (generators, answer checking) between `/*LOGIC-START*/` and `/*LOGIC-END*/` markers where present, so it can be extracted and tested in Node.
+3. Register the game in **`games.html`** (a `.gh-card` in the grid with `data-subject` plus a `ListItem` in its JSON-LD) and in **`sitemap.xml`**.
+
+The win overlay (`#cnOverlay`, confetti canvas `#cnCf`) and the `.cn-*` start/win styles are shared by copy-paste between games.
+
+## Enrollment form (`index.html`)
+
+`#contactForm` collects: child's name, parent's phone/Telegram, grade, and subject. On submit it builds a pre-filled message and opens a messenger-choice modal (`#messengerModal`): WhatsApp opens `api.whatsapp.com/send?phone=79097923750&text=…` with the message; Telegram, VK and Instagram open the profile and copy the message to the clipboard. There is no server-side handler.
+
+Contacts: phone / WhatsApp `+7 909 792-3750`; Telegram `@uspevaika` (channel link in the contact block and footer) and `@svetapedagog` (hero button and Telegram option in the form modal); VK `vk.ru/club.uspevaika`; YouTube `@uspevaika`; Instagram `instagram.com/sveta.pedagog`.
 
 ## Content language
 
-All visible content is in Russian (Cyrillic). Preserve this when making edits; do not translate or transliterate content.
+All visible content is in Russian (Cyrillic). Preserve this when making edits; do not translate or transliterate content. Page `<html lang>` is `ru`.
