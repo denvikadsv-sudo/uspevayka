@@ -77,6 +77,7 @@
     .section-title .accent { color: var(--sky); }
     .section-sub { text-align: center; color: var(--muted); font-size: .98rem; max-width: 500px; margin: 0 auto 40px; line-height: 1.65; }
     .skills__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .skills__grid--2 { grid-template-columns: repeat(2, 1fr); }
     .skill-card { background: var(--bg); border-radius: 20px; padding: 28px 22px; border: 2px solid var(--sky-light); text-align: center; transition: transform .2s, box-shadow .2s; }
     .skill-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(123,191,212,.18); }
     .skill-card__icon { font-size: 2.4rem; margin-bottom: 12px; }
@@ -88,6 +89,7 @@
     .how__steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: steps; }
     .how__step { background: #fff; border-radius: 18px; padding: 24px 18px; border: 2px solid var(--sky-light); text-align: center; position: relative; }
     .how__step::before { counter-increment: steps; content: counter(steps); position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--sky); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .82rem; font-weight: 800; }
+    .how__steps--3 { grid-template-columns: repeat(3, 1fr); }
     .how__step-icon { font-size: 2rem; margin-bottom: 10px; }
     .how__step-title { font-family: 'Rubik', sans-serif; font-size: .95rem; font-weight: 700; margin-bottom: 5px; }
     .how__step-text { font-size: .84rem; color: var(--muted); line-height: 1.55; }
@@ -161,6 +163,14 @@
       .how__steps { grid-template-columns: 1fr; }
       .form-wrap { padding: 24px 18px; }
     }
+  
+
+    /* Меню: когда пункты не помещаются в одну строку, показываем бургер (телефон и кнопка — в выпадающем меню) */
+    @media (max-width: 1100px) {
+      .nav__links, .nav__phone, .nav__cta { display: none; }
+      .burger { display: flex; }
+    }
+    @media (min-width: 1101px) { .nav__mobile { display: none !important; } }
   </style>
   <script type="application/ld+json">
   {
@@ -259,7 +269,7 @@
   <div class="container">
     <h2 class="section-title">Как мы учимся <span class="accent">читать</span></h2>
     <p class="section-sub">Последовательная авторская методика — от первых букв до осознанного чтения</p>
-    <div class="skills__grid" style="grid-template-columns: repeat(2,1fr);">
+    <div class="skills__grid skills__grid--2">
       <div class="skill-card" style="text-align:left;">
         <div class="skill-card__icon">🔤</div>
         <div class="skill-card__title">1. Знакомимся с гласными</div>
@@ -289,7 +299,7 @@
   <div class="container">
     <h2 class="section-title">Закрепляем <span class="accent">навык</span></h2>
     <p class="section-sub">К занятиям подготовлены рабочие тетради, которые родители могут распечатать дома. В них ребёнок закрепляет то, что изучил на уроке: выполняет задания, тренирует навык и постепенно доводит его до автоматизма.</p>
-    <div class="how__steps" style="grid-template-columns: repeat(3,1fr); margin-top: 16px;">
+    <div class="how__steps how__steps--3" style="margin-top: 16px;">
       <div class="how__step">
         <div class="how__step-icon">📓</div>
         <div class="how__step-title">Рабочие тетради</div>
