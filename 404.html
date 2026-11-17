@@ -14,6 +14,9 @@
     img { width:140px; height:auto; }
     a { display:inline-block; background:#F5D76E; color:#2C3E50; font-weight:800; padding:14px 28px; border-radius:999px; text-decoration:none; }
     a:hover { background:#E8C84A; }
+      /* Мобильные браузеры рисуют вокруг нажатого элемента голубой прямоугольник с острыми углами — отключаем */
+    :root, a, button { -webkit-tap-highlight-color: transparent; }
+    a, button { touch-action: manipulation; }
   </style>
 </head>
 <body>

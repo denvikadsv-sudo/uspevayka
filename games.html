@@ -28,6 +28,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Мобильные браузеры рисуют вокруг нажатого элемента голубой прямоугольник с острыми углами — отключаем */
+    :root, a, button, summary, label, [role="button"] { -webkit-tap-highlight-color: transparent; }
+    a, button, summary, label, [role="button"] { touch-action: manipulation; }
     :root {
       --sky: #7BBFD4;
       --sky-light: #C8E8F4;
@@ -95,6 +98,7 @@
     .gh-catalog__heading .accent { color: var(--sky); }
     .gh-filters { display: flex; gap: 8px; flex-wrap: wrap; }
     .gh-filter { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 50px; font-size: .85rem; font-weight: 700; background: #fff; border: 2px solid var(--sky-light); color: var(--muted); cursor: pointer; transition: all .2s; font-family: 'Nunito', sans-serif; }
+    .gh-filter:active { transform: scale(.96); }
     .gh-filter:hover { border-color: var(--sky); color: var(--sky); }
     .gh-filter.active { background: var(--sky); border-color: var(--sky); color: #fff; }
 
