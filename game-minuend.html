@@ -139,17 +139,17 @@
     .mn-progress__bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--sky), var(--green)); border-radius: 99px; transition: width .4s ease; }
     .mn-task { text-align: center; font-family: 'Rubik', sans-serif; font-weight: 800; font-size: clamp(1.05rem, 4.2vw, 1.35rem); color: var(--ink); padding: 14px 0 4px; }
     .mn-task .ask { color: var(--coral); }
-    .mn-eq { display: flex; align-items: flex-start; justify-content: center; gap: 6px; margin: 14px 0 8px; }
-    .mn-op { font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(1.8rem, 8vw, 2.6rem); color: var(--coral); line-height: 1; padding-top: 18px; }
-    .mn-card { flex: 1 1 0; max-width: 150px; min-width: 0; text-align: center; background: var(--sky-pale); border: 3px solid var(--sky-light); border-radius: 18px; padding: 10px 4px 8px; transition: all .2s; }
-    .mn-card__num { font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 11vw, 3.4rem); line-height: 1.15; color: var(--ink); }
-    .mn-card__lbl { font-size: clamp(.62rem, 2.6vw, .8rem); font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .02em; }
+    /* Раскладка «в столбик»: подпись слева, число справа — подписи помещаются на любой ширине и при крупном шрифте */
+    .mn-eq { display: flex; flex-direction: column; gap: 8px; margin: 14px auto 8px; max-width: 420px; }
+    .mn-card { display: flex; align-items: center; gap: 10px; min-width: 0; text-align: left; background: var(--sky-pale); border: 3px solid var(--sky-light); border-radius: 16px; padding: 6px 16px 6px 14px; transition: all .2s; }
+    .mn-card::before { content: attr(data-op); width: 1.1em; flex: none; font-family: 'Rubik', sans-serif; font-weight: 900; font-size: 1.7rem; line-height: 1; color: var(--coral); text-align: center; }
+    .mn-card__lbl { order: 1; flex: 1 1 auto; min-width: 0; font-size: .95rem; font-weight: 800; letter-spacing: .01em; color: var(--muted); text-transform: uppercase; overflow-wrap: anywhere; }
+    .mn-card__num { order: 2; min-width: 2ch; text-align: right; font-family: 'Rubik', sans-serif; font-weight: 900; font-size: 2.2rem; line-height: 1.15; color: var(--ink); }
     .mn-card--ask { background: #FFF6D1; border-color: var(--yellow-dark); }
     .mn-card--ask .mn-card__num { color: var(--coral); }
     .mn-card--done { background: #d2f5e5; border-color: var(--green); }
     .mn-card--done .mn-card__num { color: #154a2e; }
     .mn-card--reveal { background: #FFF6D1; border-color: var(--yellow-dark); }
-    .mn-card--reveal .mn-card__num { color: var(--ink); }
     .mn-choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 6px; }
     .mn-choice { min-height: 68px; padding: 8px 0; border-radius: 16px; border: 3px solid var(--sky-light); background: #fff; font-family: 'Rubik', sans-serif; font-size: clamp(1.6rem, 7vw, 2.2rem); font-weight: 800; color: var(--ink); cursor: pointer; transition: transform .15s, border-color .15s, background .15s, opacity .2s; }
     .mn-choice:hover:not(:disabled) { border-color: var(--sky); background: var(--sky-pale); transform: translateY(-2px); }
@@ -181,7 +181,7 @@
     .mn-win-btn2:hover { border-color: var(--sky); background: var(--sky-pale); }
     .mn-win-link { background: none; border: none; color: var(--muted); font-size: .9rem; font-weight: 700; font-family: 'Nunito', sans-serif; cursor: pointer; text-decoration: underline; }
     .tip-card--wide { grid-column: 1 / -1; background: #FFF6D1; border-color: #F7E7A0; }
-    @media (max-width: 380px) { .mn-choices { gap: 8px; } .mn-inner { padding: 16px 14px 24px; } .mn-eq { gap: 3px; } }
+    @media (max-width: 380px) { .mn-choices { gap: 8px; } .mn-inner { padding: 16px 14px 24px; } }
 
     /* SECTION */
     .section-title { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; text-align: center; margin-bottom: 8px; }
@@ -539,7 +539,7 @@
 
   // Три карточки: уменьшаемое − вычитаемое = разность; неизвестное — «?»
   function renderEq(state) {
-    var parts = [['m', '−'], ['s', '='], ['d', '']], html = '';
+    var parts = [['m', ''], ['s', '−'], ['d', '=']], html = '';
     parts.forEach(function (x) {
       var k = x[0], cls = 'mn-card', num = cur[k];
       if (k === cur.kind) {
@@ -547,8 +547,7 @@
         else if (state === 'done') cls += ' mn-card--done';
         else cls += ' mn-card--reveal';
       }
-      html += '<div class="' + cls + '"><div class="mn-card__num">' + num + '</div><div class="mn-card__lbl">' + NAME[k] + '</div></div>';
-      if (x[1]) html += '<div class="mn-op">' + x[1] + '</div>';
+      html += '<div class="' + cls + '" data-op="' + x[1] + '"><div class="mn-card__num">' + num + '</div><div class="mn-card__lbl">' + NAME[k] + '</div></div>';
     });
     $('mnEq').innerHTML = html;
   }
