@@ -320,20 +320,20 @@
       <span>Игры</span>
     </nav>
     <h1 class="gh-hero__title">Играй и <span class="accent">учись</span></h1>
-    <p class="gh-hero__sub">Интерактивные задания для школьников 1–7 класса — закрепляй школьную программу в игровой форме, бесплатно и без регистрации.</p>
+    <p class="gh-hero__sub">Интерактивные задания для школьников 1–6 классов — закрепляй школьную программу в игровой форме, бесплатно и без регистрации.</p>
     <div class="gh-hero__stats">
       <div class="gh-hero__stat">
-        <div class="gh-hero__stat-num">7</div>
+        <div class="gh-hero__stat-num" id="statGames">14</div>
         <div class="gh-hero__stat-label">игр доступны</div>
       </div>
       <div class="gh-hero__stat-sep"></div>
       <div class="gh-hero__stat">
-        <div class="gh-hero__stat-num">3</div>
+        <div class="gh-hero__stat-num" id="statSubjects">3</div>
         <div class="gh-hero__stat-label">предмета</div>
       </div>
       <div class="gh-hero__stat-sep"></div>
       <div class="gh-hero__stat">
-        <div class="gh-hero__stat-num">1–7</div>
+        <div class="gh-hero__stat-num" id="statGrades">1–6</div>
         <div class="gh-hero__stat-label">класс</div>
       </div>
     </div>
@@ -674,6 +674,23 @@
   const mobileMenu = document.getElementById('mobileMenu');
   burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // Цифры в шапке считаем по карточкам, чтобы они не устаревали при добавлении игр
+  (function () {
+    var cards = document.querySelectorAll('.gh-card--available');
+    if (!cards.length) return;
+    var subjects = {}, lo = 99, hi = 0;
+    cards.forEach(function (c) {
+      subjects[c.dataset.subject] = 1;
+      c.querySelectorAll('.gh-tag').forEach(function (tag) {
+        var m = /(\d+)(?:\s*[–-]\s*(\d+))?\s*класс/.exec(tag.textContent);
+        if (m) { lo = Math.min(lo, +m[1]); hi = Math.max(hi, +(m[2] || m[1])); }
+      });
+    });
+    document.getElementById('statGames').textContent = cards.length;
+    document.getElementById('statSubjects').textContent = Object.keys(subjects).length;
+    if (hi) document.getElementById('statGrades').textContent = lo === hi ? lo : lo + '–' + hi;
+  })();
 
   // Catalog filters
   document.querySelectorAll('.gh-filter').forEach(function(btn) {
