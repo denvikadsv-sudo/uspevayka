@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Найди уменьшаемое — игра по математике для 2 класса | Успевайка</title>
+  <meta name="description" content="Бесплатная игра для 2 класса: вычитаемое 5, разность 6 — найди уменьшаемое. Тренируем нахождение неизвестного компонента вычитания в пределах 20. Онлайн, без регистрации.">
+  <link rel="canonical" href="https://uspevaika-online.ru/game-minuend.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://uspevaika-online.ru/game-minuend.html">
+  <meta property="og:title" content="Найди уменьшаемое — игра по математике для 2 класса | Успевайка">
+  <meta property="og:description" content="Бесплатная игра: известны вычитаемое и разность — найди уменьшаемое. Числа в пределах 20. Онлайн, на телефоне и планшете.">
+  <meta property="og:image" content="https://uspevaika-online.ru/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Успевайка">
+  <meta name="theme-color" content="#7BBFD4">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Найди уменьшаемое — игра по математике для 2 класса | Успевайка">
+  <meta name="twitter:description" content="Бесплатная игра: известны вычитаемое и разность — найди уменьшаемое. Числа в пределах 20. Онлайн, на телефоне и планшете.">
+  <meta name="twitter:image" content="https://uspevaika-online.ru/images/og-image.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sky: #7BBFD4; --sky-light: #C8E8F4; --sky-pale: #DCF0F8;
+      --yellow: #F5D76E; --yellow-dark: #E8C84A;
+      --coral: #FF8A7A; --green: #6BC5A0; --brown: #6B4E3D;
+      --ink: #2C3E50; --muted: #6B7C8D; --bg: #F0F9FF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Rubik', sans-serif; line-height: 1.25; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    section { padding: 64px 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    .nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.93); backdrop-filter:blur(18px); box-shadow:0 2px 16px rgba(123,191,212,.12); }
+    .nav__inner { display:flex; align-items:center; justify-content:space-between; height:68px; gap:16px; }
+    .nav__logo { display:flex; align-items:center; gap:10px; font-family:'Rubik',sans-serif; font-size:1.35rem; font-weight:700; color:var(--sky); flex-shrink:0; }
+    .nav__logo img { height:44px; width:auto; border-radius:6px; }
+    .nav__links { display:flex; align-items:center; gap:24px; list-style:none; }
+    .nav__links a { font-size:.9rem; font-weight:600; color:var(--muted); transition:color .2s; }
+    .nav__links a:hover, .nav__links a.active { color:var(--sky); }
+    .nav__right { display:flex; align-items:center; gap:12px; flex-shrink:0; }
+    .nav__phone { font-family:'Rubik',sans-serif; font-weight:600; color:var(--muted); white-space:nowrap; font-size:.88rem; }
+    .nav__phone:hover { color:var(--sky); }
+    .nav__cta { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg,var(--sky) 0%,#5aafc8 100%); color:#fff; padding:9px 20px; border-radius:50px; font-size:.88rem; font-weight:700; white-space:nowrap; box-shadow:0 4px 14px rgba(123,191,212,.38); transition:all .22s; }
+    .nav__cta:hover { transform:translateY(-1px); box-shadow:0 7px 22px rgba(123,191,212,.5); color:#fff; }
+    .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .burger span { display:block; width:24px; height:3px; background:var(--ink); border-radius:3px; transition:.3s; }
+    .nav__mobile { display:none; flex-direction:column; background:var(--bg); border-top:1px solid var(--sky-light); padding:0 24px 16px; }
+    .nav__mobile a { display:block; padding:12px 0; font-weight:600; border-bottom:1px solid var(--sky-pale); color:var(--ink); }
+    .nav__mobile a:last-child { border-bottom:none; }
+    .nav__mobile.open { display:flex; }
+
+    /* PAGE HERO */
+    .gp-hero { background: linear-gradient(180deg, #fff 0%, var(--bg) 100%); padding: 36px 0 28px; }
+    .gp-breadcrumb { display: flex; align-items: center; gap: 6px; font-size: .88rem; color: var(--muted); margin-bottom: 18px; flex-wrap: wrap; }
+    .gp-breadcrumb a { color: var(--sky); font-weight: 600; transition: opacity .2s; }
+    .gp-breadcrumb a:hover { opacity: .75; }
+    .gp-breadcrumb__sep { color: var(--sky-light); }
+    .gp-hero__eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+    .gp-hero__title { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 12px; }
+    .gp-hero__title .accent { color: var(--sky); }
+    .gp-hero__sub { color: var(--muted); font-size: 1rem; max-width: 580px; line-height: 1.72; margin-bottom: 22px; }
+    .gp-hero__meta { display: flex; gap: 10px; flex-wrap: wrap; }
+    .gp-meta-chip { display: inline-flex; align-items: center; gap: 5px; background: #fff; border: 1.5px solid var(--sky-light); border-radius: 50px; padding: 5px 14px; font-size: .82rem; font-weight: 700; color: var(--muted); }
+
+    /* GAME AREA */
+    .gp-play { background: var(--bg); padding: 0 0 56px; }
+    .game-wrapper { max-width: 640px; margin: 0 auto; background: #fff; border-radius: 24px; overflow: hidden; border: 2px solid var(--sky-light); box-shadow: 0 8px 32px rgba(123,191,212,.15); }
+    .game-wrapper::before { content: ''; display: block; height: 5px; background: linear-gradient(90deg, var(--sky), var(--yellow), var(--coral), var(--green)); }
+    .game-footer { max-width: 640px; margin: 28px auto 0; text-align: center; }
+    .game-footer-text { font-size: .92rem; color: var(--muted); margin-bottom: 14px; }
+    .game-footer__cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--sky), #5aafc8); color: #fff; padding: 12px 28px; border-radius: 50px; font-size: .95rem; font-weight: 700; box-shadow: 0 4px 16px rgba(123,191,212,.35); transition: transform .2s, box-shadow .2s; }
+    .game-footer__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,191,212,.5); color: #fff; }
+
+    /* COUNT INNER */
+    .cn-inner { padding: 20px 24px 28px; }
+    .cn-hdr { margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .cn-title { font-family: 'Rubik', sans-serif; font-size: clamp(1rem,3vw,1.3rem); font-weight: 800; color: var(--sky); }
+    .cn-timer-wrap { display: flex; align-items: center; gap: 8px; }
+    .cn-timer-arc { width: 52px; height: 52px; flex-shrink: 0; }
+    .cn-timer-txt { font-family: 'Rubik', sans-serif; font-size: 1.1rem; font-weight: 900; color: var(--ink); }
+    .cn-score-row { display: flex; gap: 16px; align-items: center; margin-bottom: 10px; }
+    .cn-score-chip { display: inline-flex; align-items: center; gap: 5px; padding: 4px 14px; border-radius: 50px; font-size: .88rem; font-weight: 800; }
+    .cn-score-chip--ok { background: #d2f5e5; color: #154a2e; }
+    .cn-score-chip--err { background: #FEEDED; color: #8b2020; }
+
+    .cn-question-wrap { text-align: center; padding: 24px 0 20px; }
+    .cn-question { font-family: 'Rubik', sans-serif; font-size: clamp(2rem, 9vw, 3.6rem); font-weight: 900; color: var(--ink); letter-spacing: -.02em; margin-bottom: 4px; }
+    .cn-question .op { color: var(--coral); }
+
+    .cn-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .cn-choice { padding: 16px 12px; border-radius: 16px; border: 2.5px solid var(--sky-light); background: #fff; font-family: 'Rubik', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--ink); cursor: pointer; transition: all .18s; text-align: center; }
+    .cn-choice:hover:not(:disabled) { border-color: var(--sky); background: var(--sky-pale); transform: translateY(-2px); }
+    .cn-choice.correct { border-color: var(--green); background: #d2f5e5; color: #154a2e; }
+    .cn-choice.wrong   { border-color: var(--coral); background: #FEEDED; color: #8b2020; }
+    .cn-choice:disabled { cursor: default; }
+    @keyframes cn-pop { 0%{transform:scale(1)} 40%{transform:scale(1.1)} 100%{transform:scale(1)} }
+    @keyframes cn-shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 50%{transform:translateX(8px)} 75%{transform:translateX(-5px)} }
+    .cn-choice.anim-ok  { animation: cn-pop .35s ease; }
+    .cn-choice.anim-err { animation: cn-shake .4s ease; }
+
+    /* START / END SCREENS */
+    .cn-screen { text-align: center; padding: 32px 20px; }
+    .cn-screen h3 { font-family: 'Rubik', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--sky); margin-bottom: 12px; }
+    .cn-screen p { color: var(--muted); font-size: .95rem; margin-bottom: 24px; line-height: 1.6; max-width: 380px; margin-left: auto; margin-right: auto; }
+    .cn-start-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--sky), #5aafc8); color: #fff; padding: 14px 32px; border-radius: 50px; font-size: 1.05rem; font-weight: 800; cursor: pointer; border: none; font-family: 'Nunito', sans-serif; box-shadow: 0 4px 16px rgba(123,191,212,.35); transition: transform .15s, box-shadow .15s; }
+    .cn-start-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,191,212,.5); }
+
+    /* WIN */
+    .cn-overlay { position: fixed; inset: 0; background: rgba(44,62,80,.72); display: flex; align-items: center; justify-content: center; z-index: 500; padding: 20px; }
+    .cn-overlay.hidden { display: none; }
+    .cn-cf { position: fixed; inset: 0; pointer-events: none; z-index: 499; display: none; }
+    @keyframes cn-win-in { from{transform:scale(.5) rotate(-8deg);opacity:0} to{transform:scale(1) rotate(0);opacity:1} }
+    .cn-win-card { background: #fff; border-radius: 24px; padding: 36px 32px 32px; text-align: center; max-width: 340px; width: 100%; box-shadow: 0 24px 60px rgba(0,0,0,.35); animation: cn-win-in .5s cubic-bezier(.34,1.56,.64,1) both; }
+    .cn-win-stars { font-size: 2.4rem; margin-bottom: 4px; letter-spacing: 4px; }
+    .cn-win-title { font-family: 'Rubik', sans-serif; font-size: 2.1rem; font-weight: 900; color: var(--sky); letter-spacing: -.03em; margin-bottom: 8px; }
+    .cn-win-sub { font-size: 1rem; color: var(--muted); margin-bottom: 24px; line-height: 1.5; }
+    .cn-win-score { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; font-size: 1.05rem; font-weight: 800; }
+    .cn-win-btn { background: linear-gradient(135deg, var(--sky), var(--green)); color: #fff; padding: 14px 32px; border-radius: 999px; font-size: 1.1rem; font-weight: 800; font-family: 'Nunito', sans-serif; cursor: pointer; border: none; box-shadow: 0 4px 16px rgba(91,175,196,.4); transition: transform .15s, box-shadow .15s; }
+    .cn-win-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,175,196,.5); }
+
+
+
+    /* НАЙДИ УМЕНЬШАЕМОЕ */
+    .mn-inner { padding: 20px 24px 28px; }
+    .mn-hdr { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .mn-counter { font-family: 'Rubik', sans-serif; font-size: 1rem; font-weight: 800; color: var(--sky); }
+    .mn-progress { height: 10px; background: var(--sky-pale); border-radius: 99px; overflow: hidden; margin-bottom: 8px; }
+    .mn-progress__bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--sky), var(--green)); border-radius: 99px; transition: width .4s ease; }
+    .mn-task { text-align: center; font-family: 'Rubik', sans-serif; font-weight: 800; font-size: clamp(1.05rem, 4.2vw, 1.35rem); color: var(--ink); padding: 14px 0 4px; }
+    .mn-task .ask { color: var(--coral); }
+    .mn-eq { display: flex; align-items: flex-start; justify-content: center; gap: 6px; margin: 14px 0 8px; }
+    .mn-op { font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(1.8rem, 8vw, 2.6rem); color: var(--coral); line-height: 1; padding-top: 18px; }
+    .mn-card { flex: 1 1 0; max-width: 150px; min-width: 0; text-align: center; background: var(--sky-pale); border: 3px solid var(--sky-light); border-radius: 18px; padding: 10px 4px 8px; transition: all .2s; }
+    .mn-card__num { font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 11vw, 3.4rem); line-height: 1.15; color: var(--ink); }
+    .mn-card__lbl { font-size: clamp(.62rem, 2.6vw, .8rem); font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .02em; }
+    .mn-card--ask { background: #FFF6D1; border-color: var(--yellow-dark); }
+    .mn-card--ask .mn-card__num { color: var(--coral); }
+    .mn-card--done { background: #d2f5e5; border-color: var(--green); }
+    .mn-card--done .mn-card__num { color: #154a2e; }
+    .mn-card--reveal { background: #FFF6D1; border-color: var(--yellow-dark); }
+    .mn-card--reveal .mn-card__num { color: var(--ink); }
+    .mn-choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 6px; }
+    .mn-choice { min-height: 68px; padding: 8px 0; border-radius: 16px; border: 3px solid var(--sky-light); background: #fff; font-family: 'Rubik', sans-serif; font-size: clamp(1.6rem, 7vw, 2.2rem); font-weight: 800; color: var(--ink); cursor: pointer; transition: transform .15s, border-color .15s, background .15s, opacity .2s; }
+    .mn-choice:hover:not(:disabled) { border-color: var(--sky); background: var(--sky-pale); transform: translateY(-2px); }
+    .mn-choice.good { border-color: var(--green); background: #d2f5e5; color: #154a2e; animation: cn-pop .35s ease; }
+    .mn-choice.bad { border-color: var(--coral); background: #FEEDED; color: #8b2020; animation: cn-shake .4s ease; }
+    .mn-choice.reveal { border-color: var(--yellow-dark); background: #FFF6D1; animation: cn-pop .45s ease; }
+    .mn-choice.dim { opacity: .4; }
+    .mn-choice:disabled { cursor: default; }
+    .mn-feedback { margin-top: 8px; border-radius: 16px; padding: 12px 16px; font-size: .95rem; line-height: 1.55; display: none; }
+    .mn-feedback.show { display: block; }
+    .mn-feedback--ok { background: #d2f5e5; color: #154a2e; }
+    .mn-feedback--err { background: #FEEDED; color: #8b2020; }
+    .mn-feedback--hint { background: #FFF6D1; color: #6b5200; }
+    .mn-feedback strong { font-weight: 800; }
+    .mn-next { display: none; margin: 14px auto 0; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--sky), #5aafc8); color: #fff; padding: 12px 30px; border-radius: 50px; border: none; font-size: 1rem; font-weight: 800; font-family: 'Nunito', sans-serif; cursor: pointer; box-shadow: 0 4px 16px rgba(123,191,212,.4); transition: transform .2s, box-shadow .2s; }
+    .mn-next.show { display: flex; }
+    .mn-next:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,191,212,.5); }
+    .mn-modes { margin-top: 22px; }
+    .mn-modes__label { font-size: .88rem; font-weight: 700; color: var(--muted); margin-bottom: 10px; }
+    .mn-modes__row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .mn-mode { padding: 9px 18px; border-radius: 50px; border: 2.5px solid var(--sky-light); background: #fff; font-family: 'Rubik', sans-serif; font-size: .95rem; font-weight: 700; color: var(--ink); cursor: pointer; transition: all .18s; }
+    .mn-mode:hover { border-color: var(--sky); background: var(--sky-pale); transform: translateY(-2px); }
+    .mn-example { background: var(--sky-pale); border: 2px solid var(--sky-light); border-radius: 16px; padding: 12px 16px; margin: 0 auto 22px; max-width: 380px; font-size: .95rem; color: var(--ink); line-height: 1.6; }
+    .mn-mistakes { text-align: left; font-size: .95rem; color: var(--muted); margin: 0 0 18px; padding: 12px 14px; background: var(--sky-pale); border-radius: 14px; max-height: 150px; overflow: auto; }
+    .mn-mistakes b { color: var(--ink); }
+    .mn-mistakes li { margin-left: 18px; margin-bottom: 4px; }
+    .mn-win-btns { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+    .mn-win-btn2 { background: #fff; color: var(--sky); border: 2.5px solid var(--sky-light); padding: 11px 26px; border-radius: 999px; font-size: 1rem; font-weight: 800; font-family: 'Nunito', sans-serif; cursor: pointer; transition: all .18s; }
+    .mn-win-btn2:hover { border-color: var(--sky); background: var(--sky-pale); }
+    .mn-win-link { background: none; border: none; color: var(--muted); font-size: .9rem; font-weight: 700; font-family: 'Nunito', sans-serif; cursor: pointer; text-decoration: underline; }
+    .tip-card--wide { grid-column: 1 / -1; background: #FFF6D1; border-color: #F7E7A0; }
+    @media (max-width: 380px) { .mn-choices { gap: 8px; } .mn-inner { padding: 16px 14px 24px; } .mn-eq { gap: 3px; } }
+
+    /* SECTION */
+    .section-title { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; text-align: center; margin-bottom: 8px; }
+    .section-title .accent { color: var(--sky); }
+    .section-subtitle { text-align: center; color: var(--muted); font-size: .95rem; max-width: 480px; margin: 0 auto; line-height: 1.65; }
+    .gp-rule { background: #fff; padding: 40px 0 48px; }
+    .tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 640px; margin: 28px auto 0; }
+    .tip-card { border-radius: 18px; padding: 18px; background: var(--sky-pale); border: 2px solid var(--sky-light); }
+    .tip-card__label { font-size: .92rem; font-weight: 900; color: var(--ink); margin-bottom: 8px; }
+    .tip-card__text { font-size: .85rem; color: var(--muted); line-height: 1.55; }
+
+    /* CTA */
+    .gp-cta { background: linear-gradient(135deg, var(--sky) 0%, #4ea8c4 100%); text-align: center; padding: 56px 0; }
+    .gp-cta h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .gp-cta p { color: rgba(255,255,255,.88); font-size: 1rem; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.72; }
+    .gp-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--sky); padding: 14px 34px; border-radius: 50px; font-size: 1rem; font-weight: 700; box-shadow: 0 6px 24px rgba(0,0,0,.18); transition: all .22s; }
+    .gp-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,.25); color: var(--sky); }
+
+    /* FOOTER */
+    .footer { background:var(--ink); color:rgba(255,255,255,.7); padding:40px 0; }
+    .footer__inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    .footer__logo { display:flex; align-items:center; gap:10px; font-family:'Rubik',sans-serif; font-size:1.1rem; font-weight:700; color:#fff; }
+    .footer__logo img { height:48px; width:auto; border-radius:6px; }
+    .footer__copy { font-size:.85rem; text-align:center; }
+    .footer__socials { display:flex; gap:10px; }
+    .footer__socials a { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:#fff; transition:background .2s; }
+    .footer__socials a:hover { background:var(--sky); }
+    .footer__socials svg { width:20px; height:20px; fill:currentColor; }
+
+    @media (max-width: 600px) {
+      .burger { display: flex; }
+      .nav__links { display: none; }
+      .nav__phone { display: none; }
+      .nav__cta { display: none; }
+      .tips-grid { grid-template-columns: 1fr; }
+      .footer__inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        "name": "Найди уменьшаемое — учебная игра",
+        "description": "Бесплатная игра для 2 класса: вычитаемое 5, разность 6 — найди уменьшаемое. Нахождение неизвестного компонента вычитания в пределах 20. Онлайн, без регистрации.",
+        "url": "https://uspevaika-online.ru/game-minuend.html",
+        "inLanguage": "ru-RU",
+        "isAccessibleForFree": true,
+        "educationalLevel": "2 класс",
+        "about": {"@type": "Thing", "name": "Математика"},
+        "learningResourceType": "game",
+        "interactivityType": "active",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "Успевайка",
+          "url": "https://uspevaika-online.ru/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://uspevaika-online.ru/"},
+          {"@type": "ListItem", "position": 2, "name": "Учебные игры", "item": "https://uspevaika-online.ru/games.html"},
+          {"@type": "ListItem", "position": 3, "name": "Найди уменьшаемое"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<body>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="images/logo.png" alt="Логотип Успевайка">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#story">История</a></li>
+      <li><a href="index.html#lessons">Занятия</a></li>
+      <li><a href="index.html#teachers">Репетиторы</a></li>
+      <li><a href="index.html#pricing">Цены</a></li>
+      <li><a href="index.html#subjects">Предметы</a></li>
+      <li><a href="games.html" class="active">Игры</a></li>
+      <li><a href="index.html#contact">Контакты</a></li>
+    </ul>
+    <div class="nav__right">
+      <a href="tel:+79097923750" class="nav__phone">+7 909 792-3750</a>
+      <a href="index.html#contact" class="nav__cta">Записаться</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="index.html#story">История</a>
+    <a href="index.html#lessons">Занятия</a>
+    <a href="index.html#teachers">Репетиторы</a>
+    <a href="index.html#pricing">Цены</a>
+    <a href="index.html#subjects">Предметы</a>
+    <a href="games.html">Игры</a>
+    <a href="index.html#contact">Контакты</a>
+    <a href="tel:+79097923750">+7 909 792-3750</a>
+    <a href="index.html#contact" style="color:var(--sky);font-weight:800;">→ Записаться на пробное</a>
+  </div>
+</nav>
+
+
+<section class="gp-hero">
+  <div class="container">
+    <nav class="gp-breadcrumb" aria-label="Навигация">
+      <a href="index.html">← Главная</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <a href="games.html">Игры</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <span>Найди уменьшаемое</span>
+    </nav>
+    <div class="gp-hero__eyebrow">➖ Математика · 2 класс</div>
+    <h1 class="gp-hero__title">Найди <span class="accent">уменьшаемое</span></h1>
+    <p class="gp-hero__sub">Известны вычитаемое и разность — найди уменьшаемое. Например: вычитаемое 5, разность 6, значит уменьшаемое 11. Все числа в пределах 20. Можно потренировать и другие неизвестные компоненты!</p>
+    <div class="gp-hero__meta">
+      <span class="gp-meta-chip">🎯 10 заданий</span>
+      <span class="gp-meta-chip">🔢 Числа до 20</span>
+      <span class="gp-meta-chip">📱 Работает на телефоне</span>
+    </div>
+  </div>
+</section>
+
+<section class="gp-play">
+  <div class="container">
+    <div class="game-wrapper">
+      <div class="mn-inner" id="mnGame">
+
+        <div class="cn-screen" id="mnStart">
+          <h3>➖ Найди уменьшаемое</h3>
+          <p>Тебе назовут два числа из примера на вычитание, а третье нужно найти. Все числа не больше 20.</p>
+          <div class="mn-example">Вычитаемое <b>5</b>, разность <b>6</b>.<br>Найди уменьшаемое: <b>? − 5 = 6</b>, значит <b>11 − 5 = 6</b>.</div>
+          <button class="cn-start-btn" id="mnStartMin" type="button">▶ Играть: найди уменьшаемое</button>
+          <div class="mn-modes">
+            <div class="mn-modes__label">Или потренируй другое:</div>
+            <div class="mn-modes__row">
+              <button class="mn-mode" type="button" data-mode="sub">Найди вычитаемое</button>
+              <button class="mn-mode" type="button" data-mode="diff">Найди разность</button>
+              <button class="mn-mode" type="button" data-mode="mix">Всё вперемешку</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="mnPlay" style="display:none;">
+          <div class="mn-hdr">
+            <span class="mn-counter" id="mnCounter">Задание 1 из 10</span>
+            <div class="cn-score-row" style="margin:0;">
+              <span class="cn-score-chip cn-score-chip--ok" id="mnOk">✓ 0</span>
+              <span class="cn-score-chip cn-score-chip--err" id="mnErr">✗ 0</span>
+            </div>
+          </div>
+          <div class="mn-progress"><div class="mn-progress__bar" id="mnBar"></div></div>
+          <div class="mn-task" id="mnTask" aria-live="polite"></div>
+          <div class="mn-eq" id="mnEq"></div>
+          <div class="mn-choices" id="mnChoices"></div>
+          <div class="mn-feedback" id="mnFeedback" role="status"></div>
+          <button class="mn-next" id="mnNext" type="button">Дальше →</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="game-footer">
+      <p class="game-footer-text">Понравилась игра? Попробуй занятие с репетитором по математике!</p>
+      <a href="index.html#contact" class="game-footer__cta">Записаться на занятие →</a>
+    </div>
+  </div>
+</section>
+
+<canvas class="cn-cf" id="cnCf"></canvas>
+<div class="cn-overlay hidden" id="cnOverlay">
+  <div class="cn-win-card">
+    <div class="cn-win-stars" id="cnWinStars">⭐ ⭐ ⭐</div>
+    <h2 class="cn-win-title" id="cnWinTitle">Молодец!</h2>
+    <p class="cn-win-sub" id="cnWinSub"></p>
+    <div class="cn-win-score" id="cnWinScore"></div>
+    <div class="mn-mistakes" id="mnMistakes" style="display:none;"></div>
+    <div class="mn-win-btns">
+      <button class="cn-win-btn" id="cnWinBtn" type="button">🔄 Играть снова</button>
+      <button class="mn-win-btn2" id="mnTrain" type="button" style="display:none;">🎯 Потренировать ошибки</button>
+      <button class="mn-win-link" id="mnChoose" type="button">Выбрать режим</button>
+    </div>
+  </div>
+</div>
+
+<section class="gp-rule">
+  <div class="container">
+    <h2 class="section-title">Как найти <span class="accent">неизвестное число</span></h2>
+    <p class="section-subtitle">В примере на вычитание три числа. Если два из них известны, третье всегда можно найти.</p>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-card__label">Найти уменьшаемое</div>
+        <div class="tip-card__text">Разность <b>плюс</b> вычитаемое.<br>? − 5 = 6<br><b>6 + 5 = 11</b></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card__label">Найти вычитаемое</div>
+        <div class="tip-card__text">Из уменьшаемого <b>вычесть</b> разность.<br>11 − ? = 6<br><b>11 − 6 = 5</b></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card__label">Найти разность</div>
+        <div class="tip-card__text">Из уменьшаемого <b>вычесть</b> вычитаемое.<br>11 − 5 = ?<br><b>11 − 5 = 6</b></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card__label">Как проверить себя</div>
+        <div class="tip-card__text">Подставь найденное число в пример: <b>11 − 5</b> должно получиться <b>6</b>.</div>
+      </div>
+      <div class="tip-card tip-card--wide">
+        <div class="tip-card__label">💡 Главная ошибка</div>
+        <div class="tip-card__text">Увидев слово «разность», хочется вычитать: 6 − 5 = 1. Но уменьшаемое — самое большое число в примере, оно больше и вычитаемого, и разности. Поэтому, чтобы его найти, числа <b>складывают</b>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gp-cta">
+  <div class="container">
+    <h2>Хочешь уверенно решать задачи?</h2>
+    <p>Запишись на пробное занятие с репетитором по математике — научим считать и понимать математику без ошибок.</p>
+    <a href="index.html#contact" class="gp-cta-btn">
+      Записаться на занятие
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__logo">
+      <img loading="lazy" src="images/logo.png" alt="Логотип Успевайка">
+      Успевайка
+    </div>
+    <div class="footer__copy">© 2024 Успевайка. Все права защищены.</div>
+    <div class="footer__socials">
+      <a href="https://t.me/uspevaika" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+      <a href="https://api.whatsapp.com/send?phone=79097923750" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+      <a href="https://vk.ru/club.uspevaika" target="_blank" rel="noopener" title="ВКонтакте" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.779.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg></a>
+      <a href="https://youtube.com/@uspevaika" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+</script>
+
+<script>
+(function(){'use strict';
+  /*LOGIC-START*/
+  // Компоненты вычитания: m − s = d. Неизвестным может быть любой из трёх.
+  var MAXN = 20;                       // все числа не больше 20
+  var KINDS = ['m', 's', 'd'];
+  var NAME = {m: 'уменьшаемое', s: 'вычитаемое', d: 'разность'};
+  var RULE = {
+    m: 'Чтобы найти уменьшаемое, к разности нужно <strong>прибавить</strong> вычитаемое.',
+    s: 'Чтобы найти вычитаемое, из уменьшаемого нужно <strong>вычесть</strong> разность.',
+    d: 'Чтобы найти разность, из уменьшаемого нужно <strong>вычесть</strong> вычитаемое.'
+  };
+
+  function rnd(a, b) { return Math.floor(Math.random() * (b - a + 1)) + a; }
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = rnd(0, i), t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+  // Случайный пример: уменьшаемое 2..20, вычитаемое и разность не меньше 1
+  function makeProblem(kind) {
+    var m = rnd(2, MAXN), s = rnd(1, m - 1);
+    return {kind: kind, m: m, s: s, d: m - s};
+  }
+  function keyOf(p) { return p.kind + ':' + p.m + ':' + p.s; }
+
+  // Очередь из n разных заданий. Режим: 'm' | 's' | 'd' | 'mix'
+  function makeQueue(mode, n) {
+    var kinds = [], q = [], seen = {}, guard = 0;
+    while (q.length < n && guard++ < 1000) {
+      if (!kinds.length) kinds = mode === 'mix' ? shuffle(KINDS.slice()) : [mode];
+      var p = makeProblem(kinds.pop());
+      if (seen[keyOf(p)]) { kinds.push(p.kind); continue; }
+      seen[keyOf(p)] = 1;
+      q.push(p);
+    }
+    return q;
+  }
+
+  function answerOf(p) { return p[p.kind]; }
+
+  // Решение словами и цифрами: «6 + 5 = 11»
+  function solutionText(p) {
+    if (p.kind === 'm') return p.d + ' + ' + p.s + ' = ' + p.m;
+    if (p.kind === 's') return p.m + ' − ' + p.d + ' = ' + p.s;
+    return p.m + ' − ' + p.s + ' = ' + p.d;
+  }
+  function eqText(p) { return p.m + ' − ' + p.s + ' = ' + p.d; }
+
+  // Шесть вариантов ответа. Сначала «типичные ошибки» (например, вычесть вместо
+  // сложения), потом соседние числа, и только потом любые другие. Все числа 1..20.
+  function buildChoices(p) {
+    var ans = answerOf(p), out = [], seen = {};
+    seen[ans] = 1;
+    function add(v) {
+      if (out.length >= 5 || v < 1 || v > MAXN || seen[v]) return;
+      seen[v] = 1; out.push(v);
+    }
+    var typical = p.kind === 'm' ? [Math.abs(p.s - p.d), p.s, p.d]
+                : p.kind === 's' ? [p.m + p.d, p.d, p.m]
+                :                  [p.m + p.s, p.s, p.m];
+    shuffle(typical).forEach(add);
+    shuffle([ans - 1, ans + 1, ans - 2, ans + 2]).forEach(add);
+    var rest = []; for (var v = 1; v <= MAXN; v++) rest.push(v);
+    shuffle(rest).forEach(add);
+    out.push(ans);
+    return out.sort(function (a, b) { return a - b; });
+  }
+  /*LOGIC-END*/
+
+  var ROUNDS = 10, MAX_TRIES = 2;
+  var $ = function (id) { return document.getElementById(id); };
+
+  var queue, idx, firstTry, wrongTotal, tries, locked, mistakes, mode, cur, vals, btns, roundId = 0;
+  var cfAnim = null, cfParts = [];
+
+  function begin(q, m) {
+    mode = m;
+    queue = q; idx = 0; firstTry = 0; wrongTotal = 0; mistakes = {};
+    stopCf();
+    $('cnCf').style.display = 'none';
+    $('cnOverlay').classList.add('hidden');
+    $('mnStart').style.display = 'none';
+    $('mnPlay').style.display = 'block';
+    showRound();
+  }
+  function start(m) { begin(makeQueue(m, ROUNDS), m); }
+  function startReview() {
+    var list = shuffle(Object.keys(mistakes).map(function (k) { return mistakes[k]; }));
+    begin(list, mode);
+  }
+
+  function updateScore() {
+    $('mnOk').textContent = '✓ ' + firstTry;
+    $('mnErr').textContent = '✗ ' + wrongTotal;
+  }
+
+  function setFeedback(kind, html) {
+    var fb = $('mnFeedback');
+    fb.className = 'mn-feedback show mn-feedback--' + kind;
+    fb.innerHTML = html;
+  }
+
+  // Три карточки: уменьшаемое − вычитаемое = разность; неизвестное — «?»
+  function renderEq(state) {
+    var parts = [['m', '−'], ['s', '='], ['d', '']], html = '';
+    parts.forEach(function (x) {
+      var k = x[0], cls = 'mn-card', num = cur[k];
+      if (k === cur.kind) {
+        if (state === 'ask') { cls += ' mn-card--ask'; num = '?'; }
+        else if (state === 'done') cls += ' mn-card--done';
+        else cls += ' mn-card--reveal';
+      }
+      html += '<div class="' + cls + '"><div class="mn-card__num">' + num + '</div><div class="mn-card__lbl">' + NAME[k] + '</div></div>';
+      if (x[1]) html += '<div class="mn-op">' + x[1] + '</div>';
+    });
+    $('mnEq').innerHTML = html;
+  }
+
+  function showRound() {
+    roundId++;
+    cur = queue[idx];
+    vals = buildChoices(cur);
+    tries = 0; locked = false;
+    $('mnCounter').textContent = 'Задание ' + (idx + 1) + ' из ' + queue.length;
+    $('mnBar').style.width = (idx / queue.length * 100) + '%';
+    var known = ['m', 's', 'd'].filter(function (k) { return k !== cur.kind; });
+    $('mnTask').innerHTML = cap(NAME[known[0]]) + ' ' + cur[known[0]] + ', ' + NAME[known[1]] + ' ' + cur[known[1]] +
+      '.<br>Найди <span class="ask">' + NAME[cur.kind] + '</span>.';
+    renderEq('ask');
+    var fb = $('mnFeedback'); fb.className = 'mn-feedback'; fb.innerHTML = '';
+    $('mnNext').classList.remove('show');
+    var box = $('mnChoices'); box.innerHTML = '';
+    btns = vals.map(function (v) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'mn-choice'; b.textContent = v;
+      b.addEventListener('click', function () { pick(b, v); });
+      box.appendChild(b);
+      return b;
+    });
+    updateScore();
+  }
+
+  function showNext(last) {
+    var n = $('mnNext');
+    n.textContent = last ? 'Результат 🏆' : 'Дальше →';
+    n.classList.add('show');
+    n.focus({preventScroll: true});
+  }
+
+  function lockAll(keepBtn) {
+    locked = true;
+    btns.forEach(function (b) {
+      b.disabled = true;
+      if (b !== keepBtn) b.classList.add('dim');
+    });
+  }
+
+  function pick(b, v) {
+    if (locked) return;
+    var ans = answerOf(cur), last = idx === queue.length - 1;
+    if (v === ans) {
+      lockAll(b);
+      b.classList.add('good');
+      renderEq('done');
+      if (tries === 0) firstTry++;
+      updateScore();
+      setFeedback('ok', (tries === 0 ? '🎉 <strong>Верно!</strong> ' : '👍 <strong>Получилось!</strong> ') +
+        solutionText(cur) + '. Проверка: ' + eqText(cur) + '.');
+      showNext(last);
+      return;
+    }
+    tries++; wrongTotal++;
+    mistakes[keyOf(cur)] = cur;
+    updateScore();
+    b.classList.add('bad'); b.disabled = true;
+    if (tries >= MAX_TRIES) {
+      var right = btns[vals.indexOf(ans)];
+      lockAll(right);
+      b.classList.remove('bad'); b.classList.add('dim');
+      right.classList.remove('dim'); right.classList.add('reveal');
+      renderEq('reveal');
+      setFeedback('hint', '💡 <strong>Запомни:</strong> ' + solutionText(cur) + '. ' + RULE[cur.kind] +
+        ' Это задание попадёт в список для повторения.');
+      showNext(last);
+    } else {
+      setFeedback('err', '🤔 Не то. ' + RULE[cur.kind] + ' Попробуй ещё!');
+    }
+  }
+
+  function next() {
+    if (!locked) return;
+    if (idx === queue.length - 1) { showWin(); return; }
+    idx++;
+    showRound();
+  }
+
+  function showWin() {
+    $('mnBar').style.width = '100%';
+    var n = queue.length, r = firstTry / n;
+    $('cnWinStars').textContent = r >= .9 ? '⭐ ⭐ ⭐' : r >= .65 ? '⭐ ⭐' : '⭐';
+    $('cnWinTitle').textContent = r >= .9 ? 'Молодец!' : r >= .65 ? 'Хорошо!' : 'Тренируйся!';
+    $('cnWinSub').textContent = 'С первого раза верно: ' + firstTry + ' из ' + n + '.';
+    $('cnWinScore').innerHTML =
+      '<span style="color:var(--green)">✓ С первого раза: ' + firstTry + '</span>' +
+      '<span style="color:var(--coral)">✗ Ошибок: ' + wrongTotal + '</span>';
+    var list = Object.keys(mistakes).map(function (k) { return mistakes[k]; });
+    var m = $('mnMistakes');
+    if (list.length) {
+      m.style.display = 'block';
+      m.innerHTML = '<b>Повтори:</b><ul>' + list.map(function (p) {
+        return '<li>' + eqText(p) + ' (искали ' + NAME[p.kind] + ')</li>';
+      }).join('') + '</ul>';
+    } else {
+      m.style.display = 'none'; m.innerHTML = '';
+    }
+    $('mnTrain').style.display = list.length ? 'inline-block' : 'none';
+    $('cnCf').style.display = 'block';
+    $('cnOverlay').classList.remove('hidden');
+    if (r >= .65) launchCf();
+  }
+
+  function toStart() {
+    stopCf();
+    $('cnCf').style.display = 'none';
+    $('cnOverlay').classList.add('hidden');
+    $('mnPlay').style.display = 'none';
+    $('mnStart').style.display = 'block';
+  }
+
+  function again() { start(mode); }
+
+  function launchCf() {
+    var cv=$('cnCf');
+    cv.width=window.innerWidth; cv.height=window.innerHeight;
+    var ctx=cv.getContext('2d');
+    var clrs=['#7BBFD4','#F5D76E','#FF8A7A','#6BC5A0','#A78BFA','#FFD580'];
+    cfParts=Array.from({length:120},function(){return{
+      x:Math.random()*cv.width,y:-20-Math.random()*cv.height*.4,
+      r:Math.random()*7+3,clr:clrs[Math.floor(Math.random()*clrs.length)],
+      vx:(Math.random()-.5)*5,vy:Math.random()*3+1.5,
+      va:(Math.random()-.5)*.16,angle:Math.random()*Math.PI*2,
+      isRect:Math.random()<.55,aspect:Math.random()*.5+.4};});
+    (function draw(){
+      ctx.clearRect(0,0,cv.width,cv.height);
+      cfParts.forEach(function(p){
+        p.x+=p.vx;p.y+=p.vy;p.angle+=p.va;p.vy+=.045;
+        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.angle);
+        ctx.fillStyle=p.clr;ctx.globalAlpha=Math.max(0,1-p.y/(cv.height*1.1));
+        if(p.isRect)ctx.fillRect(-p.r/2,-(p.r*p.aspect)/2,p.r,p.r*p.aspect);
+        else{ctx.beginPath();ctx.arc(0,0,p.r*.55,0,Math.PI*2);ctx.fill();}
+        ctx.restore();
+      });
+      cfParts=cfParts.filter(function(p){return p.y<cv.height+30;});
+      if(cfParts.length>0)cfAnim=requestAnimationFrame(draw);
+    })();
+  }
+
+  function stopCf() {
+    if(cfAnim){cancelAnimationFrame(cfAnim);cfAnim=null;}
+    cfParts=[];
+    var cv=$('cnCf');
+    if(cv&&cv.getContext)cv.getContext('2d').clearRect(0,0,cv.width,cv.height);
+  }
+
+  $('mnStartMin').addEventListener('click', function () { start('m'); });
+  Array.prototype.forEach.call(document.querySelectorAll('.mn-mode'), function (b) {
+    var map = {sub: 's', diff: 'd', mix: 'mix'};
+    b.addEventListener('click', function () { start(map[b.getAttribute('data-mode')]); });
+  });
+  $('mnNext').addEventListener('click', next);
+  $('cnWinBtn').addEventListener('click', again);
+  $('mnTrain').addEventListener('click', startReview);
+  $('mnChoose').addEventListener('click', toStart);
+})();
+</script>
+
+</body>
+</html>
