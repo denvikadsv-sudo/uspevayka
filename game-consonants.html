@@ -22,6 +22,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Мобильные браузеры рисуют вокруг нажатого элемента голубой прямоугольник с острыми углами — отключаем */
+    :root, a, button, summary, label, [role="button"] { -webkit-tap-highlight-color: transparent; }
+    a, button, summary, label, [role="button"] { touch-action: manipulation; }
     :root {
       --sky: #7BBFD4; --sky-light: #C8E8F4; --sky-pale: #DCF0F8;
       --yellow: #F5D76E; --yellow-dark: #E8C84A; --coral: #FF8A7A;
