@@ -90,8 +90,7 @@ Each `game-*.html` is a standalone page: nav, hero with breadcrumb, game board, 
 | `game-compose-10.html` | Состав числа от 6 до 10 |
 | `game-compose-20.html` | Состав числа в пределах 20 |
 | `game-minuend.html` | Найди уменьшаемое (и вычитаемое / разность), числа до 20 |
-| `game-actions.html` | Кто что делает? Чтение и речь, в том числе для билингвов (картинка из эмодзи + выбор слова или предложения; префикс `.ac-*`) |
-| `game-chores.html` | Домашние дела: то же, но с рисованными иллюстрациями (`images/chores-*.jpg`), три уровня: действие / предложение / предмет; тот же `.ac-*` |
+| `game-actions.html` | Кто что делает? Чтение и речь, в том числе для билингвов: 20 рисованных картинок (`images/act-*.webp`), три уровня (действие / предложение / предмет), ударения и озвучка; префикс `.ac-*` |
 
 Conventions when adding a game — copy the closest existing game page and change:
 
