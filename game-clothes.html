@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Одежда и цвета — игра для билингвов и 1–2 класса: назови одежду и цвет | Успевайка</title>
+  <meta name="description" content="Бесплатная игра «Одежда и цвета» для детей-билингвов и 1–2 класса: посмотри на картинку, выбери название одежды и цвет — «красное платье», «синие джинсы». Три уровня, ударения и озвучка. Без регистрации.">
+  <link rel="canonical" href="https://uspevaika-online.ru/game-clothes.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://uspevaika-online.ru/game-clothes.html">
+  <meta property="og:title" content="Одежда и цвета — игра для билингвов | Успевайка">
+  <meta property="og:description" content="Бесплатная игра для билингвов и 1–2 класса: смотри на картинку, выбирай название одежды и цвет. С ударениями и озвучкой.">
+  <meta property="og:image" content="https://uspevaika-online.ru/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Успевайка">
+  <meta name="theme-color" content="#7BBFD4">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Одежда и цвета — игра для билингвов | Успевайка">
+  <meta name="twitter:description" content="Бесплатная игра для билингвов и 1–2 класса: смотри на картинку, выбирай название одежды и цвет.">
+  <meta name="twitter:image" content="https://uspevaika-online.ru/images/og-image.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Мобильные браузеры рисуют вокруг нажатого элемента голубой прямоугольник с острыми углами — отключаем */
+    :root, a, button, summary, label, [role="button"] { -webkit-tap-highlight-color: transparent; }
+    a, button, summary, label, [role="button"] { touch-action: manipulation; }
+    :root {
+      --sky: #7BBFD4; --sky-light: #C8E8F4; --sky-pale: #DCF0F8;
+      --yellow: #F5D76E; --yellow-dark: #E8C84A;
+      --coral: #FF8A7A; --green: #6BC5A0; --brown: #6B4E3D;
+      --ink: #2C3E50; --muted: #6B7C8D; --bg: #F0F9FF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Rubik', sans-serif; line-height: 1.25; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    section { padding: 64px 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    .nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.93); backdrop-filter:blur(18px); box-shadow:0 2px 16px rgba(123,191,212,.12); }
+    .nav__inner { display:flex; align-items:center; justify-content:space-between; height:68px; gap:16px; }
+    .nav__logo { display:flex; align-items:center; gap:10px; font-family:'Rubik',sans-serif; font-size:1.35rem; font-weight:700; color:var(--sky); flex-shrink:0; }
+    .nav__logo img { height:44px; width:auto; border-radius:6px; }
+    .nav__links { display:flex; align-items:center; gap:24px; list-style:none; }
+    .nav__links a { font-size:.9rem; font-weight:600; color:var(--muted); transition:color .2s; }
+    .nav__links a:hover, .nav__links a.active { color:var(--sky); }
+    .nav__right { display:flex; align-items:center; gap:12px; flex-shrink:0; }
+    .nav__phone { font-family:'Rubik',sans-serif; font-weight:600; color:var(--muted); white-space:nowrap; font-size:.88rem; }
+    .nav__phone:hover { color:var(--sky); }
+    .nav__cta { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg,var(--sky) 0%,#5aafc8 100%); color:#fff; padding:9px 20px; border-radius:50px; font-size:.88rem; font-weight:700; white-space:nowrap; box-shadow:0 4px 14px rgba(123,191,212,.38); transition:all .22s; }
+    .nav__cta:hover { transform:translateY(-1px); box-shadow:0 7px 22px rgba(123,191,212,.5); color:#fff; }
+    .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .burger span { display:block; width:24px; height:3px; background:var(--ink); border-radius:3px; transition:.3s; }
+    .nav__mobile { display:none; flex-direction:column; background:var(--bg); border-top:1px solid var(--sky-light); padding:0 24px 16px; }
+    .nav__mobile a { display:block; padding:12px 0; font-weight:600; border-bottom:1px solid var(--sky-pale); color:var(--ink); }
+    .nav__mobile a:last-child { border-bottom:none; }
+    .nav__mobile.open { display:flex; }
+
+    /* PAGE HERO */
+    .gp-hero { background: linear-gradient(180deg, #fff 0%, var(--bg) 100%); padding: 36px 0 28px; }
+    .gp-breadcrumb { display: flex; align-items: center; gap: 6px; font-size: .88rem; color: var(--muted); margin-bottom: 18px; flex-wrap: wrap; }
+    .gp-breadcrumb a { color: var(--sky); font-weight: 600; transition: opacity .2s; }
+    .gp-breadcrumb a:hover { opacity: .75; }
+    .gp-breadcrumb__sep { color: var(--sky-light); }
+    .gp-hero__eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+    .gp-hero__title { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 12px; }
+    .gp-hero__title .accent { color: var(--sky); }
+    .gp-hero__sub { color: var(--muted); font-size: 1rem; max-width: 580px; line-height: 1.72; margin-bottom: 0; }
+
+    /* GAME AREA */
+    .gp-play { background: var(--bg); padding: 0 0 56px; }
+    .game-wrapper { max-width: 640px; margin: 0 auto; background: #fff; border-radius: 24px; overflow: hidden; border: 2px solid var(--sky-light); box-shadow: 0 8px 32px rgba(123,191,212,.15); }
+    .game-wrapper::before { content: ''; display: block; height: 5px; background: linear-gradient(90deg, var(--sky), var(--yellow), var(--coral), var(--green)); }
+    .game-footer { max-width: 640px; margin: 28px auto 0; text-align: center; }
+    .game-footer-text { font-size: .92rem; color: var(--muted); margin-bottom: 14px; }
+    .game-footer__cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--sky), #5aafc8); color: #fff; padding: 12px 28px; border-radius: 50px; font-size: .95rem; font-weight: 700; box-shadow: 0 4px 16px rgba(123,191,212,.35); transition: transform .2s, box-shadow .2s; }
+    .game-footer__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,191,212,.5); color: #fff; }
+
+    /* CLOTHES GAME INNER */
+    .cl-inner { padding: 20px 24px 28px; }
+    .cl-hdr { margin-bottom: 18px; }
+    .cl-hdr-top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .cl-title { font-family: 'Rubik', sans-serif; font-size: clamp(1rem,3vw,1.3rem); font-weight: 800; color: var(--sky); }
+    .cl-sub { font-size: .875rem; color: var(--muted); }
+    .cl-ctrl { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+    .cl-seg { display: inline-flex; background: var(--sky-pale); border-radius: 999px; padding: 4px; gap: 2px; }
+    .cl-seg__btn { border: none; background: transparent; font-family: 'Nunito', sans-serif; font-size: .85rem; font-weight: 800; color: var(--muted); padding: 8px 16px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s; }
+    .cl-seg__btn.active { background: var(--sky); color: #fff; box-shadow: 0 2px 8px rgba(91,175,196,.4); }
+    .cl-tog { border: 2px solid var(--sky-light); background: #fff; font-family: 'Nunito', sans-serif; font-size: .82rem; font-weight: 800; color: var(--muted); padding: 6px 14px; border-radius: 999px; cursor: pointer; transition: all .2s; }
+    .cl-tog[aria-pressed="true"] { border-color: var(--yellow-dark); background: #FFFAE8; color: #7a5200; }
+    .cl-prog-row { display: flex; align-items: center; gap: 10px; }
+    .cl-prog-track { flex: 1; height: 8px; background: var(--sky-pale); border-radius: 999px; overflow: hidden; }
+    .cl-prog-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--coral), var(--yellow)); border-radius: 999px; transition: width .4s cubic-bezier(.4,0,.2,1); }
+    .cl-prog-text { font-size: .8rem; font-weight: 700; color: var(--muted); white-space: nowrap; min-width: 110px; text-align: right; }
+
+    .cl-scene { display: flex; align-items: center; justify-content: center; background: #fff; border: 2px solid var(--sky-light); border-radius: 22px; padding: 14px; min-height: 150px; user-select: none; }
+    .cl-scene img { width: auto; max-width: 100%; height: auto; max-height: 300px; border-radius: 12px; display: block; }
+    .cl-dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(44,62,80,.2); vertical-align: -2px; margin-right: 6px; }
+    .cl-q { font-family: 'Rubik', sans-serif; font-size: clamp(1.15rem, 4.2vw, 1.5rem); font-weight: 800; text-align: center; margin: 20px 0 4px; }
+    .cl-hint { font-size: .85rem; color: var(--muted); text-align: center; margin-bottom: 14px; }
+    .cl-opts { display: flex; flex-direction: column; gap: 10px; }
+    .cl-opts--words { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .cl-opt { font-family: 'Nunito', sans-serif; font-size: clamp(1.05rem, 4vw, 1.3rem); font-weight: 800; color: var(--ink); background: #fff; border: 2px solid var(--sky-light); border-radius: 16px; padding: 13px 18px; min-height: 52px; cursor: pointer; text-align: center; line-height: 1.3; transition: transform .15s, border-color .15s, background .15s; }
+    .cl-opts--words .cl-opt { flex: 1 1 140px; }
+    .cl-opt:hover:not(:disabled) { border-color: var(--sky); background: var(--sky-pale); transform: translateY(-2px); }
+    .cl-opt:active:not(:disabled) { transform: scale(.98); }
+    .cl-opt.correct { background: #E6F7EF; border-color: var(--green); color: #1f6f4f; animation: cl-pop .4s ease; }
+    .cl-opt.wrong { background: #FFECE9; border-color: var(--coral); color: #b0463a; animation: cl-shake .4s ease; }
+    .cl-opt:disabled { cursor: default; }
+    @keyframes cl-pop { 0%{transform:scale(1)} 40%{transform:scale(1.04)} 100%{transform:scale(1)} }
+    @keyframes cl-shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-7px)} 50%{transform:translateX(7px)} 75%{transform:translateX(-4px)} }
+    .cl-feedback { min-height: 30px; font-size: .98rem; font-weight: 700; text-align: center; margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .cl-feedback.ok { color: var(--green); }
+    .cl-feedback.err { color: var(--coral); }
+    .cl-say { border: 2px solid var(--sky-light); background: #fff; border-radius: 999px; padding: 5px 12px; font-size: .85rem; font-weight: 800; font-family: 'Nunito', sans-serif; color: var(--sky); cursor: pointer; }
+    .cl-say:hover { border-color: var(--sky); background: var(--sky-pale); }
+    .cl-next { display: none; margin: 14px auto 0; background: linear-gradient(135deg, var(--sky), var(--green)); color: #fff; padding: 12px 30px; border-radius: 999px; font-size: 1rem; font-weight: 800; font-family: 'Nunito', sans-serif; cursor: pointer; border: none; box-shadow: 0 4px 16px rgba(91,175,196,.4); }
+    .cl-next.show { display: block; animation: cl-pop .4s ease; }
+
+    /* WIN */
+    .cl-overlay { position: fixed; inset: 0; background: rgba(44,62,80,.72); display: flex; align-items: center; justify-content: center; z-index: 500; padding: 20px; }
+    .cl-overlay.hidden { display: none; }
+    .cl-cf { position: fixed; inset: 0; pointer-events: none; z-index: 499; display: none; }
+    @keyframes cl-win-in { from{transform:scale(.5) rotate(-8deg);opacity:0} to{transform:scale(1) rotate(0);opacity:1} }
+    .cl-win-card { background: #fff; border-radius: 24px; padding: 36px 32px 32px; text-align: center; max-width: 340px; width: 100%; box-shadow: 0 24px 60px rgba(0,0,0,.35); animation: cl-win-in .5s cubic-bezier(.34,1.56,.64,1) both; }
+    .cl-win-stars { font-size: 2.4rem; margin-bottom: 4px; letter-spacing: 4px; }
+    .cl-win-title { font-family: 'Rubik', sans-serif; font-size: 2.1rem; font-weight: 900; color: var(--sky); letter-spacing: -.03em; margin-bottom: 8px; }
+    .cl-win-sub { font-size: 1rem; color: var(--muted); margin-bottom: 24px; line-height: 1.5; }
+    .cl-win-score { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; font-size: 1.05rem; font-weight: 800; }
+    .cl-win-btn { background: linear-gradient(135deg, var(--sky), var(--green)); color: #fff; padding: 14px 32px; border-radius: 999px; font-size: 1.1rem; font-weight: 800; font-family: 'Nunito', sans-serif; cursor: pointer; border: none; box-shadow: 0 4px 16px rgba(91,175,196,.4); transition: transform .15s, box-shadow .15s; }
+    .cl-win-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,175,196,.5); }
+
+    /* RULE */
+    .section-title { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; text-align: center; margin-bottom: 8px; }
+    .section-title .accent { color: var(--sky); }
+    .section-subtitle { text-align: center; color: var(--muted); font-size: .95rem; max-width: 480px; margin: 0 auto; line-height: 1.65; }
+    .gp-rule { background: #fff; padding: 40px 0 48px; }
+    .rule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 640px; margin: 28px auto 0; }
+    .rule-card { border-radius: 18px; padding: 20px; }
+    .rule-card--tip { background: #FFFAE8; border: 2px solid var(--yellow-dark); }
+    .rule-card--ex { background: var(--sky-pale); border: 2px solid var(--sky); }
+    .rule-card__label { font-size: .95rem; font-weight: 900; margin-bottom: 10px; color: var(--ink); }
+    .rule-card--tip .rule-card__label { color: #7a5200; }
+    .rule-card--ex .rule-card__label { color: #1a4a5e; }
+    .rule-card__list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .rule-card__list li { font-size: .88rem; color: var(--muted); display: flex; align-items: flex-start; gap: 7px; line-height: 1.5; }
+    .rule-card__list li::before { content: '→'; color: var(--sky); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* CTA */
+    .gp-cta { background: linear-gradient(135deg, var(--sky) 0%, #4ea8c4 100%); text-align: center; padding: 56px 0; }
+    .gp-cta h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .gp-cta p { color: rgba(255,255,255,.88); font-size: 1rem; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.72; }
+    .gp-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--sky); padding: 14px 34px; border-radius: 50px; font-size: 1rem; font-weight: 700; box-shadow: 0 6px 24px rgba(0,0,0,.18); transition: all .22s; }
+    .gp-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,.25); color: var(--sky); }
+
+    /* FOOTER */
+    .footer { background:var(--ink); color:rgba(255,255,255,.7); padding:40px 0; }
+    .footer__inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    .footer__logo { display:flex; align-items:center; gap:14px; font-family:'Rubik',sans-serif; font-size:1.1rem; font-weight:700; color:#fff; }
+    .footer__logo img { height:64px; width:auto; padding:6px 12px; background:#fff; border-radius:16px; box-shadow:0 4px 14px rgba(0,0,0,.18); }
+    .footer__tagline { font-family:'Nunito',sans-serif; font-size:.9rem; font-weight:600; line-height:1.45; color:rgba(255,255,255,.82); text-align:left; }
+    .footer__copy { font-size:.85rem; text-align:center; }
+    .footer__socials { display:flex; gap:10px; }
+    .footer__socials a { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:#fff; transition:background .2s; }
+    .footer__socials a:hover { background:var(--sky); }
+    .footer__socials svg { width:20px; height:20px; fill:currentColor; }
+
+    @media (max-width: 480px) { .cl-seg { max-width: 100%; } .cl-seg__btn { padding: 8px 10px; font-size: .78rem; } }
+    @media (max-width: 600px) {
+      .burger { display: flex; }
+      .nav__links { display: none; }
+      .nav__phone { display: none; }
+      .nav__cta { display: none; }
+      .rule-grid { grid-template-columns: 1fr; }
+      .footer__inner { flex-direction: column; text-align: center; }
+    }
+  
+
+    /* Меню: когда пункты не помещаются в одну строку, показываем бургер (телефон и кнопка — в выпадающем меню) */
+    @media (max-width: 1100px) {
+      .nav__links, .nav__phone, .nav__cta { display: none; }
+      .burger { display: flex; }
+    }
+    @media (min-width: 1101px) { .nav__mobile { display: none !important; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        "name": "Одежда и цвета — учебная игра для билингвов и 1–2 класса",
+        "description": "Бесплатная игра для детей-билингвов и 1–2 класса: посмотри на картинку, выбери название одежды и цвет, составь фразу вроде «красное платье». Есть ударения и озвучка.",
+        "url": "https://uspevaika-online.ru/game-clothes.html",
+        "inLanguage": "ru-RU",
+        "isAccessibleForFree": true,
+        "educationalLevel": "1–2 класс",
+        "about": {"@type": "Thing", "name": "Русский язык"},
+        "teaches": "Названия одежды, цвета, согласование прилагательных с существительными, речь",
+        "learningResourceType": "game",
+        "interactivityType": "active",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "Успевайка",
+          "url": "https://uspevaika-online.ru/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://uspevaika-online.ru/"},
+          {"@type": "ListItem", "position": 2, "name": "Учебные игры", "item": "https://uspevaika-online.ru/games.html"},
+          {"@type": "ListItem", "position": 3, "name": "Одежда и цвета"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="images/logo.png" alt="Логотип Успевайка">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#story">История</a></li>
+      <li><a href="index.html#lessons">Занятия</a></li>
+      <li><a href="index.html#teachers">Репетиторы</a></li>
+      <li><a href="index.html#pricing">Цены</a></li>
+      <li><a href="index.html#subjects">Предметы</a></li>
+      <li><a href="games.html" class="active">Игры</a></li>
+      <li><a href="index.html#contact">Контакты</a></li>
+    </ul>
+    <div class="nav__right">
+      <a href="tel:+79097923750" class="nav__phone">+7 909 792-3750</a>
+      <a href="index.html#contact" class="nav__cta">Записаться</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="index.html#story">История</a>
+    <a href="index.html#lessons">Занятия</a>
+    <a href="index.html#teachers">Репетиторы</a>
+    <a href="index.html#pricing">Цены</a>
+    <a href="index.html#subjects">Предметы</a>
+    <a href="games.html">Игры</a>
+    <a href="index.html#contact">Контакты</a>
+    <a href="tel:+79097923750">+7 909 792-3750</a>
+    <a href="index.html#contact" style="color:var(--sky);font-weight:800;">→ Записаться на пробное</a>
+  </div>
+</nav>
+
+<section class="gp-hero">
+  <div class="container">
+    <nav class="gp-breadcrumb" aria-label="Навигация">
+      <a href="index.html">← Главная</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <a href="games.html">Игры</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <span>Одежда и цвета</span>
+    </nav>
+    <div class="gp-hero__eyebrow">📖 Русский язык · слова и речь · билингвам и 1–2 класс</div>
+    <h1 class="gp-hero__title">Одежда и <span class="accent">цвета</span></h1>
+    <p class="gp-hero__sub">Рассмотри картинку и выбери, как называется одежда и какого она цвета. 16 картинок и три уровня: одежда, цвет, а потом всё вместе — «розовая куртка». Для билингвов: есть ударения и озвучка.</p>
+  </div>
+</section>
+
+<section class="gp-play">
+  <div class="container">
+    <div class="game-wrapper">
+      <div class="cl-inner">
+        <div class="cl-hdr">
+          <div class="cl-hdr-top">
+            <span class="cl-title">Одежда и цвета</span>
+            <span class="cl-sub">Посмотри и выбери ответ</span>
+          </div>
+          <div class="cl-ctrl">
+            <div class="cl-seg" role="group" aria-label="Уровень">
+              <button type="button" class="cl-seg__btn active" id="clLv1" aria-pressed="true">Одежда</button>
+              <button type="button" class="cl-seg__btn" id="clLv2" aria-pressed="false">Цвет</button>
+              <button type="button" class="cl-seg__btn" id="clLv3" aria-pressed="false">Цвет и одежда</button>
+            </div>
+            <button type="button" class="cl-tog" id="clStress" aria-pressed="true">Ударения: вкл</button>
+          </div>
+          <div class="cl-prog-row">
+            <div class="cl-prog-track" id="clProgBar" role="progressbar" aria-valuenow="0" aria-valuemax="10">
+              <div class="cl-prog-fill" id="clProgFill"></div>
+            </div>
+            <span class="cl-prog-text" id="clProgText">Картинка 1 из 10</span>
+          </div>
+        </div>
+
+        <div class="cl-scene" id="clScene" role="img" aria-label="Картинка с предметом одежды"></div>
+        <div class="cl-q" id="clQ"></div>
+        <div class="cl-hint" id="clHint"></div>
+        <div class="cl-opts" id="clOpts"></div>
+        <div class="cl-feedback" id="clFeedback" aria-live="polite"></div>
+        <button type="button" class="cl-next" id="clNext">Дальше →</button>
+      </div>
+    </div>
+
+    <div class="game-footer">
+      <p class="game-footer-text">Понравилась игра? Попробуй занятие с репетитором по русскому языку!</p>
+      <a href="index.html#contact" class="game-footer__cta">Записаться на занятие →</a>
+    </div>
+  </div>
+</section>
+
+<canvas class="cl-cf" id="clCf"></canvas>
+<div class="cl-overlay hidden" id="clOverlay">
+  <div class="cl-win-card">
+    <div class="cl-win-stars" id="clWinStars">⭐ ⭐ ⭐</div>
+    <h2 class="cl-win-title" id="clWinTitle">Молодец!</h2>
+    <p class="cl-win-sub" id="clWinSub">Ты правильно назвал всю одежду и цвета!</p>
+    <div class="cl-win-score" id="clWinScore"></div>
+    <button class="cl-win-btn" id="clWinBtn">🔄 Играть снова</button>
+  </div>
+</div>
+
+<section class="gp-rule">
+  <div class="container">
+    <h2 class="section-title">Как играть и <span class="accent">чему учит</span> игра?</h2>
+    <p class="section-subtitle">Игра учит называть одежду и цвета по-русски и правильно соединять слова: не «красный платье», а «красное платье».</p>
+    <div class="rule-grid">
+      <div class="rule-card rule-card--tip">
+        <div class="rule-card__label">💡 Как играть</div>
+        <ul class="rule-card__list">
+          <li>Посмотри на картинку и прочитай варианты вслух</li>
+          <li>Выбери подходящий ответ</li>
+          <li>Ошибся — не страшно, попробуй ещё раз</li>
+          <li>После верного ответа появится фраза «Это красное платье»: повтори её вслух или нажми «🔊 Послушать»</li>
+        </ul>
+      </div>
+      <div class="rule-card rule-card--ex">
+        <div class="rule-card__label">📌 Три уровня</div>
+        <ul class="rule-card__list">
+          <li><strong>«Одежда»</strong> — выбираем название: платье, юбка, куртка</li>
+          <li><strong>«Цвет»</strong> — выбираем цвет и учимся менять окончание: какая юбка? зелёная. какие брюки? чёрные</li>
+          <li><strong>«Цвет и одежда»</strong> — выбираем фразу целиком: розовая куртка</li>
+          <li>Билингвам: оставьте ударения, а когда читать станет легче — выключите</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gp-cta">
+  <div class="container">
+    <h2>Хочешь говорить и читать увереннее?</h2>
+    <p>Запишись на пробное занятие с репетитором по русскому языку — занимаемся и с детьми-билингвами.</p>
+    <a href="index.html#contact" class="gp-cta-btn">
+      Записаться на занятие
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__logo">
+      <img loading="lazy" src="images/logo.png" alt="Логотип Успевайка">
+      <span class="footer__tagline">Команда онлайн-репетиторов<br>для школьников 1–11 классов</span>
+    </div>
+    <div class="footer__copy">© 2024 Успевайка. Все права защищены.</div>
+    <div class="footer__socials">
+      <a href="https://t.me/uspevaika" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+      <a href="https://api.whatsapp.com/send?phone=79097923750" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+      <a href="https://vk.ru/club.uspevaika" target="_blank" rel="noopener" title="ВКонтакте" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.779.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+</script>
+
+<script>
+(function(){'use strict';
+  var TOTAL = 10;
+
+  /*LOGIC-START*/
+  // Ударения записаны знаком U+0301 после ударной гласной; кнопка «Ударения» их скрывает.
+  var STRESS_RE = /́/g;
+  function stripStress(s) { return String(s).replace(STRESS_RE, ''); }
+
+  // Цвета в четырёх формах: m — муж. р., f — жен. р., n — ср. р., p — мн. ч.
+  var COLORS = {
+    red:    {m:'кра́сный',      f:'кра́сная',      n:'кра́сное',      p:'кра́сные',      hex:'#E53935'},
+    black:  {m:'чёрный',        f:'чёрная',        n:'чёрное',        p:'чёрные',        hex:'#222222'},
+    blue:   {m:'си́ний',        f:'си́няя',        n:'си́нее',        p:'си́ние',        hex:'#1E6FE0'},
+    green:  {m:'зелёный',       f:'зелёная',       n:'зелёное',       p:'зелёные',       hex:'#2EAA2E'},
+    yellow: {m:'жёлтый',        f:'жёлтая',        n:'жёлтое',        p:'жёлтые',        hex:'#FFD21F'},
+    orange: {m:'ора́нжевый',    f:'ора́нжевая',    n:'ора́нжевое',    p:'ора́нжевые',    hex:'#FF8A00'},
+    white:  {m:'бе́лый',        f:'бе́лая',        n:'бе́лое',        p:'бе́лые',        hex:'#FFFFFF'},
+    brown:  {m:'коричне́вый',   f:'коричне́вая',   n:'коричне́вое',   p:'коричне́вые',   hex:'#9A5A2B'},
+    pink:   {m:'ро́зовый',      f:'ро́зовая',      n:'ро́зовое',      p:'ро́зовые',      hex:'#F76FA8'},
+    purple: {m:'фиоле́товый',   f:'фиоле́товая',   n:'фиоле́товое',   p:'фиоле́товые',   hex:'#8E3FC8'},
+    gray:   {m:'се́рый',        f:'се́рая',        n:'се́рое',        p:'се́рые',        hex:'#9AA0A6'}
+  };
+
+  // Вопросительное слово по роду и числу
+  var WHICH = {m:'Како́й', f:'Кака́я', n:'Како́е', p:'Каки́е'};
+
+  // n — название одежды; g — род или число; c — цвет на картинке
+  var PICS = [
+    {id:'dress',    img:'images/clo-dress.webp',    n:'пла́тье',    g:'n', c:'red'},
+    {id:'pants',    img:'images/clo-pants.webp',    n:'брю́ки',     g:'p', c:'black'},
+    {id:'shirt',    img:'images/clo-shirt.webp',    n:'руба́шка',   g:'f', c:'blue'},
+    {id:'skirt',    img:'images/clo-skirt.webp',    n:'ю́бка',      g:'f', c:'green'},
+    {id:'hat',      img:'images/clo-hat.webp',      n:'шля́па',     g:'f', c:'yellow'},
+    {id:'socks',    img:'images/clo-socks.webp',    n:'носки́',     g:'p', c:'orange'},
+    {id:'tee',      img:'images/clo-tee.webp',      n:'футбо́лка',  g:'f', c:'white'},
+    {id:'shoes',    img:'images/clo-shoes.webp',    n:'ту́фли',     g:'p', c:'brown'},
+    {id:'jacket',   img:'images/clo-jacket.webp',   n:'ку́ртка',    g:'f', c:'pink'},
+    {id:'scarf',    img:'images/clo-scarf.webp',    n:'шарф',       g:'m', c:'purple'},
+    {id:'shorts',   img:'images/clo-shorts.webp',   n:'шо́рты',     g:'p', c:'gray'},
+    {id:'jeans',    img:'images/clo-jeans.webp',    n:'джи́нсы',    g:'p', c:'blue'},
+    {id:'boots',    img:'images/clo-boots.webp',    n:'сапоги́',    g:'p', c:'red'},
+    {id:'sweater',  img:'images/clo-sweater.webp',  n:'сви́тер',    g:'m', c:'green'},
+    {id:'raincoat', img:'images/clo-raincoat.webp', n:'плащ',       g:'m', c:'yellow'},
+    {id:'gloves',   img:'images/clo-gloves.webp',   n:'перча́тки',  g:'p', c:'black'}
+  ];
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  // «кра́сное пла́тье»: цвет согласуется с одеждой в роде и числе
+  function phrase(color, pic) { return COLORS[color][pic.g] + ' ' + pic.n; }
+  function sentence(pic) { return 'Э́то ' + phrase(pic.c, pic) + '.'; }
+
+  function pickPics(n) { return shuffle(PICS).slice(0, n); }
+
+  // level 1: «Одежда» — выбрать название
+  // level 2: «Цвет» — выбрать цвет в правильной форме
+  // level 3: «Цвет и одежда» — выбрать фразу целиком
+  function buildRound(level, pic) {
+    var opts, q, hint;
+    if (level === 1) {
+      var others = PICS.filter(function(p) { return p.id !== pic.id; }).map(function(p) { return p.n; });
+      opts = [{text: pic.n, ok: true}].concat(shuffle(others).slice(0, 2).map(function(s) { return {text: s, ok: false}; }));
+      q = 'Что э́то?';
+      hint = 'Посмотри на картинку и выбери название одежды';
+    } else if (level === 2) {
+      var colors = Object.keys(COLORS).filter(function(k) { return k !== pic.c; });
+      opts = [{text: COLORS[pic.c][pic.g], ok: true}].concat(shuffle(colors).slice(0, 2).map(function(k) { return {text: COLORS[k][pic.g], ok: false}; }));
+      q = WHICH[pic.g] + ' ' + pic.n + '?';
+      hint = 'Посмотри на картинку: какого цвета эта одежда?';
+    } else {
+      var answer = phrase(pic.c, pic);
+      var used = {}; used[answer] = true;
+      var otherColors = Object.keys(COLORS).filter(function(k) { return k !== pic.c; });
+      var otherPics = PICS.filter(function(p) { return p.id !== pic.id; });
+      var take = function(list, n) {
+        var res = [];
+        shuffle(list).forEach(function(s) { if (res.length < n && !used[s]) { used[s] = true; res.push(s); } });
+        return res;
+      };
+      var sameNoun = otherColors.map(function(k) { return phrase(k, pic); });                        // та же одежда, другой цвет
+      var sameColor = otherPics.map(function(p) { return phrase(pic.c, p); });                       // тот же цвет, другая одежда
+      var neither = [];                                                                               // другой цвет, другая одежда
+      otherPics.forEach(function(p) { otherColors.forEach(function(k) { neither.push(phrase(k, p)); }); });
+      var cand = take(sameNoun, 1).concat(take(sameColor, 1)).concat(take(neither, 1));
+      opts = [{text: answer, ok: true}].concat(cand.map(function(s) { return {text: s, ok: false}; }));
+      q = 'Что нарисо́вано?';
+      hint = 'Выбери и цвет, и название одежды';
+    }
+    return {pic: pic, level: level, q: q, hint: hint, opts: shuffle(opts), answer: sentence(pic)};
+  }
+  /*LOGIC-END*/
+
+  var $ = function(id) { return document.getElementById(id); };
+  var level = 1, pics, idx, round, wrong, correct, locked;
+  var stressOn = true;
+  var cfAnim = null, cfParts = [];
+  try { if (localStorage.getItem('cl-stress') === '0') stressOn = false; } catch (e) {}
+
+  function t(s) { return stressOn ? s : stripStress(s); }
+
+  function applyStress() {
+    var nodes = document.querySelectorAll('[data-t]');
+    for (var i = 0; i < nodes.length; i++) nodes[i].textContent = t(nodes[i].getAttribute('data-t'));
+    var b = $('clStress');
+    b.textContent = 'Ударения: ' + (stressOn ? 'вкл' : 'выкл');
+    b.setAttribute('aria-pressed', stressOn ? 'true' : 'false');
+  }
+
+  function init() {
+    pics = pickPics(TOTAL);
+    idx = 0; wrong = 0; correct = 0; locked = false;
+    stopCf();
+    $('clCf').style.display = 'none';
+    $('clOverlay').classList.add('hidden');
+    showRound();
+  }
+
+  function showRound() {
+    if (idx >= pics.length) { showWin(); return; }
+    locked = false;
+    round = buildRound(level, pics[idx]);
+    updateProg();
+
+    var sc = $('clScene');
+    sc.innerHTML = '';
+    var im = document.createElement('img');
+    im.src = round.pic.img; im.width = 400; im.height = 400;
+    im.alt = 'Картинка к заданию'; im.decoding = 'async';
+    sc.appendChild(im);
+
+    $('clQ').setAttribute('data-t', round.q);
+    $('clHint').textContent = round.hint;
+
+    var box = $('clOpts');
+    box.className = 'cl-opts' + (level === 3 ? '' : ' cl-opts--words');
+    box.innerHTML = '';
+    round.opts.forEach(function(o) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'cl-opt'; b.setAttribute('data-t', o.text);
+      b.addEventListener('click', function() { choose(o, b); });
+      box.appendChild(b);
+    });
+
+    $('clFeedback').className = 'cl-feedback'; $('clFeedback').innerHTML = '';
+    $('clNext').classList.remove('show');
+    applyStress();
+  }
+
+  function choose(o, btn) {
+    if (locked) return;
+    if (o.ok) {
+      locked = true; correct++;
+      btn.classList.add('correct');
+      var all = document.querySelectorAll('.cl-opt');
+      for (var i = 0; i < all.length; i++) all[i].disabled = true;
+      var fb = $('clFeedback');
+      fb.className = 'cl-feedback ok';
+      fb.innerHTML = '<span>✓ Правильно!</span><span><i class="cl-dot" style="background:' + COLORS[round.pic.c].hex + '"></i><span data-t="' + round.answer + '"></span></span>';
+      if ('speechSynthesis' in window) {
+        var say = document.createElement('button');
+        say.type = 'button'; say.className = 'cl-say'; say.textContent = '🔊 Послушать';
+        say.addEventListener('click', function() { speak(round.answer); });
+        fb.appendChild(say);
+      }
+      var nx = $('clNext');
+      nx.textContent = idx + 1 >= pics.length ? 'Закончить →' : 'Дальше →';
+      nx.classList.add('show');
+      applyStress();
+    } else {
+      wrong++;
+      btn.classList.add('wrong'); btn.disabled = true;
+      var f = $('clFeedback');
+      f.className = 'cl-feedback err';
+      f.textContent = '✗ Не то. Посмотри на картинку и попробуй ещё раз';
+    }
+  }
+
+  function speak(text) {
+    try {
+      var u = new SpeechSynthesisUtterance(stripStress(text));
+      u.lang = 'ru-RU'; u.rate = 0.85;
+      window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+
+  function updateProg() {
+    $('clProgFill').style.width = (idx / TOTAL * 100) + '%';
+    $('clProgBar').setAttribute('aria-valuenow', idx);
+    $('clProgText').textContent = 'Картинка ' + (idx + 1) + ' из ' + TOTAL;
+  }
+
+  function showWin() {
+    $('clWinStars').textContent = wrong === 0 ? '⭐ ⭐ ⭐' : wrong <= 3 ? '⭐ ⭐' : '⭐';
+    $('clWinTitle').textContent = wrong === 0 ? 'Молодец!' : wrong <= 3 ? 'Хорошо!' : 'Старайся!';
+    $('clWinSub').textContent = wrong === 0
+      ? 'Ты правильно ответил на все ' + TOTAL + ' вопросов!'
+      : 'Ты прошёл все картинки! Ошибок: ' + wrong + '.';
+    $('clWinScore').innerHTML =
+      '<span style="color:var(--green)">✓ Верно: ' + correct + '</span>' +
+      '<span style="color:var(--coral)">✗ Ошибок: ' + wrong + '</span>';
+    $('clProgFill').style.width = '100%';
+    $('clProgText').textContent = 'Картинка ' + TOTAL + ' из ' + TOTAL;
+    $('clCf').style.display = 'block';
+    $('clOverlay').classList.remove('hidden');
+    launchCf();
+  }
+
+  function launchCf() {
+    var cv = $('clCf');
+    cv.width = window.innerWidth; cv.height = window.innerHeight;
+    var ctx = cv.getContext('2d');
+    var clrs = ['#7BBFD4','#F5D76E','#FF8A7A','#6BC5A0','#A78BFA','#FFD580'];
+    cfParts = Array.from({length:120}, function() {
+      return { x:Math.random()*cv.width, y:-20-Math.random()*cv.height*.4,
+        r:Math.random()*7+3, clr:clrs[Math.floor(Math.random()*clrs.length)],
+        vx:(Math.random()-.5)*5, vy:Math.random()*3+1.5,
+        va:(Math.random()-.5)*.16, angle:Math.random()*Math.PI*2,
+        isRect:Math.random()<.55, aspect:Math.random()*.5+.4 };
+    });
+    (function draw() {
+      ctx.clearRect(0,0,cv.width,cv.height);
+      cfParts.forEach(function(p) {
+        p.x+=p.vx; p.y+=p.vy; p.angle+=p.va; p.vy+=.045;
+        ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.angle);
+        ctx.fillStyle=p.clr; ctx.globalAlpha=Math.max(0,1-p.y/(cv.height*1.1));
+        if(p.isRect) ctx.fillRect(-p.r/2,-(p.r*p.aspect)/2,p.r,p.r*p.aspect);
+        else { ctx.beginPath(); ctx.arc(0,0,p.r*.55,0,Math.PI*2); ctx.fill(); }
+        ctx.restore();
+      });
+      cfParts = cfParts.filter(function(p) { return p.y < cv.height+30; });
+      if (cfParts.length > 0) cfAnim = requestAnimationFrame(draw);
+    })();
+  }
+
+  function stopCf() {
+    if (cfAnim) { cancelAnimationFrame(cfAnim); cfAnim = null; }
+    cfParts = [];
+    var cv = $('clCf');
+    if (cv && cv.getContext) cv.getContext('2d').clearRect(0,0,cv.width,cv.height);
+  }
+
+  function setLevel(n) {
+    level = n;
+    [1, 2, 3].forEach(function(k) {
+      var b = $('clLv' + k);
+      b.classList.toggle('active', k === n); b.setAttribute('aria-pressed', k === n ? 'true' : 'false');
+    });
+    init();
+  }
+
+  [1, 2, 3].forEach(function(k) { $('clLv' + k).addEventListener('click', function() { if (level !== k) setLevel(k); }); });
+  $('clStress').addEventListener('click', function() {
+    stressOn = !stressOn;
+    try { localStorage.setItem('cl-stress', stressOn ? '1' : '0'); } catch (e) {}
+    applyStress();
+  });
+  $('clNext').addEventListener('click', function() { idx++; showRound(); });
+  $('clWinBtn').addEventListener('click', init);
+  init();
+})();
+</script>
+
+</body>
+</html>

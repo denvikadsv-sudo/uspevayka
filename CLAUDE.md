@@ -91,6 +91,7 @@ Each `game-*.html` is a standalone page: nav, hero with breadcrumb, game board, 
 | `game-compose-20.html` | Состав числа в пределах 20 |
 | `game-minuend.html` | Найди уменьшаемое (и вычитаемое / разность), числа до 20 |
 | `game-actions.html` | Кто что делает? Чтение и речь, в том числе для билингвов: 20 рисованных картинок (`images/act-*.webp`), три уровня (действие / предложение / предмет), ударения и озвучка; префикс `.ac-*` |
+| `game-clothes.html` | Одежда и цвета. Для билингвов: 16 картинок одежды (`images/clo-*.webp`), три уровня (название одежды / цвет в нужном роде и числе / фраза целиком вроде «красное платье»), ударения и озвучка; префикс `.cl-*` |
 
 Conventions when adding a game — copy the closest existing game page and change:
 
