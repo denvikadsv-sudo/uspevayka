@@ -12,7 +12,7 @@ There is no build system, package manager, or dependencies. Every page is a hand
 
 - **Edit** the HTML files directly.
 - **Preview** by opening a file in a browser (`open index.html` on macOS, or drag it into a tab). All links are relative, so `file://` works.
-- **Deploy** by pushing to `main` — GitHub Pages serves the result automatically.
+- **Deploy** by pushing to `main` — GitHub Pages serves the result automatically. По указанию владельца сайта: закончил правку — сразу сливай её в `main` и пушь, не оставляй изменения только в рабочей ветке.
 
 ## Files
 
