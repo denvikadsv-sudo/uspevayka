@@ -110,6 +110,7 @@
     .gh-card--soon .gh-card__banner { filter: saturate(.6); }
 
     .gh-card__banner { height: 100px; display: flex; align-items: center; justify-content: center; position: relative; font-size: 3rem; line-height: 1; }
+    .gh-card__banner img { height: 100%; width: auto; max-width: none; }
     .gh-card__soon-badge { position: absolute; top: 10px; right: 10px; background: var(--yellow); color: var(--brown); font-size: .7rem; font-weight: 800; padding: 3px 10px; border-radius: 50px; font-family: 'Rubik', sans-serif; }
     .gh-card__active-badge { position: absolute; top: 10px; right: 10px; background: var(--green); color: #fff; font-size: .7rem; font-weight: 800; padding: 3px 10px; border-radius: 50px; font-family: 'Rubik', sans-serif; }
 
@@ -650,8 +651,8 @@
 
       <!-- GAME: Кто что делает? -->
       <div class="gh-card gh-card--available" data-subject="russian">
-        <div class="gh-card__banner" style="background:linear-gradient(135deg,#FFE9E4,#FFD2C9);">
-          🖼️
+        <div class="gh-card__banner" style="background:#FBD4C4;">
+          <img src="images/act-banner.webp" alt="" width="370" height="200" loading="lazy">
           <span class="gh-card__active-badge">Играть!</span>
         </div>
         <div class="gh-card__body">
