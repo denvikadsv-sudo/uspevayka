@@ -106,6 +106,8 @@
     .ac-scene__who { animation: ac-bob 2.6s ease-in-out infinite; }
     .ac-scene__obj { font-size: .8em; }
     @keyframes ac-bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    .ac-scene { background: #fff; padding: 14px; }
+    .ac-scene img { width: auto; max-width: 100%; height: auto; max-height: 300px; border-radius: 12px; display: block; }
     .ac-q { font-family: 'Rubik', sans-serif; font-size: clamp(1.15rem, 4.2vw, 1.5rem); font-weight: 800; text-align: center; margin: 20px 0 4px; }
     .ac-hint { font-size: .85rem; color: var(--muted); text-align: center; margin-bottom: 14px; }
     .ac-opts { display: flex; flex-direction: column; gap: 10px; }
@@ -175,6 +177,7 @@
     .footer__socials a:hover { background:var(--sky); }
     .footer__socials svg { width:20px; height:20px; fill:currentColor; }
 
+    @media (max-width: 480px) { .ac-seg { max-width: 100%; } .ac-seg__btn { padding: 8px 10px; font-size: .78rem; } }
     @media (max-width: 600px) {
       .burger { display: flex; }
       .nav__links { display: none; }
@@ -272,7 +275,7 @@
     </nav>
     <div class="gp-hero__eyebrow">📖 Русский язык · чтение и речь · 1–2 класс</div>
     <h1 class="gp-hero__title">Кто что <span class="accent">делает?</span></h1>
-    <p class="gp-hero__sub">Посмотри на картинку, прочитай варианты и выбери подходящий. Игра развивает чтение и речь, подходит и детям-билингвам: есть ударения и озвучка. 10 картинок, мгновенная проверка.</p>
+    <p class="gp-hero__sub">Рассмотри картинку, прочитай варианты и выбери правильный ответ. 20 картинок и три уровня. Игра развивает чтение и речь, подходит и детям-билингвам: есть ударения и озвучка.</p>
   </div>
 </section>
 
@@ -289,6 +292,7 @@
             <div class="ac-seg" role="group" aria-label="Уровень">
               <button type="button" class="ac-seg__btn active" id="acLv1" aria-pressed="true">Что делает?</button>
               <button type="button" class="ac-seg__btn" id="acLv2" aria-pressed="false">Кто что делает?</button>
+              <button type="button" class="ac-seg__btn" id="acLv3" aria-pressed="false">Что нужно?</button>
             </div>
             <button type="button" class="ac-tog" id="acStress" aria-pressed="true">Ударения: вкл</button>
           </div>
@@ -330,7 +334,7 @@
 <section class="gp-rule">
   <div class="container">
     <h2 class="section-title">Как играть и <span class="accent">чему учит</span> игра?</h2>
-    <p class="section-subtitle">Ребёнок связывает картинку со словом: так он учится читать осмысленно, а не просто складывать буквы.</p>
+    <p class="section-subtitle">Каждая картинка — маленькая история: кто это, что он делает и с помощью чего. Ребёнок связывает картинку со словом и учится читать осмысленно.</p>
     <div class="rule-grid">
       <div class="rule-card rule-card--tip">
         <div class="rule-card__label">💡 Как играть</div>
@@ -338,16 +342,16 @@
           <li>Посмотри на картинку: кто на ней и что делает</li>
           <li>Прочитай варианты вслух и выбери подходящий</li>
           <li>Ошибся — не страшно, попробуй ещё раз</li>
-          <li>Кнопка «🔊 Послушать» произнесёт правильное предложение</li>
+          <li>После верного ответа появится подпись к картинке: прочитай её вслух или нажми «🔊 Послушать»</li>
         </ul>
       </div>
       <div class="rule-card rule-card--ex">
-        <div class="rule-card__label">📌 Родителям и билингвам</div>
+        <div class="rule-card__label">📌 Три уровня</div>
         <ul class="rule-card__list">
-          <li>Знак ударения помогает читать правильно. Когда ребёнок освоится — выключите «Ударения»</li>
-          <li>Задавайте вопросы вслух: «Кто это?», «Что делает?»</li>
-          <li>Попросите придумать своё предложение по картинке</li>
-          <li>«Что делает?» — для начала, «Кто что делает?» — читаем предложение целиком</li>
+          <li><strong>«Что делает?»</strong> — подбираем действие</li>
+          <li><strong>«Кто что делает?»</strong> — читаем предложение целиком</li>
+          <li><strong>«Что нужно?»</strong> — связываем дело с предметом: чтобы гладить, нужен утюг</li>
+          <li>Билингвам: оставьте ударения, а когда читать станет легче — выключите</li>
         </ul>
       </div>
     </div>
@@ -393,59 +397,52 @@
 
   /*LOGIC-START*/
   // Ударения записаны знаком U+0301 после ударной гласной; кнопка «Ударения» их скрывает.
-  var STRESS_RE = /́/g;
+  var STRESS_RE = /\u0301/g;
   function stripStress(s) { return String(s).replace(STRESS_RE, ''); }
 
-  var WHO = {
-    boy:    {e:'👦', n:'Ма́льчик'},
-    girl:   {e:'👧', n:'Де́вочка'},
-    mom:    {e:'👩', n:'Ма́ма'},
-    dad:    {e:'👨', n:'Па́па'},
-    gran:   {e:'👵', n:'Ба́бушка'},
-    grandpa:{e:'👴', n:'Де́душка'},
-    cat:    {e:'🐱', n:'Ко́шка'},
-    dog:    {e:'🐶', n:'Соба́ка'},
-    bird:   {e:'🐦', n:'Пти́чка'},
-    rabbit: {e:'🐰', n:'Зайчи́к'},
-    bear:   {e:'🐻', n:'Медве́дь'},
-    fish:   {e:'🐟', n:'Ры́бка'},
-    cow:    {e:'🐮', n:'Коро́ва'},
-    horse:  {e:'🐴', n:'Ло́шадь'}
+  // g: 'p' — люди, 'a' — животные; n — подлежащее; q — для вопроса «Что делает …?»
+  var SUBJ = {
+    boy:     {n:'Ма́льчик', q:'ма́льчик', g:'p'},
+    girl:    {n:'Де́вочка', q:'де́вочка', g:'p'},
+    mom:     {n:'Ма́ма',    q:'ма́ма',    g:'p'},
+    dad:     {n:'Па́па',    q:'па́па',    g:'p'},
+    gran:    {n:'Ба́бушка', q:'ба́бушка', g:'p'},
+    grandpa: {n:'Де́душка', q:'де́душка', g:'p'},
+    cat:     {n:'Ко́шка',   q:'ко́шка',   g:'a'},
+    dog:     {n:'Соба́ка',  q:'соба́ка',  g:'a'},
+    bird:    {n:'Пти́чка',  q:'пти́чка',  g:'a'}
   };
-  var PEOPLE = ['boy','girl','mom','dad','gran','grandpa'];
-  var ALL = PEOPLE.concat(['cat','dog','bird','rabbit','bear','fish','cow','horse']);
 
-  // e — картинка действия, who — кто так может делать (на картинке это видно по эмодзи)
-  var ACTS = [
-    {id:'read',   v:'чита́ет кни́гу',            e:'📖',   who:PEOPLE},
-    {id:'news',   v:'чита́ет газе́ту',           e:'📰',   who:['mom','dad','gran','grandpa']},
-    {id:'draw',   v:'рису́ет карти́ну',          e:'🖼️',  who:['boy','girl','mom','dad']},
-    {id:'write',  v:'пи́шет письмо́',            e:'✉️',  who:PEOPLE},
-    {id:'water',  v:'полива́ет цветы́',          e:'🌷💧', who:PEOPLE},
-    {id:'cook',   v:'гото́вит суп',             e:'🍲',   who:['mom','dad','gran','grandpa']},
-    {id:'eat',    v:'ест я́блоко',              e:'🍎',   who:PEOPLE},
-    {id:'milk',   v:'пьёт молоко́',             e:'🥛',   who:PEOPLE.concat(['cat'])},
-    {id:'ball',   v:'игра́ет в мяч',            e:'⚽',   who:['boy','girl','dad']},
-    {id:'car',    v:'ведёт маши́ну',            e:'🚗',   who:['mom','dad','grandpa']},
-    {id:'knit',   v:'вя́жет носки́',            e:'🧶🧦', who:['mom','gran']},
-    {id:'sweep',  v:'подмета́ет пол',           e:'🧹',   who:['mom','dad','boy','girl','gran']},
-    {id:'sew',    v:'шьёт пла́тье',             e:'🧵👗', who:['mom','gran']},
-    {id:'wash',   v:'мо́ет посу́ду',            e:'🍽️🧽', who:['mom','dad','boy','girl','gran']},
-    {id:'build',  v:'стро́ит дом',              e:'🧱🏠', who:['boy','dad','grandpa']},
-    {id:'snow',   v:'ле́пит снегови́ка',        e:'⛄',   who:['boy','girl','dad']},
-    {id:'bike',   v:'ката́ется на велосипе́де', e:'🚲',   who:['boy','girl','dad','mom']},
-    {id:'sing',   v:'поёт пе́сню',              e:'🎤',   who:['girl','mom','gran']},
-    {id:'photo',  v:'фотографи́рует',           e:'📷',   who:['mom','dad','boy','girl']},
-    {id:'sleep',  v:'спит',                     e:'💤',   who:ALL},
-    {id:'run',    v:'бе́гает',                  e:'💨',   who:['boy','girl','dog','horse','rabbit','bear']},
-    {id:'swim',   v:'пла́вает',                 e:'🌊',   who:['boy','girl','dad','fish']},
-    {id:'mouse',  v:'ло́вит мышь',              e:'🐭',   who:['cat']},
-    {id:'bone',   v:'грызёт кость',             e:'🦴',   who:['dog']},
-    {id:'chirp',  v:'поёт',                     e:'🎵',   who:['bird']},
-    {id:'fly',    v:'лета́ет',                  e:'☁️',  who:['bird']},
-    {id:'carrot', v:'ест мо́рковь',             e:'🥕',   who:['rabbit']},
-    {id:'honey',  v:'ест мёд',                  e:'🍯',   who:['bear']},
-    {id:'grass',  v:'ест траву́',               e:'🌿',   who:['cow','horse']}
+  // Правдоподобные, но неверные действия, которых нет на картинках (для вариантов-ловушек)
+  var EXTRA = {
+    p:    ['пи́шет письмо́', 'ест я́блоко', 'поёт пе́сню', 'стро́ит дом', 'фотографи́рует', 'танцу́ет'],
+    cat:  ['ло́вит мышь', 'спит', 'бе́гает', 'ест ры́бу'],
+    dog:  ['бе́гает', 'спит', 'пьёт во́ду', 'ла́ет'],
+    bird: ['лета́ет', 'клюёт зёрна', 'пьёт во́ду', 'спит']
+  };
+
+  // v — что делает; inf и item — для уровня «Что нужно?» (если у дела есть очевидный предмет)
+  var PICS = [
+    {id:'water',   img:'images/act-water.webp',   who:'boy',     v:'полива́ет цветы́',          inf:'полива́ть цветы́',        item:'ле́йка'},
+    {id:'wash',    img:'images/act-wash.webp',    who:'mom',     v:'стира́ет бельё',           inf:'стира́ть бельё',         item:'стира́льная маши́на'},
+    {id:'sew',     img:'images/act-sew.webp',     who:'gran',    v:'шьёт',                     inf:'шить',                   item:'шве́йная маши́на'},
+    {id:'iron',    img:'images/act-iron.webp',    who:'girl',    v:'гла́дит пла́тье',          inf:'гла́дить пла́тье',       item:'утю́г'},
+    {id:'sweep',   img:'images/act-sweep.webp',   who:'dad',     v:'подмета́ет пол',           inf:'подмета́ть пол',         item:'ве́ник'},
+    {id:'read',    img:'images/act-read.webp',    who:'boy',     v:'чита́ет кни́гу'},
+    {id:'draw',    img:'images/act-draw.webp',    who:'girl',    v:'рису́ет карти́ну',         inf:'рисова́ть карти́ну',     item:'кра́ски'},
+    {id:'cook',    img:'images/act-cook.webp',    who:'mom',     v:'гото́вит суп',             inf:'гото́вить суп',          item:'ка́струля'},
+    {id:'car',     img:'images/act-car.webp',     who:'dad',     v:'ведёт маши́ну',            inf:'води́ть маши́ну',        item:'руль'},
+    {id:'knit',    img:'images/act-knit.webp',    who:'gran',    v:'вя́жет носо́к',            inf:'вя́зать носки́',         item:'спи́цы'},
+    {id:'news',    img:'images/act-news.webp',    who:'grandpa', v:'чита́ет газе́ту'},
+    {id:'ball',    img:'images/act-ball.webp',    who:'boy',     v:'игра́ет в мяч'},
+    {id:'milk',    img:'images/act-milk.webp',    who:'girl',    v:'пьёт молоко́',             inf:'пить молоко́',           item:'стака́н'},
+    {id:'snow',    img:'images/act-snow.webp',    who:'boy',     v:'ле́пит снегови́ка',        inf:'лепи́ть снегови́ка',     item:'снег'},
+    {id:'bike',    img:'images/act-bike.webp',    who:'girl',    v:'ката́ется на велосипе́де'},
+    {id:'dishes',  img:'images/act-dishes.webp',  who:'mom',     v:'мо́ет посу́ду',            inf:'мыть посу́ду',           item:'гу́бка'},
+    {id:'catmilk', img:'images/act-catmilk.webp', who:'cat',     v:'пьёт молоко́'},
+    {id:'dogbone', img:'images/act-dogbone.webp', who:'dog',     v:'грызёт кость'},
+    {id:'bird',    img:'images/act-bird.webp',    who:'bird',    v:'сиди́т на ве́тке'},
+    {id:'sleep',   img:'images/act-sleep.webp',   who:'boy',     v:'спит',                     inf:'спать',                  item:'крова́ть'}
   ];
 
   function shuffle(arr) {
@@ -453,60 +450,66 @@
     for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
     return a;
   }
-  function actById(id) { for (var i = 0; i < ACTS.length; i++) if (ACTS[i].id === id) return ACTS[i]; return null; }
-  function actsFor(who) { return ACTS.filter(function(a) { return a.who.indexOf(who) >= 0; }); }
-  function isPerson(who) { return PEOPLE.indexOf(who) >= 0; }
-  function sentence(who, act) { return WHO[who].n + ' ' + act.v + '.'; }
-  function lowerFirst(s) { return s.charAt(0).toLowerCase() + s.slice(1); }
+  function sentence(who, v) { return SUBJ[who].n + ' ' + v + '.'; }
+  function group(who) { return SUBJ[who].g; }
+  function unique(list) { var seen = {}; return list.filter(function(x) { if (seen[x]) return false; seen[x] = true; return true; }); }
 
-  // level 1: «Что делает?» (нужно >= 3 действия у героя, чтобы было из чего выбирать)
-  // level 2: «Кто что делает?» (целые предложения)
-  function pickScenes(level, n) {
-    var minPool = level === 1 ? 3 : 1;
-    var scenes = [];
-    shuffle(ACTS).forEach(function(act) {
-      if (scenes.length >= n) return;
-      var subjects = act.who.filter(function(w) { return actsFor(w).length >= minPool; });
-      if (!subjects.length) return;
-      scenes.push({who: subjects[Math.floor(Math.random() * subjects.length)], act: act});
-    });
-    return scenes;
-  }
-
-  function pickFrom(list, used, count) {
-    var picked = [];
-    shuffle(list).forEach(function(p) {
-      if (picked.length >= count) return;
-      var s = sentence(p.who, p.act);
-      if (used[s]) return;
-      used[s] = true; picked.push(p);
-    });
-    return picked;
-  }
-
-  function buildRound(level, scene) {
-    var who = scene.who, act = scene.act, opts;
-    if (level === 1) {
-      var others = shuffle(actsFor(who).filter(function(a) { return a.id !== act.id; })).slice(0, 2);
-      opts = shuffle([{text: act.v, ok: true}].concat(others.map(function(a) { return {text: a.v, ok: false}; })));
-      return {who: who, act: act, level: 1, q: 'Что де́лает ' + lowerFirst(WHO[who].n) + '?', hint: 'Прочитай и выбери, что делает на картинке', opts: opts, answer: sentence(who, act)};
+  // Какие неверные действия можно предложить к этой картинке
+  function wrongVerbs(pic) {
+    if (group(pic.who) === 'p') {
+      var fromPics = PICS.filter(function(p) { return group(p.who) === 'p' && p.v !== pic.v; }).map(function(p) { return p.v; });
+      return unique(fromPics.concat(EXTRA.p)).filter(function(v) { return v !== pic.v; });
     }
-    var used = {}; used[sentence(who, act)] = true;
-    var pairs = [];
-    ACTS.forEach(function(a) { ALL.forEach(function(w) { if (a.who.indexOf(w) >= 0 && !(w === who && a.id === act.id)) pairs.push({who: w, act: a}); }); });
-    var sameWho  = pairs.filter(function(p) { return p.who === who; });                           // другой поступок
-    var sameAct  = pairs.filter(function(p) { return p.act.id === act.id; });                     // другой герой
-    var neither  = pairs.filter(function(p) { return p.who !== who && p.act.id !== act.id && isPerson(p.who) === isPerson(who); });
-    var chosen = pickFrom(sameWho, used, 1).concat(pickFrom(sameAct, used, 1));
-    chosen = chosen.concat(pickFrom(neither, used, 3 - chosen.length));
-    if (chosen.length < 3) chosen = chosen.concat(pickFrom(sameWho.concat(sameAct), used, 3 - chosen.length));
-    opts = shuffle([{text: sentence(who, act), ok: true}].concat(chosen.map(function(p) { return {text: sentence(p.who, p.act), ok: false}; })));
-    return {who: who, act: act, level: 2, q: 'Кто что де́лает?', hint: 'Прочитай предложения и выбери подходящее к картинке', opts: opts, answer: sentence(who, act)};
+    return EXTRA[pic.who].filter(function(v) { return v !== pic.v; });
+  }
+
+  // Картинки для партии: на третьем уровне нужны только те, у которых есть предмет
+  function pickPics(level, n) {
+    var pool = level === 3 ? PICS.filter(function(p) { return p.item; }) : PICS;
+    return shuffle(pool).slice(0, n);
+  }
+
+  // level 1: «Что делает?» — выбрать действие
+  // level 2: «Кто что делает?» — выбрать предложение
+  // level 3: «Что нужно?» — выбрать предмет
+  function buildRound(level, pic) {
+    var opts, q, hint;
+    if (level === 1) {
+      opts = [{text: pic.v, ok: true}].concat(shuffle(wrongVerbs(pic)).slice(0, 2).map(function(v) { return {text: v, ok: false}; }));
+      q = 'Что де́лает ' + SUBJ[pic.who].q + '?';
+      hint = 'Посмотри на картинку и выбери, что там происходит';
+    } else if (level === 3) {
+      var items = PICS.filter(function(p) { return p.item && p.id !== pic.id; }).map(function(p) { return p.item; });
+      opts = [{text: pic.item, ok: true}].concat(shuffle(unique(items)).slice(0, 2).map(function(s) { return {text: s, ok: false}; }));
+      q = 'Что ну́жно, что́бы ' + pic.inf + '?';
+      hint = 'Посмотри на картинку: какой предмет помогает?';
+    } else {
+      var used = {}; used[sentence(pic.who, pic.v)] = true;
+      var g = group(pic.who);
+      var otherWho = Object.keys(SUBJ).filter(function(w) { return w !== pic.who && group(w) === g; });
+      var vs = wrongVerbs(pic);
+      var sameWho = vs.map(function(v) { return sentence(pic.who, v); });                          // тот же герой, другое дело
+      var sameAct = otherWho.map(function(w) { return sentence(w, pic.v); });                      // другой герой, то же дело
+      var neither = [];                                                                             // другой герой, другое дело
+      otherWho.forEach(function(w) { (g === 'p' ? vs : EXTRA[w]).forEach(function(v) { if (v !== pic.v) neither.push(sentence(w, v)); }); });
+      var take = function(list, n) {
+        var res = [];
+        shuffle(list).forEach(function(s) { if (res.length < n && !used[s]) { used[s] = true; res.push(s); } });
+        return res;
+      };
+      var cand = take(sameWho, 1).concat(take(sameAct, 1));
+      cand = cand.concat(take(neither, 3 - cand.length));
+      if (cand.length < 3) cand = cand.concat(take(sameWho.concat(sameAct), 3 - cand.length));
+      opts = [{text: sentence(pic.who, pic.v), ok: true}].concat(cand.map(function(s) { return {text: s, ok: false}; }));
+      q = 'Кто что де́лает?';
+      hint = 'Прочитай предложения и выбери подходящее к картинке';
+    }
+    return {pic: pic, level: level, q: q, hint: hint, opts: shuffle(opts), answer: sentence(pic.who, pic.v)};
   }
   /*LOGIC-END*/
 
   var $ = function(id) { return document.getElementById(id); };
-  var level = 1, scenes, idx, round, wrong, correct, locked;
+  var level = 1, pics, idx, round, wrong, correct, locked;
   var stressOn = true;
   var cfAnim = null, cfParts = [];
   try { if (localStorage.getItem('ac-stress') === '0') stressOn = false; } catch (e) {}
@@ -522,7 +525,7 @@
   }
 
   function init() {
-    scenes = pickScenes(level, TOTAL);
+    pics = pickPics(level, TOTAL);
     idx = 0; wrong = 0; correct = 0; locked = false;
     stopCf();
     $('acCf').style.display = 'none';
@@ -531,19 +534,23 @@
   }
 
   function showRound() {
-    if (idx >= scenes.length) { showWin(); return; }
+    if (idx >= pics.length) { showWin(); return; }
     locked = false;
-    round = buildRound(level, scenes[idx]);
+    round = buildRound(level, pics[idx]);
     updateProg();
 
     var sc = $('acScene');
-    sc.innerHTML = '<span class="ac-scene__who">' + WHO[round.who].e + '</span><span class="ac-scene__obj">' + round.act.e + '</span>';
+    sc.innerHTML = '';
+    var im = document.createElement('img');
+    im.src = round.pic.img; im.width = 960; im.height = 720;
+    im.alt = 'Картинка к заданию'; im.decoding = 'async';
+    sc.appendChild(im);
 
-    var q = $('acQ'); q.setAttribute('data-t', round.q);
-    var h = $('acHint'); h.textContent = round.hint;
+    $('acQ').setAttribute('data-t', round.q);
+    $('acHint').textContent = round.hint;
 
     var box = $('acOpts');
-    box.className = 'ac-opts' + (level === 1 ? ' ac-opts--words' : '');
+    box.className = 'ac-opts' + (level === 2 ? '' : ' ac-opts--words');
     box.innerHTML = '';
     round.opts.forEach(function(o) {
       var b = document.createElement('button');
@@ -574,7 +581,7 @@
         fb.appendChild(say);
       }
       var nx = $('acNext');
-      nx.textContent = idx + 1 >= scenes.length ? 'Закончить →' : 'Дальше →';
+      nx.textContent = idx + 1 >= pics.length ? 'Закончить →' : 'Дальше →';
       nx.classList.add('show');
       applyStress();
     } else {
@@ -604,7 +611,7 @@
     $('acWinStars').textContent = wrong === 0 ? '⭐ ⭐ ⭐' : wrong <= 3 ? '⭐ ⭐' : '⭐';
     $('acWinTitle').textContent = wrong === 0 ? 'Молодец!' : wrong <= 3 ? 'Хорошо!' : 'Старайся!';
     $('acWinSub').textContent = wrong === 0
-      ? 'Ты правильно прочитал и выбрал все ' + TOTAL + ' ответов!'
+      ? 'Ты правильно ответил на все ' + TOTAL + ' вопросов!'
       : 'Ты прошёл все картинки! Ошибок: ' + wrong + '.';
     $('acWinScore').innerHTML =
       '<span style="color:var(--green)">✓ Верно: ' + correct + '</span>' +
@@ -652,13 +659,14 @@
 
   function setLevel(n) {
     level = n;
-    $('acLv1').classList.toggle('active', n === 1); $('acLv1').setAttribute('aria-pressed', n === 1 ? 'true' : 'false');
-    $('acLv2').classList.toggle('active', n === 2); $('acLv2').setAttribute('aria-pressed', n === 2 ? 'true' : 'false');
+    [1, 2, 3].forEach(function(k) {
+      var b = $('acLv' + k);
+      b.classList.toggle('active', k === n); b.setAttribute('aria-pressed', k === n ? 'true' : 'false');
+    });
     init();
   }
 
-  $('acLv1').addEventListener('click', function() { if (level !== 1) setLevel(1); });
-  $('acLv2').addEventListener('click', function() { if (level !== 2) setLevel(2); });
+  [1, 2, 3].forEach(function(k) { $('acLv' + k).addEventListener('click', function() { if (level !== k) setLevel(k); }); });
   $('acStress').addEventListener('click', function() {
     stressOn = !stressOn;
     try { localStorage.setItem('ac-stress', stressOn ? '1' : '0'); } catch (e) {}
