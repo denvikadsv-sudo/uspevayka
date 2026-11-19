@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Двойняшки: состав чисел 12, 14, 16, 18 — игра для 2 класса | Успевайка</title>
+  <meta name="description" content="Бесплатная игра для 2 класса: состав чисел 12, 14, 16, 18 из одинаковых слагаемых (6+6, 7+7, 8+8, 9+9). Раздели угощение поровну, реши примеры и найди ловушки. Онлайн, без регистрации.">
+  <link rel="canonical" href="https://uspevaika-online.ru/game-twins.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://uspevaika-online.ru/game-twins.html">
+  <meta property="og:title" content="Двойняшки: состав чисел 12, 14, 16, 18 — игра для 2 класса | Успевайка">
+  <meta property="og:description" content="Бесплатная игра: числа-двойняшки 6+6, 7+7, 8+8, 9+9. Три уровня, ловушки и награды. Онлайн, на телефоне и планшете.">
+  <meta property="og:image" content="https://uspevaika-online.ru/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Успевайка">
+  <meta name="theme-color" content="#7BBFD4">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Двойняшки: состав чисел 12, 14, 16, 18 — игра для 2 класса | Успевайка">
+  <meta name="twitter:description" content="Бесплатная игра: числа-двойняшки 6+6, 7+7, 8+8, 9+9. Три уровня, ловушки и награды. Онлайн, на телефоне и планшете.">
+  <meta name="twitter:image" content="https://uspevaika-online.ru/images/og-image.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Мобильные браузеры рисуют вокруг нажатого элемента голубой прямоугольник с острыми углами — отключаем */
+    :root, a, button, summary, label, [role="button"] { -webkit-tap-highlight-color: transparent; }
+    a, button, summary, label, [role="button"] { touch-action: manipulation; }
+    :root {
+      --sky: #7BBFD4; --sky-light: #C8E8F4; --sky-pale: #DCF0F8;
+      --yellow: #F5D76E; --yellow-dark: #E8C84A;
+      --coral: #FF8A7A; --green: #6BC5A0; --brown: #6B4E3D;
+      --ink: #2C3E50; --muted: #6B7C8D; --bg: #F0F9FF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Rubik', sans-serif; line-height: 1.25; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    section { padding: 64px 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    .nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.93); backdrop-filter:blur(18px); box-shadow:0 2px 16px rgba(123,191,212,.12); }
+    .nav__inner { display:flex; align-items:center; justify-content:space-between; height:68px; gap:16px; }
+    .nav__logo { display:flex; align-items:center; gap:10px; font-family:'Rubik',sans-serif; font-size:1.35rem; font-weight:700; color:var(--sky); flex-shrink:0; }
+    .nav__logo img { height:44px; width:auto; border-radius:6px; }
+    .nav__links { display:flex; align-items:center; gap:24px; list-style:none; }
+    .nav__links a { font-size:.9rem; font-weight:600; color:var(--muted); transition:color .2s; }
+    .nav__links a:hover, .nav__links a.active { color:var(--sky); }
+    .nav__right { display:flex; align-items:center; gap:12px; flex-shrink:0; }
+    .nav__phone { font-family:'Rubik',sans-serif; font-weight:600; color:var(--muted); white-space:nowrap; font-size:.88rem; }
+    .nav__phone:hover { color:var(--sky); }
+    .nav__cta { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg,var(--sky) 0%,#5aafc8 100%); color:#fff; padding:9px 20px; border-radius:50px; font-size:.88rem; font-weight:700; white-space:nowrap; box-shadow:0 4px 14px rgba(123,191,212,.38); transition:all .22s; }
+    .nav__cta:hover { transform:translateY(-1px); box-shadow:0 7px 22px rgba(123,191,212,.5); color:#fff; }
+    .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .burger span { display:block; width:24px; height:3px; background:var(--ink); border-radius:3px; transition:.3s; }
+    .nav__mobile { display:none; flex-direction:column; background:var(--bg); border-top:1px solid var(--sky-light); padding:0 24px 16px; }
+    .nav__mobile a { display:block; padding:12px 0; font-weight:600; border-bottom:1px solid var(--sky-pale); color:var(--ink); }
+    .nav__mobile a:last-child { border-bottom:none; }
+    .nav__mobile.open { display:flex; }
+
+    /* PAGE HERO */
+    .gp-hero { background: linear-gradient(180deg, #fff 0%, var(--bg) 100%); padding: 36px 0 28px; }
+    .gp-breadcrumb { display: flex; align-items: center; gap: 6px; font-size: .88rem; color: var(--muted); margin-bottom: 18px; flex-wrap: wrap; }
+    .gp-breadcrumb a { color: var(--sky); font-weight: 600; transition: opacity .2s; }
+    .gp-breadcrumb a:hover { opacity: .75; }
+    .gp-breadcrumb__sep { color: var(--sky-light); }
+    .gp-hero__eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+    .gp-hero__title { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 12px; }
+    .gp-hero__title .accent { color: var(--sky); }
+    .gp-hero__sub { color: var(--muted); font-size: 1rem; max-width: 580px; line-height: 1.72; margin-bottom: 0; }
+
+    /* GAME AREA */
+    .gp-play { background: var(--bg); padding: 0 0 56px; }
+    .game-wrapper { max-width: 640px; margin: 0 auto; background: #fff; border-radius: 24px; overflow: hidden; border: 2px solid var(--sky-light); box-shadow: 0 8px 32px rgba(123,191,212,.15); }
+    .game-wrapper::before { content: ''; display: block; height: 5px; background: linear-gradient(90deg, var(--sky), var(--yellow), var(--coral), var(--green)); }
+    .game-footer { max-width: 640px; margin: 28px auto 0; text-align: center; }
+    .game-footer-text { font-size: .92rem; color: var(--muted); margin-bottom: 14px; }
+    .game-footer__cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--sky), #5aafc8); color: #fff; padding: 12px 28px; border-radius: 50px; font-size: .95rem; font-weight: 700; box-shadow: 0 4px 16px rgba(123,191,212,.35); transition: transform .2s, box-shadow .2s; }
+    .game-footer__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,191,212,.5); color: #fff; }
+
+    /* COUNT INNER */
+    .cn-inner { padding: 20px 24px 28px; }
+    .cn-hdr { margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .cn-title { font-family: 'Rubik', sans-serif; font-size: clamp(1rem,3vw,1.3rem); font-weight: 800; color: var(--sky); }
+    .cn-timer-wrap { display: flex; align-items: center; gap: 8px; }
+    .cn-timer-arc { width: 52px; height: 52px; flex-shrink: 0; }
+    .cn-timer-txt { font-family: 'Rubik', sans-serif; font-size: 1.1rem; font-weight: 900; color: var(--ink); }
+    .cn-score-row { display: flex; gap: 16px; align-items: center; margin-bottom: 10px; }
+    .cn-score-chip { display: inline-flex; align-items: center; gap: 5px; padding: 4px 14px; border-radius: 50px; font-size: .88rem; font-weight: 800; }
+    .cn-score-chip--ok { background: #d2f5e5; color: #154a2e; }
+    .cn-score-chip--err { background: #FEEDED; color: #8b2020; }
+
+    .cn-question-wrap { text-align: center; padding: 24px 0 20px; }
+    .cn-question { font-family: 'Rubik', sans-serif; font-size: clamp(2rem, 9vw, 3.6rem); font-weight: 900; color: var(--ink); letter-spacing: -.02em; margin-bottom: 4px; }
+    .cn-question .op { color: var(--coral); }
+
+    .cn-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .cn-choice { padding: 16px 12px; border-radius: 16px; border: 2.5px solid var(--sky-light); background: #fff; font-family: 'Rubik', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--ink); cursor: pointer; transition: all .18s; text-align: center; }
+    .cn-choice:hover:not(:disabled) { border-color: var(--sky); background: var(--sky-pale); transform: translateY(-2px); }
+    .cn-choice.correct { border-color: var(--green); background: #d2f5e5; color: #154a2e; }
+    .cn-choice.wrong   { border-color: var(--coral); background: #FEEDED; color: #8b2020; }
+    .cn-choice:disabled { cursor: default; }
+    @keyframes cn-pop { 0%{transform:scale(1)} 40%{transform:scale(1.1)} 100%{transform:scale(1)} }
+    @keyframes cn-shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 50%{transform:translateX(8px)} 75%{transform:translateX(-5px)} }
+    .cn-choice.anim-ok  { animation: cn-pop .35s ease; }
+    .cn-choice.anim-err { animation: cn-shake .4s ease; }
+
+    /* START / END SCREENS */
+    .cn-screen { text-align: center; padding: 32px 20px; }
+    .cn-screen h3 { font-family: 'Rubik', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--sky); margin-bottom: 12px; }
+    .cn-screen p { color: var(--muted); font-size: .95rem; margin-bottom: 24px; line-height: 1.6; max-width: 380px; margin-left: auto; margin-right: auto; }
+    .cn-start-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--sky), #5aafc8); color: #fff; padding: 14px 32px; border-radius: 50px; font-size: 1.05rem; font-weight: 800; cursor: pointer; border: none; font-family: 'Nunito', sans-serif; box-shadow: 0 4px 16px rgba(123,191,212,.35); transition: transform .15s, box-shadow .15s; }
+    .cn-start-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,191,212,.5); }
+
+    /* WIN */
+    .cn-overlay { position: fixed; inset: 0; background: rgba(44,62,80,.72); display: flex; align-items: center; justify-content: center; z-index: 500; padding: 20px; }
+    .cn-overlay.hidden { display: none; }
+    .cn-cf { position: fixed; inset: 0; pointer-events: none; z-index: 499; display: none; }
+    @keyframes cn-win-in { from{transform:scale(.5) rotate(-8deg);opacity:0} to{transform:scale(1) rotate(0);opacity:1} }
+    .cn-win-card { background: #fff; border-radius: 24px; padding: 36px 32px 32px; text-align: center; max-width: 340px; width: 100%; box-shadow: 0 24px 60px rgba(0,0,0,.35); animation: cn-win-in .5s cubic-bezier(.34,1.56,.64,1) both; }
+    .cn-win-stars { font-size: 2.4rem; margin-bottom: 4px; letter-spacing: 4px; }
+    .cn-win-title { font-family: 'Rubik', sans-serif; font-size: 2.1rem; font-weight: 900; color: var(--sky); letter-spacing: -.03em; margin-bottom: 8px; }
+    .cn-win-sub { font-size: 1rem; color: var(--muted); margin-bottom: 24px; line-height: 1.5; }
+    .cn-win-score { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; font-size: 1.05rem; font-weight: 800; }
+    .cn-win-btn { background: linear-gradient(135deg, var(--sky), var(--green)); color: #fff; padding: 14px 32px; border-radius: 999px; font-size: 1.1rem; font-weight: 800; font-family: 'Nunito', sans-serif; cursor: pointer; border: none; box-shadow: 0 4px 16px rgba(91,175,196,.4); transition: transform .15s, box-shadow .15s; }
+    .cn-win-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,175,196,.5); }
+
+
+    /* ДВОЙНЯШКИ (одинаковые слагаемые) */
+    .sc-inner { padding: 20px 24px 28px; }
+    .sc-hdr { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .sc-counter { font-family: 'Rubik', sans-serif; font-size: 1rem; font-weight: 800; color: var(--sky); }
+    .sc-progress { height: 10px; background: var(--sky-pale); border-radius: 99px; overflow: hidden; margin-bottom: 8px; }
+    .sc-progress__bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--sky), var(--green)); border-radius: 99px; transition: width .4s ease; }
+    .cn-score-chip--streak { background: #FFF1D6; color: #8a4b00; }
+    .sc-target { text-align: center; padding: 8px 0 2px; }
+    .sc-target__label { font-size: .95rem; font-weight: 700; color: var(--muted); }
+    .sc-target__num { font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(3.2rem, 15vw, 4.8rem); line-height: 1.05; color: var(--coral); }
+    .sc-eq { text-align: center; font-family: 'Rubik', sans-serif; font-size: 1.7rem; font-weight: 900; color: var(--ink); min-height: 2.4rem; letter-spacing: .01em; margin-top: 8px; }
+    .sc-feedback { margin-top: 8px; border-radius: 16px; padding: 12px 16px; font-size: .95rem; line-height: 1.55; display: none; }
+    .sc-feedback.show { display: block; }
+    .sc-feedback--ok { background: #d2f5e5; color: #154a2e; }
+    .sc-feedback--err { background: #FEEDED; color: #8b2020; }
+    .sc-feedback--hint { background: #FFF6D1; color: #6b5200; }
+    .sc-feedback strong { font-weight: 800; }
+    .sc-next { display: none; margin: 14px auto 0; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--sky), #5aafc8); color: #fff; padding: 12px 30px; border-radius: 50px; border: none; font-size: 1rem; font-weight: 800; font-family: 'Nunito', sans-serif; cursor: pointer; box-shadow: 0 4px 16px rgba(123,191,212,.4); transition: transform .2s, box-shadow .2s; }
+    .sc-next.show { display: flex; }
+    .sc-next:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,191,212,.5); }
+    .sc-focus { margin-top: 22px; }
+    .sc-focus__label { font-size: .88rem; font-weight: 700; color: var(--muted); margin-bottom: 10px; }
+    .sc-focus__row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .sc-chip { min-width: 52px; padding: 8px 14px; border-radius: 50px; border: 2.5px solid var(--sky-light); background: #fff; font-family: 'Rubik', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--ink); cursor: pointer; transition: all .18s; }
+    .sc-chip:hover { border-color: var(--sky); background: var(--sky-pale); transform: translateY(-2px); }
+    .sc-chip.on { border-color: var(--sky); background: var(--sky); color: #fff; }
+    .sc-mistakes { text-align: left; font-size: .95rem; color: var(--muted); margin: 0 0 18px; padding: 12px 14px; background: var(--sky-pale); border-radius: 14px; max-height: 150px; overflow: auto; }
+    .sc-mistakes b { color: var(--ink); }
+    .sc-mistakes li { margin-left: 18px; margin-bottom: 4px; }
+    .sc-win-btns { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+    .sc-win-btn2 { background: #fff; color: var(--sky); border: 2.5px solid var(--sky-light); padding: 11px 26px; border-radius: 999px; font-size: 1rem; font-weight: 800; font-family: 'Nunito', sans-serif; cursor: pointer; transition: all .18s; }
+    .sc-win-btn2:hover { border-color: var(--sky); background: var(--sky-pale); }
+    .sc-win-link { background: none; border: none; color: var(--muted); font-size: .9rem; font-weight: 700; font-family: 'Nunito', sans-serif; cursor: pointer; text-decoration: underline; }
+    .tip-card--wide { grid-column: 1 / -1; background: #FFF6D1; border-color: #F7E7A0; }
+
+    /* Выбор уровня */
+    .tw-lvls { display: grid; gap: 10px; margin: 20px auto 0; max-width: 420px; text-align: left; }
+    .tw-lvl { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 18px; border: 2.5px solid var(--sky-light); background: #fff; cursor: pointer; font-family: 'Nunito', sans-serif; color: var(--ink); text-align: left; transition: all .18s; }
+    .tw-lvl:hover { border-color: var(--sky); background: var(--sky-pale); transform: translateY(-2px); }
+    .tw-lvl__ic { font-size: 1.9rem; line-height: 1; flex-shrink: 0; }
+    .tw-lvl b { display: block; font-family: 'Rubik', sans-serif; font-size: 1rem; font-weight: 800; }
+    .tw-lvl small { display: block; font-size: .82rem; color: var(--muted); line-height: 1.4; }
+    .tw-lvl--mix { border-color: var(--yellow-dark); background: #FFF6D1; }
+    .tw-lvl--mix:hover { background: #FFEFAE; border-color: var(--yellow-dark); }
+
+    /* Уровень 1: раздай угощение */
+    .tw-task { text-align: center; font-weight: 800; font-size: 1.05rem; margin: 6px 0 10px; }
+    .tw-task b { font-family: 'Rubik', sans-serif; color: var(--coral); font-size: 1.45em; }
+    .tw-tray { display: flex; flex-wrap: wrap; gap: 2px 4px; justify-content: center; align-items: center; min-height: 76px; padding: 10px; border-radius: 18px; background: #FFF6D1; border: 2.5px dashed var(--yellow-dark); font-size: 1.7rem; line-height: 1.15; }
+    .tw-tray:empty::before { content: 'Стол пуст ✨'; font-size: .95rem; font-weight: 700; color: #6b5200; }
+    .tw-it { font-style: normal; display: inline-block; }
+    .tw-it--drop { animation: tw-drop .45s cubic-bezier(.34,1.56,.64,1) both; }
+    @keyframes tw-drop { from { transform: translateY(-34px) scale(.3); opacity: 0; } to { transform: none; opacity: 1; } }
+    .tw-twins { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+    .tw-twin { text-align: center; }
+    .tw-bear { font-size: 2.6rem; line-height: 1; }
+    .tw-twin.happy .tw-bear { animation: cn-pop .5s ease; }
+    .tw-twin.sad .tw-bear { animation: cn-shake .4s ease; }
+    .tw-plate { min-height: 78px; margin-top: 4px; padding: 8px; border-radius: 16px 16px 44px 44px; border: 3px solid var(--sky-light); background: var(--sky-pale); display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 0 3px; font-size: 1.4rem; line-height: 1.2; transition: border-color .2s, background .2s; }
+    .tw-plate--b { border-color: #FFD0C7; background: #FFF0ED; }
+    .tw-twins.good .tw-plate { border-color: var(--green); background: #d2f5e5; }
+    .tw-name { font-family: 'Rubik', sans-serif; font-weight: 800; font-size: .95rem; margin-top: 4px; color: var(--ink); }
+    .tw-ask { text-align: center; color: var(--muted); font-weight: 700; font-size: .95rem; margin: 14px 0 0; }
+
+    /* Уровень 2: пример */
+    .tw-eq { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 12px; font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(2rem, 9vw, 3.2rem); padding: 14px 0 6px; }
+    .tw-op { color: var(--coral); }
+    .tw-slot { min-width: 1.5em; height: 1.45em; padding: 0 .15em; display: inline-flex; align-items: center; justify-content: center; border-radius: 14px; border: 3px dashed var(--sky); background: var(--sky-pale); color: var(--sky); transition: all .15s; }
+    .tw-slot.filled { border-style: solid; border-color: var(--yellow-dark); background: #FFF6D1; color: var(--ink); }
+    .tw-slot.good, .tw-slot.reveal { border-style: solid; border-color: var(--green); background: #d2f5e5; color: #154a2e; animation: cn-pop .35s ease; }
+    .tw-slot.bad { border-style: solid; border-color: var(--coral); background: #FEEDED; color: #8b2020; animation: cn-shake .4s ease; }
+
+    /* Варианты ответа */
+    .tw-opts { display: grid; gap: 10px; margin-top: 12px; }
+    .tw-opts--l1 { grid-template-columns: repeat(5, 1fr); }
+    .tw-opts--l2 { grid-template-columns: repeat(3, 1fr); }
+    .tw-opts--l3 { grid-template-columns: repeat(2, 1fr); margin-top: 18px; }
+    .tw-opt { min-height: 62px; padding: 10px 4px; border-radius: 16px; border: 3px solid var(--sky-light); background: #fff; font-family: 'Rubik', sans-serif; font-size: clamp(1.4rem, 6vw, 1.8rem); font-weight: 800; color: var(--ink); cursor: pointer; transition: transform .15s, border-color .15s, background .15s, opacity .2s; }
+    .tw-opts--l3 .tw-opt { min-height: 74px; font-size: clamp(1.3rem, 5.5vw, 1.7rem); white-space: nowrap; }
+    .tw-opt:hover:not(:disabled) { border-color: var(--sky); background: var(--sky-pale); transform: translateY(-2px); }
+    .tw-opt.good { border-color: var(--green); background: #d2f5e5; color: #154a2e; animation: cn-pop .35s ease; }
+    .tw-opt.wrong { border-color: var(--coral); background: #FEEDED; color: #8b2020; animation: cn-shake .4s ease; }
+    .tw-opt.reveal { border-color: var(--yellow-dark); background: #FFF6D1; animation: cn-pop .45s ease; }
+    .tw-opt.dim:not(.wrong) { opacity: .4; }
+    .tw-opt:disabled { cursor: default; }
+    @media (max-width: 380px) { .sc-inner { padding: 16px 14px 24px; } .tw-opts { gap: 8px; } .tw-plate { font-size: 1.2rem; } }
+
+    /* SECTION */
+    .section-title { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; text-align: center; margin-bottom: 8px; }
+    .section-title .accent { color: var(--sky); }
+    .section-subtitle { text-align: center; color: var(--muted); font-size: .95rem; max-width: 480px; margin: 0 auto; line-height: 1.65; }
+    .gp-rule { background: #fff; padding: 40px 0 48px; }
+    .tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 640px; margin: 28px auto 0; }
+    .tip-card { border-radius: 18px; padding: 18px; background: var(--sky-pale); border: 2px solid var(--sky-light); }
+    .tip-card__label { font-size: .92rem; font-weight: 900; color: var(--ink); margin-bottom: 8px; }
+    .tip-card__text { font-size: .85rem; color: var(--muted); line-height: 1.55; }
+
+    /* CTA */
+    .gp-cta { background: linear-gradient(135deg, var(--sky) 0%, #4ea8c4 100%); text-align: center; padding: 56px 0; }
+    .gp-cta h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .gp-cta p { color: rgba(255,255,255,.88); font-size: 1rem; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.72; }
+    .gp-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--sky); padding: 14px 34px; border-radius: 50px; font-size: 1rem; font-weight: 700; box-shadow: 0 6px 24px rgba(0,0,0,.18); transition: all .22s; }
+    .gp-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,.25); color: var(--sky); }
+
+    /* FOOTER */
+    .footer { background:var(--ink); color:rgba(255,255,255,.7); padding:40px 0; }
+    .footer__inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    .footer__logo { display:flex; align-items:center; gap:14px; font-family:'Rubik',sans-serif; font-size:1.1rem; font-weight:700; color:#fff; }
+    .footer__logo img { height:64px; width:auto; padding:6px 12px; background:#fff; border-radius:16px; box-shadow:0 4px 14px rgba(0,0,0,.18); }
+    .footer__tagline { font-family:'Nunito',sans-serif; font-size:.9rem; font-weight:600; line-height:1.45; color:rgba(255,255,255,.82); text-align:left; }
+    .footer__copy { font-size:.85rem; text-align:center; }
+    .footer__socials { display:flex; gap:10px; }
+    .footer__socials a { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:#fff; transition:background .2s; }
+    .footer__socials a:hover { background:var(--sky); }
+    .footer__socials svg { width:20px; height:20px; fill:currentColor; }
+
+    @media (max-width: 600px) {
+      .burger { display: flex; }
+      .nav__links { display: none; }
+      .nav__phone { display: none; }
+      .nav__cta { display: none; }
+      .tips-grid { grid-template-columns: 1fr; }
+      .footer__inner { flex-direction: column; text-align: center; }
+    }
+  
+
+    /* Меню: когда пункты не помещаются в одну строку, показываем бургер (телефон и кнопка — в выпадающем меню) */
+    @media (max-width: 1100px) {
+      .nav__links, .nav__phone, .nav__cta { display: none; }
+      .burger { display: flex; }
+    }
+    @media (min-width: 1101px) { .nav__mobile { display: none !important; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        "name": "Двойняшки: состав чисел 12, 14, 16, 18 — учебная игра",
+        "description": "Бесплатная игра для 2 класса: состав чисел 12, 14, 16, 18 из одинаковых слагаемых (6+6, 7+7, 8+8, 9+9). Раздели угощение поровну, реши примеры и найди ловушки. Онлайн, без регистрации.",
+        "url": "https://uspevaika-online.ru/game-twins.html",
+        "inLanguage": "ru-RU",
+        "isAccessibleForFree": true,
+        "educationalLevel": "2 класс",
+        "about": {"@type": "Thing", "name": "Математика"},
+        "learningResourceType": "game",
+        "interactivityType": "active",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "Успевайка",
+          "url": "https://uspevaika-online.ru/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://uspevaika-online.ru/"},
+          {"@type": "ListItem", "position": 2, "name": "Учебные игры", "item": "https://uspevaika-online.ru/games.html"},
+          {"@type": "ListItem", "position": 3, "name": "Двойняшки: одинаковые слагаемые"}
+        ]
+      }
+    ]
+  }
+  </script>
+<body>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="images/logo.png" alt="Логотип Успевайка">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#story">История</a></li>
+      <li><a href="index.html#lessons">Занятия</a></li>
+      <li><a href="index.html#teachers">Репетиторы</a></li>
+      <li><a href="index.html#pricing">Цены</a></li>
+      <li><a href="index.html#subjects">Предметы</a></li>
+      <li><a href="games.html" class="active">Игры</a></li>
+      <li><a href="index.html#contact">Контакты</a></li>
+    </ul>
+    <div class="nav__right">
+      <a href="tel:+79097923750" class="nav__phone">+7 909 792-3750</a>
+      <a href="index.html#contact" class="nav__cta">Записаться</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="index.html#story">История</a>
+    <a href="index.html#lessons">Занятия</a>
+    <a href="index.html#teachers">Репетиторы</a>
+    <a href="index.html#pricing">Цены</a>
+    <a href="index.html#subjects">Предметы</a>
+    <a href="games.html">Игры</a>
+    <a href="index.html#contact">Контакты</a>
+    <a href="tel:+79097923750">+7 909 792-3750</a>
+    <a href="index.html#contact" style="color:var(--sky);font-weight:800;">→ Записаться на пробное</a>
+  </div>
+</nav>
+
+<section class="gp-hero">
+  <div class="container">
+    <nav class="gp-breadcrumb" aria-label="Навигация">
+      <a href="index.html">← Главная</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <a href="games.html">Игры</a>
+      <span class="gp-breadcrumb__sep">/</span>
+      <span>Двойняшки</span>
+    </nav>
+    <div class="gp-hero__eyebrow">➕ Математика · 2 класс</div>
+    <h1 class="gp-hero__title">Числа-<span class="accent">двойняшки</span></h1>
+    <p class="gp-hero__sub">Состав чисел 12, 14, 16 и 18 из одинаковых слагаемых: 6 + 6, 7 + 7, 8 + 8, 9 + 9. Помоги медвежатам Тиме и Томе поделить угощение поровну!</p>
+  </div>
+</section>
+
+<section class="gp-play">
+  <div class="container">
+    <div class="game-wrapper">
+      <div class="sc-inner" id="twGame">
+
+        <div class="cn-screen" id="twStart">
+          <h3>🐻🐻 Двойняшки</h3>
+          <p>Число-двойняшка — это когда оба слагаемых одинаковые: 6 + 6 = 12. Помоги медвежатам Тиме и Томе: числа 12, 14, 16 и 18.</p>
+          <div class="sc-focus" style="margin-top:0;">
+            <div class="sc-focus__label">Какие числа тренируем?</div>
+            <div class="sc-focus__row" id="twNums">
+              <button class="sc-chip on" type="button" data-n="0">Все</button>
+              <button class="sc-chip" type="button" data-n="12">12</button>
+              <button class="sc-chip" type="button" data-n="14">14</button>
+              <button class="sc-chip" type="button" data-n="16">16</button>
+              <button class="sc-chip" type="button" data-n="18">18</button>
+            </div>
+          </div>
+          <div class="tw-lvls">
+            <button class="tw-lvl" type="button" data-l="1"><span class="tw-lvl__ic">🍬</span><span><b>1. Раздай поровну</b><small>Раздели угощение между медвежатами и посмотри, хватит ли</small></span></button>
+            <button class="tw-lvl" type="button" data-l="2"><span class="tw-lvl__ic">✏️</span><span><b>2. Пример-двойняшка</b><small>7 + 7 = ? и ? + ? = 14 — уже без картинок</small></span></button>
+            <button class="tw-lvl" type="button" data-l="3"><span class="tw-lvl__ic">🕵️</span><span><b>3. Найди двойняшку</b><small>Среди примеров спрятались ловушки — слагаемые должны быть одинаковые</small></span></button>
+            <button class="tw-lvl tw-lvl--mix" type="button" data-l="0"><span class="tw-lvl__ic">🎲</span><span><b>Все уровни вперемешку</b><small>Для настоящих чемпионов</small></span></button>
+          </div>
+        </div>
+
+        <div id="twPlay" style="display:none;">
+          <div class="sc-hdr">
+            <span class="sc-counter" id="twCounter">Задание 1 из 8</span>
+            <div class="cn-score-row" style="margin:0;">
+              <span class="cn-score-chip cn-score-chip--ok" id="twOk">✓ 0</span>
+              <span class="cn-score-chip cn-score-chip--err" id="twErr">✗ 0</span>
+              <span class="cn-score-chip cn-score-chip--streak" id="twStreak" title="Верных ответов подряд">🔥 0</span>
+            </div>
+          </div>
+          <div class="sc-progress"><div class="sc-progress__bar" id="twBar"></div></div>
+          <div id="twBoard"></div>
+          <div class="tw-opts" id="twOpts"></div>
+          <div class="sc-eq" id="twEq" aria-live="polite"></div>
+          <div class="sc-feedback" id="twFb" role="status"></div>
+          <button class="sc-next" id="twNext" type="button">Дальше →</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="game-footer">
+      <p class="game-footer-text">Понравилась игра? Попробуй занятие с репетитором по математике!</p>
+      <a href="index.html#contact" class="game-footer__cta">Записаться на занятие →</a>
+    </div>
+  </div>
+</section>
+
+<canvas class="cn-cf" id="cnCf"></canvas>
+<div class="cn-overlay hidden" id="cnOverlay">
+  <div class="cn-win-card">
+    <div class="cn-win-stars" id="cnWinStars">⭐ ⭐ ⭐</div>
+    <h2 class="cn-win-title" id="cnWinTitle">Молодец!</h2>
+    <p class="cn-win-sub" id="cnWinSub"></p>
+    <div class="cn-win-score" id="cnWinScore"></div>
+    <div class="sc-mistakes" id="twMistakes" style="display:none;"></div>
+    <div class="sc-win-btns">
+      <button class="cn-win-btn" id="cnWinBtn" type="button">🔄 Играть снова</button>
+      <button class="sc-win-btn2" id="twTrain" type="button" style="display:none;">🎯 Потренировать ошибки</button>
+      <button class="sc-win-link" id="twChoose" type="button">Выбрать уровень</button>
+    </div>
+  </div>
+</div>
+
+<section class="gp-rule">
+  <div class="container">
+    <h2 class="section-title">Числа-<span class="accent">двойняшки</span></h2>
+    <p class="section-subtitle">Одинаковые слагаемые — это когда число делят поровну на две равные части.</p>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-card__label">Число 12</div>
+        <div class="tip-card__text"><b>12</b> = 6 + 6<br>Половина 12 — это 6</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card__label">Число 14</div>
+        <div class="tip-card__text"><b>14</b> = 7 + 7<br>Половина 14 — это 7</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card__label">Число 16</div>
+        <div class="tip-card__text"><b>16</b> = 8 + 8<br>Половина 16 — это 8</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card__label">Число 18</div>
+        <div class="tip-card__text"><b>18</b> = 9 + 9<br>Половина 18 — это 9</div>
+      </div>
+      <div class="tip-card tip-card--wide">
+        <div class="tip-card__label">💡 Как запомнить</div>
+        <div class="tip-card__text">Начни с опорного факта 5 + 5 = 10. Каждое слагаемое растёт на 1, а сумма — сразу на 2: 6 + 6 = 12, 7 + 7 = 14, 8 + 8 = 16, 9 + 9 = 18. Поэтому все числа-двойняшки чётные: нечётное число поровну на две целые части не разделить.</div>
+      </div>
+      <div class="tip-card tip-card--wide">
+        <div class="tip-card__label">👨‍👩‍👧 Подсказка родителям</div>
+        <div class="tip-card__text">Спросите за обедом: «Нас двое, конфет 14 — по сколько каждому?». Так ребёнок связывает состав числа с делением поровну, и пример 7 + 7 перестаёт быть заученной строчкой.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gp-cta">
+  <div class="container">
+    <h2>Хочешь уверенно решать задачи?</h2>
+    <p>Запишись на пробное занятие с репетитором по математике — научим считать и понимать математику без ошибок.</p>
+    <a href="index.html#contact" class="gp-cta-btn">
+      Записаться на занятие
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__logo">
+      <img loading="lazy" src="images/logo.png" alt="Логотип Успевайка">
+      <span class="footer__tagline">Команда онлайн-репетиторов<br>для школьников 1–11 классов</span>
+    </div>
+    <div class="footer__copy">© 2024 Успевайка. Все права защищены.</div>
+    <div class="footer__socials">
+      <a href="https://t.me/uspevaika" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+      <a href="https://api.whatsapp.com/send?phone=79097923750" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+      <a href="https://vk.ru/club.uspevaika" target="_blank" rel="noopener" title="ВКонтакте" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.779.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+</script>
+
+<script>
+(function(){'use strict';
+  /*LOGIC-START*/
+  var TARGETS = [12, 14, 16, 18];   // числа-двойняшки: 6+6, 7+7, 8+8, 9+9
+
+  function rnd(a, b) { return Math.floor(Math.random() * (b - a + 1)) + a; }
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = rnd(0, i), t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+  function range(a, b) { var r = []; for (var i = a; i <= b; i++) r.push(i); return r; }
+  function pickSome(pool, k) { return shuffle(pool.slice()).slice(0, k); }
+  function sortNum(a) { return a.sort(function (x, y) { return x - y; }); }
+
+  // Факты: {N: 14, a: 7} значит 14 = 7 + 7
+  function makeFacts(targets) {
+    return targets.map(function (N) { return {N: N, a: N / 2}; });
+  }
+
+  // Очередь фактов длиной n: случайный порядок, без повторов подряд
+  function makeQueue(facts, n) {
+    var q = [];
+    while (q.length < n) {
+      var s = shuffle(facts.slice());
+      if (q.length && s.length > 1 && s[0].N === q[q.length - 1].N) {
+        var t = s[0]; s[0] = s[1]; s[1] = t;
+      }
+      q = q.concat(s);
+    }
+    return q.slice(0, n);
+  }
+
+  // Варианты «по сколько каждому» / «какое число в оба окошка»: верное a + (count-1) лишних из lo..hi
+  function optsHalf(a, count, lo, hi) {
+    var pool = range(lo, hi).filter(function (v) { return v !== a; });
+    return sortNum(pickSome(pool, count - 1).concat([a]));
+  }
+
+  // Варианты суммы для a + a: верная N + (count-1) лишних из 10..19
+  function optsSum(N, count) {
+    var pool = range(10, 19).filter(function (v) { return v !== N; });
+    return sortNum(pickSome(pool, count - 1).concat([N]));
+  }
+
+  // Карточки уровня 3: одна двойняшка с нужной суммой, одна ловушка (сумма та же,
+  // но слагаемые разные) и две двойняшки с другой суммой. Верный ответ — ровно один.
+  function cardsFor(N) {
+    var a = N / 2;
+    var twins = pickSome([5, 6, 7, 8, 9].filter(function (v) { return v !== a; }), 2)
+      .map(function (b) { return {x: b, y: b, kind: 'twin'}; });
+    return shuffle([{x: a, y: a, kind: 'ok'}, {x: a - 1, y: a + 1, kind: 'trap'}].concat(twins));
+  }
+
+  // Уровни заданий: lvl 1..3 — один уровень; 0 — вперемешку (без повторов подряд)
+  function assignLevels(n, lvl) {
+    var out = [];
+    if (lvl > 0) { for (var i = 0; i < n; i++) out.push(lvl); return out; }
+    while (out.length < n) {
+      var s = shuffle([1, 2, 3]);
+      if (out.length && s[0] === out[out.length - 1]) { var t = s[0]; s[0] = s[1]; s[1] = t; }
+      out = out.concat(s);
+    }
+    return out.slice(0, n);
+  }
+
+  // Задания: {N, a, lvl, kind}; kind нужен уровню 2: 'half' — «? + ? = N», 'sum' — «a + a = ?»
+  function makeItems(facts, n, lvl) {
+    var q = makeQueue(facts, n), lv = assignLevels(n, lvl), k0 = rnd(0, 1);
+    return q.map(function (f, i) {
+      return {N: f.N, a: f.a, lvl: lv[i], kind: ((i + k0) % 2) ? 'half' : 'sum'};
+    });
+  }
+
+  // Склонение: plural(2, ['конфета','конфеты','конфет']) → 'конфеты'
+  function plural(n, f) {
+    var m = n % 100, d = n % 10;
+    if (m >= 11 && m <= 14) return f[2];
+    if (d === 1) return f[0];
+    if (d >= 2 && d <= 4) return f[1];
+    return f[2];
+  }
+  /*LOGIC-END*/
+
+  var ROUNDS_ALL = 8, ROUNDS_ONE = 6, MAX_TRIES = 2;
+  var THEMES = [
+    {e: '🍬', f: ['конфета', 'конфеты', 'конфет']},
+    {e: '🍎', f: ['яблоко', 'яблока', 'яблок']},
+    {e: '🍓', f: ['ягода', 'ягоды', 'ягод']},
+    {e: '🍩', f: ['пончик', 'пончика', 'пончиков']},
+    {e: '🧁', f: ['кекс', 'кекса', 'кексов']},
+    {e: '🍪', f: ['печенье', 'печенья', 'печений']}
+  ];
+  var FACTS = makeFacts(TARGETS);
+  var $ = function (id) { return document.getElementById(id); };
+
+  var queue, idx, firstTry, wrongTotal, streak, bestStreak, tries, locked, mistakes;
+  var numSel = 0, lvlSel = 1, cur, opts, btns, tried, theme, lastTheme = -1, slots, roundId = 0;
+  var cfAnim = null, cfParts = [];
+
+  function factText(f) { return f.N + ' = ' + f.a + ' + ' + f.a; }
+
+  function begin(items) {
+    queue = items; idx = 0; firstTry = 0; wrongTotal = 0; streak = 0; bestStreak = 0; mistakes = {};
+    stopCf();
+    $('cnCf').style.display = 'none';
+    $('cnOverlay').classList.add('hidden');
+    $('twStart').style.display = 'none';
+    $('twPlay').style.display = 'block';
+    showRound();
+  }
+
+  function startGame(lvl) {
+    lvlSel = lvl;
+    var facts = numSel ? FACTS.filter(function (f) { return f.N === numSel; }) : FACTS;
+    begin(makeItems(facts, numSel ? ROUNDS_ONE : ROUNDS_ALL, lvl));
+  }
+  function startReview() {
+    var list = Object.keys(mistakes).map(function (k) { return mistakes[k]; });
+    begin(makeItems(list, Math.max(list.length, 4), lvlSel));
+  }
+
+  function updateScore() {
+    $('twOk').textContent = '✓ ' + firstTry;
+    $('twErr').textContent = '✗ ' + wrongTotal;
+    $('twStreak').textContent = '🔥 ' + streak;
+  }
+
+  function setFeedback(kind, html) {
+    var fb = $('twFb');
+    fb.className = 'sc-feedback show sc-feedback--' + kind;
+    fb.innerHTML = html;
+  }
+
+  // Заполняем контейнер одинаковыми эмодзи (с «падением» на тарелку или без)
+  function fill(el, e, count, drop) {
+    var h = '';
+    for (var i = 0; i < count; i++)
+      h += '<i class="tw-it' + (drop ? ' tw-it--drop' : '') + '"' + (drop ? ' style="animation-delay:' + (i * 45) + 'ms"' : '') + '>' + e + '</i>';
+    el.innerHTML = h;
+  }
+
+  function showRound() {
+    roundId++;
+    cur = queue[idx];
+    tries = 0; locked = false; tried = {}; slots = [];
+    $('twCounter').textContent = 'Задание ' + (idx + 1) + ' из ' + queue.length;
+    $('twBar').style.width = (idx / queue.length * 100) + '%';
+    $('twEq').textContent = '';
+    var fb = $('twFb'); fb.className = 'sc-feedback'; fb.innerHTML = '';
+    $('twNext').classList.remove('show');
+    var N = cur.N, a = cur.a, board = $('twBoard');
+
+    if (cur.lvl === 1) {
+      var t; do { t = rnd(0, THEMES.length - 1); } while (t === lastTheme);
+      lastTheme = t; theme = THEMES[t];
+      opts = optsHalf(a, 5, 4, 10).map(function (v) { return {v: v}; });
+      board.innerHTML =
+        '<div class="tw-task">Раздели <b>' + N + '</b> ' + theme.f[2] + ' поровну между двойняшками</div>' +
+        '<div class="tw-tray" id="twTray" aria-label="Угощение на столе"></div>' +
+        '<div class="tw-twins" id="twTwins">' +
+          '<div class="tw-twin"><div class="tw-bear">🐻</div><div class="tw-plate" id="twPlA"></div><div class="tw-name">Тима</div></div>' +
+          '<div class="tw-twin"><div class="tw-bear">🐻</div><div class="tw-plate tw-plate--b" id="twPlB"></div><div class="tw-name">Тома</div></div>' +
+        '</div>' +
+        '<div class="tw-ask">Сколько получит каждый?</div>';
+      fill($('twTray'), theme.e, N, false);
+    } else if (cur.lvl === 2) {
+      if (cur.kind === 'half') {
+        opts = optsHalf(a, 6, 3, 10).map(function (v) { return {v: v}; });
+        board.innerHTML =
+          '<div class="tw-ask" style="margin-top:6px;">Какое число поставить в оба окошка?</div>' +
+          '<div class="tw-eq"><span class="tw-slot">?</span><span class="tw-op">+</span><span class="tw-slot">?</span><span class="tw-op">=</span><span>' + N + '</span></div>';
+      } else {
+        opts = optsSum(N, 6).map(function (v) { return {v: v}; });
+        board.innerHTML =
+          '<div class="tw-ask" style="margin-top:6px;">Сколько получится, если сложить двойняшек?</div>' +
+          '<div class="tw-eq"><span>' + a + '</span><span class="tw-op">+</span><span>' + a + '</span><span class="tw-op">=</span><span class="tw-slot">?</span></div>';
+      }
+      slots = Array.prototype.slice.call(board.querySelectorAll('.tw-slot'));
+    } else {
+      opts = cardsFor(N);
+      board.innerHTML =
+        '<div class="sc-target"><div class="sc-target__label">Найди пример, где слагаемые одинаковые и сумма —</div>' +
+        '<div class="sc-target__num">' + N + '</div></div>';
+    }
+
+    var el = $('twOpts'); el.innerHTML = '';
+    el.className = 'tw-opts tw-opts--l' + cur.lvl;
+    btns = opts.map(function (o, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'tw-opt';
+      b.textContent = cur.lvl === 3 ? o.x + ' + ' + o.y : o.v;
+      b.addEventListener('click', function () { pick(i); });
+      el.appendChild(b);
+      return b;
+    });
+    updateScore();
+  }
+
+  function isOk(o) {
+    if (cur.lvl === 3) return o.kind === 'ok';
+    return o.v === (cur.lvl === 2 && cur.kind === 'sum' ? cur.N : cur.a);
+  }
+
+  // Картинка к выбранному варианту: state — 'good' | 'bad' | 'reveal'
+  function showVisual(o, state) {
+    if (cur.lvl === 1) {
+      var x = o.v, left = cur.N - 2 * x;
+      fill($('twPlA'), theme.e, x, true);
+      fill($('twPlB'), theme.e, x, true);
+      fill($('twTray'), theme.e, Math.max(0, left), false);
+      $('twTwins').className = 'tw-twins' + (state === 'bad' ? '' : ' good');
+      var names = $('twTwins').querySelectorAll('.tw-name'), bears = $('twTwins').querySelectorAll('.tw-twin');
+      var mood = state === 'bad' ? (left < 0 ? ' 😮' : ' 🤔') : ' 😋';
+      names[0].textContent = 'Тима' + mood; names[1].textContent = 'Тома' + mood;
+      Array.prototype.forEach.call(bears, function (b) {
+        b.classList.remove('happy', 'sad'); void b.offsetWidth;
+        b.classList.add(state === 'bad' ? 'sad' : 'happy');
+      });
+      $('twEq').textContent = x + ' + ' + x + ' = ' + (2 * x);
+    } else if (cur.lvl === 2) {
+      slots.forEach(function (s) { s.textContent = o.v; s.className = 'tw-slot filled ' + state; });
+    }
+  }
+
+  function wrongMsg(o) {
+    var N = cur.N, a = cur.a;
+    if (cur.lvl === 1) {
+      var x = o.v, left = N - 2 * x;
+      return left > 0
+        ? '🤔 По ' + x + ' — это ' + x + ' + ' + x + ' = ' + (2 * x) + '. На столе осталось: <strong>' + left + ' ' + plural(left, theme.f) + '</strong>. Дай каждому побольше!'
+        : '🤔 По ' + x + ' — это ' + x + ' + ' + x + ' = ' + (2 * x) + ', а у нас всего ' + N + '. Не хватило <strong>' + (-left) + ' ' + theme.f[2] + '</strong>. Дай каждому поменьше!';
+    }
+    if (cur.lvl === 2 && cur.kind === 'half') {
+      return '🤔 ' + o.v + ' + ' + o.v + ' = ' + (2 * o.v) + ', а нужно <strong>' + N + '</strong>. ' + (2 * o.v < N ? 'Возьми число побольше.' : 'Возьми число поменьше.');
+    }
+    if (cur.lvl === 2) {
+      return '🤔 Ответ ' + (o.v < N ? 'больше' : 'меньше') + ', чем ' + o.v + '. Сложи ещё раз: <strong>' + a + ' + ' + a + '</strong>.';
+    }
+    return o.kind === 'trap'
+      ? '🤔 ' + o.x + ' + ' + o.y + ' = ' + N + ' — сумма верная, но слагаемые <strong>разные</strong>. Нужны двойняшки: одинаковые слагаемые!'
+      : '🤔 ' + o.x + ' + ' + o.y + ' = ' + (o.x + o.y) + ', а нужно <strong>' + N + '</strong>. Попробуй другой пример!';
+  }
+
+  function showNext(last) {
+    var n = $('twNext');
+    n.textContent = last ? 'Результат 🏆' : 'Дальше →';
+    n.classList.add('show');
+    n.focus({preventScroll: true});
+  }
+
+  function lockAll(keep) {
+    locked = true;
+    btns.forEach(function (b, k) {
+      b.disabled = true;
+      if (keep.indexOf(k) < 0) b.classList.add('dim');
+    });
+  }
+
+  function pick(i) {
+    if (locked || tried[i]) return;
+    var o = opts[i], last = idx === queue.length - 1;
+    if (isOk(o)) {
+      lockAll([i]);
+      btns[i].classList.add('good');
+      showVisual(o, 'good');
+      $('twEq').textContent = cur.a + ' + ' + cur.a + ' = ' + cur.N;
+      if (tries === 0) { firstTry++; streak++; if (streak > bestStreak) bestStreak = streak; }
+      updateScore();
+      var fine = tries === 0 ? '🎉 <strong>Верно!</strong> ' : '👍 <strong>Получилось!</strong> ';
+      setFeedback('ok', fine + (cur.lvl === 3 ? 'Слагаемые одинаковые: ' : 'Двойняшки: ') + '<strong>' + factText(cur) + '</strong>.');
+      showNext(last);
+      return;
+    }
+    tried[i] = true; tries++; wrongTotal++; streak = 0;
+    mistakes[cur.N] = cur;
+    updateScore();
+    btns[i].disabled = true; btns[i].classList.add('wrong');
+    showVisual(o, 'bad');
+    if (tries >= MAX_TRIES) {
+      var c = 0;
+      opts.forEach(function (x, k) { if (isOk(x)) c = k; });
+      lockAll([c]);
+      btns[c].classList.add('reveal');
+      showVisual(opts[c], 'reveal');
+      $('twEq').textContent = factText(cur);
+      setFeedback('hint', '💡 <strong>Запомни:</strong> ' + factText(cur) + '. Это число попадёт в список для повторения.');
+      showNext(last);
+    } else {
+      setFeedback('err', wrongMsg(o) + ' Попробуй ещё!');
+    }
+  }
+
+  function next() {
+    if (!locked) return;
+    if (idx === queue.length - 1) { showWin(); return; }
+    idx++;
+    showRound();
+  }
+
+  function showWin() {
+    $('twBar').style.width = '100%';
+    var n = queue.length, r = firstTry / n;
+    $('cnWinStars').textContent = r >= .9 ? '⭐ ⭐ ⭐' : r >= .65 ? '⭐ ⭐' : '⭐';
+    $('cnWinTitle').textContent = r >= .9 ? 'Молодец!' : r >= .65 ? 'Хорошо!' : 'Тренируйся!';
+    $('cnWinSub').textContent = 'С первого раза верно: ' + firstTry + ' из ' + n + '. Лучшая серия: ' + bestStreak + ' 🔥';
+    $('cnWinScore').innerHTML =
+      '<span style="color:var(--green)">✓ С первого раза: ' + firstTry + '</span>' +
+      '<span style="color:var(--coral)">✗ Ошибок: ' + wrongTotal + '</span>';
+    var list = Object.keys(mistakes).map(function (k) { return mistakes[k]; })
+      .sort(function (a, b) { return a.N - b.N; });
+    var m = $('twMistakes');
+    if (list.length) {
+      m.style.display = 'block';
+      m.innerHTML = '<b>Выучи:</b><ul>' + list.map(function (f) { return '<li>' + factText(f) + '</li>'; }).join('') + '</ul>';
+    } else {
+      m.style.display = 'none'; m.innerHTML = '';
+    }
+    $('twTrain').style.display = list.length ? 'inline-block' : 'none';
+    $('cnCf').style.display = 'block';
+    $('cnOverlay').classList.remove('hidden');
+    if (r >= .65) launchCf();
+  }
+
+  function toStart() {
+    stopCf();
+    $('cnCf').style.display = 'none';
+    $('cnOverlay').classList.add('hidden');
+    $('twPlay').style.display = 'none';
+    $('twStart').style.display = 'block';
+  }
+
+  function launchCf() {
+    var cv=$('cnCf');
+    cv.width=window.innerWidth; cv.height=window.innerHeight;
+    var ctx=cv.getContext('2d');
+    var clrs=['#7BBFD4','#F5D76E','#FF8A7A','#6BC5A0','#A78BFA','#FFD580'];
+    cfParts=Array.from({length:120},function(){return{
+      x:Math.random()*cv.width,y:-20-Math.random()*cv.height*.4,
+      r:Math.random()*7+3,clr:clrs[Math.floor(Math.random()*clrs.length)],
+      vx:(Math.random()-.5)*5,vy:Math.random()*3+1.5,
+      va:(Math.random()-.5)*.16,angle:Math.random()*Math.PI*2,
+      isRect:Math.random()<.55,aspect:Math.random()*.5+.4};});
+    (function draw(){
+      ctx.clearRect(0,0,cv.width,cv.height);
+      cfParts.forEach(function(p){
+        p.x+=p.vx;p.y+=p.vy;p.angle+=p.va;p.vy+=.045;
+        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.angle);
+        ctx.fillStyle=p.clr;ctx.globalAlpha=Math.max(0,1-p.y/(cv.height*1.1));
+        if(p.isRect)ctx.fillRect(-p.r/2,-(p.r*p.aspect)/2,p.r,p.r*p.aspect);
+        else{ctx.beginPath();ctx.arc(0,0,p.r*.55,0,Math.PI*2);ctx.fill();}
+        ctx.restore();
+      });
+      cfParts=cfParts.filter(function(p){return p.y<cv.height+30;});
+      if(cfParts.length>0)cfAnim=requestAnimationFrame(draw);
+    })();
+  }
+
+  function stopCf() {
+    if(cfAnim){cancelAnimationFrame(cfAnim);cfAnim=null;}
+    cfParts=[];
+    var cv=$('cnCf');
+    if(cv&&cv.getContext)cv.getContext('2d').clearRect(0,0,cv.width,cv.height);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('#twNums .sc-chip'), function (b) {
+    b.addEventListener('click', function () {
+      numSel = +b.getAttribute('data-n');
+      Array.prototype.forEach.call(document.querySelectorAll('#twNums .sc-chip'), function (c) { c.classList.toggle('on', c === b); });
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.tw-lvl'), function (b) {
+    b.addEventListener('click', function () { startGame(+b.getAttribute('data-l')); });
+  });
+  $('twNext').addEventListener('click', next);
+  $('cnWinBtn').addEventListener('click', function () { startGame(lvlSel); });
+  $('twTrain').addEventListener('click', startReview);
+  $('twChoose').addEventListener('click', toStart);
+})();
+</script>
+
+</body>
+</html>
