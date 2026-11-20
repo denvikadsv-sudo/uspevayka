@@ -194,6 +194,14 @@
       .burger { display: flex; }
     }
     @media (min-width: 1101px) { .nav__mobile { display: none !important; } }
+      .gp-more { background: #fff; padding: 48px 0; border-top: 2px solid var(--sky-light); }
+    .gp-more h2 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); font-weight: 800; color: var(--ink); margin-bottom: 8px; text-align: center; }
+    .gp-more__lead { text-align: center; color: var(--muted); font-size: .95rem; margin-bottom: 22px; }
+    .gp-more__row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 14px; max-width: 880px; margin-left: auto; margin-right: auto; }
+    .gp-more__chip { background: var(--sky-pale); color: var(--ink); border: 2px solid var(--sky-light); padding: 9px 18px; border-radius: 50px; font-size: .9rem; font-weight: 700; transition: all .2s; }
+    .gp-more__chip:hover { background: var(--sky); border-color: var(--sky); color: #fff; transform: translateY(-1px); }
+    .gp-more__all { text-align: center; margin-top: 18px; }
+    .gp-more__all a { color: var(--sky); font-weight: 800; border-bottom: 2px solid var(--sky-light); }
   </style>
   <script type="application/ld+json">
   {
@@ -355,6 +363,34 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="gp-more">
+  <div class="container">
+    <h2>Другие игры</h2>
+    <p class="gp-more__lead">Тренируйся дальше — все игры бесплатные, без регистрации.</p>
+    <div class="gp-more__row">
+      <a class="gp-more__chip" href="game-vowels.html">Гласные и Согласные</a>
+      <a class="gp-more__chip" href="game-yot.html">Йотированные гласные</a>
+      <a class="gp-more__chip" href="game-roots.html">Однокоренные слова</a>
+      <a class="gp-more__chip" href="game-stress.html">Ударения в словах</a>
+      <a class="gp-more__chip" href="game-speech.html">Части речи</a>
+      <a class="gp-more__chip" href="game-consonants.html">Домики согласных</a>
+      <a class="gp-more__chip" href="game-clothes.html">Одежда и цвета</a>
+    </div>
+    <div class="gp-more__row">
+      <a class="gp-more__chip" href="game-times.html">Таблица умножения</a>
+      <a class="gp-more__chip" href="game-count.html">Счёт до 100</a>
+      <a class="gp-more__chip" href="game-english.html">Английские слова</a>
+      <a class="gp-more__chip" href="game-truth.html">Правда или ложь?</a>
+      <a class="gp-more__chip" href="game-components.html">Компоненты сложения и вычитания</a>
+      <a class="gp-more__chip" href="game-compose-10.html">Состав числа от 6 до 10</a>
+      <a class="gp-more__chip" href="game-compose-20.html">Состав числа в пределах 20</a>
+      <a class="gp-more__chip" href="game-minuend.html">Найди уменьшаемое</a>
+      <a class="gp-more__chip" href="game-twins.html">Двойняшки</a>
+    </div>
+    <p class="gp-more__all"><a href="games.html">Все обучающие игры →</a></p>
   </div>
 </section>
 
